@@ -1,12 +1,9 @@
 package net.placemarkt;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +15,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Stream;
+import java.util.Iterator;
+import java.util.List;
 
 
 @RunWith(Enclosed.class)
@@ -45,27 +43,25 @@ public class AddressFormatterTest {
 
     @Parameters(name = "{2}")
     public static Collection<String[]> addresses() {
-      ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
-      ObjectMapper jsonWriter = new ObjectMapper();
-      Collection<String[]> dict = new ArrayList<>();
+      JsonNode node;
       try {
-        try(Stream<Path> paths = Files.list(Paths.get("address-formatting/testcases/countries"))) {
-          paths.forEach(path -> {
-            try {
-              String yaml = Transpiler.readFile(path.toString());
-              Object obj = yamlReader.readValue(yaml, Object.class);
-              ObjectNode node = jsonWriter.valueToTree(obj);
-              String components = node.get("components").toString();
-              String expected = node.get("expected").textValue();
-              String description = node.get("description").toString();
-              dict.add(new String[] {components, expected, description});
-            } catch (IOException e) {
-              e.printStackTrace();
-            }
-          });
-        }
+        ClassLoader cl = Thread.currentThread().getContextClassLoader();
+        InputStream is = cl.getResourceAsStream("countries.json");
+        node = new ObjectMapper().readTree(is);
       } catch (IOException e) {
-        e.printStackTrace();
+        throw new RuntimeException(e);
+      }
+      List<String[]> dict = new ArrayList<>(node.size());
+      Iterator<JsonNode> i = node.elements();
+      while (i.hasNext()) {
+        JsonNode jsonNode = i.next();
+        dict.add(
+          new String[] {
+            jsonNode.get("components").toString(),
+            jsonNode.get("expected").asText(),
+            jsonNode.get("description").asText()
+          }
+        );
       }
       return dict;
     }
