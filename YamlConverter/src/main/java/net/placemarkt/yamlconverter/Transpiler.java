@@ -1,4 +1,4 @@
-package net.placemarkt;
+package net.placemarkt.yamlconverter;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -33,7 +33,10 @@ public class Transpiler {
     Transpiler.transpileCountry2Lang();
     Transpiler.transpileCountyCodes();
     Transpiler.transpileStateCodes();
+    Transpiler.testCases();
   }
+
+  static final String destinationDir = "library/src/main/resources/";
 
   static void transpileWorldwide() {
     ObjectNode node = null;
@@ -42,7 +45,7 @@ public class Transpiler {
       String yaml = Transpiler.readFile(path.toString());
       Object obj = Constants.yamlReader.readValue(yaml, Object.class);
       node = Constants.jsonWriter.valueToTree(obj);
-      try (PrintWriter out = new PrintWriter("src/main/resources/worldwide.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "worldwide.json")) {
         out.println(node.toString());
       }
     } catch (IOException e) {
@@ -58,7 +61,7 @@ public class Transpiler {
       String formattedYaml = yaml.replaceAll(" # ", " ");
       Object obj = Constants.yamlReader.readValue(formattedYaml, Object.class);
       node = Constants.jsonWriter.valueToTree(obj);
-      try (PrintWriter out = new PrintWriter("src/main/resources/countryNames.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "countryNames.json")) {
         out.println(node.toString());
       }
     } catch (IOException e) {
@@ -86,7 +89,7 @@ public class Transpiler {
         componentNode.put("alias", component.get("name").textValue());
         componentNode.put("name", component.get("name").textValue());
       });
-      try (PrintWriter out = new PrintWriter("src/main/resources/aliases.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "aliases.json")) {
         out.println(node.toString());
       }
     } catch (IOException e) {
@@ -132,10 +135,32 @@ public class Transpiler {
         });
       }
 
-      try (PrintWriter out = new PrintWriter("src/main/resources/abbreviations.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "abbreviations.json")) {
         out.println(abbreviations.toString());
       }
     } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void testCases() {
+    try {
+      ArrayNode rootNode = Constants.jsonWriter.createArrayNode();
+      Stream<Path> paths = Files.list(Paths.get("address-formatting/testcases/countries"));
+      paths.forEach(path -> {
+        try {
+          String yaml = readFile(path.toString());
+          Object obj = Constants.yamlReader.readValue(yaml, Object.class);
+          ObjectNode node = Constants.jsonWriter.valueToTree(obj);
+          rootNode.add(node);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      });
+      PrintWriter out = new PrintWriter("library/src/test/resources/countries.json");
+      out.println(rootNode.toString());
+      out.close();
+    }catch (IOException e) {
       e.printStackTrace();
     }
   }
@@ -157,7 +182,7 @@ public class Transpiler {
           languagesArray.add(s.toUpperCase());
         }
       }
-      try (PrintWriter out = new PrintWriter("src/main/resources/country2Lang.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "country2Lang.json")) {
         out.println(node.toString());
       }
     } catch (IOException e) {
@@ -175,7 +200,7 @@ public class Transpiler {
       String yaml = Transpiler.readFile(path.toString());
       Object obj = Constants.yamlReader.readValue(yaml, Object.class);
       node = Constants.jsonWriter.valueToTree(obj);
-      try (PrintWriter out = new PrintWriter("src/main/resources/countyCodes.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "countyCodes.json")) {
         out.println(node.toString());
       }
     } catch (IOException e) {
@@ -193,7 +218,7 @@ public class Transpiler {
       String yaml = Transpiler.readFile(path.toString());
       Object obj = Constants.yamlReader.readValue(yaml, Object.class);
       node = Constants.jsonWriter.valueToTree(obj);
-      try (PrintWriter out = new PrintWriter("src/main/resources/stateCodes.json")) {
+      try (PrintWriter out = new PrintWriter(destinationDir + "stateCodes.json")) {
         out.println(node.toString());
       }
     } catch (IOException e) {
