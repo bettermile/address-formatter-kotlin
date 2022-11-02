@@ -74,10 +74,6 @@ public class AddressFormatter {
     }
     components = normalizeFields(components);
 
-    if (fallbackCountryCode != null) {
-      components.put("country_code", fallbackCountryCode);
-    }
-
     components = determineCountryCode(components, fallbackCountryCode);
     String countryCode = components.get("country_code").toString();
 
@@ -106,21 +102,16 @@ public class AddressFormatter {
 
   Map<String, Object> determineCountryCode(Map<String, Object> components,
     String fallbackCountryCode) {
-    String countryCode;
+    String countryCode = (String) components.get("country_code");
 
-    if (components.get("country_code") != null) {
-      countryCode = (String) components.get("country_code");
-    } else if (fallbackCountryCode != null) {
+    if (invalidCountryCode(countryCode)) {
+      if (invalidCountryCode(fallbackCountryCode)) {
+        throw new Error("No country code provided. Use fallbackCountryCode?");
+      }
       countryCode = fallbackCountryCode;
-    } else {
-      throw new Error("No country code provided. Use fallbackCountryCode?");
     }
 
     countryCode = countryCode.toUpperCase();
-
-    if (!Templates.WORLDWIDE.getData().has(countryCode) || countryCode.length() != 2) {
-      throw new Error("Invalid country code");
-    }
 
     if (countryCode.equals("UK")) {
       countryCode = "GB";
@@ -184,6 +175,10 @@ public class AddressFormatter {
 
     components.put("country_code", countryCode);
     return components;
+  }
+
+  boolean invalidCountryCode(String countryCode) {
+    return countryCode == null || countryCode.length() != 2 || !Templates.WORLDWIDE.getData().has(countryCode.toUpperCase());
   }
 
   Map<String, Object> cleanupInput(Map<String, Object> components, JsonNode replacements) {
@@ -448,7 +443,7 @@ public class AddressFormatter {
     String deduped = rendered;
 
     for(Map.Entry<String, String> replacement : entries) {
-      Pattern p = regexPatternCache.get(replacement.getKey(), Pattern.UNICODE_CHARACTER_CLASS);
+      Pattern p = regexPatternCache.get(replacement.getKey());
       Matcher m = p.matcher(deduped);
       String predupe = m.replaceAll(replacement.getValue());
       deduped = dedupe(predupe);
