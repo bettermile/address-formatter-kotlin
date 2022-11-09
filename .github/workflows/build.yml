@@ -1,0 +1,31 @@
+name: Test and Build
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - 'main'
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3.1.0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3.6.0
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: Test and Build
+        run: ./gradlew build
+
+      - name: Test Publication
+        run: ./gradlew publishAddressFormatterPublicationToMavenLocal
