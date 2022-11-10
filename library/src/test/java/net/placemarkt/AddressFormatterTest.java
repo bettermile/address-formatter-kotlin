@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 
 @RunWith(Enclosed.class)
@@ -26,7 +27,6 @@ public class AddressFormatterTest {
   public static class ParameterizedAddressFormatterTest {
     final private String components;
     final private String address;
-    final private String description;
     static AddressFormatter formatter;
 
     @BeforeClass
@@ -34,11 +34,10 @@ public class AddressFormatterTest {
       formatter = new AddressFormatter(false, false);
     }
 
-    public ParameterizedAddressFormatterTest(String components, String address, String description) {
+    public ParameterizedAddressFormatterTest(String components, String address, @SuppressWarnings("unused") /* used for naming test */ String description) {
       super();
       this.components = components;
       this.address = address;
-      this.description = description;
     }
 
     @Parameters(name = "{2}")
@@ -46,7 +45,7 @@ public class AddressFormatterTest {
       JsonNode node;
       try {
         ClassLoader cl = Thread.currentThread().getContextClassLoader();
-        InputStream is = cl.getResourceAsStream("countries.json");
+        InputStream is = Objects.requireNonNull(cl).getResourceAsStream("countries.json");
         node = new ObjectMapper().readTree(is);
       } catch (IOException e) {
         throw new RuntimeException(e);
@@ -89,9 +88,7 @@ public class AddressFormatterTest {
     @Test
     public void dealsWithEmptyStringCorrectly() {
       String json = "";
-      IOException error = assertThrows(IOException.class, () -> {
-        String formatted = formatter.format(json);
-      });
+      IOException error = assertThrows(IOException.class, () -> formatter.format(json));
 
       assertEquals("Json processing exception", error.getMessage());
     }
@@ -99,9 +96,7 @@ public class AddressFormatterTest {
     @Test
     public void dealsWithImproperlyFormatterJsonCorrectly() {
       String json = "{";
-      IOException error = assertThrows(IOException.class, () -> {
-        String formatted = formatter.format(json);
-      });
+      IOException error = assertThrows(IOException.class, () -> formatter.format(json));
 
       assertEquals("Json processing exception", error.getMessage());
     }
