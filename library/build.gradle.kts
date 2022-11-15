@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    `maven-publish`
 }
 
 android {
@@ -39,4 +40,30 @@ dependencies {
     implementation("com.github.spullara.mustache.java:compiler:0.9.7")
 
     testImplementation("junit:junit:4.13.2")
+}
+
+val sourcesJar by tasks.register<Jar>("sourcesJar") {
+    from(android.sourceSets["main"].java.srcDirs)
+    archiveClassifier.set("sources")
+}
+
+afterEvaluate {
+    publishing {
+        repositories.maven {
+            name = "GitHubPackages"
+            url = uri("https://github.com/gls-ecl/address-formatter-android")
+            credentials {
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        publications {
+            create<MavenPublication>("addressFormatter") {
+                groupId = "com.bettermile.betterroute"
+                artifactId = "address-formatter-android"
+                version = "0.1.0-SNAPSHOT"
+                artifact(sourcesJar)
+                from(components["release"])
+            }
+        }
+    }
 }
