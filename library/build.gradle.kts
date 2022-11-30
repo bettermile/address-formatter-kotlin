@@ -51,7 +51,7 @@ afterEvaluate {
     publishing {
         repositories.maven {
             name = "GitHubPackages"
-            url = uri("https://github.com/gls-ecl/address-formatter-android")
+            url = uri("https://maven.pkg.github.com/gls-ecl/address-formatter-android")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
