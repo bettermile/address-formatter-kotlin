@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 enum Templates {
   WORLDWIDE("worldwide.json"),
@@ -32,7 +33,7 @@ enum Templates {
     JsonNode node = null;
     try {
       ClassLoader cl = Thread.currentThread().getContextClassLoader();
-      InputStream is = cl.getResourceAsStream(fileName);
+      InputStream is = Objects.requireNonNull(cl).getResourceAsStream(fileName);
       node = Constants.jsonWriter.readTree(is);
     } catch (IOException e) {
       e.printStackTrace();
