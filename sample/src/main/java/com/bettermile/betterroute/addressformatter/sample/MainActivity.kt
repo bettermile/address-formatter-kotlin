@@ -54,18 +54,13 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                         Text(text = "Formatted:")
-                        Text(text = addressFormatter.format(components.toJsonString(), "DE"))
+                        Text(text = addressFormatter.format(components, "DE"))
                     }
                 }
             }
         }
     }
 }
-
-private fun Map<String, String>.toJsonString(): String =
-    entries.joinToString(prefix = "{", separator = ",", postfix = "}") { (key, value) ->
-        """"$key":"$value""""
-    }
 
 @Composable
 private fun rememberSavableStateMap(
