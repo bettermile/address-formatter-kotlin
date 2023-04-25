@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.type.TypeFactory
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.github.mustachejava.DefaultMustacheFactory
 import com.github.mustachejava.MustacheFactory
-import com.google.common.base.CaseFormat
 import java.io.IOException
 import java.io.StringReader
 import java.io.StringWriter
@@ -51,11 +50,15 @@ class AddressFormatter(private val abbreviate: Boolean, private val appendCountr
     private fun Map<String, String>.normalizeFields(): MutableMap<String, String> {
         val normalizedComponents: MutableMap<String, String> = hashMapOf()
         for ((field, value) in this) {
-            val newField = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, field)
-            normalizedComponents.putIfAbsent(newField, value)
+            normalizedComponents.putIfAbsent(field.normalizeFieldName(), value)
         }
         return normalizedComponents
     }
+
+    private val uppercaseRegex = "[A-Z]".toRegex()
+
+    private fun String.normalizeFieldName(): String =
+        replace(uppercaseRegex) { "_${it.value.lowercase()}" }
 
     private fun determineCountryCode(
         components: MutableMap<String, String>,

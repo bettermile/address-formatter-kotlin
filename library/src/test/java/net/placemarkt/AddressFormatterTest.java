@@ -221,5 +221,26 @@ public class AddressFormatterTest {
           + "08017 Barcelona\n"
           + "Spain\n", formatted);
     }
+
+      @Test
+      public void camelCaseWorks() throws Exception {
+        String json = "{city: 'Budapest',\n"
+          + "cityDistrict: '1. kerület',\n"
+          + "country: 'Hungary',\n"
+          + "countryCode: 'hu',\n"
+          + "county: 'Budapesti kistérség',\n"
+          + "houseNumber: 11,\n"
+          + "neighbourhood: 'Naphegy',\n"
+          + "postcode: 1111,\n"
+          + "road: 'Dezső utca',\n"
+          + "state: 'Közép-Magyarország',\n"
+          + "stateDistrict: 'Central Hungary',\n"
+          + "suburb: 'Krisztinaváros'}";
+        String formatted = formatter.format(json);
+        assertEquals("Budapest\n"
+          + "Dezső utca 11\n"
+          + "1111\n"
+          + "Hungary\n", formatted);
+      }
   }
 }
