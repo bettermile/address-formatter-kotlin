@@ -55,8 +55,6 @@ class AddressFormatter(private val abbreviate: Boolean, private val appendCountr
         return normalizedComponents
     }
 
-    private val uppercaseRegex = "[A-Z]".toRegex()
-
     private fun String.normalizeFieldName(): String =
         replace(uppercaseRegex) { "_${it.value.lowercase()}" }
 
@@ -336,6 +334,7 @@ class AddressFormatter(private val abbreviate: Boolean, private val appendCountr
     companion object {
         private val regexPatternCache = RegexPatternCache()
         private val knownComponents = Templates.ALIASES.data.map { it["alias"].textValue() }
+        private val uppercaseRegex = "[A-Z]".toRegex()
         private val replacements: Map<String, String> = mapOf(
             "[\\},\\s]+$" to "",
             "^[,\\s]+" to "",
