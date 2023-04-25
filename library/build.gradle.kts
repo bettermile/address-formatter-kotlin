@@ -36,7 +36,6 @@ repositories {
 dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.12.7")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.7")
-    implementation("com.google.guava:guava:30.0-jre")
     implementation("com.github.spullara.mustache.java:compiler:0.9.7")
 
     testImplementation("junit:junit:4.13.2")
@@ -61,7 +60,7 @@ afterEvaluate {
             create<MavenPublication>("addressFormatter") {
                 groupId = "com.bettermile.betterroute"
                 artifactId = "address-formatter-android"
-                version = "0.1.0"
+                version = "0.1.1"
                 artifact(sourcesJar)
                 from(components["release"])
             }
