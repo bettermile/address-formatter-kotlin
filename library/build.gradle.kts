@@ -51,7 +51,7 @@ afterEvaluate {
     publishing {
         repositories.maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/gls-ecl/address-formatter-android")
+            url = uri("https://maven.pkg.github.com/bettermile/address-formatter-android")
             credentials {
                 username = System.getenv("GITHUB_ACTOR")
                 password = System.getenv("GITHUB_TOKEN")
@@ -61,7 +61,7 @@ afterEvaluate {
             create<MavenPublication>("addressFormatter") {
                 groupId = "com.bettermile.betterroute"
                 artifactId = "address-formatter-android"
-                version = "0.1.0-SNAPSHOT"
+                version = "0.1.0"
                 artifact(sourcesJar)
                 from(components["release"])
             }
