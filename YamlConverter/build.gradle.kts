@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     implementation("com.fasterxml.jackson.core:jackson-core:2.12.7")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.7")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.15.2")
     implementation("com.google.guava:guava:30.0-jre")
     implementation("com.github.spullara.mustache.java:compiler:0.9.10")
 
