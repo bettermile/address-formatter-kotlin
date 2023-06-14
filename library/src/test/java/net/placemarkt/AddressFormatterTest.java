@@ -15,8 +15,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -240,6 +242,33 @@ public class AddressFormatterTest {
         assertEquals("Dezső utca 11\n"
           + "1111 Budapest\n"
           + "Hungary\n", formatted);
+      }
+
+      @Test
+      public void useReplacementFormat() throws Exception {
+        String json = "{city: 'Budapest',\n"
+          + "cityDistrict: '1. kerület',\n"
+          + "country: 'Hungary',\n"
+          + "countryCode: 'hu',\n"
+          + "county: 'Budapesti kistérség',\n"
+          + "houseNumber: 11,\n"
+          + "neighbourhood: 'Naphegy',\n"
+          + "postcode: 1111,\n"
+          + "road: 'Dezső utca',\n"
+          + "state: 'Közép-Magyarország',\n"
+          + "stateDistrict: 'Central Hungary',\n"
+          + "suburb: 'Krisztinaváros'}";
+        Map<String, String> replacements = new HashMap<>();
+        replacements.put("HU", "{{country}}, {{house_number}}:{{postcode}}");
+        String formatted = new AddressFormatter(false, false, replacements).format(json);
+        assertEquals("Hungary, 11:1111\n", formatted);
+      }
+
+      @Test(expected = IllegalArgumentException.class)
+      public void failOnInvalidCountryCodeInReplacements() {
+        Map<String, String> replacements = new HashMap<>();
+        replacements.put("ZZ", "{{country}}, {{house_number}}:{{postcode}}");
+        new AddressFormatter(false, false, replacements);
       }
   }
 }
