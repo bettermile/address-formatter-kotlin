@@ -24,3 +24,7 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
 }
+
+tasks.run.configure {
+    workingDir = rootDir
+}
