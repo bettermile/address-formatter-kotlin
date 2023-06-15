@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ArrayNode
+import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.databind.type.TypeFactory
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.github.mustachejava.DefaultMustacheFactory
@@ -15,8 +16,18 @@ import java.util.function.Function
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
-class AddressFormatter(private val abbreviate: Boolean, private val appendCountry: Boolean) {
+class AddressFormatter @JvmOverloads constructor(
+    private val abbreviate: Boolean,
+    private val appendCountry: Boolean,
+    private val replacementFormats: Map<String, String> = emptyMap(),
+) {
     private val yamlReader = ObjectMapper(YAMLFactory())
+
+    init {
+        replacementFormats.keys.forEach {
+            require(!invalidCountryCode(it)) { "$it is no valid country code" }
+        }
+    }
 
     @JvmOverloads
     @Throws(IOException::class)
@@ -233,7 +244,14 @@ class AddressFormatter(private val abbreviate: Boolean, private val appendCountr
     private fun findTemplate(components: Map<String, String>): JsonNode {
         val countryCode = components["country_code"]
         return if (countryCode != null && Templates.WORLDWIDE.data.has(countryCode)) {
-            Templates.WORLDWIDE.data[countryCode]
+            val replacementFormat = replacementFormats[countryCode]
+            Templates.WORLDWIDE.data[countryCode].let { template ->
+                when (replacementFormat) {
+                    null -> template
+                    else -> template.deepCopy<ObjectNode>()
+                        .put("address_template", replacementFormat)
+                }
+            }
         } else {
             Templates.WORLDWIDE.data["default"]
         }
