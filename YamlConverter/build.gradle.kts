@@ -17,10 +17,10 @@ repositories {
 }
 
 dependencies {
-    implementation("com.fasterxml.jackson.core:jackson-core:2.12.7")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.7")
-    implementation("com.google.guava:guava:30.0-jre")
-    implementation("com.github.spullara.mustache.java:compiler:0.9.10")
+    implementation(libs.jackson.core)
+    implementation(libs.jackson.yaml)
+    implementation(libs.google.guava)
+    implementation(libs.mustache)
 
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.kotlin.test.junit)
 }
