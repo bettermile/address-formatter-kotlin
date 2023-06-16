@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
@@ -101,7 +102,7 @@ public class Transpiler {
     ObjectNode abbreviations = Constants.jsonWriter.createObjectNode();
     try {
       try (Stream<Path> paths = Files.list(Paths.get("address-formatting/conf/abbreviations"))) {
-        paths.forEach(path -> {
+        paths.sorted(PATH_BY_NAME_COMPARATOR).forEach(path -> {
           try {
             String fileNameWithExtension = path.getFileName().toString();
             int pos = fileNameWithExtension.lastIndexOf(".");
@@ -147,7 +148,7 @@ public class Transpiler {
     try {
       ArrayNode rootNode = Constants.jsonWriter.createArrayNode();
       Stream<Path> paths = Files.list(Paths.get("address-formatting/testcases/countries"));
-      paths.forEach(path -> {
+      paths.sorted(PATH_BY_NAME_COMPARATOR).forEach(path -> {
         try {
           String yaml = readFile(path.toString());
           Object obj = Constants.yamlReader.readValue(yaml, Object.class);
@@ -232,4 +233,7 @@ public class Transpiler {
     byte[] encoded = Files.readAllBytes(Paths.get(path));
     return new String(encoded, StandardCharsets.UTF_8);
   }
+
+  static final Comparator<Path> PATH_BY_NAME_COMPARATOR =
+          Comparator.comparing((Path path) -> path.getFileName().toString());
 }

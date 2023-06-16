@@ -239,8 +239,9 @@ public class AddressFormatterTest {
           + "stateDistrict: 'Central Hungary',\n"
           + "suburb: 'Krisztinaváros'}";
         String formatted = formatter.format(json);
-        assertEquals("Dezső utca 11\n"
-          + "1111 Budapest\n"
+        assertEquals("Budapest\n"
+          + "Dezső utca 11\n"
+          + "1111\n"
           + "Hungary\n", formatted);
       }
 

@@ -24,3 +24,7 @@ dependencies {
 
     testImplementation(libs.kotlin.test.junit)
 }
+
+tasks.run.configure {
+    workingDir = rootDir
+}

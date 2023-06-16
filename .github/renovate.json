@@ -6,29 +6,40 @@
   "labels": [
     "dependencies"
   ],
+  "git-submodules": {
+    "enabled": true
+  },
   "packageRules": [
     {
-      "matchDatasources": [
-        "maven"
+      "matchManagers": [
+        "gradle"
       ],
       "addLabels": [
         "java"
       ]
     },
     {
-      "matchDatasources": [
-        "gradle-version"
+      "matchManagers": [
+        "gradle-wrapper"
       ],
       "addLabels": [
         "gradle"
       ]
     },
     {
-      "matchDatasources": [
-        "github-tags"
+      "matchManagers": [
+        "github-actions"
       ],
       "addLabels": [
         "github_actions"
+      ]
+    },
+    {
+      "matchManagers": [
+        "git-submodules"
+      ],
+      "addLabels": [
+        "git_submodules"
       ]
     },
     {
