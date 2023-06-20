@@ -3,11 +3,11 @@ android-tools = "7.4.2"
 androidx-activity = "1.6.0"
 androidx-core = "1.9.0"
 androidx-lifecycle = "2.5.1"
-compose-compiler = "1.3.2"
+compose-compiler = "1.4.7"
 compose-library = "1.2.1"
 google-guava = "30.1.1-jre"
 jackson = "2.12.7"
-kotlin = "1.7.20"
+kotlin = "1.8.22"
 mustache = "0.9.10"
 
 [libraries]
