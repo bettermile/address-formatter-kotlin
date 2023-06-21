@@ -41,11 +41,6 @@ dependencies {
     testImplementation(libs.kotlin.test.junit)
 }
 
-val sourcesJar by tasks.register<Jar>("sourcesJar") {
-    from(android.sourceSets["main"].java.srcDirs)
-    archiveClassifier.set("sources")
-}
-
 afterEvaluate {
     publishing {
         repositories.maven {
@@ -61,7 +56,6 @@ afterEvaluate {
                 groupId = "com.bettermile.betterroute"
                 artifactId = "address-formatter-android"
                 version = "0.1.4"
-                artifact(sourcesJar)
                 from(components["release"])
             }
         }
