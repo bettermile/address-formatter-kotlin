@@ -3,7 +3,6 @@ android-tools = "8.0.2"
 androidx-activity = "1.7.2"
 compose-compiler = "1.4.7"
 compose-library = "1.4.3"
-google-guava = "32.1.1-jre"
 jackson = "2.15.2"
 kotlin = "1.8.21"
 mustache = "0.9.10"
@@ -20,7 +19,6 @@ compose-material = { module = "androidx.compose.material:material", version.ref 
 compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "compose-library" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-library" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-library" }
-google-guava = { module = "com.google.guava:guava", version.ref = "google-guava" }
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
 jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
