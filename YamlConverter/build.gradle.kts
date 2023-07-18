@@ -19,8 +19,6 @@ repositories {
 dependencies {
     implementation(libs.jackson.core)
     implementation(libs.jackson.yaml)
-    implementation(libs.google.guava)
-    implementation(libs.mustache)
 
     testImplementation(libs.kotlin.test.junit)
 }
