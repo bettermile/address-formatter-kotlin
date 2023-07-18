@@ -9,7 +9,6 @@ android {
 
     defaultConfig {
         minSdk = 24 // could maybe be lower
-        targetSdk = 33
     }
 
     buildTypes {
@@ -18,12 +17,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
         allWarningsAsErrors = true
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
     namespace = "net.placemarkt"
 }
