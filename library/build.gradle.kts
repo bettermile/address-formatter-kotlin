@@ -33,10 +33,11 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.yaml)
     implementation(libs.mustache)
 
+    testImplementation(libs.jackson.core)
+    testImplementation(libs.jackson.yaml)
+    testImplementation(libs.orgjson)
     testImplementation(libs.kotlin.test.junit)
 }
 

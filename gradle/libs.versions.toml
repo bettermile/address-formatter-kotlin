@@ -6,6 +6,7 @@ compose-library = "1.4.3"
 jackson = "2.15.2"
 kotlin = "1.9.0"
 mustache = "0.9.10"
+orgjson = "20220924"
 
 [libraries]
 # gradle classpath plugins
@@ -23,3 +24,4 @@ jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref
 jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 mustache = { module = "com.github.spullara.mustache.java:compiler", version.ref = "mustache" }
+orgjson = { module = "org.json:json", version.ref = "orgjson" }

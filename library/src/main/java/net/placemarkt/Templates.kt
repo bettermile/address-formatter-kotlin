@@ -1,7 +1,7 @@
 package net.placemarkt
 
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
+import org.json.JSONArray
+import org.json.JSONObject
 
 internal enum class Templates(fileName: String) {
     WORLDWIDE("worldwide.json"),
@@ -12,17 +12,20 @@ internal enum class Templates(fileName: String) {
     COUNTY_CODES("countyCodes.json"),
     STATE_CODES("stateCodes.json");
 
-    private interface Constants {
-        companion object {
-            val jsonWriter = ObjectMapper()
-        }
+    val dataObject: JSONObject by lazy { setDataObject(fileName) }
+    val dataArray: JSONArray by lazy { setDataArray(fileName) }
+
+    private fun setDataObject(fileName: String): JSONObject {
+        return JSONObject(jsonString(fileName))
     }
 
-    val data: JsonNode = setData(fileName)
+    private fun setDataArray(fileName: String): JSONArray {
+        return JSONArray(jsonString(fileName))
+    }
 
-    private fun setData(fileName: String): JsonNode {
+    private fun jsonString(fileName: String): String {
         val classLoader = requireNotNull(Thread.currentThread().contextClassLoader)
         val inputStream = classLoader.getResourceAsStream(fileName)
-        return Constants.jsonWriter.readTree(inputStream)
+        return inputStream.bufferedReader().useLines(Sequence<String>::single)
     }
 }
