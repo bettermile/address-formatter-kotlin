@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.bettermile.betterroute.addressformatter.sample"
-    compileSdk = 33
+    compileSdk = libs.versions.android.sdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.bettermile.betterroute.addressformatter.sample"
         minSdk = 25
-        targetSdk = 33
+        targetSdk = libs.versions.android.sdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
