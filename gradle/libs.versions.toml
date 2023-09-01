@@ -6,7 +6,7 @@ compose-library = "1.4.3"
 jackson = "2.15.2"
 kotlin = "1.9.10"
 mustache = "0.9.10"
-orgjson = "20220924"
+orgjson = "20230618"
 
 [libraries]
 # gradle classpath plugins
