@@ -146,17 +146,14 @@ class AddressFormatter @JvmOverloads constructor(
                 var componentValue = componentEntry.value
                 replacements.toJsonArrayList().forEach { replacement ->
                     val replacementText = replacement.getString(0)
-                    if (replacementText.startsWith("$component=")) {
+                    componentValue = if (replacementText.startsWith("$component=")) {
                         val value = replacementText.substring(component.length + 1)
-                        if (componentValue == value) {
-                            componentValue = replacement.getString(1)
-                            componentEntry.setValue(componentValue)
-                        }
+                        componentValue.replace(regexPatternCache[value], replacement.getString(1))
                     } else {
                         val regex = regexPatternCache[replacementText]
-                        componentValue = regex.replace(componentValue, replacement.getString(1))
-                        componentEntry.setValue(componentValue)
+                        regex.replace(componentValue, replacement.getString(1))
                     }
+                    componentEntry.setValue(componentValue)
                 }
             }
         }
@@ -166,7 +163,7 @@ class AddressFormatter @JvmOverloads constructor(
             if (stateCode != null) {
                 components["state_code"] = stateCode
             }
-            val p = regexPatternCache["^washington,? d\\.?c\\.?"]
+            val p = regexPatternCache["^washington,? d\\.?c\\.?", RegexOption.IGNORE_CASE]
             if (p.containsMatchIn(stateValue)) {
                 components["state_code"] = "DC"
                 components["state"] = "District of Columbia"
@@ -345,11 +342,14 @@ class AddressFormatter @JvmOverloads constructor(
     private fun dedupe(rendered: String): String {
         return rendered.lineSequence()
             .map { line ->
-                line.trim { it <= ' ' }
-                    .splitToSequence(", ")
+                val list = line.trim { it <= ' ' }
+                    .split(", ")
                     .map { obj -> obj.trim { it <= ' ' } }
-                    .distinct()
-                    .joinToString()
+                if (list.none { it.equals("new york", ignoreCase = true) }) {
+                    list.distinct()
+                } else {
+                    list
+                }.joinToString()
             }
             .distinct()
             .joinToString(separator = "\n")
