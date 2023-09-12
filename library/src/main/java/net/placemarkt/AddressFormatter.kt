@@ -72,10 +72,7 @@ class AddressFormatter @JvmOverloads constructor(
     ): MutableMap<String, String> {
         var countryCode = components["country_code"]
         if (invalidCountryCode(countryCode)) {
-            require(!invalidCountryCode(fallbackCountryCode)) {
-                "No country code provided. Use fallbackCountryCode?"
-            }
-            countryCode = fallbackCountryCode
+            countryCode = fallbackCountryCode?.takeUnless(::invalidCountryCode) ?: "default"
         }
 
         countryCode = countryCode.uppercase()
@@ -220,12 +217,19 @@ class AddressFormatter @JvmOverloads constructor(
                 }
         }
         val p = regexPatternCache["^https?://"]
-        return components.filterTo(hashMapOf()) { (_, value) -> !p.matches(value) }
+        return components.filterTo(hashMapOf()) { (_, value) -> !p.containsMatchIn(value) }
     }
 
     private fun applyAliases(components: Map<String, String>): MutableMap<String, String> {
         val aliasedComponents: MutableMap<String, String> = hashMapOf()
-        val aliases = Templates.ALIASES.dataArray.toJsonObjectList()
+        val originalAliases = Templates.ALIASES.dataArray.toJsonObjectList()
+        val countyCode = components["county_code"]
+        val aliases = if (countyCode !in smallDistrictCounties) {
+            originalAliases.filterNot { it.getString("alias") == "district" } +
+                    JSONObject(mapOf("alias" to "district", "name" to "state_district"))
+        } else {
+            originalAliases
+        }
         components.forEach { (key, value) ->
             val newKey = aliases.firstOrNull { alias ->
                 alias.getString("alias") == key && components[alias.getString("name")] == null
@@ -360,6 +364,8 @@ class AddressFormatter @JvmOverloads constructor(
         private val knownComponents =
             Templates.ALIASES.dataArray.toJsonObjectList().map { it.getString("alias") }
         private val uppercaseRegex = "[A-Z]".toRegex()
+        private val smallDistrictCounties =
+            listOf("BR", "CR", "ES", "NI", "PY", "RO", "TG", "TM", "XK")
         private val replacements: Map<String, String> = mapOf(
             "[\\},\\s]+$" to "",
             "^[,\\s]+" to "",
