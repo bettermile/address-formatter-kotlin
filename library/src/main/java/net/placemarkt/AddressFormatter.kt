@@ -72,10 +72,7 @@ class AddressFormatter @JvmOverloads constructor(
     ): MutableMap<String, String> {
         var countryCode = components["country_code"]
         if (invalidCountryCode(countryCode)) {
-            require(!invalidCountryCode(fallbackCountryCode)) {
-                "No country code provided. Use fallbackCountryCode?"
-            }
-            countryCode = fallbackCountryCode
+            countryCode = fallbackCountryCode?.takeUnless(::invalidCountryCode) ?: "default"
         }
 
         countryCode = countryCode.uppercase()
@@ -146,17 +143,14 @@ class AddressFormatter @JvmOverloads constructor(
                 var componentValue = componentEntry.value
                 replacements.toJsonArrayList().forEach { replacement ->
                     val replacementText = replacement.getString(0)
-                    if (replacementText.startsWith("$component=")) {
+                    componentValue = if (replacementText.startsWith("$component=")) {
                         val value = replacementText.substring(component.length + 1)
-                        if (componentValue == value) {
-                            componentValue = replacement.getString(1)
-                            componentEntry.setValue(componentValue)
-                        }
+                        componentValue.replace(regexPatternCache[value], replacement.getString(1))
                     } else {
                         val regex = regexPatternCache[replacementText]
-                        componentValue = regex.replace(componentValue, replacement.getString(1))
-                        componentEntry.setValue(componentValue)
+                        regex.replace(componentValue, replacement.getString(1))
                     }
+                    componentEntry.setValue(componentValue)
                 }
             }
         }
@@ -166,7 +160,7 @@ class AddressFormatter @JvmOverloads constructor(
             if (stateCode != null) {
                 components["state_code"] = stateCode
             }
-            val p = regexPatternCache["^washington,? d\\.?c\\.?"]
+            val p = regexPatternCache["^washington,? d\\.?c\\.?", RegexOption.IGNORE_CASE]
             if (p.containsMatchIn(stateValue)) {
                 components["state_code"] = "DC"
                 components["state"] = "District of Columbia"
@@ -223,12 +217,19 @@ class AddressFormatter @JvmOverloads constructor(
                 }
         }
         val p = regexPatternCache["^https?://"]
-        return components.filterTo(hashMapOf()) { (_, value) -> !p.matches(value) }
+        return components.filterTo(hashMapOf()) { (_, value) -> !p.containsMatchIn(value) }
     }
 
     private fun applyAliases(components: Map<String, String>): MutableMap<String, String> {
         val aliasedComponents: MutableMap<String, String> = hashMapOf()
-        val aliases = Templates.ALIASES.dataArray.toJsonObjectList()
+        val originalAliases = Templates.ALIASES.dataArray.toJsonObjectList()
+        val countyCode = components["county_code"]
+        val aliases = if (countyCode !in smallDistrictCounties) {
+            originalAliases.filterNot { it.getString("alias") == "district" } +
+                    JSONObject(mapOf("alias" to "district", "name" to "state_district"))
+        } else {
+            originalAliases
+        }
         components.forEach { (key, value) ->
             val newKey = aliases.firstOrNull { alias ->
                 alias.getString("alias") == key && components[alias.getString("name")] == null
@@ -345,11 +346,14 @@ class AddressFormatter @JvmOverloads constructor(
     private fun dedupe(rendered: String): String {
         return rendered.lineSequence()
             .map { line ->
-                line.trim { it <= ' ' }
-                    .splitToSequence(", ")
+                val list = line.trim { it <= ' ' }
+                    .split(", ")
                     .map { obj -> obj.trim { it <= ' ' } }
-                    .distinct()
-                    .joinToString()
+                if (list.none { it.equals("new york", ignoreCase = true) }) {
+                    list.distinct()
+                } else {
+                    list
+                }.joinToString()
             }
             .distinct()
             .joinToString(separator = "\n")
@@ -360,6 +364,8 @@ class AddressFormatter @JvmOverloads constructor(
         private val knownComponents =
             Templates.ALIASES.dataArray.toJsonObjectList().map { it.getString("alias") }
         private val uppercaseRegex = "[A-Z]".toRegex()
+        private val smallDistrictCounties =
+            listOf("BR", "CR", "ES", "NI", "PY", "RO", "TG", "TM", "XK")
         private val replacements: Map<String, String> = mapOf(
             "[\\},\\s]+$" to "",
             "^[,\\s]+" to "",

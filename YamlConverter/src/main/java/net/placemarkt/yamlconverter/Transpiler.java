@@ -147,13 +147,30 @@ public class Transpiler {
   public static void testCases() {
     try {
       ArrayNode rootNode = Constants.jsonWriter.createArrayNode();
-      Stream<Path> paths = Files.list(Paths.get("address-formatting/testcases/countries"));
+      Stream<Path> paths = Stream.of(
+              "address-formatting/testcases/countries",
+                      "address-formatting/testcases/other"
+              ).flatMap(path -> {
+                try {
+                  return Files.list(Paths.get(path));
+                }catch (IOException e) {
+                  throw new RuntimeException("error while reading path " + path, e);
+                }
+              });
       paths.sorted(PATH_BY_NAME_COMPARATOR).forEach(path -> {
         try {
           String yaml = readFile(path.toString());
-          Object obj = Constants.yamlReader.readValue(yaml, Object.class);
-          ObjectNode node = Constants.jsonWriter.valueToTree(obj);
-          rootNode.add(node);
+          try (YAMLParser parser = Constants.yamlFactory.createParser(yaml)) {
+            Constants.yamlReader.readValues(parser, Object.class).forEachRemaining(element -> {
+              if (element != null) {
+                ObjectNode node = Constants.jsonWriter.valueToTree(element);
+                String description = node.get("description").asText();
+                String fileName = path.getFileName().toString();
+                node.put("description", fileName.substring(0, fileName.length() - 5) + " - " + description);
+                rootNode.add(node);
+              }
+            });
+          }
         } catch (IOException e) {
           e.printStackTrace();
         }
