@@ -6,7 +6,7 @@ compose-compiler = "1.5.3"
 compose-library = "1.5.3"
 jackson = "2.15.2"
 kotlin = "1.9.10"
-mustache = "0.9.10"
+mustache = "0.9.11"
 orgjson = "20230618"
 
 [libraries]
