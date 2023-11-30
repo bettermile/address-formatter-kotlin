@@ -1,6 +1,6 @@
 [versions]
 android-sdk = "34"
-android-tools = "8.1.4"
+android-tools = "8.2.0"
 androidx-activity = "1.8.1"
 compose-compiler = "1.5.4"
 compose-library = "1.5.4"
