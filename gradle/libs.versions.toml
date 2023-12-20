@@ -2,7 +2,7 @@
 android-sdk = "34"
 android-tools = "8.2.0"
 androidx-activity = "1.8.2"
-compose-compiler = "1.5.6"
+compose-compiler = "1.5.7"
 compose-library = "1.5.4"
 jackson = "2.16.0"
 kotlin = "1.9.21"
