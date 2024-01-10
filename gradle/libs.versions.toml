@@ -2,10 +2,10 @@
 android-sdk = "34"
 android-tools = "8.2.1"
 androidx-activity = "1.8.2"
-compose-compiler = "1.5.7"
+compose-compiler = "1.5.8"
 compose-library = "1.5.4"
 jackson = "2.16.1"
-kotlin = "1.9.21"
+kotlin = "1.9.22"
 mustache = "0.9.11"
 orgjson = "20231013"
 
