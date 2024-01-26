@@ -41,7 +41,7 @@ jobs:
       - name: Add address format changes
         id: update_format
         if: github.event_name == 'pull_request'
-        uses: EndBug/add-and-commit@v9.1.3
+        uses: EndBug/add-and-commit@v9.1.4
         with:
           author_name: 'gls-octocat'
           author_email: 'github@gls-ecl.com'
