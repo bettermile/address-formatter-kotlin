@@ -51,7 +51,7 @@ class AddressFormatter @JvmOverloads constructor(
         }
         mutableComponents = applyAliases(mutableComponents)
         val template = findTemplate(mutableComponents)
-        mutableComponents = cleanupInput(mutableComponents, template.optJSONArray("replace"))
+        mutableComponents = cleanupInput(mutableComponents, template.replace)
         return renderTemplate(template, mutableComponents)
     }
 
@@ -79,12 +79,12 @@ class AddressFormatter @JvmOverloads constructor(
         if (countryCode == "UK") {
             countryCode = "GB"
         }
-        val country = Templates.WORLDWIDE.dataObject.optJSONObject(countryCode)
-        if (country != null && country.has("use_country")) {
+        val country = Workldwide.countries[countryCode]?.value
+        if (country?.useCountry != null) {
             val oldCountryCode: String = countryCode
-            countryCode = country.getString("use_country").uppercase()
-            if (country.has("change_country")) {
-                var newCountry = country.getString("change_country")
+            countryCode = country.useCountry.uppercase()
+            if (country.changeCountry != null) {
+                var newCountry = country.changeCountry
                 val regex = regexPatternCache["\\$(\\w*)"]
                 newCountry = regex.replace(newCountry) { matchResult ->
                     val match = matchResult.groupValues[1]
@@ -92,8 +92,8 @@ class AddressFormatter @JvmOverloads constructor(
                 }
                 components["country"] = newCountry
             }
-            val oldCountry = Templates.WORLDWIDE.dataObject.getJSONObject(oldCountryCode)
-            val completeText = oldCountry.optString("add_component").takeIf(String::isNotEmpty)
+            val oldCountry = Workldwide.countries[oldCountryCode]?.value
+            val completeText = oldCountry?.addComponent?.takeIf(String::isNotEmpty)
             if (completeText != null) {
                 val assignIndex = completeText.indexOf('=')
                 if (assignIndex > 0 && "state" == completeText.substring(0, assignIndex)) {
@@ -124,12 +124,12 @@ class AddressFormatter @JvmOverloads constructor(
             returns(false) implies (countryCode != null)
         }
         return countryCode == null || countryCode.length != 2 ||
-                !Templates.WORLDWIDE.dataObject.has(countryCode.uppercase())
+                !Workldwide.countries.containsKey(countryCode.uppercase())
     }
 
     private fun cleanupInput(
         components: MutableMap<String, String>,
-        replacements: JSONArray?
+        replacements: List<CountryFormat.Replace>
     ): MutableMap<String, String> {
         val country = components["country"]
         val state = components["state"]
@@ -137,18 +137,18 @@ class AddressFormatter @JvmOverloads constructor(
             components["country"] = state
             components.remove("state")
         }
-        if (replacements != null && replacements.length() > 0) {
+        if (replacements.isNotEmpty()) {
             for (componentEntry in components.entries) {
                 val component = componentEntry.key
                 var componentValue = componentEntry.value
-                replacements.toJsonArrayList().forEach { replacement ->
-                    val replacementText = replacement.getString(0)
+                replacements.forEach { replacement ->
+                    val replacementText = replacement.search
                     componentValue = if (replacementText.startsWith("$component=")) {
                         val value = replacementText.substring(component.length + 1)
-                        componentValue.replace(regexPatternCache[value], replacement.getString(1))
+                        componentValue.replace(regexPatternCache[value], replacement.replacement)
                     } else {
                         val regex = regexPatternCache[replacementText]
-                        regex.replace(componentValue, replacement.getString(1))
+                        regex.replace(componentValue, replacement.replacement)
                     }
                     componentEntry.setValue(componentValue)
                 }
@@ -242,45 +242,32 @@ class AddressFormatter @JvmOverloads constructor(
         return aliasedComponents
     }
 
-    private fun findTemplate(components: Map<String, String>): JSONObject {
+    private fun findTemplate(components: Map<String, String>): CountryFormat {
         val countryCode = components["country_code"]
-        return if (countryCode != null && Templates.WORLDWIDE.dataObject.has(countryCode)) {
+        return if (countryCode != null && Workldwide.countries.containsKey(countryCode)) {
             val replacementFormat = replacementFormats[countryCode]
-            Templates.WORLDWIDE.dataObject.getJSONObject(countryCode).let { template ->
+            Workldwide.countries.getValue(countryCode).value.let { template ->
                 when (replacementFormat) {
                     null -> template
-                    else -> JSONObject(
-                        /* copyFrom = */ template,
-                        /* names = */ template.keys().asSequence().toList().toTypedArray()
-                    ).put("address_template", replacementFormat)
+                    else -> template.copy(addressTemplate = replacementFormat)
                 }
             }
         } else {
-            Templates.WORLDWIDE.dataObject.getJSONObject("default")
+            Workldwide.default
         }
     }
 
-    private fun chooseTemplateText(template: JSONObject, components: Map<String, String>): String {
-        var selected: String = if (template.has("address_template")) {
-            val addressTemplate = template.getString("address_template")
-            Templates.WORLDWIDE.dataObject.optString(addressTemplate).takeIf(String::isNotEmpty)
-                ?: addressTemplate
-        } else {
-            val defaults = Templates.WORLDWIDE.dataObject.getJSONObject("default")
-            Templates.WORLDWIDE.dataObject.getString(defaults.getString("address_template"))
-        }
+    private fun chooseTemplateText(
+        template: CountryFormat,
+        components: Map<String, String>
+    ): String {
+        var selected: String =
+            template.addressTemplate ?: checkNotNull(Workldwide.default.addressTemplate)
         val required = listOf("road", "postcode")
         val missesAllRequired = required.none(components::containsKey)
         if (missesAllRequired) {
-            selected = if (template.has("fallback_template")) {
-                val fallbackTemplate = template.getString("fallback_template")
-                Templates.WORLDWIDE.dataObject.optString(fallbackTemplate)
-                    .takeIf(String::isNotEmpty)
-                    ?: fallbackTemplate
-            } else {
-                val defaults = Templates.WORLDWIDE.dataObject.getJSONObject("default")
-                Templates.WORLDWIDE.dataObject.getString(defaults.getString("fallback_template"))
-            }
+            selected =
+                template.fallbackTemplate ?: checkNotNull(Workldwide.default.fallbackTemplate)
         }
         return selected
     }
@@ -313,7 +300,7 @@ class AddressFormatter @JvmOverloads constructor(
         return countyCode
     }
 
-    private fun renderTemplate(template: JSONObject, components: Map<String, String>): String {
+    private fun renderTemplate(template: CountryFormat, components: Map<String, String>): String {
         val callback: MutableMap<String, Any> = HashMap()
         callback["first"] = Function { s: String ->
             val split = s.splitToSequence(regexPatternCache["\\s*\\|\\|\\s*"])
@@ -324,11 +311,11 @@ class AddressFormatter @JvmOverloads constructor(
         val m = mf.compile(StringReader(templateText), "example")
         val st = m.execute(StringWriter(), listOf<Any>(components, callback))
         var rendered = cleanupRender(st.toString())
-        val postformat = template.optJSONArray("postformat_replace")
-        if (postformat != null) {
-            rendered = postformat.toJsonArrayList().fold(rendered) { acc, jsonNode ->
-                val regex = regexPatternCache[jsonNode.getString(0)]
-                regex.replace(acc, jsonNode.getString(1))
+        val postformat = template.postformatReplace
+        if (postformat.isNotEmpty()) {
+            rendered = postformat.fold(rendered) { acc, jsonNode ->
+                val regex = regexPatternCache[jsonNode.search]
+                regex.replace(acc, jsonNode.replacement)
             }
         }
         rendered = cleanupRender(rendered)
@@ -383,6 +370,5 @@ class AddressFormatter @JvmOverloads constructor(
 
         private fun JSONArray.toStringList(): List<String> = List(length(), ::getString)
         private fun JSONArray.toJsonObjectList(): List<JSONObject> = List(length(), ::getJSONObject)
-        private fun JSONArray.toJsonArrayList(): List<JSONArray> = List(length(), ::getJSONArray)
     }
 }

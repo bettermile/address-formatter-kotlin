@@ -16,6 +16,7 @@ import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 public class Transpiler {
@@ -38,20 +39,122 @@ public class Transpiler {
   }
 
   static final String destinationDir = "library/src/main/resources/";
+  static final String kotlinDestinationDir = "library/src/main/java/net/placemarkt/";
 
   static void transpileWorldwide() {
-    ObjectNode node = null;
     try {
       Path path = Paths.get("address-formatting/conf/countries/worldwide.yaml");
-      String yaml = Transpiler.readFile(path.toString());
-      Object obj = Constants.yamlReader.readValue(yaml, Object.class);
-      node = Constants.jsonWriter.valueToTree(obj);
-      try (PrintWriter out = new PrintWriter(destinationDir + "worldwide.json")) {
-        out.println(node.toString());
+      String yaml = readFile(path.toString());
+      ObjectNode obj = (ObjectNode) Constants.yamlReader.readTree(yaml);
+      try (PrintWriter out = new PrintWriter(kotlinDestinationDir + "Worldwide.kt")) {
+        out.println("package net.placemarkt");
+        out.println();
+        out.println("internal object Workldwide {");
+        boolean wroteMapStart = false;
+        for (Map.Entry<String, JsonNode> entry : obj.properties()) {
+          String key = entry.getKey();
+          JsonNode value = entry.getValue();
+          if (key.startsWith("generic") || key.startsWith("fallback")) {
+            out.print("private const val ");
+            out.print(key);
+            out.print(" = \"\"\"");
+            out.print(value.asText());
+            out.println("\"\"\"");
+          } else if (key.equals("default")) {
+            out.print("val default = ");
+            printCountryFormat(out, (ObjectNode) value);
+          } else {
+            if (!wroteMapStart) {
+              out.println("val countries: Map<String, Lazy<CountryFormat>> = mapOf(");
+              wroteMapStart = true;
+            }
+            out.print('\"');
+            out.print(key);
+            out.println("\" to lazy {");
+            printCountryFormat(out, (ObjectNode) value);
+            out.println("},");
+          }
+        }
+
+        out.println(")");
+        out.println("}");
       }
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private static void printCountryFormat(PrintWriter out, ObjectNode valueObject) {
+    out.println("    CountryFormat(");
+    printProperty(out, valueObject, "addressTemplate", "address_template");
+    printProperty(out, valueObject, "fallbackTemplate", "fallback_template");
+    printRegexProperty(out, valueObject, "replace", "replace");
+    printRegexProperty(out, valueObject, "postformatReplace", "postformat_replace");
+    printProperty(out, valueObject, "useCountry", "use_country");
+    printProperty(out, valueObject, "changeCountry", "change_country");
+    printProperty(out, valueObject, "addComponent", "add_component");
+    out.println("    )");
+  }
+
+  private static void printProperty(
+    PrintWriter out,
+    ObjectNode valueObject,
+    String propertyKotlinName,
+    String propertyYamlName
+  ) {
+    if (valueObject.has(propertyYamlName)) {
+      out.print("        ");
+      out.print(propertyKotlinName);
+      out.print(" = ");
+      if (valueObject.has(propertyYamlName)) {
+        String template = valueObject.get(propertyYamlName).asText();
+        if (template.startsWith("generic") || template.startsWith("fallback")) {
+          out.print(template);
+        } else if (template.contains("\n")) {
+          out.print("\"\"\"");
+          out.print(makeSimpleTextConform(template));
+          out.print("\"\"\"");
+        } else {
+          out.print('\"');
+          out.print(makeSimpleTextConform(template));
+          out.print('\"');
+        }
+      } else {
+        out.print((String) null);
+      }
+      out.println(",");
+    }
+  }
+
+  private static void printRegexProperty(
+    PrintWriter out,
+    ObjectNode valueObject,
+    String propertyKotlinName,
+    String propertyYamlName
+  ) {
+    if (valueObject.has(propertyYamlName)) {
+      out.print("        ");
+      out.print(propertyKotlinName);
+      out.println(" = listOf(");
+      valueObject.get(propertyYamlName).elements().forEachRemaining(jsonNode -> {
+        String regex = makeRegexConform(jsonNode.get(0).asText());
+        String replacement = makeRegexConform(jsonNode.get(1).asText());
+        out.print("            CountryFormat.Replace(search = \"");
+        out.print(regex);
+        out.print("\", replacement = \"");
+        out.print(replacement);
+        out.println("\"),");
+      });
+      out.println("        ),");
+    }
+  }
+
+  private static String makeRegexConform(String regex) {
+    return regex.replace("\\", "\\\\").replace("\n", "\\n");
+  }
+
+  private static String makeSimpleTextConform(String regex) {
+   return regex.replace("$", "\\$");
   }
 
   static void transpileCountryNames() {
