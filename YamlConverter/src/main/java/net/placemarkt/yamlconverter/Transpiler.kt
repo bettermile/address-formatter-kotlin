@@ -1,6 +1,5 @@
 package net.placemarkt.yamlconverter
 
-import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
@@ -12,6 +11,8 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Locale
 import java.util.stream.Stream
+import kotlin.io.path.nameWithoutExtension
+import kotlin.streams.asSequence
 
 object Transpiler {
 
@@ -23,7 +24,7 @@ object Transpiler {
         transpileWorldwide(yamlReader)
         transpileCountryNames(yamlReader)
         transpileAliases(yamlFactory, yamlReader)
-        transpileAbbreviations(yamlReader, jsonWriter)
+        transpileAbbreviations(yamlReader)
         transpileCountry2Lang(yamlReader, jsonWriter)
         transpileCountyCodes(yamlReader, jsonWriter)
         transpileStateCodes(yamlReader, jsonWriter)
@@ -66,51 +67,17 @@ object Transpiler {
         }
     }
 
-    private fun transpileAbbreviations(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
-        val abbreviations = jsonWriter.createObjectNode()
+    private fun transpileAbbreviations(yamlReader: ObjectMapper) {
         try {
-            Files.list(Paths.get("address-formatting/conf/abbreviations")).use { paths ->
-                paths.sorted(
-                    PATH_BY_NAME_COMPARATOR
-                ).forEach { path: Path ->
-                    try {
-                        val fileNameWithExtension = path.fileName.toString()
-                        val pos = fileNameWithExtension.lastIndexOf(".")
-                        val fileName =
-                            fileNameWithExtension.substring(0, pos).uppercase(Locale.getDefault())
-                        val yaml = readFile(path.toString())
-                        val obj = yamlReader.readValue(yaml, Any::class.java)
-                        val country = jsonWriter.valueToTree<JsonNode>(obj)
-                        val fieldName = country.fieldNames()
-                        val countryComponentArray = jsonWriter.createArrayNode()
-                        while (fieldName.hasNext()) {
-                            val type = fieldName.next()
-                            val replacements = country[type]
-                            val srcs = replacements.fieldNames()
-                            val pairs = jsonWriter.createArrayNode()
-                            while (srcs.hasNext()) {
-                                val src = srcs.next()
-                                val dest = replacements[src].textValue()
-                                val pair = pairs.addObject()
-                                pair.put("src", src)
-                                pair.put("dest", dest)
-                            }
-                            val countryComponent = jsonWriter.createObjectNode()
-                            countryComponent.put("component", type)
-                            countryComponent.set<JsonNode>("replacements", pairs)
-                            countryComponentArray.add(countryComponent)
-                        }
-                        abbreviations.set<JsonNode>(fileName, countryComponentArray)
-                    } catch (e: IOException) {
-                        e.printStackTrace()
-                    }
+            val abbreviations = Files.list(Paths.get("address-formatting/conf/abbreviations")).use { paths ->
+                paths.sorted(PATH_BY_NAME_COMPARATOR).asSequence().associate { path: Path ->
+                    val language = path.fileName.nameWithoutExtension.uppercase(Locale.getDefault())
+                    val yaml = readFile(path.toString())
+                    val obj = yamlReader.readTree(yaml)
+                    language to (obj as ObjectNode)
                 }
             }
-            PrintWriter(DESTINATION_DIR + "abbreviations.json").use { out ->
-                out.println(
-                    abbreviations.toString()
-                )
-            }
+            AbbreviationsTranspiler.yamlToFile(abbreviations).writeTo(Paths.get(KOTLIN_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }
