@@ -1,6 +1,5 @@
 package net.placemarkt.yamlconverter
 
-import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.node.ObjectNode
@@ -12,19 +11,18 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Locale
-import java.util.function.Consumer
 import java.util.stream.Stream
 
 object Transpiler {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        val yamlReader = ObjectMapper(YAMLFactory())
         val yamlFactory = YAMLFactory()
+        val yamlReader = ObjectMapper(yamlFactory)
         val jsonWriter = ObjectMapper()
         transpileWorldwide(yamlReader)
         transpileCountryNames(yamlReader)
-        transpileAliases(yamlFactory, jsonWriter)
+        transpileAliases(yamlFactory, yamlReader)
         transpileAbbreviations(yamlReader, jsonWriter)
         transpileCountry2Lang(yamlReader, jsonWriter)
         transpileCountyCodes(yamlReader, jsonWriter)
@@ -58,26 +56,11 @@ object Transpiler {
         }
     }
 
-    private fun transpileAliases(yamlFactory: YAMLFactory, jsonWriter: ObjectMapper) {
+    private fun transpileAliases(yamlFactory: YAMLFactory, yamlReader: ObjectMapper) {
         try {
-            val node = jsonWriter.createArrayNode()
             val path = Paths.get("address-formatting/conf/components.yaml")
-            val yamlParser = yamlFactory.createParser(path.toFile())
-            val nodes = jsonWriter
-                .readValues(yamlParser, object : TypeReference<ObjectNode>() {})
-                .readAll()
-            nodes.forEach { component: ObjectNode ->
-                val aliases = component.withArray("aliases")
-                aliases.forEach(Consumer { alias: JsonNode ->
-                    val componentNode = node.addObject()
-                    componentNode.put("alias", alias.textValue())
-                    componentNode.put("name", component["name"].textValue())
-                })
-                val componentNode = node.addObject()
-                componentNode.put("alias", component["name"].textValue())
-                componentNode.put("name", component["name"].textValue())
-            }
-            PrintWriter(DESTINATION_DIR + "aliases.json").use { out -> out.println(node.toString()) }
+            val array = yamlReader.readValues(yamlFactory.createParser(path.toFile()), ObjectNode::class.java).readAll()
+            ComponentsTranspiler.yamlToFile(array).writeTo(Paths.get(KOTLIN_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }

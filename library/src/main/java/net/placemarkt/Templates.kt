@@ -4,7 +4,6 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 internal enum class Templates(fileName: String) {
-    ALIASES("aliases.json"),
     ABBREVIATIONS("abbreviations.json"),
     COUNTRY_2_LANG("country2Lang.json"),
     COUNTY_CODES("countyCodes.json"),

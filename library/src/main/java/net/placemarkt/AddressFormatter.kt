@@ -3,6 +3,7 @@ package net.placemarkt
 import com.github.mustachejava.DefaultMustacheFactory
 import com.github.mustachejava.MustacheFactory
 import net.placemarkt.generated.Worldwide
+import net.placemarkt.generated.aliases
 import net.placemarkt.generated.countryNames
 import org.json.JSONArray
 import org.json.JSONException
@@ -177,7 +178,7 @@ class AddressFormatter @JvmOverloads constructor(
             }
         }
         val unknownComponents =
-            components.asSequence().filter { (key, _) -> key !in knownComponents }
+            components.asSequence().filter { (key, _) -> key !in aliases.keys }
                 .map(Map.Entry<String, String>::value)
                 .toList()
         if (unknownComponents.isNotEmpty()) {
@@ -224,18 +225,14 @@ class AddressFormatter @JvmOverloads constructor(
 
     private fun applyAliases(components: Map<String, String>): MutableMap<String, String> {
         val aliasedComponents: MutableMap<String, String> = hashMapOf()
-        val originalAliases = Templates.ALIASES.dataArray.toJsonObjectList()
         val countyCode = components["county_code"]
         val aliases = if (countyCode !in smallDistrictCounties) {
-            originalAliases.filterNot { it.getString("alias") == "district" } +
-                    JSONObject(mapOf("alias" to "district", "name" to "state_district"))
+            aliases + ("district" to "state_district")
         } else {
-            originalAliases
+            aliases
         }
         components.forEach { (key, value) ->
-            val newKey = aliases.firstOrNull { alias ->
-                alias.getString("alias") == key && components[alias.getString("name")] == null
-            }?.getString("name")
+            val newKey = aliases[key]?.takeIf { components[it] == null }
             aliasedComponents[key] = value
             if (newKey != null) {
                 aliasedComponents[newKey] = value
@@ -350,8 +347,6 @@ class AddressFormatter @JvmOverloads constructor(
 
     companion object {
         private val regexPatternCache = RegexPatternCache()
-        private val knownComponents =
-            Templates.ALIASES.dataArray.toJsonObjectList().map { it.getString("alias") }
         private val uppercaseRegex = "[A-Z]".toRegex()
         private val smallDistrictCounties =
             listOf("BR", "CR", "ES", "NI", "PY", "RO", "TG", "TM", "XK")
