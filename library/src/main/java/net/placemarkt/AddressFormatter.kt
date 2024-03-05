@@ -3,6 +3,7 @@ package net.placemarkt
 import com.github.mustachejava.DefaultMustacheFactory
 import com.github.mustachejava.MustacheFactory
 import net.placemarkt.generated.Workldwide
+import net.placemarkt.generated.countryNames
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -45,10 +46,10 @@ class AddressFormatter @JvmOverloads constructor(
         val countryCode = requireNotNull(mutableComponents["country_code"])
         if (
             appendCountry &&
-            Templates.COUNTRY_NAMES.dataObject.has(countryCode) &&
+            countryNames.containsKey(countryCode) &&
             "country" !in mutableComponents
         ) {
-            mutableComponents["country"] = Templates.COUNTRY_NAMES.dataObject.getString(countryCode)
+            mutableComponents["country"] = countryNames.getValue(countryCode)
         }
         mutableComponents = applyAliases(mutableComponents)
         val template = findTemplate(mutableComponents)
