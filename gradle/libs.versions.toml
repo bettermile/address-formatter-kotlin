@@ -6,6 +6,7 @@ compose-compiler = "1.5.10"
 compose-library = "1.6.2"
 jackson = "2.16.1"
 kotlin = "1.9.22"
+kotlinpoet = "1.16.0"
 mustache = "0.9.11"
 orgjson = "20240303"
 
@@ -23,6 +24,7 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-library
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-library" }
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
 jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 mustache = { module = "com.github.spullara.mustache.java:compiler", version.ref = "mustache" }
 orgjson = { module = "org.json:json", version.ref = "orgjson" }
