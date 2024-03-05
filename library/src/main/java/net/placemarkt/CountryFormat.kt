@@ -1,6 +1,6 @@
 package net.placemarkt
 
-data class CountryFormat(
+internal data class CountryFormat(
     val addressTemplate: String? = null,
     val fallbackTemplate: String? = null,
     val replace: List<Replace> = emptyList(),
