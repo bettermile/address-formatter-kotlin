@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.node.NullNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import java.io.IOException
-import java.io.PrintWriter
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
@@ -23,18 +22,16 @@ object Transpiler {
     fun main(args: Array<String>) {
         val yamlFactory = YAMLFactory()
         val yamlReader = ObjectMapper(yamlFactory)
-        val jsonWriter = ObjectMapper()
         transpileWorldwide(yamlReader)
         transpileCountryNames(yamlReader)
         transpileAliases(yamlFactory, yamlReader)
         transpileAbbreviations(yamlReader)
         transpileCountry2Lang(yamlReader)
-        transpileCountyCodes(yamlReader, jsonWriter)
-        transpileStateCodes(yamlReader, jsonWriter)
+        transpileCountyCodes(yamlReader)
+        transpileStateCodes(yamlReader)
         testCases(yamlReader, yamlFactory)
     }
 
-    private const val DESTINATION_DIR = "library/src/main/resources/"
     private const val KOTLIN_DESTINATION_DIR = "library/src/main/java/"
     private const val TEST_DESTINATION_DIR = "library/src/test/java/"
 
@@ -124,27 +121,25 @@ object Transpiler {
         }
     }
 
-    private fun transpileCountyCodes(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
-        val node: ObjectNode?
+    private fun transpileCountyCodes(yamlReader: ObjectMapper) {
         try {
             val path = Paths.get("address-formatting/conf/county_codes.yaml")
             val yaml = readFile(path.toString())
-            val obj = yamlReader.readValue(yaml, Any::class.java)
-            node = jsonWriter.valueToTree(obj)
-            PrintWriter(DESTINATION_DIR + "countyCodes.json").use { out -> out.println(node.toString()) }
+            val obj = yamlReader.readTree(yaml) as ObjectNode
+            RegionNamingTranspiler.yamlToFile("CountyCodes", "countyCodes", obj)
+                .writeTo(Paths.get(KOTLIN_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }
     }
 
-    private fun transpileStateCodes(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
-        val node: ObjectNode?
+    private fun transpileStateCodes(yamlReader: ObjectMapper) {
         try {
             val path = Paths.get("address-formatting/conf/state_codes.yaml")
             val yaml = readFile(path.toString())
-            val obj = yamlReader.readValue(yaml, Any::class.java)
-            node = jsonWriter.valueToTree(obj)
-            PrintWriter(DESTINATION_DIR + "stateCodes.json").use { out -> out.println(node.toString()) }
+            val obj = yamlReader.readTree(yaml) as ObjectNode
+            RegionNamingTranspiler.yamlToFile("StateCodes", "stateCodes", obj)
+                .writeTo(Paths.get(KOTLIN_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }

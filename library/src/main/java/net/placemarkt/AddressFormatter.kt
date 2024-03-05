@@ -7,6 +7,8 @@ import net.placemarkt.generated.abbreviations
 import net.placemarkt.generated.aliases
 import net.placemarkt.generated.country2Languages
 import net.placemarkt.generated.countryNames
+import net.placemarkt.generated.countyCodes
+import net.placemarkt.generated.stateCodes
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -265,31 +267,17 @@ class AddressFormatter @JvmOverloads constructor(
     }
 
     private fun getStateCode(state: String, countryCode: String): String? {
-        if (!Templates.STATE_CODES.dataObject.has(countryCode)) {
-            return null
+        stateCodes[countryCode]?.forEach {
+            if (it.value.default.equals(state, ignoreCase = true)) return it.key
         }
-        val countryCodes = Templates.STATE_CODES.dataObject.getJSONObject(countryCode)
-        return countryCodes.keys().asSequence().firstOrNull { key: String ->
-            val code = countryCodes[key]
-            if (code is JSONObject) {
-                code.optString("default").equals(state, ignoreCase = true)
-            } else {
-                code.toString().equals(state, ignoreCase = true)
-            }
-        }
+        return null
     }
 
-    private fun getCountyCode(county: String?, countryCode: String?): String? {
-        val country = Templates.COUNTY_CODES.dataObject.optJSONObject(countryCode) ?: return null
-        val countyCode = country.keys().asSequence().firstOrNull { countryKey: String ->
-            val posCounty = country[countryKey]
-            if (posCounty is JSONObject) {
-                posCounty.getString("default").equals(county, ignoreCase = true)
-            } else {
-                posCounty.toString().equals(county, ignoreCase = true)
-            }
+    private fun getCountyCode(county: String, countryCode: String): String? {
+        countyCodes[countryCode]?.forEach {
+            if (it.value.default.equals(county, ignoreCase = true)) return it.key
         }
-        return countyCode
+        return null
     }
 
     private fun renderTemplate(template: CountryFormat, components: Map<String, String>): String {
