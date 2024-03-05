@@ -25,7 +25,7 @@ object Transpiler {
         transpileCountryNames(yamlReader)
         transpileAliases(yamlFactory, yamlReader)
         transpileAbbreviations(yamlReader)
-        transpileCountry2Lang(yamlReader, jsonWriter)
+        transpileCountry2Lang(yamlReader)
         transpileCountyCodes(yamlReader, jsonWriter)
         transpileStateCodes(yamlReader, jsonWriter)
         testCases(yamlReader, yamlFactory, jsonWriter)
@@ -129,25 +129,12 @@ object Transpiler {
         }
     }
 
-    private fun transpileCountry2Lang(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
-        val node: ObjectNode?
+    private fun transpileCountry2Lang(yamlReader: ObjectMapper) {
         try {
             val path = Paths.get("address-formatting/conf/country2lang.yaml")
             val yaml = readFile(path.toString())
-            val obj = yamlReader.readValue(yaml, Any::class.java)
-            node = jsonWriter.valueToTree(obj)
-            val countries = node.fieldNames()
-            while (countries.hasNext()) {
-                val country = countries.next()
-                val languages = node[country].asText()
-                val languagesArray = node.putArray(country)
-                val languagesSplit =
-                    languages.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                for (s in languagesSplit) {
-                    languagesArray.add(s.uppercase(Locale.getDefault()))
-                }
-            }
-            PrintWriter(DESTINATION_DIR + "country2Lang.json").use { out -> out.println(node.toString()) }
+            val obj = yamlReader.readTree(yaml) as ObjectNode
+            Country2LangTranspiler.yamlToFile(obj).writeTo(Paths.get(KOTLIN_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }

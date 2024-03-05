@@ -5,8 +5,8 @@ import com.github.mustachejava.MustacheFactory
 import net.placemarkt.generated.Worldwide
 import net.placemarkt.generated.abbreviations
 import net.placemarkt.generated.aliases
+import net.placemarkt.generated.country2Languages
 import net.placemarkt.generated.countryNames
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -199,10 +199,8 @@ class AddressFormatter @JvmOverloads constructor(
             }
         }
         val countryCode = components["country_code"]
-        if (abbreviate && countryCode != null && Templates.COUNTRY_2_LANG.dataObject.has(countryCode)) {
-            val languages =
-                Templates.COUNTRY_2_LANG.dataObject.getJSONArray(countryCode).toStringList()
-            languages.forEach { language ->
+        if (abbreviate && countryCode != null) {
+            country2Languages[countryCode]?.forEach { language ->
                 val abbreviation = abbreviations[language] ?: return@forEach
                 abbreviation.forEach abbreviationForEach@{ (component, abbrs) ->
                     var value = components[component] ?: return@abbreviationForEach
@@ -359,7 +357,5 @@ class AddressFormatter @JvmOverloads constructor(
             "\n[ \t]+" to "\n",
             "\n+" to "\n",
         )
-
-        private fun JSONArray.toStringList(): List<String> = List(length(), ::getString)
     }
 }

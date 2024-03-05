@@ -3,7 +3,6 @@ package net.placemarkt
 import org.json.JSONObject
 
 internal enum class Templates(fileName: String) {
-    COUNTRY_2_LANG("country2Lang.json"),
     COUNTY_CODES("countyCodes.json"),
     STATE_CODES("stateCodes.json");
 
