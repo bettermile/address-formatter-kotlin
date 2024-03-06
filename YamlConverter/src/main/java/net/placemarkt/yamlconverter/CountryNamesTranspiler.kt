@@ -6,7 +6,6 @@ import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
-import com.squareup.kotlinpoet.joinToCode
 
 object CountryNamesTranspiler {
     fun yamlToFile(node: ObjectNode): FileSpec {
@@ -19,7 +18,7 @@ object CountryNamesTranspiler {
                     name = "countryNames",
                     type = Map::class.parameterizedBy(String::class, String::class),
                     KModifier.INTERNAL,
-                ).initializer("mapOf(%L)", elements.joinToCode(separator = ",\n", prefix = "\n", suffix = ",\n"))
+                ).initializer(multilineFunctionCall("mapOf", elements))
                     .build()
             )
         }

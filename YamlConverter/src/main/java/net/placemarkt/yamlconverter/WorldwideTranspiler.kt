@@ -10,7 +10,6 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.asClassName
 import com.squareup.kotlinpoet.buildCodeBlock
-import com.squareup.kotlinpoet.joinToCode
 
 object WorldwideTranspiler {
     private val countryFormatType = ClassName("net.placemarkt", "CountryFormat")
@@ -19,7 +18,7 @@ object WorldwideTranspiler {
     fun yamlToFile(obj: ObjectNode): FileSpec {
         return generatedFileSpec(fileName = "Worldwide") {
             addType(
-                TypeSpec.objectBuilder("Workldwide")
+                TypeSpec.objectBuilder("Worldwide")
                     .addModifiers(KModifier.INTERNAL)
                     .apply {
                         val countryBlocks = mutableListOf<CodeBlock>()
@@ -41,7 +40,7 @@ object WorldwideTranspiler {
                                     beginControlFlow("%S to lazy", key)
                                     add(printCountryFormat(value as ObjectNode))
                                     unindent()
-                                    add("}")
+                                    add("\n}")
                                 }
                             }
                         }
@@ -51,15 +50,10 @@ object WorldwideTranspiler {
                                 name = "countries",
                                 type = Map::class.parameterizedBy(String::class)
                                     .plusParameter(Lazy::class.asClassName().parameterizedBy(countryFormatType))
-                            ).initializer(
-                                CodeBlock.of(
-                                    format = "mapOf(%L)",
-                                    countryBlocks.joinToCode(separator = ",\n", prefix = "\n", suffix = ",\n")
-                                )
-                            ).build()
+                            ).initializer(multilineFunctionCall("mapOf", countryBlocks)).build()
                         )
                     }.build()
-            ).build()
+            )
         }
     }
 
@@ -73,13 +67,7 @@ object WorldwideTranspiler {
             printProperty(valueObject, "change_country")?.also { put("changeCountry", it) }
             printProperty(valueObject, "add_component")?.also { put("addComponent", it) }
         }.map { CodeBlock.of("${it.key}·=·%L", it.value) }
-        return buildCodeBlock {
-            add("%T(", countryFormatType)
-            indent()
-            add("%L", parameters.joinToCode(separator = ",\n", prefix = "\n", suffix = ",\n"))
-            unindent()
-            add(")\n")
-        }
+        return multilineFunctionCall(countryFormatType, parameters)
     }
 
     private fun printProperty(
@@ -113,12 +101,7 @@ object WorldwideTranspiler {
                     add(")")
                 }
             }
-            buildCodeBlock {
-                indent()
-                add("listOf(%L", elements.toList().joinToCode(separator = ",\n", prefix = "\n", suffix = ",\n"))
-                unindent()
-                add(")")
-            }
+            multilineFunctionCall("listOf", elements.toList())
         } else {
             null
         }
