@@ -17,26 +17,25 @@ import java.util.stream.Stream
 
 object Transpiler {
 
-    private val yamlReader = ObjectMapper(YAMLFactory())
-    private val yamlFactory = YAMLFactory()
-    private val jsonWriter = ObjectMapper()
-
     @JvmStatic
     fun main(args: Array<String>) {
-        transpileWorldwide()
-        transpileCountryNames()
-        transpileAliases()
-        transpileAbbreviations()
-        transpileCountry2Lang()
-        transpileCountyCodes()
-        transpileStateCodes()
-        testCases()
+        val yamlReader = ObjectMapper(YAMLFactory())
+        val yamlFactory = YAMLFactory()
+        val jsonWriter = ObjectMapper()
+        transpileWorldwide(yamlReader)
+        transpileCountryNames(yamlReader, jsonWriter)
+        transpileAliases(yamlFactory, jsonWriter)
+        transpileAbbreviations(yamlReader, jsonWriter)
+        transpileCountry2Lang(yamlReader, jsonWriter)
+        transpileCountyCodes(yamlReader, jsonWriter)
+        transpileStateCodes(yamlReader, jsonWriter)
+        testCases(yamlReader, yamlFactory, jsonWriter)
     }
 
     private const val DESTINATION_DIR = "library/src/main/resources/"
     private const val KOTLIN_DESTINATION_DIR = "library/src/main/java/"
 
-    private fun transpileWorldwide() {
+    private fun transpileWorldwide(yamlReader: ObjectMapper) {
         try {
             val path = Paths.get("address-formatting/conf/countries/worldwide.yaml")
             val yaml = readFile(path.toString())
@@ -47,7 +46,7 @@ object Transpiler {
         }
     }
 
-    private fun transpileCountryNames() {
+    private fun transpileCountryNames(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val node: ObjectNode?
         try {
             val path = Paths.get("address-formatting/conf/country_codes.yaml")
@@ -61,7 +60,7 @@ object Transpiler {
         }
     }
 
-    private fun transpileAliases() {
+    private fun transpileAliases(yamlFactory: YAMLFactory, jsonWriter: ObjectMapper) {
         try {
             val node = jsonWriter.createArrayNode()
             val path = Paths.get("address-formatting/conf/components.yaml")
@@ -86,7 +85,7 @@ object Transpiler {
         }
     }
 
-    private fun transpileAbbreviations() {
+    private fun transpileAbbreviations(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val abbreviations = jsonWriter.createObjectNode()
         try {
             Files.list(Paths.get("address-formatting/conf/abbreviations")).use { paths ->
@@ -136,7 +135,7 @@ object Transpiler {
         }
     }
 
-    private fun testCases() {
+    private fun testCases(yamlReader: ObjectMapper, yamlFactory: YAMLFactory, jsonWriter: ObjectMapper) {
         try {
             val rootNode = jsonWriter.createArrayNode()
             val paths = Stream.of(
@@ -182,7 +181,7 @@ object Transpiler {
         }
     }
 
-    private fun transpileCountry2Lang() {
+    private fun transpileCountry2Lang(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val node: ObjectNode?
         try {
             val path = Paths.get("address-formatting/conf/country2lang.yaml")
@@ -209,7 +208,7 @@ object Transpiler {
     /*
     * TODO: Look into formatting this data in such a way that makes it easier to query
     */
-    private fun transpileCountyCodes() {
+    private fun transpileCountyCodes(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val node: ObjectNode?
         try {
             val path = Paths.get("address-formatting/conf/county_codes.yaml")
@@ -225,7 +224,7 @@ object Transpiler {
     /*
     *TODO: Look into formatting this data in such a way that makes it easier to query
     */
-    private fun transpileStateCodes() {
+    private fun transpileStateCodes(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val node: ObjectNode?
         try {
             val path = Paths.get("address-formatting/conf/state_codes.yaml")
