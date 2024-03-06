@@ -1,5 +1,5 @@
 plugins {
-    java
+    kotlin("jvm")
     application
 }
 
@@ -19,8 +19,7 @@ repositories {
 dependencies {
     implementation(libs.jackson.core)
     implementation(libs.jackson.yaml)
-
-    testImplementation(libs.kotlin.test.junit)
+    implementation(libs.kotlinpoet)
 }
 
 tasks.run.configure {
