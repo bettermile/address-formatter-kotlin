@@ -23,7 +23,7 @@ object Transpiler {
         val yamlFactory = YAMLFactory()
         val jsonWriter = ObjectMapper()
         transpileWorldwide(yamlReader)
-        transpileCountryNames(yamlReader, jsonWriter)
+        transpileCountryNames(yamlReader)
         transpileAliases(yamlFactory, jsonWriter)
         transpileAbbreviations(yamlReader, jsonWriter)
         transpileCountry2Lang(yamlReader, jsonWriter)
@@ -46,15 +46,13 @@ object Transpiler {
         }
     }
 
-    private fun transpileCountryNames(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
-        val node: ObjectNode?
+    private fun transpileCountryNames(yamlReader: ObjectMapper) {
         try {
             val path = Paths.get("address-formatting/conf/country_codes.yaml")
             val yaml = readFile(path.toString())
-            val formattedYaml = yaml.replace(" # ".toRegex(), " ")
-            val obj = yamlReader.readValue(formattedYaml, Any::class.java)
-            node = jsonWriter.valueToTree(obj)
-            PrintWriter(DESTINATION_DIR + "countryNames.json").use { out -> out.println(node.toString()) }
+            val formattedYaml = yaml.replace(" # ", " ")
+            val obj = yamlReader.readTree(formattedYaml) as ObjectNode
+            CountryNamesTranspiler.yamlToFile(obj).writeTo(Paths.get(KOTLIN_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }

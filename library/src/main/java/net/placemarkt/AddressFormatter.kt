@@ -2,7 +2,8 @@ package net.placemarkt
 
 import com.github.mustachejava.DefaultMustacheFactory
 import com.github.mustachejava.MustacheFactory
-import net.placemarkt.generated.Workldwide
+import net.placemarkt.generated.Worldwide
+import net.placemarkt.generated.countryNames
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -45,10 +46,10 @@ class AddressFormatter @JvmOverloads constructor(
         val countryCode = requireNotNull(mutableComponents["country_code"])
         if (
             appendCountry &&
-            Templates.COUNTRY_NAMES.dataObject.has(countryCode) &&
+            countryNames.containsKey(countryCode) &&
             "country" !in mutableComponents
         ) {
-            mutableComponents["country"] = Templates.COUNTRY_NAMES.dataObject.getString(countryCode)
+            mutableComponents["country"] = countryNames.getValue(countryCode)
         }
         mutableComponents = applyAliases(mutableComponents)
         val template = findTemplate(mutableComponents)
@@ -80,7 +81,7 @@ class AddressFormatter @JvmOverloads constructor(
         if (countryCode == "UK") {
             countryCode = "GB"
         }
-        val country = Workldwide.countries[countryCode]?.value
+        val country = Worldwide.countries[countryCode]?.value
         if (country?.useCountry != null) {
             val oldCountryCode: String = countryCode
             countryCode = country.useCountry.uppercase()
@@ -93,7 +94,7 @@ class AddressFormatter @JvmOverloads constructor(
                 }
                 components["country"] = newCountry
             }
-            val oldCountry = Workldwide.countries[oldCountryCode]?.value
+            val oldCountry = Worldwide.countries[oldCountryCode]?.value
             val completeText = oldCountry?.addComponent?.takeIf(String::isNotEmpty)
             if (completeText != null) {
                 val assignIndex = completeText.indexOf('=')
@@ -125,7 +126,7 @@ class AddressFormatter @JvmOverloads constructor(
             returns(false) implies (countryCode != null)
         }
         return countryCode == null || countryCode.length != 2 ||
-                !Workldwide.countries.containsKey(countryCode.uppercase())
+                !Worldwide.countries.containsKey(countryCode.uppercase())
     }
 
     private fun cleanupInput(
@@ -245,16 +246,16 @@ class AddressFormatter @JvmOverloads constructor(
 
     private fun findTemplate(components: Map<String, String>): CountryFormat {
         val countryCode = components["country_code"]
-        return if (countryCode != null && Workldwide.countries.containsKey(countryCode)) {
+        return if (countryCode != null && Worldwide.countries.containsKey(countryCode)) {
             val replacementFormat = replacementFormats[countryCode]
-            Workldwide.countries.getValue(countryCode).value.let { template ->
+            Worldwide.countries.getValue(countryCode).value.let { template ->
                 when (replacementFormat) {
                     null -> template
                     else -> template.copy(addressTemplate = replacementFormat)
                 }
             }
         } else {
-            Workldwide.default
+            Worldwide.default
         }
     }
 
@@ -263,12 +264,12 @@ class AddressFormatter @JvmOverloads constructor(
         components: Map<String, String>
     ): String {
         var selected: String =
-            template.addressTemplate ?: checkNotNull(Workldwide.default.addressTemplate)
+            template.addressTemplate ?: checkNotNull(Worldwide.default.addressTemplate)
         val required = listOf("road", "postcode")
         val missesAllRequired = required.none(components::containsKey)
         if (missesAllRequired) {
             selected =
-                template.fallbackTemplate ?: checkNotNull(Workldwide.default.fallbackTemplate)
+                template.fallbackTemplate ?: checkNotNull(Worldwide.default.fallbackTemplate)
         }
         return selected
     }
