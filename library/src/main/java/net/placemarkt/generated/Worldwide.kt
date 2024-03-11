@@ -2673,7 +2673,13 @@ internal object Worldwide {
         },
         "XK" to lazy {
           CountryFormat(
-            addressTemplate = generic1,
+            addressTemplate = """
+            |{{{attention}}}
+            |{{{house}}}
+            |{{{house_number}}}, {{{road}}}
+            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
+            |{{{country}}}
+            |""".trimMargin(),
           )
         },
         "YE" to lazy {
