@@ -1,6 +1,8 @@
 package net.placemarkt.yamlconverter
 
+import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.node.NullNode
 import com.fasterxml.jackson.databind.node.ObjectNode
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import java.io.IOException
@@ -11,6 +13,7 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Locale
 import java.util.stream.Stream
+import kotlin.io.path.name
 import kotlin.io.path.nameWithoutExtension
 import kotlin.streams.asSequence
 
@@ -28,11 +31,12 @@ object Transpiler {
         transpileCountry2Lang(yamlReader)
         transpileCountyCodes(yamlReader, jsonWriter)
         transpileStateCodes(yamlReader, jsonWriter)
-        testCases(yamlReader, yamlFactory, jsonWriter)
+        testCases(yamlReader, yamlFactory)
     }
 
     private const val DESTINATION_DIR = "library/src/main/resources/"
     private const val KOTLIN_DESTINATION_DIR = "library/src/main/java/"
+    private const val TEST_DESTINATION_DIR = "library/src/test/java/"
 
     private fun transpileWorldwide(yamlReader: ObjectMapper) {
         try {
@@ -83,9 +87,8 @@ object Transpiler {
         }
     }
 
-    private fun testCases(yamlReader: ObjectMapper, yamlFactory: YAMLFactory, jsonWriter: ObjectMapper) {
+    private fun testCases(yamlReader: ObjectMapper, yamlFactory: YAMLFactory) {
         try {
-            val rootNode = jsonWriter.createArrayNode()
             val paths = Stream.of(
                 "address-formatting/testcases/countries",
                 "address-formatting/testcases/other"
@@ -96,34 +99,15 @@ object Transpiler {
                     throw RuntimeException("error while reading path $path", e)
                 }
             }
-            paths.sorted(PATH_BY_NAME_COMPARATOR).forEach { path: Path ->
-                try {
-                    val yaml = readFile(path.toString())
-                    yamlFactory.createParser(yaml).use { parser ->
-                        yamlReader.readValues(parser, Any::class.java)
-                            .forEachRemaining { element: Any? ->
-                                if (element != null) {
-                                    val node = jsonWriter.valueToTree<ObjectNode>(element)
-                                    val description = node["description"].asText()
-                                    val fileName = path.fileName.toString()
-                                    node.put(
-                                        "description",
-                                        fileName.substring(
-                                            0,
-                                            fileName.length - 5
-                                        ) + " - " + description
-                                    )
-                                    rootNode.add(node)
-                                }
-                            }
-                    }
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }
-            val out = PrintWriter("library/src/test/resources/countries.json")
-            out.println(rootNode.toString())
-            out.close()
+            val testCases = paths.sorted(PATH_BY_NAME_COMPARATOR).asSequence().map { path: Path ->
+                val array: List<ObjectNode> =
+                    yamlReader.readValues(yamlFactory.createParser(path.toFile()), JsonNode::class.java).readAll()
+                        .filterNot { it is NullNode }
+                        .filterIsInstance<ObjectNode>()
+                val fileName = "${path.parent.name} - ${path.fileName.nameWithoutExtension}"
+                fileName to array
+            }.toList()
+            TestCasesTranspiler.yamlToFile(testCases).writeTo(Paths.get(TEST_DESTINATION_DIR))
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -140,9 +124,6 @@ object Transpiler {
         }
     }
 
-    /*
-    * TODO: Look into formatting this data in such a way that makes it easier to query
-    */
     private fun transpileCountyCodes(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val node: ObjectNode?
         try {
@@ -156,9 +137,6 @@ object Transpiler {
         }
     }
 
-    /*
-    *TODO: Look into formatting this data in such a way that makes it easier to query
-    */
     private fun transpileStateCodes(yamlReader: ObjectMapper, jsonWriter: ObjectMapper) {
         val node: ObjectNode?
         try {
