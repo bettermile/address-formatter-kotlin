@@ -55,7 +55,7 @@ afterEvaluate {
             create<MavenPublication>("addressFormatter") {
                 groupId = "com.bettermile.betterroute"
                 artifactId = "address-formatter-android"
-                version = "0.1.7"
+                version = "0.1.8"
                 from(components["release"])
             }
         }
