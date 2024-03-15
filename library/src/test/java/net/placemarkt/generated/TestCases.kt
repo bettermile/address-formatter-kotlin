@@ -1241,10 +1241,10 @@ public val testCases: List<TestCase> = listOf(
       ),
       TestCase(
         components = mapOf("city_district" to "Heyerode", "continent" to "Europa",
-            "country" to "Germany", "country_code" to "de", "county" to "Südeichsfeld",
+            "country" to "Germany", "country_code" to "de", "county" to "Unstrut-Hainich-Kreis",
             "postcode" to "99988", "state" to "Thüringen", "village" to "Heyerode"),
         expected = """
-        |99988 Heyerode Südeichsfeld
+        |99988 Heyerode
         |Germany
         |""".trimMargin(),
         description = "Heyerode",
@@ -1359,7 +1359,7 @@ public val testCases: List<TestCase> = listOf(
             "state" to "Saxony", "state_code" to "SN", "town" to "Dippoldiswalde",
             "village" to "Oberhäslich"),
         expected = """
-        |01744 Oberhäslich Dippoldiswalde
+        |01744 Oberhäslich
         |Germany
         |""".trimMargin(),
         description = "village and town",

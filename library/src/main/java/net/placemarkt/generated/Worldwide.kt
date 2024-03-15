@@ -803,7 +803,7 @@ internal object Worldwide {
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-            |{{{postcode}}} {{{village}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+            |{{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{archipelago}}}
             |{{{country}}}    
             |""".trimMargin(),
