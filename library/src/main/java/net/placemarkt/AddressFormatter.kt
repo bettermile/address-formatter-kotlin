@@ -3,6 +3,7 @@ package net.placemarkt
 import com.github.mustachejava.DefaultMustacheFactory
 import com.github.mustachejava.MustacheFactory
 import net.placemarkt.generated.Worldwide
+import net.placemarkt.generated.abbreviations
 import net.placemarkt.generated.aliases
 import net.placemarkt.generated.countryNames
 import org.json.JSONArray
@@ -201,23 +202,17 @@ class AddressFormatter @JvmOverloads constructor(
         if (abbreviate && countryCode != null && Templates.COUNTRY_2_LANG.dataObject.has(countryCode)) {
             val languages =
                 Templates.COUNTRY_2_LANG.dataObject.getJSONArray(countryCode).toStringList()
-            languages.asSequence()
-                .flatMap { language ->
-                    Templates.ABBREVIATIONS.dataObject.optJSONArray(language)?.toJsonObjectList()
-                        .orEmpty()
+            languages.forEach { language ->
+                val abbreviation = abbreviations[language] ?: return@forEach
+                abbreviation.forEach abbreviationForEach@{ (component, abbrs) ->
+                    var value = components[component] ?: return@abbreviationForEach
+                    abbrs.forEach { (src, dest) ->
+                        val regex = regexPatternCache["\\b$src\\b"]
+                        value = regex.replace(value, dest)
+                    }
+                    components[component] = value
                 }
-                .filter { abbreviation -> abbreviation.has("component") }
-                .forEach { abbreviation ->
-                    abbreviation.getJSONArray("replacements")
-                        .toJsonObjectList()
-                        .forEach replacementForEach@{ replacement ->
-                            val key: String = abbreviation.getString("component")
-                            val value = components[key] ?: return@replacementForEach
-                            val src = replacement.getString("src")
-                            val regex = regexPatternCache["\\b$src\\b"]
-                            components[key] = regex.replace(value, replacement.getString("dest"))
-                        }
-                }
+            }
         }
         val p = regexPatternCache["^https?://"]
         return components.filterTo(hashMapOf()) { (_, value) -> !p.containsMatchIn(value) }
@@ -366,6 +361,5 @@ class AddressFormatter @JvmOverloads constructor(
         )
 
         private fun JSONArray.toStringList(): List<String> = List(length(), ::getString)
-        private fun JSONArray.toJsonObjectList(): List<JSONObject> = List(length(), ::getJSONObject)
     }
 }
