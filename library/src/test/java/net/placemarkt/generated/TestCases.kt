@@ -2452,13 +2452,12 @@ public val testCases: List<TestCase> = listOf(
       TestCase(
         components = mapOf("city" to "Budapest", "city_district" to "1. kerület",
             "country" to "Hungary", "country_code" to "hu", "county" to "Budapesti kistérség",
-            "house_number" to "11", "neighbourhood" to "Naphegy", "postcode" to "1111",
+            "house_number" to "11", "neighbourhood" to "Naphegy", "postcode" to "1016",
             "road" to "Dezső utca", "state" to "Közép-Magyarország",
             "state_district" to "Central Hungary", "suburb" to "Krisztinaváros"),
         expected = """
-        |Budapest
-        |Dezső utca 11
-        |1111
+        |1016 Budapest
+        |Dezső utca 11.
         |Hungary
         |""".trimMargin(),
         description = "house in Budapest - 47.49269,19.03371",

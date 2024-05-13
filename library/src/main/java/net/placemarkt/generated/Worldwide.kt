@@ -1236,10 +1236,8 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = """
             |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}}
+            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+            |{{{road}}} {{{house_number}}}.
             |{{{country}}}
             |""".trimMargin(),
           )
