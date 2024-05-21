@@ -9,6 +9,9 @@
   "git-submodules": {
     "enabled": true
   },
+  "gitIgnoredAuthors": [
+    "github@gls-ecl.com"
+  ],
   "packageRules": [
     {
       "matchManagers": [
