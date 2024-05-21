@@ -258,9 +258,8 @@ class AddressFormatterTest {
             val formatted = formatter.format(json)
             Assert.assertEquals(
                 """
-                Budapest
-                Dezső utca 11
-                1111
+                1111 Budapest
+                Dezső utca 11.
                 Hungary
                 
                 """.trimIndent(),
