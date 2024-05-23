@@ -63,6 +63,7 @@ internal val aliases: Map<String, String> = mapOf(
       "state" to "state",
       "province" to "state",
       "state_code" to "state",
+      "territory" to "state",
       "region" to "region",
       "oblast" to "region",
       "raion" to "region",
