@@ -12,39 +12,34 @@ internal object Worldwide {
       {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
       {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
       {{{archipelago}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic2: String = """{{{attention}}}
       {{#first}} {{{house}}}, {{{quarter}}} || {{{house}}} {{/first}}
       {{{house_number}}} {{{road}}}
       {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
-      {{#first}} {{{country}}} || {{{state}}} {{/first}}
-      """
+      {{#first}} {{{country}}} || {{{state}}} {{/first}}"""
 
   private const val generic3: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{{place}}}
       {{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic4: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic5: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
       {{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic6: String = """{{{attention}}}
       {{{house}}}
@@ -52,30 +47,26 @@ internal object Worldwide {
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
       {{{county}}}
       {{{state}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic7: String = """{{{attention}}}
       {{{house}}}
       {{{road}}} {{{house_number}}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic8: String = """{{{attention}}}
       {{{house}}}
       {{{road}}} {{{house_number}}}
       {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic9: String = """{{{attention}}}
       {{{house}}}
       {{{road}}} {{{house_number}}}
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
       {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic10: String = """{{{attention}}}
       {{{house}}}
@@ -84,8 +75,7 @@ internal object Worldwide {
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
       {{{state}}}
       {{{country}}}
-      {{{postcode}}}
-      """
+      {{{postcode}}}"""
 
   private const val generic11: String = """{{{country}}}
       {{{state}}}
@@ -93,8 +83,7 @@ internal object Worldwide {
       {{{suburb}}}
       {{{road}}}, {{{house_number}}}
       {{{house}}}
-      {{{attention}}}
-      """
+      {{{attention}}}"""
 
   private const val generic12: String = """{{{attention}}}
       {{{house}}}
@@ -102,82 +91,71 @@ internal object Worldwide {
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
       {{{state}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic13: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic14: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
       {{{state}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic15: String = """{{{attention}}}
       {{{house}}}
       {{{road}}}, {{{house_number}}}
       {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic16: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic17: String = """{{{attention}}}
       {{{house}}}
       {{{road}}} {{{house_number}}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic18: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}}, {{{road}}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic19: String = """{{{attention}}}
       {{{house}}}
       {{{road}}} {{{house_number}}}
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic20: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}} {{{road}}}
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic21: String = """{{{attention}}}
       {{{house}}}
       {{{road}}} {{{house_number}}}
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic22: String = """{{{attention}}}
       {{{house}}}
       {{{house_number}}}, {{{road}}}
       {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val generic23: String = """{{{attention}}}
       {{house}}
@@ -185,8 +163,7 @@ internal object Worldwide {
       {{quarter}}
       {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
       {{{postcode}}}
-      {{#first}} {{{country}}} || {{{state}}} {{/first}}
-      """
+      {{#first}} {{{country}}} || {{{state}}} {{/first}}"""
 
   private const val fallback1: String = """{{{attention}}}
       {{{house}}}
@@ -195,8 +172,7 @@ internal object Worldwide {
       {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
       {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val fallback2: String = """{{{attention}}}
       {{{house}}}
@@ -204,8 +180,7 @@ internal object Worldwide {
       {{{place}}}
       {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
       {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val fallback3: String = """{{{attention}}}
       {{{house}}}
@@ -216,8 +191,7 @@ internal object Worldwide {
       {{#first}} {{{town}}} || {{{city}}}{{/first}}
       {{{county}}}
       {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   private const val fallback4: String = """{{{attention}}}
       {{{house}}}
@@ -226,8 +200,7 @@ internal object Worldwide {
       {{{suburb}}}
       {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
       {{#first}} {{{state}}} || {{{county}}} {{/first}}
-      {{{country}}}
-      """
+      {{{country}}}"""
 
   public val default: CountryFormat = CountryFormat(
         addressTemplate = generic1,
