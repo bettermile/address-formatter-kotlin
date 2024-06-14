@@ -458,21 +458,6 @@ internal val abbreviations: Map<String, Map<String, Map<String, String>>> = mapO
           "тупик" to "туп",
         ),
       ),
-      "SE" to mapOf(
-        "road" to mapOf(
-          "gata" to "g",
-          "gatan" to "g",
-          "gränd" to "gr",
-          "gränden" to "gr",
-          "lilla" to "l",
-          "norra" to "n",
-          "östra" to "ö",
-          "södra" to "s",
-          "stig" to "st",
-          "stora" to "st",
-          "västra" to "v",
-        ),
-      ),
       "SK" to mapOf(
         "road" to mapOf(
           "Armádneho generála" to "Arm. gen",
@@ -524,6 +509,21 @@ internal val abbreviations: Map<String, Map<String, Map<String, String>>> = mapO
           "Zgornji" to "Zg",
         ),
       ),
+      "SV" to mapOf(
+        "road" to mapOf(
+          "gata" to "g",
+          "gatan" to "g",
+          "gränd" to "gr",
+          "gränden" to "gr",
+          "lilla" to "l",
+          "norra" to "n",
+          "östra" to "ö",
+          "södra" to "s",
+          "stig" to "st",
+          "stora" to "st",
+          "västra" to "v",
+        ),
+      ),
       "TR" to mapOf(
         "road" to mapOf(
           "Bulvar" to "Bl",
@@ -546,7 +546,7 @@ internal val abbreviations: Map<String, Map<String, Map<String, String>>> = mapO
           "вулиця" to "вул",
         ),
       ),
-      "VN" to mapOf(
+      "VI" to mapOf(
         "road" to mapOf(
           "Công trường" to "CT",
           "Đại lộ" to "ĐL",
