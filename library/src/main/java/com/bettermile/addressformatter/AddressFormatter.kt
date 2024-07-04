@@ -26,9 +26,6 @@ import com.bettermile.addressformatter.generated.countyCodes
 import com.bettermile.addressformatter.generated.stateCodes
 import com.github.mustachejava.DefaultMustacheFactory
 import com.github.mustachejava.MustacheFactory
-import org.json.JSONException
-import org.json.JSONObject
-import java.io.IOException
 import java.io.StringReader
 import java.io.StringWriter
 import java.util.function.Function
@@ -48,20 +45,9 @@ class AddressFormatter @JvmOverloads constructor(
     }
 
     @JvmOverloads
-    @Throws(IOException::class)
-    fun format(json: String, fallbackCountryCode: String? = null): String {
-        val components: Map<String, String> = try {
-            val jsonObject = JSONObject(json)
-            jsonObject.keys().asSequence().associateWith { jsonObject[it].toString() }
-        } catch (e: JSONException) {
-            throw IOException("Json processing exception", e)
-        }
-        return format(components, fallbackCountryCode)
-    }
-
-    @JvmOverloads
-    fun format(components: Map<String, String>, fallbackCountryCode: String? = null): String {
-        var mutableComponents: MutableMap<String, String> = components.toMutableMap()
+    fun format(components: Map<String, Any>, fallbackCountryCode: String? = null): String {
+        var mutableComponents: MutableMap<String, String> =
+            components.mapValuesTo(mutableMapOf()) { it.value.toString() }
         mutableComponents = mutableComponents.normalizeFields()
         mutableComponents = determineCountryCode(mutableComponents, fallbackCountryCode)
         val countryCode = requireNotNull(mutableComponents["country_code"])

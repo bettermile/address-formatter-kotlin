@@ -24,7 +24,6 @@ import org.junit.Test
 import org.junit.experimental.runners.Enclosed
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import java.io.IOException
 
 @RunWith(Enclosed::class)
 class AddressFormatterTest {
@@ -58,35 +57,20 @@ class AddressFormatterTest {
 
     class SingleTests {
         @Test
-        fun dealsWithEmptyStringCorrectly() {
-            val json = ""
-            val error = Assert.assertThrows(IOException::class.java) { formatter.format(json) }
-            Assert.assertEquals("Json processing exception", error.message)
-        }
-
-        @Test
-        fun dealsWithImproperlyFormatterJsonCorrectly() {
-            val json = "{"
-            val error = Assert.assertThrows(IOException::class.java) { formatter.format(json) }
-            Assert.assertEquals("Json processing exception", error.message)
-        }
-
-        @Test
-        @Throws(Exception::class)
         fun correctlySetsFallbackCountryCode() {
-            val json = """
-                {city: 'Antwerp',
-                city_district: 'Antwerpen',
-                country: 'Belgium',
-                country_code: 'yu',
-                county: 'Antwerp',
-                house_number: 63,
-                neighbourhood: 'Sint-Andries',
-                postcode: 2000,
-                restaurant: 'Meat & Eat',
-                road: 'Vrijheidstraat',
-                state: 'Flanders'}
-                """.trimIndent()
+            val json = mapOf(
+                "city" to "Antwerp",
+                "city_district" to "Antwerpen",
+                "country" to "Belgium",
+                "country_code" to "yu",
+                "county" to "Antwerp",
+                "house_number" to 63,
+                "neighbourhood" to "Sint-Andries",
+                "postcode" to 2000,
+                "restaurant" to "Meat & Eat",
+                "road" to "Vrijheidstraat",
+                "state" to "Flanders",
+            )
             val formatted = formatter.format(json, "US")
             Assert.assertEquals(
                 """
@@ -101,18 +85,17 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun correctlyAppendsCountry() {
-            val json = """
-                {houseNumber: '301',
-                road: 'Hamilton Avenue',
-                neighbourhood: 'Crescent Park',
-                city: 'Palo Alto',
-                postcode: '94303',
-                county: 'Santa Clara County',
-                state: 'California',
-                countryCode: 'US',}
-                """.trimIndent()
+            val json = mapOf(
+                "houseNumber" to "301",
+                "road" to "Hamilton Avenue",
+                "neighbourhood" to "Crescent Park",
+                "city" to "Palo Alto",
+                "postcode" to "94303",
+                "county" to "Santa Clara County",
+                "state" to "California",
+                "countryCode" to "US",
+            )
             val formatted = formatterWithAppendCountryFlag.format(json)
             Assert.assertEquals(
                 """
@@ -126,19 +109,18 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun correctlyAbbreviatesAvenue() {
-            val json = """
-                {country_code: 'US',
-                house_number: '301',
-                road: 'Hamilton Avenue',
-                neighbourhood: 'Crescent Park',
-                city: 'Palo Alto',
-                postcode: '94303',
-                county: 'Santa Clara County',
-                state: 'California',
-                country: 'United States',}
-                """.trimIndent()
+            val json = mapOf(
+                "country_code" to "US",
+                "house_number" to "301",
+                "road" to "Hamilton Avenue",
+                "neighbourhood" to "Crescent Park",
+                "city" to "Palo Alto",
+                "postcode" to "94303",
+                "county" to "Santa Clara County",
+                "state" to "California",
+                "country" to "United States",
+            )
             val formatted = formatterWithAbbreviationFlag.format(json)
             Assert.assertEquals(
                 """
@@ -152,19 +134,18 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun correctlyAbbreviatesRoad() {
-            val json = """
-                {country_code: 'US',
-                house_number: '301',
-                road: 'Northwestern University Road',
-                neighbourhood: 'Crescent Park',
-                city: 'Palo Alto',
-                postcode: '94303',
-                county: 'Santa Clara County',
-                state: 'California',
-                country: 'United States'}
-                """.trimIndent()
+            val json = mapOf(
+                "country_code" to "US",
+                "house_number" to "301",
+                "road" to "Northwestern University Road",
+                "neighbourhood" to "Crescent Park",
+                "city" to "Palo Alto",
+                "postcode" to "94303",
+                "county" to "Santa Clara County",
+                "state" to "California",
+                "country" to "United States",
+            )
             val formatted = formatterWithAbbreviationFlag.format(json)
             Assert.assertEquals(
                 """
@@ -178,18 +159,17 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun doesNotAbbreviateWhenComponentNotPresent() {
-            val json = """
-                {country_code: 'US',
-                house_number: '301',
-                neighbourhood: 'Crescent Park',
-                city: 'Palo Alto',
-                postcode: '94303',
-                county: 'Santa Clara County',
-                state: 'California',
-                country: 'United States'}
-                """.trimIndent()
+            val json = mapOf(
+                "country_code" to "US",
+                "house_number" to "301",
+                "neighbourhood" to "Crescent Park",
+                "city" to "Palo Alto",
+                "postcode" to "94303",
+                "county" to "Santa Clara County",
+                "state" to "California",
+                "country" to "United States",
+            )
             val formatted = formatterWithAbbreviationFlag.format(json)
             Assert.assertEquals(
                 """
@@ -203,18 +183,17 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun correctlyAbbreviatesCAAvenue() {
-            val json = """
-                {city: 'Vancouver',
-                country: 'Canada',
-                country_code: 'ca',
-                county: 'Greater Vancouver Regional District',
-                postcode: 'V6K',
-                road: 'Cornwall Avenue',
-                state: 'British Columbia',
-                suburb: 'Kitsilano',}
-                """.trimIndent()
+            val json = mapOf(
+                "city" to "Vancouver",
+                "country" to "Canada",
+                "country_code" to "ca",
+                "county" to "Greater Vancouver Regional District",
+                "postcode" to "V6K",
+                "road" to "Cornwall Avenue",
+                "state" to "British Columbia",
+                "suburb" to "Kitsilano",
+            )
             val formatted = formatterWithAbbreviationFlag.format(json)
             Assert.assertEquals(
                 """
@@ -228,21 +207,20 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun correctlyAbbreviatesESCarrer() {
-            val json = """
-                {city: 'Barcelona',
-                city_district: 'Sarrià - Sant Gervasi',
-                country: 'Spain',
-                country_code: 'es',
-                county: 'BCN',
-                house_number: '68',
-                neighbourhood: 'Sant Gervasi',
-                postcode: '08017',
-                road: 'Carrer de Calatrava',
-                state: 'Catalonia',
-                suburb: 'les Tres Torres'}
-                """.trimIndent()
+            val json = mapOf(
+                "city" to "Barcelona",
+                "city_district" to "Sarrià - Sant Gervasi",
+                "country" to "Spain",
+                "country_code" to "es",
+                "county" to "BCN",
+                "house_number" to "68",
+                "neighbourhood" to "Sant Gervasi",
+                "postcode" to "08017",
+                "road" to "Carrer de Calatrava",
+                "state" to "Catalonia",
+                "suburb" to "les Tres Torres",
+            )
             val formatted = formatterWithAbbreviationFlag.format(json)
             Assert.assertEquals(
                 """
@@ -256,22 +234,21 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun camelCaseWorks() {
-            val json = """
-                {city: 'Budapest',
-                cityDistrict: '1. kerület',
-                country: 'Hungary',
-                countryCode: 'hu',
-                county: 'Budapesti kistérség',
-                houseNumber: 11,
-                neighbourhood: 'Naphegy',
-                postcode: 1111,
-                road: 'Dezső utca',
-                state: 'Közép-Magyarország',
-                stateDistrict: 'Central Hungary',
-                suburb: 'Krisztinaváros'}
-                """.trimIndent()
+            val json = mapOf(
+                "city" to "Budapest",
+                "cityDistrict" to "1. kerület",
+                "country" to "Hungary",
+                "countryCode" to "hu",
+                "county" to "Budapesti kistérség",
+                "houseNumber" to 11,
+                "neighbourhood" to "Naphegy",
+                "postcode" to 1111,
+                "road" to "Dezső utca",
+                "state" to "Közép-Magyarország",
+                "stateDistrict" to "Central Hungary",
+                "suburb" to "Krisztinaváros",
+            )
             val formatted = formatter.format(json)
             Assert.assertEquals(
                 """
@@ -285,22 +262,21 @@ class AddressFormatterTest {
         }
 
         @Test
-        @Throws(Exception::class)
         fun useReplacementFormat() {
-            val json = """
-                {city: 'Budapest',
-                cityDistrict: '1. kerület',
-                country: 'Hungary',
-                countryCode: 'hu',
-                county: 'Budapesti kistérség',
-                houseNumber: 11,
-                neighbourhood: 'Naphegy',
-                postcode: 1111,
-                road: 'Dezső utca',
-                state: 'Közép-Magyarország',
-                stateDistrict: 'Central Hungary',
-                suburb: 'Krisztinaváros'}
-                """.trimIndent()
+            val json = mapOf(
+                "city" to "Budapest",
+                "cityDistrict" to "1. kerület",
+                "country" to "Hungary",
+                "countryCode" to "hu",
+                "county" to "Budapesti kistérség",
+                "houseNumber" to 11,
+                "neighbourhood" to "Naphegy",
+                "postcode" to 1111,
+                "road" to "Dezső utca",
+                "state" to "Közép-Magyarország",
+                "stateDistrict" to "Central Hungary",
+                "suburb" to "Krisztinaváros",
+            )
             val replacements = mapOf("HU" to "{{country}}, {{house_number}}:{{postcode}}")
             val formatted =
                 AddressFormatter(abbreviate = false, appendCountry = false, replacementFormats = replacements)
