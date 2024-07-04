@@ -1,4 +1,5 @@
 /*
+ * Copyright (c) 2020 Pirbright Software
  * Copyright 2022 GLS eCom Lab GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,30 +15,13 @@
  * limitations under the License.
  */
 
-plugins {
-    kotlin("jvm")
-    application
-}
+package com.bettermile.addressformatter
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
+internal class RegexPatternCache {
+    private val map: MutableMap<String, Regex> = hashMapOf()
 
-application {
-    mainClass.set("com.bettermile.addressformatter.yamlconverter.Transpiler")
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.yaml)
-    implementation(libs.kotlinpoet)
-}
-
-tasks.run.configure {
-    workingDir = rootDir
+    operator fun get(
+        key: String,
+        vararg regexOptions: RegexOption,
+        ): Regex = map.computeIfAbsent(key) { Regex(it, regexOptions.toSet()) }
 }
