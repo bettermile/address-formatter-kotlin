@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 GLS eComLab
+ * Copyright 2022 GLS eCom Lab GmbH
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ inline fun generatedFileSpec(
     return FileSpec.builder(packageName = packageName, fileName = fileName)
         .addFileComment(
             """
-            Copyright 2022 GLS eComLab
+            Copyright 2022 GLS eCom Lab GmbH
            
             Licensed under the Apache License, Version 2.0 (the "License");
             you may not use this file except in compliance with the License.
