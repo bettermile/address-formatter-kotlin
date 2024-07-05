@@ -14,30 +14,19 @@
  * limitations under the License.
  */
 
-plugins {
-    kotlin("jvm")
-    application
-}
+package com.bettermile.addressformatter
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-application {
-    mainClass.set("com.bettermile.addressformatter.yamlconverter.Transpiler")
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.yaml)
-    implementation(libs.kotlinpoet)
-}
-
-tasks.run.configure {
-    workingDir = rootDir
+internal data class CountryFormat(
+    val addressTemplate: String? = null,
+    val fallbackTemplate: String? = null,
+    val replace: List<Replace> = emptyList(),
+    val postformatReplace: List<Replace> = emptyList(),
+    val useCountry: String? = null,
+    val changeCountry: String? = null,
+    val addComponent: String? = null,
+) {
+    data class Replace(
+        val search: String,
+        val replacement: String,
+    )
 }

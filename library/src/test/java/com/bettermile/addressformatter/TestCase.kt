@@ -14,30 +14,11 @@
  * limitations under the License.
  */
 
-plugins {
-    kotlin("jvm")
-    application
-}
+package com.bettermile.addressformatter
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
-application {
-    mainClass.set("com.bettermile.addressformatter.yamlconverter.Transpiler")
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.yaml)
-    implementation(libs.kotlinpoet)
-}
-
-tasks.run.configure {
-    workingDir = rootDir
-}
+data class TestCase(
+    val components: Map<String, String>,
+    val expected: String,
+    val description: String,
+    val fileName: String,
+)

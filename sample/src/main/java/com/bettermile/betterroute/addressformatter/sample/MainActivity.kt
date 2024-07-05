@@ -39,7 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.LocaleList
 import androidx.compose.ui.unit.dp
-import net.placemarkt.AddressFormatter
+import com.bettermile.addressformatter.AddressFormatter
 
 class MainActivity : ComponentActivity() {
     private val addressFormatter = AddressFormatter(false, false)
