@@ -1,4 +1,5 @@
 [versions]
+dokka = "1.9.20"
 jackson = "2.17.2"
 kotlin = "2.0.0"
 kotlinpoet = "1.18.0"
@@ -14,3 +15,6 @@ jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-y
 kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 mustache = { module = "com.github.spullara.mustache.java:compiler", version.ref = "mustache" }
+
+[plugins]
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
