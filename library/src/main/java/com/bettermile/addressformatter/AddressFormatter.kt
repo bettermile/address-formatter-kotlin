@@ -32,7 +32,7 @@ import java.util.function.Function
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
-class AddressFormatter @JvmOverloads constructor(
+class AddressFormatter(
     private val abbreviate: Boolean,
     private val appendCountry: Boolean,
 ) {
