@@ -32,17 +32,10 @@ import java.util.function.Function
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
-class AddressFormatter @JvmOverloads constructor(
+class AddressFormatter(
     private val abbreviate: Boolean,
     private val appendCountry: Boolean,
-    private val replacementFormats: Map<String, String> = emptyMap(),
 ) {
-
-    init {
-        replacementFormats.keys.forEach {
-            require(!invalidCountryCode(it)) { "$it is no valid country code" }
-        }
-    }
 
     @JvmOverloads
     fun format(components: Map<String, Any>, fallbackCountryCode: String? = null): String {
@@ -242,13 +235,7 @@ class AddressFormatter @JvmOverloads constructor(
     private fun findTemplate(components: Map<String, String>): CountryFormat {
         val countryCode = components["country_code"]
         return if (countryCode != null && Worldwide.countries.containsKey(countryCode)) {
-            val replacementFormat = replacementFormats[countryCode]
-            Worldwide.countries.getValue(countryCode).value.let { template ->
-                when (replacementFormat) {
-                    null -> template
-                    else -> template.copy(addressTemplate = replacementFormat)
-                }
-            }
+            Worldwide.countries.getValue(countryCode).value
         } else {
             Worldwide.default
         }

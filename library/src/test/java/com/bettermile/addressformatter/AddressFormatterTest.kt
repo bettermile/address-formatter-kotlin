@@ -261,35 +261,6 @@ class AddressFormatterTest {
             )
         }
 
-        @Test
-        fun useReplacementFormat() {
-            val json = mapOf(
-                "city" to "Budapest",
-                "cityDistrict" to "1. kerület",
-                "country" to "Hungary",
-                "countryCode" to "hu",
-                "county" to "Budapesti kistérség",
-                "houseNumber" to 11,
-                "neighbourhood" to "Naphegy",
-                "postcode" to 1111,
-                "road" to "Dezső utca",
-                "state" to "Közép-Magyarország",
-                "stateDistrict" to "Central Hungary",
-                "suburb" to "Krisztinaváros",
-            )
-            val replacements = mapOf("HU" to "{{country}}, {{house_number}}:{{postcode}}")
-            val formatted =
-                AddressFormatter(abbreviate = false, appendCountry = false, replacementFormats = replacements)
-                    .format(json)
-            Assert.assertEquals("Hungary, 11:1111\n", formatted)
-        }
-
-        @Test(expected = IllegalArgumentException::class)
-        fun failOnInvalidCountryCodeInReplacements() {
-            val replacements = mapOf("ZZ" to "{{country}}, {{house_number}}:{{postcode}}")
-            AddressFormatter(abbreviate = false, appendCountry = false, replacementFormats = replacements)
-        }
-
         companion object {
             lateinit var formatter: AddressFormatter
             lateinit var formatterWithAppendCountryFlag: AddressFormatter
