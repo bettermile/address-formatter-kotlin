@@ -23,3 +23,7 @@ buildscript {
         classpath(libs.kotlin.gradle)
     }
 }
+
+plugins {
+    alias(libs.plugins.dokka) apply false
+}

@@ -10,7 +10,7 @@ addresses.
 This library has only the [kotlin standard library](https://kotlinlang.org/) and 
 [Mustache.java](https://github.com/spullara/mustache.java) (needed to format the address template) as dependencies.
 
-For Java 8 and above.
+For Java 11 and above.
 
 ### Installation
 

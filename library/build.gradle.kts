@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
+import org.jetbrains.dokka.gradle.DokkaTask
+
 plugins {
     kotlin("jvm")
+    alias(libs.plugins.dokka)
     `maven-publish`
 }
 
@@ -31,6 +34,19 @@ dependencies {
 
 kotlin {
     jvmToolchain(11)
+}
+
+val sourcesJar by tasks.register<Jar>("sourcesJar") {
+    group = "publishing"
+    from(sourceSets.main.get().java.srcDirs)
+    archiveClassifier.set("sources")
+}
+
+val dokkaJavadocJar by tasks.register<Jar>("dokkaJavadocJar") {
+    group = "publishing"
+    dependsOn(tasks.dokkaJavadoc)
+    from(tasks.dokkaJavadoc.flatMap(DokkaTask::outputDirectory))
+    archiveClassifier.set("javadoc")
 }
 
 afterEvaluate {
@@ -49,6 +65,8 @@ afterEvaluate {
                 artifactId = "address-formatter-android"
                 version = "0.1.8"
                 from(components["kotlin"])
+                artifact(sourcesJar)
+                artifact(dokkaJavadocJar)
             }
         }
     }
