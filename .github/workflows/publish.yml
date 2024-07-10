@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v4.2.1
         with:
           distribution: 'temurin'
-          java-version: 17
+          java-version: 11
 
       - name: Publish on GitHub Packages
         run: ./gradlew publish

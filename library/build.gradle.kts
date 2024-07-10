@@ -15,46 +15,22 @@
  */
 
 plugins {
-    id("com.android.library")
-    kotlin("android")
+    kotlin("jvm")
     `maven-publish`
 }
 
-android {
-    compileSdk = libs.versions.android.sdk.get().toInt()
-
-    defaultConfig {
-        minSdk = 24 // could maybe be lower
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        allWarningsAsErrors = true
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
-    namespace = "net.placemarkt"
-}
-
 repositories {
-    google()
     mavenCentral()
 }
 
 dependencies {
     implementation(libs.mustache)
 
-    testImplementation(libs.jackson.core)
-    testImplementation(libs.jackson.yaml)
-    testImplementation(libs.orgjson)
     testImplementation(libs.kotlin.test.junit)
+}
+
+kotlin {
+    jvmToolchain(11)
 }
 
 afterEvaluate {
@@ -72,7 +48,7 @@ afterEvaluate {
                 groupId = "com.bettermile.betterroute"
                 artifactId = "address-formatter-android"
                 version = "0.1.8"
-                from(components["release"])
+                from(components["kotlin"])
             }
         }
     }

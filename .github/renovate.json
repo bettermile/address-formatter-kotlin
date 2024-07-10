@@ -44,14 +44,6 @@
       "addLabels": [
         "git_submodules"
       ]
-    },
-    {
-      "matchSourceUrlPrefixes": ["https://github.com/JetBrains/kotlin"],
-      "groupName": "Kotlin & Compose compiler"
-    },
-    {
-      "matchPackageNames": ["androidx.compose.compiler:compiler"],
-      "groupName": "Kotlin & Compose compiler"
     }
   ]
 }
