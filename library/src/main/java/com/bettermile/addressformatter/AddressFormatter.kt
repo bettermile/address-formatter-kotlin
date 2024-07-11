@@ -32,11 +32,49 @@ import java.util.function.Function
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
+/**
+ * Formatter for addresses. The address format [String]s come from the
+ * [OpenCage repository](https://github.com/OpenCageData/address-formatting/).
+ *
+ * Example:
+ * ```kotlin
+ * val formatter = AddressFormatter(abbreviate = false, appendCountry = false)
+ * val components = mapOf(
+ *     "country_code" to "US",
+ *     "house_number" to "301",
+ *     "road" to "Hamilton Avenue",
+ *     "neighbourhood" to "Crescent Park",
+ *     "city" to "Palo Alto",
+ *     "postcode" to "94303",
+ *     "county" to "Santa Clara County",
+ *     "state" to "California",
+ *     "country" to "United States",
+ * )
+ * println(formatter.format(components))
+ * /*
+ * 301 Hamilton Avenue
+ * Palo Alto, CA 94303
+ * United States of America
+ * */
+ * ```
+ *
+ * @param abbreviate use abbreviation rules to abbreviate components depending on the country code of the address
+ * @param appendCountry
+ *  add the country name to the components depending on the country code, when it's not already in it
+ */
 class AddressFormatter(
     private val abbreviate: Boolean,
     private val appendCountry: Boolean,
 ) {
 
+    /**
+     * Formats the [components] to an address. The formatting [String] will be inferred by the `country_code` value in
+     * the [components] [Map]. If this can't be found, the [fallbackCountryCode] will be used. If this is `null` or no
+     * supported country code, the default formatting [String] will be used.
+     *
+     * @param components address components that are used in the formatted address
+     * @param fallbackCountryCode used, when no country code could be found in [components]
+     */
     @JvmOverloads
     fun format(components: Map<String, Any>, fallbackCountryCode: String? = null): String {
         var mutableComponents: MutableMap<String, String> =
