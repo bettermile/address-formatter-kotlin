@@ -773,6 +773,9 @@ internal object Worldwide {
         "CZ" to lazy {
           CountryFormat(
             addressTemplate = generic1,
+            replace = listOf(
+              CountryFormat.Replace(search = "^Capital City of ", replacement = ""),
+            ),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
