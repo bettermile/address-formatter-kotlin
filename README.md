@@ -20,7 +20,7 @@ Gradle (Kotlin)
 
 ```kotlin
 dependencies {
-    implementation("com.bettermile:address-formatter-kotlin:0.1.8")
+    implementation("com.bettermile:address-formatter-kotlin:0.2.0")
 }
 ```
 
@@ -28,7 +28,7 @@ Gradle (Groovy)
 
 ```groovy
 dependencies {
-    implementation 'com.bettermile:address-formatter-kotlin:0.1.8'
+    implementation 'com.bettermile:address-formatter-kotlin:0.2.0'
 }
 ```
 
@@ -38,7 +38,7 @@ Maven
 <dependency>
   <groupId>com.bettermile</groupId>
   <artifactId>address-formatter-kotlin</artifactId>
-  <version>0.1.8</version>
+  <version>0.2.0</version>
 </dependency> 
 ```
 
