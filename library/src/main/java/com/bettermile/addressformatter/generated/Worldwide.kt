@@ -795,7 +795,7 @@ internal object Worldwide {
             |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{archipelago}}}
-            |{{{country}}}    
+            |{{{country}}}
             |""".trimMargin(),
             fallbackTemplate = """
             |{{{attention}}}
@@ -1565,7 +1565,7 @@ internal object Worldwide {
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{/first}} {{{postcode}}}
+            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
             |{{{state}}}
             |{{{country}}}
             |""".trimMargin(),
@@ -2044,7 +2044,7 @@ internal object Worldwide {
             addressTemplate = """
             |{{{attention}}}
             |{{{house}}}
-            |{{{house_number}}} {{{road}}}, {{#first}} {{{suburb}}}, || {{{city_district}}}, || {{{neighbourhood}}}, {{/first}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
+            |{{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
             |{{{postcode}}} {{#first}} {{{municipality}}} {{{region}}} {{{state}}} {{/first}}
             |{{{country}}}
             |""".trimMargin(),
