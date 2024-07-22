@@ -4198,6 +4198,21 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ph",
       ),
       TestCase(
+        components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.",
+            "city" to "Mandaluyong", "postcode" to "1550",
+            "city_district" to "Wack-wack Greenhills", "county" to "Fifth District",
+            "country" to "Philippines", "country_code" to "PH", "attention" to "Mr. Juan Maliksi",
+            "state" to "Metro Manila"),
+        expected = """
+        |Mr. Juan Maliksi
+        |121 Epifanio Delos Santos Ave., Wack-wack Greenhills, Mandaluyong
+        |1550 Metro Manila
+        |Philippines
+        |""".trimMargin(),
+        description = "address - city_district instead of suburb",
+        fileName = "countries - ph",
+      ),
+      TestCase(
         components = mapOf("building" to "Avari Beach Luxury Hotel", "city" to "Karachi",
             "country" to "Pakistan", "country_code" to "pk", "county" to "Karachi District",
             "postcode" to "75000", "road" to "Khan Road", "state" to "Sindh",
