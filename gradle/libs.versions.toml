@@ -1,7 +1,7 @@
 [versions]
 dokka = "1.9.20"
 jackson = "2.17.2"
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 kotlinpoet = "1.18.1"
 mustache = "0.9.14"
 
