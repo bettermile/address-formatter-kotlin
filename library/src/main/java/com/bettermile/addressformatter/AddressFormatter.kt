@@ -354,7 +354,7 @@ class AddressFormatter(
             .joinToString(separator = "\n")
     }
 
-    companion object {
+    private companion object {
         private val regexPatternCache = RegexPatternCache()
         private val uppercaseRegex = "[A-Z]".toRegex()
         private val smallDistrictCounties =
