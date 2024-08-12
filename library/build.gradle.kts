@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-import org.jetbrains.dokka.gradle.DokkaTask
+import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     kotlin("jvm")
     alias(libs.plugins.dokka)
-    `maven-publish`
+    alias(libs.plugins.maven.publish)
 }
 
 repositories {
@@ -36,37 +36,38 @@ kotlin {
     jvmToolchain(11)
 }
 
-val sourcesJar by tasks.register<Jar>("sourcesJar") {
-    group = "publishing"
-    from(sourceSets.main.get().java.srcDirs)
-    archiveClassifier.set("sources")
-}
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
+    val signReleaseEnabled = project.properties["signReleaseEnabled"]
+    if (signReleaseEnabled == "true") {
+        signAllPublications()
+    }
 
-val dokkaJavadocJar by tasks.register<Jar>("dokkaJavadocJar") {
-    group = "publishing"
-    dependsOn(tasks.dokkaJavadoc)
-    from(tasks.dokkaJavadoc.flatMap(DokkaTask::outputDirectory))
-    archiveClassifier.set("javadoc")
-}
+    coordinates("com.bettermile", "address-formatter-kotlin", "0.3.0")
 
-afterEvaluate {
-    publishing {
-        repositories.maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/bettermile/address-formatter-kotlin")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR")
-                password = System.getenv("GITHUB_TOKEN")
+    pom {
+        name.set("Address Formatter Kotlin")
+        packaging = "jar"
+        description.set("An address components formatter for Kotlin")
+        url.set("https://github.com/bettermile/address-formatter-kotlin")
+        scm {
+            url.set("https://github.com/bettermile/address-formatter-kotlin")
+            connection.set("scm:git:git://github.com/bettermile/address-formatter-kotlin.git")
+            developerConnection.set("scm:git:ssh://github.com/bettermile/address-formatter-kotlin.git")
+            tag.set(System.getenv("VCS_TAG"))
+        }
+        licenses {
+            license {
+                name.set("The Apache Software License, Version 2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                distribution.set("repo")
             }
         }
-        publications {
-            create<MavenPublication>("addressFormatter") {
-                groupId = "com.bettermile"
-                artifactId = "address-formatter-kotlin"
-                version = "0.2.0"
-                from(components["kotlin"])
-                artifact(sourcesJar)
-                artifact(dokkaJavadocJar)
+        developers {
+            developer {
+                email.set("app+maven@bettermile.com")
+                organization.set("Bettermile")
+                organizationUrl.set("https://bettermile.com/")
             }
         }
     }
