@@ -2164,6 +2164,20 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
+        components = mapOf("city" to "London", "country" to "United Kingdom",
+            "country_code" to "gb", "house" to "St. Judes & St. Pauls C of E (Va) Primary School",
+            "house_number" to "10", "postcode" to "N1 4AZ", "road" to "Kingsbury Road"),
+        expected = """
+        |St. Judes & St. Pauls C of E (Va) Primary School
+        |10 Kingsbury Road
+        |London
+        |N1 4AZ
+        |United Kingdom
+        |""".trimMargin(),
+        description = "place name with & in name",
+        fileName = "countries - gb",
+      ),
+      TestCase(
         components = mapOf("bank" to "Republic Bank Grenada", "city" to "St. George's",
             "country" to "Grenada", "country_code" to "gd", "road" to "Bruce Street",
             "suburb" to "Belmont"),
