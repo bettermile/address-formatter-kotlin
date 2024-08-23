@@ -172,9 +172,9 @@ internal object Worldwide {
       {{{country}}}"""
 
   private const val generic23: String = """{{{attention}}}
-      {{house}}
+      {{{house}}}
       {{{house_number}}} {{{road}}}
-      {{quarter}}
+      {{{quarter}}}
       {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
       {{{postcode}}}
       {{#first}} {{{country}}} || {{{state}}} {{/first}}"""
