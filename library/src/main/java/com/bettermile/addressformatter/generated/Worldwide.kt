@@ -465,7 +465,7 @@ internal object Worldwide {
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{hamlet}}{{/first}}
+            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{{hamlet}}}{{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
@@ -2364,7 +2364,7 @@ internal object Worldwide {
             fallbackTemplate = """
             |{{{attention}}}
             |{{{house_number}}} {{{road}}}
-            |{{quarter}}
+            |{{{quarter}}}
             |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
             |{{{island}}}
             |{{{country}}}
