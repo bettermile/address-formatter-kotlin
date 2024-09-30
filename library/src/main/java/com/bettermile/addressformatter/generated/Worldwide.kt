@@ -1312,6 +1312,13 @@ internal object Worldwide {
         "IN" to lazy {
           CountryFormat(
             addressTemplate = generic12,
+            postformatReplace = listOf(
+              CountryFormat.Replace(search = """
+                | -
+                |""".trimMargin(), replacement = """
+                |
+                |""".trimMargin()),
+            ),
           )
         },
         "IO" to lazy {
