@@ -2676,6 +2676,18 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - in",
       ),
       TestCase(
+        components = mapOf("city" to "Pune", "country" to "India", "country_code" to "in",
+            "road" to "Baner", "state" to "Maharashtra"),
+        expected = """
+        |Baner
+        |Pune
+        |Maharashtra
+        |India
+        |""".trimMargin(),
+        description = "without postcode",
+        fileName = "countries - in",
+      ),
+      TestCase(
         components = mapOf("country" to "British Indian Ocean Territory", "country_code" to "io",
             "road" to "DG1", "village" to "Seabreeze Village"),
         expected = """
