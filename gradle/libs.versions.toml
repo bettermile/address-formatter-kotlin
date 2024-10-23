@@ -2,7 +2,7 @@
 dokka = "1.9.20"
 jackson = "2.18.0"
 kotlin = "2.0.21"
-kotlinpoet = "1.18.1"
+kotlinpoet = "2.0.0"
 maven-publish = "0.30.0"
 mustache = "0.9.14"
 

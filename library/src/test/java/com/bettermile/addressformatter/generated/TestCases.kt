@@ -20,10 +20,7 @@ import kotlin.collections.List
 
 public val testCases: List<TestCase> = listOf(
       TestCase(
-        components = mapOf("country" to "Andorra", "country_code" to "ad",
-            "county" to "Andorra la Vella", "house_number" to "88",
-            "neighbourhood" to "Centre històric", "postcode" to "AD500",
-            "road" to "Avinguda Meritxell", "town" to "Andorra la Vella"),
+        components = mapOf("country" to "Andorra", "country_code" to "ad", "county" to "Andorra la Vella", "house_number" to "88", "neighbourhood" to "Centre històric", "postcode" to "AD500", "road" to "Avinguda Meritxell", "town" to "Andorra la Vella"),
         expected = """
         |88 Avinguda Meritxell
         |AD500 Andorra la Vella
@@ -33,9 +30,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ad",
       ),
       TestCase(
-        components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates",
-            "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277",
-            "road" to "28th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City"),
+        components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates", "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277", "road" to "28th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City"),
         expected = """
         |L'Arabia hotel
         |28th Street
@@ -47,9 +42,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ae",
       ),
       TestCase(
-        components = mapOf("city" to "أبو ظبي", "country" to "الإمارات العربية المتحدة",
-            "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277",
-            "road" to "28th Street", "state" to "أبو ظبي", "suburb" to "Police Officers City"),
+        components = mapOf("city" to "أبو ظبي", "country" to "الإمارات العربية المتحدة", "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277", "road" to "28th Street", "state" to "أبو ظبي", "suburb" to "Police Officers City"),
         expected = """
         |L'Arabia hotel
         |28th Street
@@ -61,9 +54,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ae",
       ),
       TestCase(
-        components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates",
-            "country_code" to "ae", "postcode" to "277", "restaurant" to "Pizza Hut",
-            "road" to "8th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City"),
+        components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates", "country_code" to "ae", "postcode" to "277", "restaurant" to "Pizza Hut", "road" to "8th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City"),
         expected = """
         |Pizza Hut
         |8th Street
@@ -75,10 +66,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ae",
       ),
       TestCase(
-        components = mapOf("city" to "Dubai", "country" to "United Arab Emirates",
-            "country_code" to "ae", "hospital" to "Thumbay Hospital", "postcode" to "47602",
-            "residential" to "Al Qusais 1", "road" to "Street 4", "state" to "Dubai",
-            "suburb" to "Al Qusais 1"),
+        components = mapOf("city" to "Dubai", "country" to "United Arab Emirates", "country_code" to "ae", "hospital" to "Thumbay Hospital", "postcode" to "47602", "residential" to "Al Qusais 1", "road" to "Street 4", "state" to "Dubai", "suburb" to "Al Qusais 1"),
         expected = """
         |Thumbay Hospital
         |Street 4
@@ -90,9 +78,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ae",
       ),
       TestCase(
-        components = mapOf("country" to "United Arab Emirates", "country_code" to "ae",
-            "postcode" to "0448", "state" to "Dubai",
-            "suburb" to "International Media Production Zone"),
+        components = mapOf("country" to "United Arab Emirates", "country_code" to "ae", "postcode" to "0448", "state" to "Dubai", "suburb" to "International Media Production Zone"),
         expected = """
         |International Media Production Zone
         |Dubai
@@ -102,9 +88,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ae",
       ),
       TestCase(
-        components = mapOf("building" to "Kandahar Institute of Health Sciences",
-            "city" to "Kandahar", "country" to "Afghanistan", "country_code" to "af",
-            "road" to "Kandahar-Herat Highway", "state" to "Kandahar"),
+        components = mapOf("building" to "Kandahar Institute of Health Sciences", "city" to "Kandahar", "country" to "Afghanistan", "country_code" to "af", "road" to "Kandahar-Herat Highway", "state" to "Kandahar"),
         expected = """
         |Kandahar Institute of Health Sciences
         |Kandahar-Herat Highway
@@ -115,9 +99,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - af",
       ),
       TestCase(
-        components = mapOf("bank" to "Scotiabank", "country" to "Antigua and Barbuda",
-            "country_code" to "ag", "postcode" to "Anu", "road" to "High Street",
-            "town" to "St. John's"),
+        components = mapOf("bank" to "Scotiabank", "country" to "Antigua and Barbuda", "country_code" to "ag", "postcode" to "Anu", "road" to "High Street", "town" to "St. John's"),
         expected = """
         |Scotiabank
         |High Street
@@ -128,9 +110,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ag",
       ),
       TestCase(
-        components = mapOf("building" to "Department Of Lands And Surveys", "country" to "Anguilla",
-            "country_code" to "ai", "postcode" to "AI-2640", "road" to "The Valley Road",
-            "town" to "The Valley"),
+        components = mapOf("building" to "Department Of Lands And Surveys", "country" to "Anguilla", "country_code" to "ai", "postcode" to "AI-2640", "road" to "The Valley Road", "town" to "The Valley"),
         expected = """
         |Department Of Lands And Surveys
         |The Valley Road
@@ -141,9 +121,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ai",
       ),
       TestCase(
-        components = mapOf("bank" to "Raiffeisen Bank", "city" to "Tiranë", "country" to "Albania",
-            "country_code" to "al", "county" to "Tiranë", "postcode" to "1001",
-            "road" to "Papa Gjon Pali II"),
+        components = mapOf("bank" to "Raiffeisen Bank", "city" to "Tiranë", "country" to "Albania", "country_code" to "al", "county" to "Tiranë", "postcode" to "1001", "road" to "Papa Gjon Pali II"),
         expected = """
         |Raiffeisen Bank
         |Papa Gjon Pali II
@@ -154,11 +132,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - al",
       ),
       TestCase(
-        components = mapOf("city_district" to "Tiranë", "country" to "Albania",
-            "country_code" to "al", "county" to "Tirana County",
-            "kindergarten" to "Kopështi nr. 18", "municipality" to "Tirana Municipality",
-            "road" to "Rruga Dalip Zavalani", "state" to "Central Albania",
-            "suburb" to "Njësia Bashkiake Nr. 2"),
+        components = mapOf("city_district" to "Tiranë", "country" to "Albania", "country_code" to "al", "county" to "Tirana County", "kindergarten" to "Kopështi nr. 18", "municipality" to "Tirana Municipality", "road" to "Rruga Dalip Zavalani", "state" to "Central Albania", "suburb" to "Njësia Bashkiake Nr. 2"),
         expected = """
         |Kopështi nr. 18
         |Rruga Dalip Zavalani
@@ -169,8 +143,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - al",
       ),
       TestCase(
-        components = mapOf("city" to "Yerevan", "country" to "Armenia", "country_code" to "am",
-            "house_number" to "8", "postcode" to "0010", "road" to "Abovyan street"),
+        components = mapOf("city" to "Yerevan", "country" to "Armenia", "country_code" to "am", "house_number" to "8", "postcode" to "0010", "road" to "Abovyan street"),
         expected = """
         |8 Abovyan street
         |0010
@@ -181,10 +154,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - am",
       ),
       TestCase(
-        components = mapOf("building" to "Embassy of the Federal Republic of Germany",
-            "city" to "Luanda", "country" to "Angola", "country_code" to "ao",
-            "house_number" to "120", "neighbourhood" to "Mutamba",
-            "road" to "Avenida 4 de Fevereiro", "state" to "Luanda"),
+        components = mapOf("building" to "Embassy of the Federal Republic of Germany", "city" to "Luanda", "country" to "Angola", "country_code" to "ao", "house_number" to "120", "neighbourhood" to "Mutamba", "road" to "Avenida 4 de Fevereiro", "state" to "Luanda"),
         expected = """
         |Embassy of the Federal Republic of Germany
         |Avenida 4 de Fevereiro 120
@@ -195,9 +165,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ao",
       ),
       TestCase(
-        components = mapOf("building" to "Oil Separator Building", "continent" to "Antarctica",
-            "country" to "Antarctica", "country_code" to "aq", "house_number" to "72",
-            "road" to "McMurdo Roads", "town" to "McMurdo Station"),
+        components = mapOf("building" to "Oil Separator Building", "continent" to "Antarctica", "country" to "Antarctica", "country_code" to "aq", "house_number" to "72", "road" to "McMurdo Roads", "town" to "McMurdo Station"),
         expected = """
         |Oil Separator Building
         |McMurdo Station
@@ -207,10 +175,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - aq",
       ),
       TestCase(
-        components = mapOf("city" to "Autonomous City of Buenos Aires", "city_district" to "Retiro",
-            "country" to "Argentina", "country_code" to "ar", "house" to "CAI",
-            "house_number" to "1250", "postcode" to "C1010AAZ", "road" to "Cerrito",
-            "state" to "Autonomous City of Buenos Aires", "suburb" to "Retiro"),
+        components = mapOf("city" to "Autonomous City of Buenos Aires", "city_district" to "Retiro", "country" to "Argentina", "country_code" to "ar", "house" to "CAI", "house_number" to "1250", "postcode" to "C1010AAZ", "road" to "Cerrito", "state" to "Autonomous City of Buenos Aires", "suburb" to "Retiro"),
         expected = """
         |CAI
         |Cerrito 1250
@@ -222,10 +187,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ar",
       ),
       TestCase(
-        components = mapOf("building" to "Executive Office Building (American Samoa Government)",
-            "country" to "American Samoa", "country_code" to "as", "county" to "Eastern District",
-            "municipality" to "Maʻopūtasi County", "postcode" to "96799", "road" to "Route 118",
-            "village" to "Utulei"),
+        components = mapOf("building" to "Executive Office Building (American Samoa Government)", "country" to "American Samoa", "country_code" to "as", "county" to "Eastern District", "municipality" to "Maʻopūtasi County", "postcode" to "96799", "road" to "Route 118", "village" to "Utulei"),
         expected = """
         |Executive Office Building (American Samoa Government)
         |Route 118
@@ -237,10 +199,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - as",
       ),
       TestCase(
-        components = mapOf("city" to "Salzburg", "country" to "Austria", "country_code" to "AT",
-            "county" to "Bezirk Salzburg", "house_number" to "5", "postcode" to "5020",
-            "road" to "Stauffenstraße", "state" to "Salzburg (state)",
-            "suburb" to "Elisabeth-Vorstadt"),
+        components = mapOf("city" to "Salzburg", "country" to "Austria", "country_code" to "AT", "county" to "Bezirk Salzburg", "house_number" to "5", "postcode" to "5020", "road" to "Stauffenstraße", "state" to "Salzburg (state)", "suburb" to "Elisabeth-Vorstadt"),
         expected = """
         |Stauffenstraße 5
         |5020 Salzburg
@@ -250,10 +209,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - at",
       ),
       TestCase(
-        components = mapOf("city" to "Melbourne", "country" to "Australia", "country_code" to "AU",
-            "county" to "City of Melbourne", "courthouse" to "Melbourne Magistrates' Court",
-            "house_number" to "223", "postcode" to "3000", "road" to "William Street",
-            "state" to "Victoria", "suburb" to "Melbourne"),
+        components = mapOf("city" to "Melbourne", "country" to "Australia", "country_code" to "AU", "county" to "City of Melbourne", "courthouse" to "Melbourne Magistrates' Court", "house_number" to "223", "postcode" to "3000", "road" to "William Street", "state" to "Victoria", "suburb" to "Melbourne"),
         expected = """
         |Melbourne Magistrates' Court
         |223 William Street
@@ -264,9 +220,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - au",
       ),
       TestCase(
-        components = mapOf("country" to "Australia", "country_code" to "au",
-            "county" to "City of Moreland", "postcode" to "3039", "region" to "Greater Melbourne",
-            "road" to "Rainer Street", "state" to "Victoria", "suburb" to "Pascoe Vale South"),
+        components = mapOf("country" to "Australia", "country_code" to "au", "county" to "City of Moreland", "postcode" to "3039", "region" to "Greater Melbourne", "road" to "Rainer Street", "state" to "Victoria", "suburb" to "Pascoe Vale South"),
         expected = """
         |Rainer Street
         |Pascoe Vale South VIC 3039
@@ -276,10 +230,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - au",
       ),
       TestCase(
-        components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au",
-            "county" to "Georges River Council", "postcode" to "2219",
-            "pub" to "St George Motor Boat Club", "road" to "Vista Street",
-            "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Sans Souci"),
+        components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au", "county" to "Georges River Council", "postcode" to "2219", "pub" to "St George Motor Boat Club", "road" to "Vista Street", "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Sans Souci"),
         expected = """
         |St George Motor Boat Club
         |Vista Street
@@ -290,10 +241,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - au",
       ),
       TestCase(
-        components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au",
-            "county" to "Canterbury-Bankstown Council", "postcode" to "2193",
-            "road" to "Fifth Street", "state" to "New South Wales", "state_code" to "NSW",
-            "suburb" to "Ashbury"),
+        components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au", "county" to "Canterbury-Bankstown Council", "postcode" to "2193", "road" to "Fifth Street", "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Ashbury"),
         expected = """
         |Fifth Street
         |Ashbury NSW 2193
@@ -303,8 +251,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - au",
       ),
       TestCase(
-        components = mapOf("city" to "LASCELLES", "country" to "Australia", "country_code" to "au",
-            "postcode" to "3487", "state" to "VICTORIA"),
+        components = mapOf("city" to "LASCELLES", "country" to "Australia", "country_code" to "au", "postcode" to "3487", "state" to "VICTORIA"),
         expected = """
         |LASCELLES VIC 3487
         |Australia
@@ -313,9 +260,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - au",
       ),
       TestCase(
-        components = mapOf("city_district" to "Lascelles", "country" to "Australia",
-            "country_code" to "au", "municipality" to "Shire of Yarriambiack", "postcode" to "3487",
-            "state" to "VICTORIA"),
+        components = mapOf("city_district" to "Lascelles", "country" to "Australia", "country_code" to "au", "municipality" to "Shire of Yarriambiack", "postcode" to "3487", "state" to "VICTORIA"),
         expected = """
         |Lascelles VIC 3487
         |Australia
@@ -324,9 +269,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - au",
       ),
       TestCase(
-        components = mapOf("name" to "Parliament of Aruba", "country" to "Aruba",
-            "country_code" to "aw", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard",
-            "town" to "Oranjestad"),
+        components = mapOf("name" to "Parliament of Aruba", "country" to "Aruba", "country_code" to "aw", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard", "town" to "Oranjestad"),
         expected = """
         |Parliament of Aruba
         |L.G. Smith Boulevard LSB 70
@@ -337,11 +280,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - aw",
       ),
       TestCase(
-        components = mapOf("country" to "Åland Islands", "country_code" to "ax",
-            "county" to "Åland Islands", "post_box" to "Posten Åland", "postcode" to "22101",
-            "road" to "Nygatan", "state" to "Åland",
-            "state_district" to "Regional State Agency Åland", "suburb" to "Johannebo",
-            "town" to "Mariehamn"),
+        components = mapOf("country" to "Åland Islands", "country_code" to "ax", "county" to "Åland Islands", "post_box" to "Posten Åland", "postcode" to "22101", "road" to "Nygatan", "state" to "Åland", "state_district" to "Regional State Agency Åland", "suburb" to "Johannebo", "town" to "Mariehamn"),
         expected = """
         |Posten Åland
         |Nygatan
@@ -352,9 +291,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ax",
       ),
       TestCase(
-        components = mapOf("bank" to "Bank Avrasiya", "city" to "Baku", "country" to "Azerbaijan",
-            "country_code" to "az", "house_number" to "70", "path" to "Nizami küç.",
-            "postcode" to "AZ1014", "state" to "Bakı İnzibati Ərazisi", "suburb" to "Montin"),
+        components = mapOf("bank" to "Bank Avrasiya", "city" to "Baku", "country" to "Azerbaijan", "country_code" to "az", "house_number" to "70", "path" to "Nizami küç.", "postcode" to "AZ1014", "state" to "Bakı İnzibati Ərazisi", "suburb" to "Montin"),
         expected = """
         |Bank Avrasiya
         |70 Nizami küç.
@@ -365,11 +302,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - az",
       ),
       TestCase(
-        components = mapOf("city" to "Sarajevo", "country" to "Bosnia and Herzegovina",
-            "country_code" to "ba", "county" to "New Sarajevo municipality", "house_number" to "88",
-            "post_office" to "BH Posta", "postcode" to "71000", "road" to "Zmaja od Bosne",
-            "state" to "Entity Federation of Bosnia and Herzegovina",
-            "state_district" to "Sarajevo Canton", "suburb" to "Grbavica"),
+        components = mapOf("city" to "Sarajevo", "country" to "Bosnia and Herzegovina", "country_code" to "ba", "county" to "New Sarajevo municipality", "house_number" to "88", "post_office" to "BH Posta", "postcode" to "71000", "road" to "Zmaja od Bosne", "state" to "Entity Federation of Bosnia and Herzegovina", "state_district" to "Sarajevo Canton", "suburb" to "Grbavica"),
         expected = """
         |BH Posta
         |Zmaja od Bosne 88
@@ -380,10 +313,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ba",
       ),
       TestCase(
-        components = mapOf("city" to "Bridgetown", "country" to "Barbados", "country_code" to "bb",
-            "county" to "Saint Michael", "neighbourhood" to "New Orleans",
-            "post_office" to "General Post Office", "postcode" to "BB11093",
-            "road" to "Cheapside Road"),
+        components = mapOf("city" to "Bridgetown", "country" to "Barbados", "country_code" to "bb", "county" to "Saint Michael", "neighbourhood" to "New Orleans", "post_office" to "General Post Office", "postcode" to "BB11093", "road" to "Cheapside Road"),
         expected = """
         |General Post Office
         |Cheapside Road
@@ -394,9 +324,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bb",
       ),
       TestCase(
-        components = mapOf("bank" to "Janata Bank", "city" to "Dhaka", "country" to "Bangladesh",
-            "country_code" to "bd", "postcode" to "1205", "road" to "Shahid Minar Rd",
-            "state" to "Dhaka Division", "suburb" to "Siddikbazar"),
+        components = mapOf("bank" to "Janata Bank", "city" to "Dhaka", "country" to "Bangladesh", "country_code" to "bd", "postcode" to "1205", "road" to "Shahid Minar Rd", "state" to "Dhaka Division", "suburb" to "Siddikbazar"),
         expected = """
         |Janata Bank
         |Shahid Minar Rd
@@ -408,10 +336,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bd",
       ),
       TestCase(
-        components = mapOf("city" to "Antwerp", "city_district" to "Antwerpen",
-            "country" to "Belgium", "country_code" to "be", "county" to "Antwerp",
-            "house_number" to "63", "neighbourhood" to "Sint-Andries", "postcode" to "2000",
-            "restaurant" to "Meat & Eat", "road" to "Vrijheidstraat", "state" to "Flanders"),
+        components = mapOf("city" to "Antwerp", "city_district" to "Antwerpen", "country" to "Belgium", "country_code" to "be", "county" to "Antwerp", "house_number" to "63", "neighbourhood" to "Sint-Andries", "postcode" to "2000", "restaurant" to "Meat & Eat", "road" to "Vrijheidstraat", "state" to "Flanders"),
         expected = """
         |Meat & Eat
         |Vrijheidstraat 63
@@ -422,10 +347,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - be",
       ),
       TestCase(
-        components = mapOf("country" to "België", "country_code" to "be", "county" to "Huy",
-            "hamlet" to "Clermont-sous-Huy", "house_number" to "187", "municipality" to "Engis",
-            "postcode" to "4480", "region" to "Wallonia", "road" to "Chaussée de Liège",
-            "state" to "Liège"),
+        components = mapOf("country" to "België", "country_code" to "be", "county" to "Huy", "hamlet" to "Clermont-sous-Huy", "house_number" to "187", "municipality" to "Engis", "postcode" to "4480", "region" to "Wallonia", "road" to "Chaussée de Liège", "state" to "Liège"),
         expected = """
         |Chaussée de Liège 187
         |4480 Engis
@@ -435,10 +357,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - be",
       ),
       TestCase(
-        components = mapOf("country" to "Belgium", "country_code" to "be",
-            "county" to "Halle-Vilvoorde", "municipality" to "Roosdaal", "postcode" to "1760",
-            "region" to "Flanders", "road" to "Kerkveldstraat", "state" to "Flemish Brabant",
-            "village" to "Strijtem"),
+        components = mapOf("country" to "Belgium", "country_code" to "be", "county" to "Halle-Vilvoorde", "municipality" to "Roosdaal", "postcode" to "1760", "region" to "Flanders", "road" to "Kerkveldstraat", "state" to "Flemish Brabant", "village" to "Strijtem"),
         expected = """
         |Kerkveldstraat
         |1760 Strijtem
@@ -448,10 +367,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - be",
       ),
       TestCase(
-        components = mapOf("bank" to "Ecobank", "city" to "Ouagadougou",
-            "country" to "Burkina Faso", "country_code" to "bf", "postcode" to "13",
-            "region" to "Centre", "residential" to "Ouagadougou", "road" to "Avenue Nelson Mandela",
-            "state_district" to "Kadiogo", "suburb" to "Bilbalogho"),
+        components = mapOf("bank" to "Ecobank", "city" to "Ouagadougou", "country" to "Burkina Faso", "country_code" to "bf", "postcode" to "13", "region" to "Centre", "residential" to "Ouagadougou", "road" to "Avenue Nelson Mandela", "state_district" to "Kadiogo", "suburb" to "Bilbalogho"),
         expected = """
         |Ecobank
         |Avenue Nelson Mandela
@@ -462,9 +378,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bf",
       ),
       TestCase(
-        components = mapOf("country" to "Burkina Faso", "country_code" to "bf",
-            "department" to "Tiéfora", "province" to "Comoé", "road" to "unnamed road",
-            "village" to "Bondorola"),
+        components = mapOf("country" to "Burkina Faso", "country_code" to "bf", "department" to "Tiéfora", "province" to "Comoé", "road" to "unnamed road", "village" to "Bondorola"),
         expected = """
         |unnamed road
         |Bondorola
@@ -476,11 +390,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bf",
       ),
       TestCase(
-        components = mapOf("city" to "Sofia", "country" to "Bulgaria", "country_code" to "BG",
-            "county" to "Sofia-City Region", "road" to "Georgi Sava Rakovski St.", "state" to "RJ",
-            "state_district" to "Região Metropolitana do Rio de Janeiro", "suburb" to "Centre",
-            "postcode" to "1000",
-            "university" to "Krastyo Sarafov National Academy for Theatre and Film Arts"),
+        components = mapOf("city" to "Sofia", "country" to "Bulgaria", "country_code" to "BG", "county" to "Sofia-City Region", "road" to "Georgi Sava Rakovski St.", "state" to "RJ", "state_district" to "Região Metropolitana do Rio de Janeiro", "suburb" to "Centre", "postcode" to "1000", "university" to "Krastyo Sarafov National Academy for Theatre and Film Arts"),
         expected = """
         |Krastyo Sarafov National Academy for Theatre and Film Arts
         |Georgi Sava Rakovski St.
@@ -492,9 +402,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bg",
       ),
       TestCase(
-        components = mapOf("country" to "Bahrain", "country_code" to "bh", "postcode" to "814",
-            "road" to "Al-Doha Avenue", "state" to "Central Governorate", "supermarket" to "Ramaz",
-            "town" to "Isa Town"),
+        components = mapOf("country" to "Bahrain", "country_code" to "bh", "postcode" to "814", "road" to "Al-Doha Avenue", "state" to "Central Governorate", "supermarket" to "Ramaz", "town" to "Isa Town"),
         expected = """
         |Ramaz
         |Al-Doha Avenue
@@ -505,9 +413,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bh",
       ),
       TestCase(
-        components = mapOf("country" to "البحرين", "country_code" to "bh", "postcode" to "814",
-            "road" to "Al-Doha Avenue", "state" to "المحافظة الوسطى", "supermarket" to "Ramaz",
-            "town" to "مدينة عيسى‎"),
+        components = mapOf("country" to "البحرين", "country_code" to "bh", "postcode" to "814", "road" to "Al-Doha Avenue", "state" to "المحافظة الوسطى", "supermarket" to "Ramaz", "town" to "مدينة عيسى‎"),
         expected = """
         |Ramaz
         |Al-Doha Avenue
@@ -518,9 +424,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bh",
       ),
       TestCase(
-        components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh",
-            "hairdresser" to "Kerala Saloon", "postcode" to "301", "road" to "2115,",
-            "state" to "Capital Governorate", "suburb" to "Gudaibiya"),
+        components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh", "hairdresser" to "Kerala Saloon", "postcode" to "301", "road" to "2115,", "state" to "Capital Governorate", "suburb" to "Gudaibiya"),
         expected = """
         |Kerala Saloon
         |2115
@@ -531,9 +435,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bh",
       ),
       TestCase(
-        components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh",
-            "doctors" to "Al Hoora Health Centre", "postcode" to "317", "road" to "1910,",
-            "state" to "Capital Governorate", "suburb" to "Al Hoora"),
+        components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh", "doctors" to "Al Hoora Health Centre", "postcode" to "317", "road" to "1910,", "state" to "Capital Governorate", "suburb" to "Al Hoora"),
         expected = """
         |Al Hoora Health Centre
         |1910
@@ -544,10 +446,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bh",
       ),
       TestCase(
-        components = mapOf("building" to "Bonauto s.a.", "city" to "Bujumbura",
-            "country" to "Burundi", "country_code" to "bi", "house_number" to "17",
-            "postcode" to "2730", "road" to "Avenue du Commerce", "state" to "Bujumbura Mairie",
-            "suburb" to "Building Bata"),
+        components = mapOf("building" to "Bonauto s.a.", "city" to "Bujumbura", "country" to "Burundi", "country_code" to "bi", "house_number" to "17", "postcode" to "2730", "road" to "Avenue du Commerce", "state" to "Bujumbura Mairie", "suburb" to "Building Bata"),
         expected = """
         |Bonauto s.a.
         |Avenue du Commerce 17
@@ -558,9 +457,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bi",
       ),
       TestCase(
-        components = mapOf("country" to "Benin", "country_code" to "bj",
-            "county" to "12e Arrondissement", "house_number" to "504", "road" to "Rue 12.168",
-            "state" to "Littoral", "suburb" to "Cadjehoun"),
+        components = mapOf("country" to "Benin", "country_code" to "bj", "county" to "12e Arrondissement", "house_number" to "504", "road" to "Rue 12.168", "state" to "Littoral", "suburb" to "Cadjehoun"),
         expected = """
         |504, Rue 12.168
         |Cadjehoun
@@ -570,10 +467,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bj",
       ),
       TestCase(
-        components = mapOf("country" to "Saint Barthélemy", "country_code" to "bl",
-            "house_number" to "15", "neighbourhood" to "La Pointe", "postcode" to "97133",
-            "road" to "Rue de Pére Irénée de Bruyn", "state" to "Saint Barthélemy",
-            "town" to "Gustavia"),
+        components = mapOf("country" to "Saint Barthélemy", "country_code" to "bl", "house_number" to "15", "neighbourhood" to "La Pointe", "postcode" to "97133", "road" to "Rue de Pére Irénée de Bruyn", "state" to "Saint Barthélemy", "town" to "Gustavia"),
         expected = """
         |15 Rue de Pére Irénée de Bruyn
         |97133 Gustavia
@@ -583,9 +477,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bl",
       ),
       TestCase(
-        components = mapOf("country" to "Bermuda", "country_code" to "bm", "county" to "Devonshire",
-            "house_number" to "65", "post_office" to "Flatt's Post Office", "postcode" to "FL 04",
-            "road" to "Middle Road"),
+        components = mapOf("country" to "Bermuda", "country_code" to "bm", "county" to "Devonshire", "house_number" to "65", "post_office" to "Flatt's Post Office", "postcode" to "FL 04", "road" to "Middle Road"),
         expected = """
         |Flatt's Post Office
         |65 Middle Road
@@ -596,9 +488,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bm",
       ),
       TestCase(
-        components = mapOf("building" to "Gadong Centrepoint", "city" to "Bandar Seri Begawan",
-            "country" to "Brunei", "country_code" to "bn", "county" to "Brunei-Muara",
-            "postcode" to "BE4119", "road" to "Simpang 137"),
+        components = mapOf("building" to "Gadong Centrepoint", "city" to "Bandar Seri Begawan", "country" to "Brunei", "country_code" to "bn", "county" to "Brunei-Muara", "postcode" to "BE4119", "road" to "Simpang 137"),
         expected = """
         |Gadong Centrepoint
         |Simpang 137
@@ -610,10 +500,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bn",
       ),
       TestCase(
-        components = mapOf("bank" to "Banco Los Andes Pro Credite",
-            "city" to "Municipio Nuestra Senora de La Paz", "country" to "Bolivia",
-            "country_code" to "bo", "county" to "Provincia Murillo", "postcode" to "8686",
-            "road" to "José María Achá", "state" to "La Paz Departament", "suburb" to "Gran Poder"),
+        components = mapOf("bank" to "Banco Los Andes Pro Credite", "city" to "Municipio Nuestra Senora de La Paz", "country" to "Bolivia", "country_code" to "bo", "county" to "Provincia Murillo", "postcode" to "8686", "road" to "José María Achá", "state" to "La Paz Departament", "suburb" to "Gran Poder"),
         expected = """
         |Banco Los Andes Pro Credite
         |José María Achá
@@ -624,9 +511,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bo",
       ),
       TestCase(
-        components = mapOf("city" to "Bonaire", "country" to "Bonaire", "country_code" to "bq",
-            "road" to "Kaya Libertador Simon Bolivar", "school" to "Parokia San Bernardo",
-            "state" to "Caribbean Netherlands", "suburb" to "Sabana"),
+        components = mapOf("city" to "Bonaire", "country" to "Bonaire", "country_code" to "bq", "road" to "Kaya Libertador Simon Bolivar", "school" to "Parokia San Bernardo", "state" to "Caribbean Netherlands", "suburb" to "Sabana"),
         expected = """
         |Parokia San Bernardo
         |Kaya Libertador Simon Bolivar
@@ -637,10 +522,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bq",
       ),
       TestCase(
-        components = mapOf("city" to "Rio de Janeiro", "country" to "Brazil",
-            "country_code" to "BR", "county" to "Rio de Janeiro", "road" to "Avenida Maracanã",
-            "state" to "RJ", "state_district" to "Região Metropolitana do Rio de Janeiro",
-            "suburb" to "Maracanã"),
+        components = mapOf("city" to "Rio de Janeiro", "country" to "Brazil", "country_code" to "BR", "county" to "Rio de Janeiro", "road" to "Avenida Maracanã", "state" to "RJ", "state_district" to "Região Metropolitana do Rio de Janeiro", "suburb" to "Maracanã"),
         expected = """
         |Avenida Maracanã
         |Maracanã
@@ -651,12 +533,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - br",
       ),
       TestCase(
-        components = mapOf("city" to "Belo Horizonte", "city_district" to "Regional Centro-Sul",
-            "country" to "Brazil", "country_code" to "br",
-            "county" to "Microrregião Belo Horizonte", "neighbourhood" to "Centro",
-            "postcode" to "30170011", "road" to "Rua Rio de Janiero", "state" to "Minas Gerais",
-            "state_district" to "Mesorregião Metropolitana de Belo Horizonte",
-            "suburb" to "Centro"),
+        components = mapOf("city" to "Belo Horizonte", "city_district" to "Regional Centro-Sul", "country" to "Brazil", "country_code" to "br", "county" to "Microrregião Belo Horizonte", "neighbourhood" to "Centro", "postcode" to "30170011", "road" to "Rua Rio de Janiero", "state" to "Minas Gerais", "state_district" to "Mesorregião Metropolitana de Belo Horizonte", "suburb" to "Centro"),
         expected = """
         |Rua Rio de Janiero
         |Centro
@@ -668,15 +545,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - br",
       ),
       TestCase(
-        components = mapOf("city" to "Rio de Janeiro",
-            "city_district" to "Zona Central do Rio de Janeiro", "continent" to "South America",
-            "country" to "Brazil", "country_code" to "br",
-            "county" to "Região Geográfica Imediata do Rio de Janeiro",
-            "house" to "Condomínio Condomínio René Magritte", "house_number" to "68",
-            "postcode" to "22221-000", "road" to "Rua Silveira Martins",
-            "state" to "Rio de Janeiro", "state_code" to "RJ",
-            "state_district" to "Região Geográfica Intermediária do Rio de Janeiro",
-            "suburb" to "Catete"),
+        components = mapOf("city" to "Rio de Janeiro", "city_district" to "Zona Central do Rio de Janeiro", "continent" to "South America", "country" to "Brazil", "country_code" to "br", "county" to "Região Geográfica Imediata do Rio de Janeiro", "house" to "Condomínio Condomínio René Magritte", "house_number" to "68", "postcode" to "22221-000", "road" to "Rua Silveira Martins", "state" to "Rio de Janeiro", "state_code" to "RJ", "state_district" to "Região Geográfica Intermediária do Rio de Janeiro", "suburb" to "Catete"),
         expected = """
         |Condomínio Condomínio René Magritte
         |Rua Silveira Martins 68
@@ -689,11 +558,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - br",
       ),
       TestCase(
-        components = mapOf("country" to "Brazil", "country_code" to "br",
-            "municipality" to "Região Geográfica Imediata de Picos", "postcode" to "64675-000",
-            "region" to "Northeast Region", "state" to "Piauí", "state_code" to "PI",
-            "state_district" to "Região Geográfica Intermediária de Picos",
-            "village" to "Alegrete do Piauí"),
+        components = mapOf("country" to "Brazil", "country_code" to "br", "municipality" to "Região Geográfica Imediata de Picos", "postcode" to "64675-000", "region" to "Northeast Region", "state" to "Piauí", "state_code" to "PI", "state_district" to "Região Geográfica Intermediária de Picos", "village" to "Alegrete do Piauí"),
         expected = """
         |Alegrete do Piauí
         |Região Geográfica Intermediária de Picos - PI
@@ -704,8 +569,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - br",
       ),
       TestCase(
-        components = mapOf("city" to "Nassau", "country" to "The Bahamas", "country_code" to "bs",
-            "county" to "New Providence", "courthouse" to "Supreme Court", "road" to "Bank Lane"),
+        components = mapOf("city" to "Nassau", "country" to "The Bahamas", "country_code" to "bs", "county" to "New Providence", "courthouse" to "Supreme Court", "road" to "Bank Lane"),
         expected = """
         |Supreme Court
         |Bank Lane
@@ -717,9 +581,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bs",
       ),
       TestCase(
-        components = mapOf("bank" to "Bhutan National Bank", "city" to "Thimphu",
-            "country" to "Bhutan", "country_code" to "bt", "postcode" to "810",
-            "road" to "Chang Lam", "state" to "Thimphu District"),
+        components = mapOf("bank" to "Bhutan National Bank", "city" to "Thimphu", "country" to "Bhutan", "country_code" to "bt", "postcode" to "810", "road" to "Chang Lam", "state" to "Thimphu District"),
         expected = """
         |Bhutan National Bank
         |Chang Lam
@@ -738,8 +600,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bv",
       ),
       TestCase(
-        components = mapOf("bank" to "Bank Gaborone", "city" to "Gaborone", "country" to "Botswana",
-            "country_code" to "bw", "road" to "Queens Road", "state" to "South-East District"),
+        components = mapOf("bank" to "Bank Gaborone", "city" to "Gaborone", "country" to "Botswana", "country_code" to "bw", "road" to "Queens Road", "state" to "South-East District"),
         expected = """
         |Bank Gaborone
         |Queens Road
@@ -750,10 +611,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bw",
       ),
       TestCase(
-        components = mapOf("city" to "Minsk", "city_district" to "Ленинский район",
-            "country" to "Belarus", "country_code" to "BY", "house_number" to "20",
-            "museum" to "Национальный художественный музей", "postcode" to "220030",
-            "road" to "улица Ленина"),
+        components = mapOf("city" to "Minsk", "city_district" to "Ленинский район", "country" to "Belarus", "country_code" to "BY", "house_number" to "20", "museum" to "Национальный художественный музей", "postcode" to "220030", "road" to "улица Ленина"),
         expected = """
         |Belarus
         |220030 Minsk
@@ -764,9 +622,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - by",
       ),
       TestCase(
-        components = mapOf("city" to "Belmopan", "country" to "Belize", "country_code" to "bz",
-            "county" to "Cayo District", "road" to "Nim Li Punit Street", "state" to "Cayo",
-            "supermarket" to "Fransico Supermarket"),
+        components = mapOf("city" to "Belmopan", "country" to "Belize", "country_code" to "bz", "county" to "Cayo District", "road" to "Nim Li Punit Street", "state" to "Cayo", "supermarket" to "Fransico Supermarket"),
         expected = """
         |Fransico Supermarket
         |Nim Li Punit Street
@@ -777,10 +633,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - bz",
       ),
       TestCase(
-        components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca",
-            "house_number" to "251", "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South",
-            "school" to "Brampton Centennial Secondary School", "state" to "Ontario",
-            "suburb" to "Ridgehill"),
+        components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca", "house_number" to "251", "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South", "school" to "Brampton Centennial Secondary School", "state" to "Ontario", "suburb" to "Ridgehill"),
         expected = """
         |Brampton Centennial Secondary School
         |251 McMurchy Avenue South
@@ -791,8 +644,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("city" to "Toronto", "country" to "Canada", "country_code" to "ca",
-            "postcode" to "M6K1V2", "state" to "Ontario", "suburb" to "Parkdale"),
+        components = mapOf("city" to "Toronto", "country" to "Canada", "country_code" to "ca", "postcode" to "M6K1V2", "state" to "Ontario", "suburb" to "Parkdale"),
         expected = """
         |Parkdale
         |Toronto, ON M6K 1V2
@@ -802,8 +654,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("city" to "London", "country" to "Canada", "country_code" to "ca",
-            "county" to "Middlesex County", "state" to "Ontario", "state_code" to "ON"),
+        components = mapOf("city" to "London", "country" to "Canada", "country_code" to "ca", "county" to "Middlesex County", "state" to "Ontario", "state_code" to "ON"),
         expected = """
         |London, ON
         |Canada
@@ -812,10 +663,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "London",
-            "house_number" to "6", "neighbourhood" to "Lockwood Park", "postcode" to "N6C 2W9",
-            "road" to "Cowan Avenue", "state" to "Ontario", "state_code" to "ON",
-            "state_district" to "Southwestern Ontario"),
+        components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "London", "house_number" to "6", "neighbourhood" to "Lockwood Park", "postcode" to "N6C 2W9", "road" to "Cowan Avenue", "state" to "Ontario", "state_code" to "ON", "state_district" to "Southwestern Ontario"),
         expected = """
         |6 Cowan Avenue
         |London, ON N6C 2W9
@@ -825,10 +673,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca",
-            "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South",
-            "school" to "Brampton Centennial Secondary School", "state" to "Ontario",
-            "suburb" to "Ridgehill"),
+        components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca", "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South", "school" to "Brampton Centennial Secondary School", "state" to "Ontario", "suburb" to "Ridgehill"),
         expected = """
         |Brampton Centennial Secondary School
         |McMurchy Avenue South
@@ -839,8 +684,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Springfield",
-            "state" to "Manitoba"),
+        components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Springfield", "state" to "Manitoba"),
         expected = """
         |Springfield, MB
         |Canada
@@ -849,10 +693,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("country" to "Canada", "country_code" to "ca",
-            "county" to "Halton Region", "house_number" to "7931", "locality" to "Halton Hills",
-            "municipality" to "Halton Hills", "postcode" to "L5N 8P7", "road" to "Tenth Line",
-            "state" to "Ontario", "state_district" to "Golden Horseshoe"),
+        components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Halton Region", "house_number" to "7931", "locality" to "Halton Hills", "municipality" to "Halton Hills", "postcode" to "L5N 8P7", "road" to "Tenth Line", "state" to "Ontario", "state_district" to "Golden Horseshoe"),
         expected = """
         |7931 Tenth Line
         |Halton Hills, ON L5N 8P7
@@ -862,8 +703,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("country" to "Canada", "country_code" to "ca", "house_number" to "12345",
-            "locality" to "St-Hyancinth", "postcode" to "J2T 3T5", "road" to "Av Demars"),
+        components = mapOf("country" to "Canada", "country_code" to "ca", "house_number" to "12345", "locality" to "St-Hyancinth", "postcode" to "J2T 3T5", "road" to "Av Demars"),
         expected = """
         |12345 Av Demars
         |St-Hyancinth, J2T 3T5
@@ -873,8 +713,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ca",
       ),
       TestCase(
-        components = mapOf("country" to "Cocos (Keeling) Islands", "country_code" to "cc",
-            "pub" to "Club", "state" to "Cocos (Keeling) Islands", "village" to "West Island"),
+        components = mapOf("country" to "Cocos (Keeling) Islands", "country_code" to "cc", "pub" to "Club", "state" to "Cocos (Keeling) Islands", "village" to "West Island"),
         expected = """
         |Club
         |West Island
@@ -885,10 +724,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cc",
       ),
       TestCase(
-        components = mapOf("building" to "Embassy of the Federal Republic of Germany",
-            "country" to "Congo-Kinshasa", "country_code" to "cd", "house_number" to "82",
-            "postcode" to "243", "road" to "Avenue du Roi Baudouin", "state" to "Kinshasa",
-            "suburb" to "Royal", "town" to "Gombe"),
+        components = mapOf("building" to "Embassy of the Federal Republic of Germany", "country" to "Congo-Kinshasa", "country_code" to "cd", "house_number" to "82", "postcode" to "243", "road" to "Avenue du Roi Baudouin", "state" to "Kinshasa", "suburb" to "Royal", "town" to "Gombe"),
         expected = """
         |Embassy of the Federal Republic of Germany
         |82, Avenue du Roi Baudouin
@@ -899,9 +735,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cd",
       ),
       TestCase(
-        components = mapOf("bank" to "Ecobank", "city" to "Bangui",
-            "country" to "Central African Republic", "country_code" to "cf",
-            "road" to "Rue de Navarre", "state" to "Ombella M\\'Poko"),
+        components = mapOf("bank" to "Ecobank", "city" to "Bangui", "country" to "Central African Republic", "country_code" to "cf", "road" to "Rue de Navarre", "state" to "Ombella M\\'Poko"),
         expected = """
         |Ecobank
         |Rue de Navarre
@@ -912,10 +746,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cf",
       ),
       TestCase(
-        components = mapOf("embassy" to "South Africa (Embassy)", "city" to "Brazzaville",
-            "country" to "Congo-Brazzaville", "country_code" to "cg",
-            "neighbourhood" to "Plateau des 15 ans", "road" to "rue de Maya-maya",
-            "state" to "Brazzaville", "suburb" to "Poto-Poto"),
+        components = mapOf("embassy" to "South Africa (Embassy)", "city" to "Brazzaville", "country" to "Congo-Brazzaville", "country_code" to "cg", "neighbourhood" to "Plateau des 15 ans", "road" to "rue de Maya-maya", "state" to "Brazzaville", "suburb" to "Poto-Poto"),
         expected = """
         |South Africa (Embassy)
         |rue de Maya-maya
@@ -926,9 +757,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cg",
       ),
       TestCase(
-        components = mapOf("city" to "Zurich", "country" to "Switzerland", "country_code" to "ch",
-            "county" to "Bezirk Zürich", "house_number" to "2", "pedestrian" to "Häringstrasse",
-            "postcode" to "8001", "state" to "Zurich", "suburb" to "Altstadt"),
+        components = mapOf("city" to "Zurich", "country" to "Switzerland", "country_code" to "ch", "county" to "Bezirk Zürich", "house_number" to "2", "pedestrian" to "Häringstrasse", "postcode" to "8001", "state" to "Zurich", "suburb" to "Altstadt"),
         expected = """
         |Häringstrasse 2
         |8001 Zurich
@@ -938,10 +767,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ch",
       ),
       TestCase(
-        components = mapOf("city" to "Treichville", "country" to "Côte d'Ivoire",
-            "country_code" to "ci", "neighbourhood" to "Zone Industriele de Treichville",
-            "post_office" to "La Poste", "postcode" to "00225", "road" to "Boulevard de Marseille",
-            "state" to "Abidjan", "suburb" to "Zone 2b"),
+        components = mapOf("city" to "Treichville", "country" to "Côte d'Ivoire", "country_code" to "ci", "neighbourhood" to "Zone Industriele de Treichville", "post_office" to "La Poste", "postcode" to "00225", "road" to "Boulevard de Marseille", "state" to "Abidjan", "suburb" to "Zone 2b"),
         expected = """
         |La Poste
         |Boulevard de Marseille
@@ -952,8 +778,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ci",
       ),
       TestCase(
-        components = mapOf("city" to "Te-Au-O-Tonga", "country" to "Cook Islands",
-            "country_code" to "ck", "hospital" to "Old Hospital", "road" to "Ara Tapu"),
+        components = mapOf("city" to "Te-Au-O-Tonga", "country" to "Cook Islands", "country_code" to "ck", "hospital" to "Old Hospital", "road" to "Ara Tapu"),
         expected = """
         |Old Hospital
         |Ara Tapu
@@ -964,11 +789,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ck",
       ),
       TestCase(
-        components = mapOf("city" to "Providencia", "country" to "Chile", "country_code" to "cl",
-            "county" to "Provincia de Santiago", "house_number" to "920",
-            "neighbourhood" to "Unidad Vecinal Providencia", "postcode" to "7500000",
-            "region" to "Región Metropolitana de Santiago", "road" to "Avenida Ricardo Lyon",
-            "state" to "XIII Región Metropolitana de Santiago", "suburb" to "Providencia"),
+        components = mapOf("city" to "Providencia", "country" to "Chile", "country_code" to "cl", "county" to "Provincia de Santiago", "house_number" to "920", "neighbourhood" to "Unidad Vecinal Providencia", "postcode" to "7500000", "region" to "Región Metropolitana de Santiago", "road" to "Avenida Ricardo Lyon", "state" to "XIII Región Metropolitana de Santiago", "suburb" to "Providencia"),
         expected = """
         |Avenida Ricardo Lyon 920
         |7500000 Providencia
@@ -979,9 +800,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cl",
       ),
       TestCase(
-        components = mapOf("building" to "ONUDI", "city" to "Yaoundé III", "country" to "Cameroon",
-            "country_code" to "cm", "county" to "CUY", "postcode" to "11852", "road" to "rue 3.025",
-            "state" to "Centre", "suburb" to "Centre Administratif"),
+        components = mapOf("building" to "ONUDI", "city" to "Yaoundé III", "country" to "Cameroon", "country_code" to "cm", "county" to "CUY", "postcode" to "11852", "road" to "rue 3.025", "state" to "Centre", "suburb" to "Centre Administratif"),
         expected = """
         |ONUDI
         |rue 3.025
@@ -992,10 +811,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cm",
       ),
       TestCase(
-        components = mapOf("building" to "万向大厦", "country" to "China", "country_code" to "cn",
-            "county" to "Pudong New District", "house_number" to "99号",
-            "neighbourhood" to "Lijuazui", "postcode" to "200120", "road" to "West Lujiazui Road",
-            "state" to "Shanghai"),
+        components = mapOf("building" to "万向大厦", "country" to "China", "country_code" to "cn", "county" to "Pudong New District", "house_number" to "99号", "neighbourhood" to "Lijuazui", "postcode" to "200120", "road" to "West Lujiazui Road", "state" to "Shanghai"),
         expected = """
         |200120 China
         |Shanghai
@@ -1017,9 +833,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cn",
       ),
       TestCase(
-        components = mapOf("city" to "Nyingchi", "country" to "China", "country_code" to "cn",
-            "district" to "Bayi District", "postcode" to "860000",
-            "region" to "Nyingchi Prefecture", "state" to "Tibet", "town" to "Bayi"),
+        components = mapOf("city" to "Nyingchi", "country" to "China", "country_code" to "cn", "district" to "Bayi District", "postcode" to "860000", "region" to "Nyingchi Prefecture", "state" to "Tibet", "town" to "Bayi"),
         expected = """
         |860000 China
         |Tibet
@@ -1029,10 +843,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cn",
       ),
       TestCase(
-        components = mapOf("house_number" to "33", "road" to "Avenida de los Cerros (Circunvalar)",
-            "city" to "Bogota", "neighbourhood" to "Mariscal Sucre", "country" to "Colombia",
-            "country_code" to "CO", "postcode" to "110231", "state" to "Bogota",
-            "suburb" to "Chapinero"),
+        components = mapOf("house_number" to "33", "road" to "Avenida de los Cerros (Circunvalar)", "city" to "Bogota", "neighbourhood" to "Mariscal Sucre", "country" to "Colombia", "country_code" to "CO", "postcode" to "110231", "state" to "Bogota", "suburb" to "Chapinero"),
         expected = """
         |Avenida de los Cerros (Circunvalar) 33
         |Chapinero
@@ -1043,9 +854,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - co",
       ),
       TestCase(
-        components = mapOf("city" to "Limón", "country" to "Costa Rica", "country_code" to "cr",
-            "courthouse" to "Tribunales de Justicia", "neighbourhood" to "Barrio Hospital",
-            "postcode" to "70101", "road" to "Calle 2 - Romualdo Segura", "state" to "Limón"),
+        components = mapOf("city" to "Limón", "country" to "Costa Rica", "country_code" to "cr", "courthouse" to "Tribunales de Justicia", "neighbourhood" to "Barrio Hospital", "postcode" to "70101", "road" to "Calle 2 - Romualdo Segura", "state" to "Limón"),
         expected = """
         |Tribunales de Justicia
         |Calle 2 - Romualdo Segura
@@ -1056,10 +865,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cr",
       ),
       TestCase(
-        components = mapOf("building" to "Embajada de Hungría", "city" to "Havana",
-            "country" to "Cuba", "country_code" to "cu", "county" to "Plaza de la Revolución",
-            "neighbourhood" to "Barrio El Fanguito", "postcode" to "10400", "road" to "Calle 19",
-            "state" to "Havana", "suburb" to "El Vedado"),
+        components = mapOf("building" to "Embajada de Hungría", "city" to "Havana", "country" to "Cuba", "country_code" to "cu", "county" to "Plaza de la Revolución", "neighbourhood" to "Barrio El Fanguito", "postcode" to "10400", "road" to "Calle 19", "state" to "Havana", "suburb" to "El Vedado"),
         expected = """
         |Embajada de Hungría
         |Calle 19
@@ -1070,9 +876,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cu",
       ),
       TestCase(
-        components = mapOf("country" to "Cuba", "country_code" to "cu", "county" to "Centro Habana",
-            "house_number" to "209", "neighbourhood" to "Colón", "road" to "Perseverancia",
-            "state" to "Havana"),
+        components = mapOf("country" to "Cuba", "country_code" to "cu", "county" to "Centro Habana", "house_number" to "209", "neighbourhood" to "Colón", "road" to "Perseverancia", "state" to "Havana"),
         expected = """
         |Perseverancia 209
         |Havana
@@ -1082,10 +886,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cu",
       ),
       TestCase(
-        components = mapOf("bank" to "Banco de Cabo Verde", "city" to "Praia",
-            "country" to "Cape Verde", "country_code" to "cv", "county" to "Praia",
-            "neighbourhood" to "Bela Vista", "postcode" to "7600",
-            "road" to "Avenida Amilcar Cabral", "suburb" to "Várzea"),
+        components = mapOf("bank" to "Banco de Cabo Verde", "city" to "Praia", "country" to "Cape Verde", "country_code" to "cv", "county" to "Praia", "neighbourhood" to "Bela Vista", "postcode" to "7600", "road" to "Avenida Amilcar Cabral", "suburb" to "Várzea"),
         expected = """
         |Banco de Cabo Verde
         |Avenida Amilcar Cabral
@@ -1096,9 +897,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cv",
       ),
       TestCase(
-        components = mapOf("country" to "Curaçao", "country_code" to "cw", "house_number" to "14",
-            "neighbourhood" to "Colon", "postcode" to "0000NA", "road" to "Jan Erasmusstraat",
-            "state" to "Curaçao", "suburb" to "Seru Domi", "town" to "Willemstad"),
+        components = mapOf("country" to "Curaçao", "country_code" to "cw", "house_number" to "14", "neighbourhood" to "Colon", "postcode" to "0000NA", "road" to "Jan Erasmusstraat", "state" to "Curaçao", "suburb" to "Seru Domi", "town" to "Willemstad"),
         expected = """
         |Jan Erasmusstraat 14
         |Willemstad
@@ -1108,9 +907,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cw",
       ),
       TestCase(
-        components = mapOf("country" to "Christmas Island", "country_code" to "cx",
-            "neighbourhood" to "The Settlement", "postcode" to "6798", "road" to "Gaze Road",
-            "state" to "Christmas Island", "supermarket" to "Christmas Island Supermarket"),
+        components = mapOf("country" to "Christmas Island", "country_code" to "cx", "neighbourhood" to "The Settlement", "postcode" to "6798", "road" to "Gaze Road", "state" to "Christmas Island", "supermarket" to "Christmas Island Supermarket"),
         expected = """
         |Christmas Island Supermarket
         |Gaze Road
@@ -1121,9 +918,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cx",
       ),
       TestCase(
-        components = mapOf("bank" to "Bank of Cyprus", "city" to "Limassol", "country" to "Cyprus",
-            "country_code" to "cy", "county" to "Limassol", "pedestrian" to "Agiou Andreou",
-            "postcode" to "3042", "state" to "Cyprus", "suburb" to "Mesa Geitonia"),
+        components = mapOf("bank" to "Bank of Cyprus", "city" to "Limassol", "country" to "Cyprus", "country_code" to "cy", "county" to "Limassol", "pedestrian" to "Agiou Andreou", "postcode" to "3042", "state" to "Cyprus", "suburb" to "Mesa Geitonia"),
         expected = """
         |Bank of Cyprus
         |Agiou Andreou
@@ -1134,10 +929,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cy",
       ),
       TestCase(
-        components = mapOf("city" to "Plzeň", "country" to "Czech Republic", "country_code" to "cz",
-            "county" to "okres Plzeň-město", "house_number" to "343/10", "neighbourhood" to "Bory",
-            "postcode" to "30100", "road" to "Resslova", "state" to "Jihozápad",
-            "suburb" to "Plzeň"),
+        components = mapOf("city" to "Plzeň", "country" to "Czech Republic", "country_code" to "cz", "county" to "okres Plzeň-město", "house_number" to "343/10", "neighbourhood" to "Bory", "postcode" to "30100", "road" to "Resslova", "state" to "Jihozápad", "suburb" to "Plzeň"),
         expected = """
         |Resslova 343/10
         |301 00 Plzeň
@@ -1147,8 +939,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - cz",
       ),
       TestCase(
-        components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "DE",
-            "state" to "Berlin"),
+        components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "DE", "state" to "Berlin"),
         expected = """
         |Berlin
         |Germany
@@ -1157,8 +948,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany",
-            "country_code" to "de", "state" to "Berlin", "suburb" to "Moabit"),
+        components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "de", "state" to "Berlin", "suburb" to "Moabit"),
         expected = """
         |Moabit
         |Berlin
@@ -1168,10 +958,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte",
-            "country" to "Germany", "country_code" to "de", "house_number" to "7",
-            "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße",
-            "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte"),
+        components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "de", "house_number" to "7", "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße", "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte"),
         expected = """
         |Gontardstraße 7
         |10178 Berlin
@@ -1181,10 +968,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte",
-            "country" to "Germany", "country_code" to "de", "housenumber" to "7",
-            "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße",
-            "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte"),
+        components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "de", "housenumber" to "7", "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße", "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte"),
         expected = """
         |Gontardstraße 7
         |10178 Berlin
@@ -1194,8 +978,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Cologne",
-            "state" to "North Rhine-Westphalia", "state_district" to "Regierungsbezirk Köln"),
+        components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Cologne", "state" to "North Rhine-Westphalia", "state_district" to "Regierungsbezirk Köln"),
         expected = """
         |Cologne
         |North Rhine-Westphalia
@@ -1205,9 +988,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Bayern",
-            "hamlet" to "Köln", "state" to "Free State of Bavaria",
-            "state_district" to "Upper Bavaria"),
+        components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Bayern", "hamlet" to "Köln", "state" to "Free State of Bavaria", "state_district" to "Upper Bavaria"),
         expected = """
         |Köln
         |Bavaria
@@ -1226,10 +1007,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany",
-            "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel",
-            "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße",
-            "state" to "Berlin", "suburb" to "Mitte"),
+        components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel", "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße", "state" to "Berlin", "suburb" to "Mitte"),
         expected = """
         |Fabisch
         |Rosenthaler Straße 1
@@ -1240,10 +1018,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city_district" to "Mitte", "country" to "Germany",
-            "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel",
-            "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße",
-            "state" to "Berlin", "suburb" to "Mitte"),
+        components = mapOf("city_district" to "Mitte", "country" to "Germany", "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel", "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße", "state" to "Berlin", "suburb" to "Mitte"),
         expected = """
         |Fabisch
         |Rosenthaler Straße 1
@@ -1254,9 +1029,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city_district" to "Heyerode", "continent" to "Europa",
-            "country" to "Germany", "country_code" to "de", "county" to "Unstrut-Hainich-Kreis",
-            "postcode" to "99988", "state" to "Thüringen", "village" to "Heyerode"),
+        components = mapOf("city_district" to "Heyerode", "continent" to "Europa", "country" to "Germany", "country_code" to "de", "county" to "Unstrut-Hainich-Kreis", "postcode" to "99988", "state" to "Thüringen", "village" to "Heyerode"),
         expected = """
         |99988 Heyerode
         |Germany
@@ -1274,9 +1047,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Landstuhl", "country" to "Germany", "country_code" to "de",
-            "county" to "Landstuhl", "postcode" to "66849", "road" to "Bahnstraße",
-            "state" to "Rhineland-Palatinate", "station" to "Landstuhl", "suburb" to "Melkerei"),
+        components = mapOf("city" to "Landstuhl", "country" to "Germany", "country_code" to "de", "county" to "Landstuhl", "postcode" to "66849", "road" to "Bahnstraße", "state" to "Rhineland-Palatinate", "station" to "Landstuhl", "suburb" to "Melkerei"),
         expected = """
         |Landstuhl
         |Bahnstraße
@@ -1287,9 +1058,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Munich", "city_district" to "Stadtbezirk 03 Maxvorstadt",
-            "country" to "Germany", "country_code" to "de", "state" to "Free State of Bavaria",
-            "state_district" to "Upper Bavaria"),
+        components = mapOf("city" to "Munich", "city_district" to "Stadtbezirk 03 Maxvorstadt", "country" to "Germany", "country_code" to "de", "state" to "Free State of Bavaria", "state_district" to "Upper Bavaria"),
         expected = """
         |Maxvorstadt
         |Munich
@@ -1300,10 +1069,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("building" to "DS Smith Paper Deutschland GmbH", "country" to "Germany",
-            "country_code" to "de", "county" to "Aschaffenburg", "postcode" to "63739,63741,63743",
-            "road" to "Haselmühlweg", "state" to "Free State of Bavaria",
-            "state_district" to "Lower Franconia", "suburb" to "Damm", "town" to "Aschaffenburg"),
+        components = mapOf("building" to "DS Smith Paper Deutschland GmbH", "country" to "Germany", "country_code" to "de", "county" to "Aschaffenburg", "postcode" to "63739,63741,63743", "road" to "Haselmühlweg", "state" to "Free State of Bavaria", "state_district" to "Lower Franconia", "suburb" to "Damm", "town" to "Aschaffenburg"),
         expected = """
         |DS Smith Paper Deutschland GmbH
         |Haselmühlweg
@@ -1314,10 +1080,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city_district" to "Ortsbeirat 5 : Lütten Klein", "country" to "Germany",
-            "country_code" to "de", "county" to "Rostock", "house_number" to "30",
-            "postcode" to "18107", "road" to "Turkuer Straße", "state" to "Mecklenburg-Vorpommern",
-            "suburb" to "Lütten Klein"),
+        components = mapOf("city_district" to "Ortsbeirat 5 : Lütten Klein", "country" to "Germany", "country_code" to "de", "county" to "Rostock", "house_number" to "30", "postcode" to "18107", "road" to "Turkuer Straße", "state" to "Mecklenburg-Vorpommern", "suburb" to "Lütten Klein"),
         expected = """
         |Turkuer Straße 30
         |18107 Rostock
@@ -1327,11 +1090,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Rhein-Sieg-Kreis", "country" to "Germany",
-            "country_code" to "de", "county" to "Rhein-Sieg-Kreis", "house_number" to "18",
-            "neighbourhood" to "Honnef", "postcode" to "53604", "road" to "Bahnhofstraße",
-            "state" to "North Rhine-Westphalia", "state_district" to "Cologne Government Region",
-            "suburb" to "Bondorf", "town" to "Bad Honnef", "unknown" to "Strich nach Punkt"),
+        components = mapOf("city" to "Rhein-Sieg-Kreis", "country" to "Germany", "country_code" to "de", "county" to "Rhein-Sieg-Kreis", "house_number" to "18", "neighbourhood" to "Honnef", "postcode" to "53604", "road" to "Bahnhofstraße", "state" to "North Rhine-Westphalia", "state_district" to "Cologne Government Region", "suburb" to "Bondorf", "town" to "Bad Honnef", "unknown" to "Strich nach Punkt"),
         expected = """
         |Strich nach Punkt
         |Bahnhofstraße 18
@@ -1342,10 +1101,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "de",
-            "house_number" to "29A", "local_administrative_area" to "Pankow",
-            "neighbourhood" to "Kollwitzkiez", "postcode" to "10405", "road" to "Jablonskistraße",
-            "state" to "Berlin", "state_code" to "BE", "suburb" to "Prenzlauer Berg"),
+        components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "de", "house_number" to "29A", "local_administrative_area" to "Pankow", "neighbourhood" to "Kollwitzkiez", "postcode" to "10405", "road" to "Jablonskistraße", "state" to "Berlin", "state_code" to "BE", "suburb" to "Prenzlauer Berg"),
         expected = """
         |Jablonskistraße 29A
         |10405 Berlin
@@ -1355,10 +1111,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Langenau", "country" to "Deutschland", "country_code" to "de",
-            "county" to "Alb-Donau-Kreis", "hamlet" to "Witthau", "house_number" to "3",
-            "municipality" to "GVV Langenau", "postcode" to "89129", "state" to "Baden-Württemberg",
-            "state_code" to "BW", "town" to "Langenau"),
+        components = mapOf("city" to "Langenau", "country" to "Deutschland", "country_code" to "de", "county" to "Alb-Donau-Kreis", "hamlet" to "Witthau", "house_number" to "3", "municipality" to "GVV Langenau", "postcode" to "89129", "state" to "Baden-Württemberg", "state_code" to "BW", "town" to "Langenau"),
         expected = """
         |Witthau 3
         |89129 Langenau
@@ -1368,10 +1121,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("country" to "Germany", "country_code" to "de",
-            "county" to "Sächsische Schweiz-Osterzgebirge", "postcode" to "01744",
-            "state" to "Saxony", "state_code" to "SN", "town" to "Dippoldiswalde",
-            "village" to "Oberhäslich"),
+        components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Sächsische Schweiz-Osterzgebirge", "postcode" to "01744", "state" to "Saxony", "state_code" to "SN", "town" to "Dippoldiswalde", "village" to "Oberhäslich"),
         expected = """
         |01744 Oberhäslich
         |Germany
@@ -1380,9 +1130,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - de",
       ),
       TestCase(
-        components = mapOf("city" to "Djibouti", "country" to "Djibouti", "country_code" to "dj",
-            "neighbourhood" to "Place Mahmoud Harbi", "restaurant" to "Blue Nile",
-            "road" to "Ethiopia Street", "state" to "Djibouti", "suburb" to "District 1"),
+        components = mapOf("city" to "Djibouti", "country" to "Djibouti", "country_code" to "dj", "neighbourhood" to "Place Mahmoud Harbi", "restaurant" to "Blue Nile", "road" to "Ethiopia Street", "state" to "Djibouti", "suburb" to "District 1"),
         expected = """
         |Blue Nile
         |Ethiopia Street
@@ -1393,10 +1141,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - dj",
       ),
       TestCase(
-        components = mapOf("country" to "Denmark", "country_code" to "dk",
-            "county" to "Ærø Municipality", "house_number" to "17A", "neighbourhood" to "Paradiset",
-            "postcode" to "5970", "road" to "Baggårde", "state" to "Region of Southern Denmark",
-            "village" to "Ærøskøbing"),
+        components = mapOf("country" to "Denmark", "country_code" to "dk", "county" to "Ærø Municipality", "house_number" to "17A", "neighbourhood" to "Paradiset", "postcode" to "5970", "road" to "Baggårde", "state" to "Region of Southern Denmark", "village" to "Ærøskøbing"),
         expected = """
         |Baggårde 17A
         |5970 Ærøskøbing
@@ -1406,10 +1151,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - dk",
       ),
       TestCase(
-        components = mapOf("country" to "Dominica", "country_code" to "dm",
-            "post_office" to "General Post Office", "postcode" to "00109-800",
-            "road" to "Drury Lane", "state" to "Saint George Parish", "suburb" to "Potters Ville",
-            "town" to "Roseau"),
+        components = mapOf("country" to "Dominica", "country_code" to "dm", "post_office" to "General Post Office", "postcode" to "00109-800", "road" to "Drury Lane", "state" to "Saint George Parish", "suburb" to "Potters Ville", "town" to "Roseau"),
         expected = """
         |General Post Office
         |Drury Lane
@@ -1420,11 +1162,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - dm",
       ),
       TestCase(
-        components = mapOf("bank" to "Banco de Reservas", "city" to "Santo Domingo",
-            "country" to "Dominican Republic", "country_code" to "do",
-            "neighbourhood" to "El Manguito", "postcode" to "10102",
-            "road" to "Avenida Jiménez Moya", "state" to "Distrito Nacional",
-            "suburb" to "Ensanche Evoristo Morales"),
+        components = mapOf("bank" to "Banco de Reservas", "city" to "Santo Domingo", "country" to "Dominican Republic", "country_code" to "do", "neighbourhood" to "El Manguito", "postcode" to "10102", "road" to "Avenida Jiménez Moya", "state" to "Distrito Nacional", "suburb" to "Ensanche Evoristo Morales"),
         expected = """
         |Banco de Reservas
         |Avenida Jiménez Moya
@@ -1437,10 +1175,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - do",
       ),
       TestCase(
-        components = mapOf("country" to "Algeria", "country_code" to "dz",
-            "county" to "Alger Centre", "hotel" to "Hôtel Régina", "postcode" to "16004",
-            "road" to "Boulevard Mustapha Benboulaid", "state" to "Algiers",
-            "town" to "Alger Centre"),
+        components = mapOf("country" to "Algeria", "country_code" to "dz", "county" to "Alger Centre", "hotel" to "Hôtel Régina", "postcode" to "16004", "road" to "Boulevard Mustapha Benboulaid", "state" to "Algiers", "town" to "Alger Centre"),
         expected = """
         |Hôtel Régina
         |Boulevard Mustapha Benboulaid
@@ -1451,10 +1186,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - dz",
       ),
       TestCase(
-        components = mapOf("building" to "Centro de Matematica", "city" to "Quito",
-            "city_district" to "Quito", "country" to "Ecuador", "country_code" to "ec",
-            "county" to "Quito", "postcode" to "170521", "road" to "Jerónimo Leiton",
-            "state" to "Pichincha", "suburb" to "Rumipamba"),
+        components = mapOf("building" to "Centro de Matematica", "city" to "Quito", "city_district" to "Quito", "country" to "Ecuador", "country_code" to "ec", "county" to "Quito", "postcode" to "170521", "road" to "Jerónimo Leiton", "state" to "Pichincha", "suburb" to "Rumipamba"),
         expected = """
         |Centro de Matematica
         |Jerónimo Leiton
@@ -1466,9 +1198,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ec",
       ),
       TestCase(
-        components = mapOf("city" to "Tallinn", "country" to "Estonia", "country_code" to "ee",
-            "county" to "Harju maakond", "house_number" to "15", "postcode" to "10613",
-            "road" to "Kasvu", "suburb" to "Kristiine linnaosa"),
+        components = mapOf("city" to "Tallinn", "country" to "Estonia", "country_code" to "ee", "county" to "Harju maakond", "house_number" to "15", "postcode" to "10613", "road" to "Kasvu", "suburb" to "Kristiine linnaosa"),
         expected = """
         |Kasvu 15
         |10613 Tallinn
@@ -1478,9 +1208,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ee",
       ),
       TestCase(
-        components = mapOf("city" to "Giza", "country" to "Egypt", "country_code" to "eg",
-            "museum" to "National Cultural Centre", "postcode" to "11231",
-            "road" to "Mahmoud Mokhtar", "state" to "Giza Governorate", "suburb" to "Dokki"),
+        components = mapOf("city" to "Giza", "country" to "Egypt", "country_code" to "eg", "museum" to "National Cultural Centre", "postcode" to "11231", "road" to "Mahmoud Mokhtar", "state" to "Giza Governorate", "suburb" to "Dokki"),
         expected = """
         |National Cultural Centre
         |Mahmoud Mokhtar
@@ -1493,9 +1221,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - eg",
       ),
       TestCase(
-        components = mapOf("city" to "Cairo", "country" to "Egypt", "country_code" to "eg",
-            "postcode" to "11381", "road" to "Fakhry Abdel-Nur", "state" to "Cairo Governorate",
-            "suburb" to "Abbasseya", "university" to "Police Academy"),
+        components = mapOf("city" to "Cairo", "country" to "Egypt", "country_code" to "eg", "postcode" to "11381", "road" to "Fakhry Abdel-Nur", "state" to "Cairo Governorate", "suburb" to "Abbasseya", "university" to "Police Academy"),
         expected = """
         |Police Academy
         |Fakhry Abdel-Nur
@@ -1508,9 +1234,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - eg",
       ),
       TestCase(
-        components = mapOf("city" to "Luxor", "country" to "Egypt", "country_code" to "eg",
-            "pedestrian" to "Sphinx Alley", "place_of_worship" to "Abu Haggag Mosque",
-            "state" to "Luxor Governate"),
+        components = mapOf("city" to "Luxor", "country" to "Egypt", "country_code" to "eg", "pedestrian" to "Sphinx Alley", "place_of_worship" to "Abu Haggag Mosque", "state" to "Luxor Governate"),
         expected = """
         |Abu Haggag Mosque
         |Sphinx Alley
@@ -1521,9 +1245,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - eg",
       ),
       TestCase(
-        components = mapOf("city" to "Tanta", "college" to "Tanta University", "country" to "Egypt",
-            "country_code" to "eg", "postcode" to "31111", "road" to "Mohebb",
-            "state" to "Gharbiyya Governorate", "suburb" to "Mahlet Marhoum"),
+        components = mapOf("city" to "Tanta", "college" to "Tanta University", "country" to "Egypt", "country_code" to "eg", "postcode" to "31111", "road" to "Mohebb", "state" to "Gharbiyya Governorate", "suburb" to "Mahlet Marhoum"),
         expected = """
         |Tanta University
         |Mohebb
@@ -1536,9 +1258,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - eg",
       ),
       TestCase(
-        components = mapOf("city" to "‏طنطا", "college" to "جامعة طنطا", "country" to "مصر",
-            "country_code" to "eg", "postcode" to "31111", "road" to "شارع محب",
-            "state" to "‏محافظة الغربي", "suburb" to "محلة مرحوم"),
+        components = mapOf("city" to "‏طنطا", "college" to "جامعة طنطا", "country" to "مصر", "country_code" to "eg", "postcode" to "31111", "road" to "شارع محب", "state" to "‏محافظة الغربي", "suburb" to "محلة مرحوم"),
         expected = """
         |جامعة طنطا
         |شارع محب
@@ -1551,10 +1271,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - eg",
       ),
       TestCase(
-        components = mapOf("country" to "Western Sahara", "country_code" to "eh",
-            "county" to "Pachalik de Laâyoune", "hotel" to "Hôtel Al-Massira",
-            "postcode" to "70036", "road" to "Boulevard de la Mecque",
-            "state_district" to "Laayoune Province"),
+        components = mapOf("country" to "Western Sahara", "country_code" to "eh", "county" to "Pachalik de Laâyoune", "hotel" to "Hôtel Al-Massira", "postcode" to "70036", "road" to "Boulevard de la Mecque", "state_district" to "Laayoune Province"),
         expected = """
         |Hôtel Al-Massira
         |Boulevard de la Mecque
@@ -1565,9 +1282,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - eh",
       ),
       TestCase(
-        components = mapOf("city" to "Asmara", "country" to "Eritrea", "country_code" to "er",
-            "courthouse" to "High Court of Eritrea", "postcode" to "1004",
-            "road" to "Harnet Avenue", "state" to "Maekel Region"),
+        components = mapOf("city" to "Asmara", "country" to "Eritrea", "country_code" to "er", "courthouse" to "High Court of Eritrea", "postcode" to "1004", "road" to "Harnet Avenue", "state" to "Maekel Region"),
         expected = """
         |High Court of Eritrea
         |Harnet Avenue
@@ -1578,8 +1293,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - er",
       ),
       TestCase(
-        components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es",
-            "county" to "BCN", "state" to "Catalonia"),
+        components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es", "county" to "BCN", "state" to "Catalonia"),
         expected = """
         |Barcelona
         |Catalonia
@@ -1589,10 +1303,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - es",
       ),
       TestCase(
-        components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es",
-            "county" to "BCN", "house_number" to "17", "pedestrian" to "Avinguda del Bogatell",
-            "postcode" to "08005", "public_building" to "Biblioteca Xavier Benguerel",
-            "state" to "Catalonia", "suburb" to "la Vila Olímpica del Poblenou"),
+        components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es", "county" to "BCN", "house_number" to "17", "pedestrian" to "Avinguda del Bogatell", "postcode" to "08005", "public_building" to "Biblioteca Xavier Benguerel", "state" to "Catalonia", "suburb" to "la Vila Olímpica del Poblenou"),
         expected = """
         |Biblioteca Xavier Benguerel
         |Avinguda del Bogatell, 17
@@ -1603,10 +1314,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - es",
       ),
       TestCase(
-        components = mapOf("city" to "San Sebastián", "country" to "Spain", "country_code" to "es",
-            "county" to "Gipuzkoa",
-            "postcode" to "20001;20002;20003;20004;20005;20006;20007;20008;20009;20010;20011;20012;20013;20014;20015;20016;20017;20018",
-            "state" to "Basque Country"),
+        components = mapOf("city" to "San Sebastián", "country" to "Spain", "country_code" to "es", "county" to "Gipuzkoa", "postcode" to "20001;20002;20003;20004;20005;20006;20007;20008;20009;20010;20011;20012;20013;20014;20015;20016;20017;20018", "state" to "Basque Country"),
         expected = """
         |San Sebastián
         |Basque Country
@@ -1616,8 +1324,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - es",
       ),
       TestCase(
-        components = mapOf("country" to "Spanien", "country_code" to "es",
-            "county" to "Costa del Sol Occidental", "state" to "Andalusien"),
+        components = mapOf("country" to "Spanien", "country_code" to "es", "county" to "Costa del Sol Occidental", "state" to "Andalusien"),
         expected = """
         |Costa del Sol Occidental
         |Andalusien
@@ -1627,9 +1334,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - es",
       ),
       TestCase(
-        components = mapOf("city" to "Addis Abeba", "country" to "Ethiopia", "country_code" to "et",
-            "library" to "National Library & Archives", "postcode" to "3001",
-            "road" to "Yared Street", "state" to "Addis Ababa", "suburb" to "Beherawi"),
+        components = mapOf("city" to "Addis Abeba", "country" to "Ethiopia", "country_code" to "et", "library" to "National Library & Archives", "postcode" to "3001", "road" to "Yared Street", "state" to "Addis Ababa", "suburb" to "Beherawi"),
         expected = """
         |National Library & Archives
         |Yared Street
@@ -1640,11 +1345,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - et",
       ),
       TestCase(
-        components = mapOf("city" to "Helsinki", "country" to "Finland", "country_code" to "fi",
-            "county" to "Helsingin seutukunta", "house_number" to "15", "postcode" to "00140",
-            "restaurant" to "Ravintola Central", "road" to "Pietarinkatu",
-            "state" to "Southern Finland", "state_district" to "Southern Finland",
-            "suburb" to "Ullanlinna"),
+        components = mapOf("city" to "Helsinki", "country" to "Finland", "country_code" to "fi", "county" to "Helsingin seutukunta", "house_number" to "15", "postcode" to "00140", "restaurant" to "Ravintola Central", "road" to "Pietarinkatu", "state" to "Southern Finland", "state_district" to "Southern Finland", "suburb" to "Ullanlinna"),
         expected = """
         |Ravintola Central
         |Pietarinkatu 15
@@ -1655,9 +1356,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fi",
       ),
       TestCase(
-        components = mapOf("city" to "Suva", "country" to "Fiji", "country_code" to "fj",
-            "library" to "Suva City Library", "road" to "Victoria Parade", "state" to "Central",
-            "suburb" to "The Domain"),
+        components = mapOf("city" to "Suva", "country" to "Fiji", "country_code" to "fj", "library" to "Suva City Library", "road" to "Victoria Parade", "state" to "Central", "suburb" to "The Domain"),
         expected = """
         |Suva City Library
         |Victoria Parade
@@ -1668,9 +1367,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fj",
       ),
       TestCase(
-        components = mapOf("building" to "Rose Hotel", "country" to "Falkland Islands",
-            "country_code" to "fk", "house_number" to "1", "residential" to "Port Stanley",
-            "road" to "Brisbane Road", "town" to "Stanley"),
+        components = mapOf("building" to "Rose Hotel", "country" to "Falkland Islands", "country_code" to "fk", "house_number" to "1", "residential" to "Port Stanley", "road" to "Brisbane Road", "town" to "Stanley"),
         expected = """
         |Rose Hotel
         |1 Brisbane Road
@@ -1682,8 +1379,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fk",
       ),
       TestCase(
-        components = mapOf("continent" to "South America", "country" to "Falkland Islands",
-            "country_code" to "fk"),
+        components = mapOf("continent" to "South America", "country" to "Falkland Islands", "country_code" to "fk"),
         expected = """
         |Falkland Islands
         |United Kingdom
@@ -1692,9 +1388,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fk",
       ),
       TestCase(
-        components = mapOf("country" to "Federated States of Micronesia", "country_code" to "fm",
-            "library" to "Pohnpei Public Library", "postcode" to "96941", "road" to "Kaselehlia",
-            "state" to "Pohnpei", "town" to "Kolonia"),
+        components = mapOf("country" to "Federated States of Micronesia", "country_code" to "fm", "library" to "Pohnpei Public Library", "postcode" to "96941", "road" to "Kaselehlia", "state" to "Pohnpei", "town" to "Kolonia"),
         expected = """
         |Pohnpei Public Library
         |Kaselehlia
@@ -1705,10 +1399,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fm",
       ),
       TestCase(
-        components = mapOf("bank" to "Bank Nordik",
-            "country" to "Territorial waters of Faroe Islands", "country_code" to "fo",
-            "house_number" to "17", "postcode" to "100", "road" to "Steinagøta",
-            "state" to "Streymoy region", "town" to "Tórshavn"),
+        components = mapOf("bank" to "Bank Nordik", "country" to "Territorial waters of Faroe Islands", "country_code" to "fo", "house_number" to "17", "postcode" to "100", "road" to "Steinagøta", "state" to "Streymoy region", "town" to "Tórshavn"),
         expected = """
         |Bank Nordik
         |Steinagøta 17
@@ -1719,10 +1410,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fo",
       ),
       TestCase(
-        components = mapOf("city" to "Toulouse", "country" to "France", "country_code" to "FR",
-            "county" to "Toulouse", "house_number" to "17", "neighbourhood" to "Lafourguette",
-            "postcode" to "31000", "road" to "Rue du Médecin-Colonel Calbairac",
-            "state" to "Midi-Pyrénées", "suburb" to "Toulouse Ouest"),
+        components = mapOf("city" to "Toulouse", "country" to "France", "country_code" to "FR", "county" to "Toulouse", "house_number" to "17", "neighbourhood" to "Lafourguette", "postcode" to "31000", "road" to "Rue du Médecin-Colonel Calbairac", "state" to "Midi-Pyrénées", "suburb" to "Toulouse Ouest"),
         expected = """
         |17 Rue du Médecin-Colonel Calbairac
         |31000 Toulouse
@@ -1732,9 +1420,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("city" to "Mulhouse", "country" to "France", "country_code" to "fr",
-            "county" to "Mulhouse", "postcode" to "68100;68200",
-            "state" to "Alsace-Champagne-Ardenne-Lorraine"),
+        components = mapOf("city" to "Mulhouse", "country" to "France", "country_code" to "fr", "county" to "Mulhouse", "postcode" to "68100;68200", "state" to "Alsace-Champagne-Ardenne-Lorraine"),
         expected = """
         |Mulhouse
         |France
@@ -1743,9 +1429,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Cayenne",
-            "house_number" to "53", "neighbourhood" to "Cité Floralies", "postcode" to "97300",
-            "road" to "Rue du Lieutenant Becker", "state" to "French Guiana", "town" to "Cayenne"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Cayenne", "house_number" to "53", "neighbourhood" to "Cité Floralies", "postcode" to "97300", "road" to "Rue du Lieutenant Becker", "state" to "French Guiana", "town" to "Cayenne"),
         expected = """
         |53 Rue du Lieutenant Becker
         |97300 Cayenne
@@ -1755,10 +1439,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("building" to "Mairie (bureaux administratifs)", "city" to "Papeete",
-            "country" to "Polynésie française, Îles du Vent (eaux territoriales)",
-            "country_code" to "fr", "county" to "Îles du Vent", "postcode" to "98714",
-            "road" to "Rue des Remparts", "state" to "French Polynesia"),
+        components = mapOf("building" to "Mairie (bureaux administratifs)", "city" to "Papeete", "country" to "Polynésie française, Îles du Vent (eaux territoriales)", "country_code" to "fr", "county" to "Îles du Vent", "postcode" to "98714", "road" to "Rue des Remparts", "state" to "French Polynesia"),
         expected = """
         |Mairie (bureaux administratifs)
         |Rue des Remparts
@@ -1769,10 +1450,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("building" to "Conseil Général de Mayotte",
-            "country" to "France, Mayotte (eaux territoriales)", "country_code" to "fr",
-            "postcode" to "97600", "road" to "Rue Houmadi Bacar", "state" to "Mayotte",
-            "town" to "Mamoudzou"),
+        components = mapOf("building" to "Conseil Général de Mayotte", "country" to "France, Mayotte (eaux territoriales)", "country_code" to "fr", "postcode" to "97600", "road" to "Rue Houmadi Bacar", "state" to "Mayotte", "town" to "Mamoudzou"),
         expected = """
         |Conseil Général de Mayotte
         |Rue Houmadi Bacar
@@ -1783,10 +1461,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("city" to "Le Port",
-            "country" to "France, La Réunion (eaux territoriales)", "country_code" to "fr",
-            "county" to "Saint-Paul", "house_number" to "17", "postcode" to "97420",
-            "road" to "Rue François de Mahy", "state" to "Réunion"),
+        components = mapOf("city" to "Le Port", "country" to "France, La Réunion (eaux territoriales)", "country_code" to "fr", "county" to "Saint-Paul", "house_number" to "17", "postcode" to "97420", "road" to "Rue François de Mahy", "state" to "Réunion"),
         expected = """
         |17 Rue François de Mahy
         |97420 Le Port
@@ -1796,10 +1471,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("building" to "Société nouvelle des pêches de Miquelon",
-            "city" to "Miquelon-Langlade", "country" to "France", "country_code" to "fr",
-            "postcode" to "97500", "road" to "Rue Jacques Vigneau",
-            "state" to "Saint Pierre and Miquelon"),
+        components = mapOf("building" to "Société nouvelle des pêches de Miquelon", "city" to "Miquelon-Langlade", "country" to "France", "country_code" to "fr", "postcode" to "97500", "road" to "Rue Jacques Vigneau", "state" to "Saint Pierre and Miquelon"),
         expected = """
         |Société nouvelle des pêches de Miquelon
         |Rue Jacques Vigneau
@@ -1810,11 +1482,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("building" to "Immeuble Maréchal Foch", "city" to "Nouméa",
-            "city_district" to "Secteur Ouest",
-            "country" to "France, Nouvelle-Calédonie, Grande Terre et récifs d'Entrecasteaux (eaux territoriales)",
-            "country_code" to "fr", "county" to "Province Sud", "postcode" to "98800",
-            "road" to "Rue Jean Jaurès", "state" to "New Caledonia", "suburb" to "Centre-Ville"),
+        components = mapOf("building" to "Immeuble Maréchal Foch", "city" to "Nouméa", "city_district" to "Secteur Ouest", "country" to "France, Nouvelle-Calédonie, Grande Terre et récifs d'Entrecasteaux (eaux territoriales)", "country_code" to "fr", "county" to "Province Sud", "postcode" to "98800", "road" to "Rue Jean Jaurès", "state" to "New Caledonia", "suburb" to "Centre-Ville"),
         expected = """
         |Immeuble Maréchal Foch
         |Rue Jean Jaurès
@@ -1825,10 +1493,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "fr",
-            "county" to "Fontainebleau", "postcode" to "77630", "road" to "Autoroute du Soleil",
-            "road_reference" to "A 6", "road_reference_intl" to "E 15", "state" to "Ile-de-France",
-            "village" to "Arbonne-la-Forêt"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Fontainebleau", "postcode" to "77630", "road" to "Autoroute du Soleil", "road_reference" to "A 6", "road_reference_intl" to "E 15", "state" to "Ile-de-France", "village" to "Arbonne-la-Forêt"),
         expected = """
         |Autoroute du Soleil
         |77630 Arbonne-la-Forêt
@@ -1838,10 +1503,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "fr",
-            "county" to "Fontainebleau", "postcode" to "77630", "road_reference" to "A 6",
-            "road_reference_intl" to "E 15", "state" to "Ile-de-France",
-            "village" to "Arbonne-la-Forêt"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Fontainebleau", "postcode" to "77630", "road_reference" to "A 6", "road_reference_intl" to "E 15", "state" to "Ile-de-France", "village" to "Arbonne-la-Forêt"),
         expected = """
         |A 6
         |77630 Arbonne-la-Forêt
@@ -1851,9 +1513,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "fr",
-            "county" to "Fontainebleau", "postcode" to "77630", "road_reference_intl" to "E 15",
-            "state" to "Ile-de-France", "village" to "Arbonne-la-Forêt"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Fontainebleau", "postcode" to "77630", "road_reference_intl" to "E 15", "state" to "Ile-de-France", "village" to "Arbonne-la-Forêt"),
         expected = """
         |E 15
         |77630 Arbonne-la-Forêt
@@ -1863,10 +1523,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("amenity" to "A1X4E0", "country" to "France", "country_code" to "fr",
-            "county" to "Var", "municipality" to "Draguignan", "postcode" to "83700",
-            "road" to "Avenue du XVe Corps", "state" to "Provence-Alpes-Côte dAzur",
-            "suburb" to "Valescure", "town" to "Saint-Raphaël"),
+        components = mapOf("amenity" to "A1X4E0", "country" to "France", "country_code" to "fr", "county" to "Var", "municipality" to "Draguignan", "postcode" to "83700", "road" to "Avenue du XVe Corps", "state" to "Provence-Alpes-Côte dAzur", "suburb" to "Valescure", "town" to "Saint-Raphaël"),
         expected = """
         |A1X4E0
         |Avenue du XVe Corps
@@ -1877,10 +1534,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("city" to "Paris 7e Arrondissement", "country" to "France",
-            "country_code" to "fr", "house_number" to "15", "postcode" to "75007",
-            "state" to "Île-de-France", "state_district" to "Paris",
-            "street" to "Avenue Charles Floquet"),
+        components = mapOf("city" to "Paris 7e Arrondissement", "country" to "France", "country_code" to "fr", "house_number" to "15", "postcode" to "75007", "state" to "Île-de-France", "state_district" to "Paris", "street" to "Avenue Charles Floquet"),
         expected = """
         |15 Avenue Charles Floquet
         |75007 Paris
@@ -1890,11 +1544,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Isère",
-            "house_number" to "83", "municipality" to "Grenoble",
-            "neighbourhood" to "Lotissement des cartonneries", "postcode" to "38560",
-            "road" to "Avenue Jean Navarre", "state" to "Auvergne-Rhône-Alpes",
-            "state_code" to "ARA", "village" to "Champ-sur-Drac"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Isère", "house_number" to "83", "municipality" to "Grenoble", "neighbourhood" to "Lotissement des cartonneries", "postcode" to "38560", "road" to "Avenue Jean Navarre", "state" to "Auvergne-Rhône-Alpes", "state_code" to "ARA", "village" to "Champ-sur-Drac"),
         expected = """
         |83 Avenue Jean Navarre
         |38560 Champ-sur-Drac
@@ -1904,10 +1554,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Doubs",
-            "hamlet" to "Les Communaux", "house_number" to "20", "municipality" to "Pontarlier",
-            "postcode" to "25500", "road" to "Rue Antoine de Roche",
-            "state" to "Bourgogne-Franche-Comté", "state_code" to "BFC", "town" to "Morteau"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Doubs", "hamlet" to "Les Communaux", "house_number" to "20", "municipality" to "Pontarlier", "postcode" to "25500", "road" to "Rue Antoine de Roche", "state" to "Bourgogne-Franche-Comté", "state_code" to "BFC", "town" to "Morteau"),
         expected = """
         |20 Rue Antoine de Roche
         |25500 Morteau
@@ -1917,9 +1564,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("city" to "Sommières-du-Clain", "country" to "France",
-            "country_code" to "fr", "place" to "Moulin Bois", "postcode" to "86160",
-            "state" to "Nouvelle-Aquitaine", "state_code" to "NAQ", "county" to "Vienne"),
+        components = mapOf("city" to "Sommières-du-Clain", "country" to "France", "country_code" to "fr", "place" to "Moulin Bois", "postcode" to "86160", "state" to "Nouvelle-Aquitaine", "state_code" to "NAQ", "county" to "Vienne"),
         expected = """
         |Moulin Bois
         |86160 Sommières-du-Clain
@@ -1929,10 +1574,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("building" to "Consulat De France", "city" to "Libreville",
-            "country" to "Gabon", "country_code" to "ga", "county" to "Libreville Department",
-            "neighbourhood" to "Batavea", "postcode" to "BP13131", "road" to "Rue Ange M'ba",
-            "state" to "Estuaire", "suburb" to "Nombakele"),
+        components = mapOf("building" to "Consulat De France", "city" to "Libreville", "country" to "Gabon", "country_code" to "ga", "county" to "Libreville Department", "neighbourhood" to "Batavea", "postcode" to "BP13131", "road" to "Rue Ange M'ba", "state" to "Estuaire", "suburb" to "Nombakele"),
         expected = """
         |Consulat De France
         |Rue Ange M'ba
@@ -1944,10 +1586,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ga",
       ),
       TestCase(
-        components = mapOf("city" to "London", "city_district" to "London Borough of Islington",
-            "country" to "United Kingdom", "country_code" to "GB", "house" to "Lokku Ltd",
-            "house_number" to "82", "postcode" to "EC1M 5RF", "road" to "Clerkenwell Road",
-            "state" to "England", "state_district" to "Greater London", "suburb" to "Clerkenwell"),
+        components = mapOf("city" to "London", "city_district" to "London Borough of Islington", "country" to "United Kingdom", "country_code" to "GB", "house" to "Lokku Ltd", "house_number" to "82", "postcode" to "EC1M 5RF", "road" to "Clerkenwell Road", "state" to "England", "state_district" to "Greater London", "suburb" to "Clerkenwell"),
         expected = """
         |Lokku Ltd
         |82 Clerkenwell Road
@@ -1959,9 +1598,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("country" to "United Kingdom", "country_code" to "GB",
-            "county" to "Greater London", "local_administrative_area" to "City of London",
-            "state" to "England", "suburb" to "Barbican"),
+        components = mapOf("country" to "United Kingdom", "country_code" to "GB", "county" to "Greater London", "local_administrative_area" to "City of London", "state" to "England", "suburb" to "Barbican"),
         expected = """
         |Barbican
         |City of London
@@ -1972,9 +1609,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "London", "country" to "United Kingdom",
-            "country_code" to "GB", "county" to "London", "state" to "England",
-            "state_district" to "Greater London"),
+        components = mapOf("city" to "London", "country" to "United Kingdom", "country_code" to "GB", "county" to "London", "state" to "England", "state_district" to "Greater London"),
         expected = """
         |London
         |United Kingdom
@@ -1983,8 +1618,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "Manchester", "country" to "United Kingdom",
-            "country_code" to "GB", "county" to "Manchester", "state" to "England"),
+        components = mapOf("city" to "Manchester", "country" to "United Kingdom", "country_code" to "GB", "county" to "Manchester", "state" to "England"),
         expected = """
         |Manchester
         |England
@@ -1994,9 +1628,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "London", "city_district" to "London Borough of Islington",
-            "country" to "United Kingdom", "country_code" to "gb", "county" to "London",
-            "state" to "England", "state_district" to "Greater London", "suburb" to "Clerkenwell"),
+        components = mapOf("city" to "London", "city_district" to "London Borough of Islington", "country" to "United Kingdom", "country_code" to "gb", "county" to "London", "state" to "England", "state_district" to "Greater London", "suburb" to "Clerkenwell"),
         expected = """
         |Clerkenwell
         |London
@@ -2006,11 +1638,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "City of Westminster", "country" to "United Kingdom",
-            "country_code" to "gb", "county" to "London", "house_number" to "115",
-            "postcode" to "W1T 5DU", "road" to "New Cavendish Street", "state" to "England",
-            "state_district" to "Greater London", "suburb" to "Fitzrovia",
-            "university" to "University of Westminster"),
+        components = mapOf("city" to "City of Westminster", "country" to "United Kingdom", "country_code" to "gb", "county" to "London", "house_number" to "115", "postcode" to "W1T 5DU", "road" to "New Cavendish Street", "state" to "England", "state_district" to "Greater London", "suburb" to "Fitzrovia", "university" to "University of Westminster"),
         expected = """
         |University of Westminster
         |115 New Cavendish Street
@@ -2022,10 +1650,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("country" to "United Kingdom", "country_code" to "gb",
-            "county" to "Cambridgeshire", "postcode" to "PE28 9QA", "region" to "East of England",
-            "state" to "England", "suburb" to "Fenstanton", "town" to "Huntingdonshire",
-            "village" to "Hilton"),
+        components = mapOf("country" to "United Kingdom", "country_code" to "gb", "county" to "Cambridgeshire", "postcode" to "PE28 9QA", "region" to "East of England", "state" to "England", "suburb" to "Fenstanton", "town" to "Huntingdonshire", "village" to "Hilton"),
         expected = """
         |Hilton
         |PE28 9QA
@@ -2035,10 +1660,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("building" to "Willoughby House", "city" to "London",
-            "country" to "United Kingdom", "country_code" to "gb", "county" to "City of London",
-            "postcode" to "EC2Y 9DP", "quarter" to "Barbican", "road" to "Moor Lane",
-            "state" to "England", "state_district" to "Greater London"),
+        components = mapOf("building" to "Willoughby House", "city" to "London", "country" to "United Kingdom", "country_code" to "gb", "county" to "City of London", "postcode" to "EC2Y 9DP", "quarter" to "Barbican", "road" to "Moor Lane", "state" to "England", "state_district" to "Greater London"),
         expected = """
         |Willoughby House
         |Moor Lane
@@ -2051,10 +1673,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "City of Nottingham", "country" to "United Kingdom",
-            "country_code" to "gb", "house_number" to "121", "neighbourhood" to "Lace Market",
-            "postcode" to "NG3 1NB", "road" to "Abbotsford Drive", "state" to "England",
-            "state_district" to "East Midlands", "suburb" to "St Ann's"),
+        components = mapOf("city" to "City of Nottingham", "country" to "United Kingdom", "country_code" to "gb", "house_number" to "121", "neighbourhood" to "Lace Market", "postcode" to "NG3 1NB", "road" to "Abbotsford Drive", "state" to "England", "state_district" to "East Midlands", "suburb" to "St Ann's"),
         expected = """
         |121 Abbotsford Drive
         |Nottingham
@@ -2065,11 +1684,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "London", "country" to "United Kingdom",
-            "country_code" to "gb", "county" to "London Borough of Waltham Forest",
-            "house_number" to "64", "neighbourhood" to "Walthamstow Village", "postcode" to "E10",
-            "road" to "Melbourne Road", "state" to "England", "state_district" to "Greater London",
-            "suburb" to "Leyton"),
+        components = mapOf("city" to "London", "country" to "United Kingdom", "country_code" to "gb", "county" to "London Borough of Waltham Forest", "house_number" to "64", "neighbourhood" to "Walthamstow Village", "postcode" to "E10", "road" to "Melbourne Road", "state" to "England", "state_district" to "Greater London", "suburb" to "Leyton"),
         expected = """
         |64 Melbourne Road
         |London
@@ -2080,11 +1695,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "London", "country" to "United Kingdom",
-            "country_code" to "gb", "county" to "London Borough of Waltham Forest",
-            "house_number" to "64", "neighbourhood" to "Walthamstow Village",
-            "partial_postcode" to "E10", "road" to "Melbourne Road", "state" to "England",
-            "state_district" to "Greater London", "suburb" to "Leyton"),
+        components = mapOf("city" to "London", "country" to "United Kingdom", "country_code" to "gb", "county" to "London Borough of Waltham Forest", "house_number" to "64", "neighbourhood" to "Walthamstow Village", "partial_postcode" to "E10", "road" to "Melbourne Road", "state" to "England", "state_district" to "Greater London", "suburb" to "Leyton"),
         expected = """
         |64 Melbourne Road
         |London
@@ -2095,11 +1706,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("building" to "Orchard House", "city" to "Wakefield",
-            "country" to "United Kingdom", "country_code" to "gb", "county" to "West Yorkshire",
-            "postcode" to "WF5 8PG", "road" to "West Wells Road", "state" to "England",
-            "state_code" to "ENG", "state_district" to "Yorkshire and the Humber",
-            "town" to "Ossett"),
+        components = mapOf("building" to "Orchard House", "city" to "Wakefield", "country" to "United Kingdom", "country_code" to "gb", "county" to "West Yorkshire", "postcode" to "WF5 8PG", "road" to "West Wells Road", "state" to "England", "state_code" to "ENG", "state_district" to "Yorkshire and the Humber", "town" to "Ossett"),
         expected = """
         |Orchard House
         |West Wells Road
@@ -2111,9 +1718,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("country" to "United Kingdom", "country_code" to "gb",
-            "county" to "York", "farmland" to "Fair Field", "hamlet" to "Kexby",
-            "state" to "England", "state_district" to "Yorkshire and the Humber"),
+        components = mapOf("country" to "United Kingdom", "country_code" to "gb", "county" to "York", "farmland" to "Fair Field", "hamlet" to "Kexby", "state" to "England", "state_district" to "Yorkshire and the Humber"),
         expected = """
         |Fair Field
         |Kexby
@@ -2125,9 +1730,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "London", "city_district" to "London Borough of Hackney",
-            "country" to "United Kingdom", "country_code" to "gb", "state" to "England",
-            "state_code" to "ENG", "state_district" to "Greater London", "suburb" to "Hoxton"),
+        components = mapOf("city" to "London", "city_district" to "London Borough of Hackney", "country" to "United Kingdom", "country_code" to "gb", "state" to "England", "state_code" to "ENG", "state_district" to "Greater London", "suburb" to "Hoxton"),
         expected = """
         |Hoxton
         |London
@@ -2137,9 +1740,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "Stratford-on-Avon", "country" to "United Kingdom",
-            "country_code" to "gb", "county" to "Warwickshire", "state" to "England",
-            "village" to "Welford on Avon CP"),
+        components = mapOf("city" to "Stratford-on-Avon", "country" to "United Kingdom", "country_code" to "gb", "county" to "Warwickshire", "state" to "England", "village" to "Welford on Avon CP"),
         expected = """
         |Welford on Avon
         |Stratford-on-Avon
@@ -2151,9 +1752,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "East Hertfordshire", "country" to "United Kingdom",
-            "country_code" to "gb", "county" to "Hertfordshire", "county_code" to "HRT",
-            "state" to "England", "state_code" to "ENG", "town" to "Bishop's Stortford"),
+        components = mapOf("city" to "East Hertfordshire", "country" to "United Kingdom", "country_code" to "gb", "county" to "Hertfordshire", "county_code" to "HRT", "state" to "England", "state_code" to "ENG", "town" to "Bishop's Stortford"),
         expected = """
         |Bishop's Stortford
         |Hertfordshire
@@ -2164,9 +1763,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("city" to "London", "country" to "United Kingdom",
-            "country_code" to "gb", "house" to "St. Judes & St. Pauls C of E (Va) Primary School",
-            "house_number" to "10", "postcode" to "N1 4AZ", "road" to "Kingsbury Road"),
+        components = mapOf("city" to "London", "country" to "United Kingdom", "country_code" to "gb", "house" to "St. Judes & St. Pauls C of E (Va) Primary School", "house_number" to "10", "postcode" to "N1 4AZ", "road" to "Kingsbury Road"),
         expected = """
         |St. Judes & St. Pauls C of E (Va) Primary School
         |10 Kingsbury Road
@@ -2178,9 +1775,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gb",
       ),
       TestCase(
-        components = mapOf("bank" to "Republic Bank Grenada", "city" to "St. George's",
-            "country" to "Grenada", "country_code" to "gd", "road" to "Bruce Street",
-            "suburb" to "Belmont"),
+        components = mapOf("bank" to "Republic Bank Grenada", "city" to "St. George's", "country" to "Grenada", "country_code" to "gd", "road" to "Bruce Street", "suburb" to "Belmont"),
         expected = """
         |Republic Bank Grenada
         |Bruce Street
@@ -2191,9 +1786,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gd",
       ),
       TestCase(
-        components = mapOf("bar" to "Mojito Bar", "city" to "Tbilisi", "country" to "Georgia",
-            "country_code" to "GE", "house_number" to "7", "postcode" to "0114",
-            "road" to "Cotton Row", "suburb" to "Old Tbilisi Raion"),
+        components = mapOf("bar" to "Mojito Bar", "city" to "Tbilisi", "country" to "Georgia", "country_code" to "GE", "house_number" to "7", "postcode" to "0114", "road" to "Cotton Row", "suburb" to "Old Tbilisi Raion"),
         expected = """
         |Mojito Bar
         |Cotton Row 7
@@ -2204,10 +1797,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ge",
       ),
       TestCase(
-        components = mapOf("country" to "French Guiana", "country_code" to "gf",
-            "county" to "Cayenne", "house_number" to "53", "neighbourhood" to "Cité Floralies",
-            "postcode" to "97300", "road" to "Rue du Lieutenant Becker", "state" to "French Guiana",
-            "town" to "Cayenne"),
+        components = mapOf("country" to "French Guiana", "country_code" to "gf", "county" to "Cayenne", "house_number" to "53", "neighbourhood" to "Cité Floralies", "postcode" to "97300", "road" to "Rue du Lieutenant Becker", "state" to "French Guiana", "town" to "Cayenne"),
         expected = """
         |53 Rue du Lieutenant Becker
         |97300 Cayenne
@@ -2217,9 +1807,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gf",
       ),
       TestCase(
-        components = mapOf("country" to "Guernsey", "country_code" to "gg",
-            "post_box" to "Post Office", "postcode" to "GY1", "road" to "Le Marchant Street",
-            "state" to "Guernsey", "town" to "Saint Peter Port"),
+        components = mapOf("country" to "Guernsey", "country_code" to "gg", "post_box" to "Post Office", "postcode" to "GY1", "road" to "Le Marchant Street", "state" to "Guernsey", "town" to "Saint Peter Port"),
         expected = """
         |Post Office
         |Le Marchant Street
@@ -2231,9 +1819,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gg",
       ),
       TestCase(
-        components = mapOf("building" to "Ecobank", "city" to "Accra", "country" to "Ghana",
-            "country_code" to "gh", "county" to "Accra Metropolitan", "postcode" to "233",
-            "road" to "7th Avenue", "state" to "Greater Accra Region", "suburb" to "West Ridge"),
+        components = mapOf("building" to "Ecobank", "city" to "Accra", "country" to "Ghana", "country_code" to "gh", "county" to "Accra Metropolitan", "postcode" to "233", "road" to "7th Avenue", "state" to "Greater Accra Region", "suburb" to "West Ridge"),
         expected = """
         |Ecobank
         |7th Avenue
@@ -2244,9 +1830,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gh",
       ),
       TestCase(
-        components = mapOf("country" to "Gibraltar", "country_code" to "gi",
-            "house_number" to "18-20", "museum" to "Gibraltar Museum",
-            "pedestrian" to "Bomb House Lane", "town" to "Gibraltar"),
+        components = mapOf("country" to "Gibraltar", "country_code" to "gi", "house_number" to "18-20", "museum" to "Gibraltar Museum", "pedestrian" to "Bomb House Lane", "town" to "Gibraltar"),
         expected = """
         |Gibraltar Museum
         |18-20 Bomb House Lane
@@ -2256,9 +1840,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gi",
       ),
       TestCase(
-        components = mapOf("city" to "Nuuk", "country" to "Greenland", "country_code" to "gl",
-            "house_number" to "18", "neighbourhood" to "Qernertunnguit", "pedestrian" to "Imaneq",
-            "postcode" to "3900", "suburb" to "Qaurunnguaq"),
+        components = mapOf("city" to "Nuuk", "country" to "Greenland", "country_code" to "gl", "house_number" to "18", "neighbourhood" to "Qernertunnguit", "pedestrian" to "Imaneq", "postcode" to "3900", "suburb" to "Qaurunnguaq"),
         expected = """
         |Imaneq 18
         |3900 Nuuk
@@ -2268,8 +1850,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gl",
       ),
       TestCase(
-        components = mapOf("city" to "Banjul", "country" to "The Gambia", "country_code" to "gm",
-            "library" to "Gambia National Library", "road" to "Reg Pye Lane", "state" to "Banjul"),
+        components = mapOf("city" to "Banjul", "country" to "The Gambia", "country_code" to "gm", "library" to "Gambia National Library", "road" to "Reg Pye Lane", "state" to "Banjul"),
         expected = """
         |Gambia National Library
         |Reg Pye Lane
@@ -2280,9 +1861,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gm",
       ),
       TestCase(
-        components = mapOf("city" to "Kaloum", "country" to "Guinea", "country_code" to "gn",
-            "furniture" to "L'Art de la Table", "road" to "8e Avenue", "state" to "Conakry",
-            "suburb" to "Almamiya 2"),
+        components = mapOf("city" to "Kaloum", "country" to "Guinea", "country_code" to "gn", "furniture" to "L'Art de la Table", "road" to "8e Avenue", "state" to "Conakry", "suburb" to "Almamiya 2"),
         expected = """
         |L'Art de la Table
         |8e Avenue
@@ -2294,10 +1873,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gn",
       ),
       TestCase(
-        components = mapOf("country" to "Guadeloupe", "country_code" to "gp",
-            "county" to "Pointe-à-Pitre", "museum" to "Musée Lherminier", "postcode" to "97110",
-            "road" to "Rue Sadi-Carnot", "state" to "Guadeloupe", "suburb" to "Centre-Ville",
-            "town" to "Pointe-à-Pitre"),
+        components = mapOf("country" to "Guadeloupe", "country_code" to "gp", "county" to "Pointe-à-Pitre", "museum" to "Musée Lherminier", "postcode" to "97110", "road" to "Rue Sadi-Carnot", "state" to "Guadeloupe", "suburb" to "Centre-Ville", "town" to "Pointe-à-Pitre"),
         expected = """
         |Musée Lherminier
         |Rue Sadi-Carnot
@@ -2308,10 +1884,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gp",
       ),
       TestCase(
-        components = mapOf("city" to "Malabo", "country" to "Equatorial Guinea",
-            "country_code" to "gq", "neighbourhood" to "Los Ángeles",
-            "restaurant" to "Treasure Island", "road" to "Av de la Independencia",
-            "state" to "Bioko Norte", "suburb" to "Santa Isabel"),
+        components = mapOf("city" to "Malabo", "country" to "Equatorial Guinea", "country_code" to "gq", "neighbourhood" to "Los Ángeles", "restaurant" to "Treasure Island", "road" to "Av de la Independencia", "state" to "Bioko Norte", "suburb" to "Santa Isabel"),
         expected = """
         |Treasure Island
         |Av de la Independencia
@@ -2322,11 +1895,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gq",
       ),
       TestCase(
-        components = mapOf("bank" to "National Bank of Greece", "city" to "Municipality of Athens",
-            "country" to "Greece", "country_code" to "GR",
-            "county" to "Central Athens Regional Unit", "house_number" to "11",
-            "neighbourhood" to "Kolonaki", "postcode" to "10673", "road" to "Skoufa street",
-            "state" to "Attica Administration", "state_district" to "Attica"),
+        components = mapOf("bank" to "National Bank of Greece", "city" to "Municipality of Athens", "country" to "Greece", "country_code" to "GR", "county" to "Central Athens Regional Unit", "house_number" to "11", "neighbourhood" to "Kolonaki", "postcode" to "10673", "road" to "Skoufa street", "state" to "Attica Administration", "state_district" to "Attica"),
         expected = """
         |National Bank of Greece
         |Skoufa street 11
@@ -2337,9 +1906,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gr",
       ),
       TestCase(
-        components = mapOf("country" to "South Georgia and the South Sandwich Islands",
-            "country_code" to "gs", "hamlet" to "Grytviken", "museum" to "South Georgia Museum",
-            "state" to "South Georgia"),
+        components = mapOf("country" to "South Georgia and the South Sandwich Islands", "country_code" to "gs", "hamlet" to "Grytviken", "museum" to "South Georgia Museum", "state" to "South Georgia"),
         expected = """
         |South Georgia Museum
         |Grytviken
@@ -2350,10 +1917,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gs",
       ),
       TestCase(
-        components = mapOf("bank" to "Banco Reformador", "city" to "Guatemala City",
-            "country" to "Guatemala", "country_code" to "gt", "county" to "Guatemala City",
-            "house_number" to "18 calle 3-70 Zona 1", "postcode" to "01004",
-            "road" to "Transmetro Eje Sur", "state" to "Guatemala", "suburb" to "Zona 1"),
+        components = mapOf("bank" to "Banco Reformador", "city" to "Guatemala City", "country" to "Guatemala", "country_code" to "gt", "county" to "Guatemala City", "house_number" to "18 calle 3-70 Zona 1", "postcode" to "01004", "road" to "Transmetro Eje Sur", "state" to "Guatemala", "suburb" to "Zona 1"),
         expected = """
         |Banco Reformador
         |Transmetro Eje Sur 18 calle 3-70 Zona 1
@@ -2364,9 +1928,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gt",
       ),
       TestCase(
-        components = mapOf("country" to "Guam", "country_code" to "gu", "county" to "Guam",
-            "house_number" to "258", "postcode" to "96913", "road" to "Father San Vitores Street",
-            "state" to "Guam", "town" to "Tamuning"),
+        components = mapOf("country" to "Guam", "country_code" to "gu", "county" to "Guam", "house_number" to "258", "postcode" to "96913", "road" to "Father San Vitores Street", "state" to "Guam", "town" to "Tamuning"),
         expected = """
         |258 Father San Vitores Street
         |Tamuning, GU 96913
@@ -2376,10 +1938,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gu",
       ),
       TestCase(
-        components = mapOf("building" to "Embaixada d'Espanha", "city" to "Bissau",
-            "country" to "Guinea-Bissau", "country_code" to "gw", "neighbourhood" to "Tchada",
-            "road" to "Praça dos Herois Nacionais", "state" to "Setor autónomo de Bissau",
-            "suburb" to "Reino"),
+        components = mapOf("building" to "Embaixada d'Espanha", "city" to "Bissau", "country" to "Guinea-Bissau", "country_code" to "gw", "neighbourhood" to "Tchada", "road" to "Praça dos Herois Nacionais", "state" to "Setor autónomo de Bissau", "suburb" to "Reino"),
         expected = """
         |Embaixada d'Espanha
         |Praça dos Herois Nacionais
@@ -2390,9 +1949,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gw",
       ),
       TestCase(
-        components = mapOf("bank" to "Scotiabank (Carmichael St. Branch)", "city" to "Georgetown",
-            "country" to "Guyana", "country_code" to "gy", "county" to "Demerara-Mahaica Region",
-            "postcode" to "101147", "road" to "Carmichael Street"),
+        components = mapOf("bank" to "Scotiabank (Carmichael St. Branch)", "city" to "Georgetown", "country" to "Guyana", "country_code" to "gy", "county" to "Demerara-Mahaica Region", "postcode" to "101147", "road" to "Carmichael Street"),
         expected = """
         |Scotiabank (Carmichael St. Branch)
         |Carmichael Street
@@ -2403,10 +1960,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - gy",
       ),
       TestCase(
-        components = mapOf("cinema" to "Chinachem Golden Plaza Cinema", "country" to "Hong Kong",
-            "country_code" to "hk", "county" to "Yau Tsim Mong District",
-            "road" to "Science Museum Road", "state" to "Hong Kong", "state_district" to "Kowloon",
-            "suburb" to "Tsim Sha Tsui"),
+        components = mapOf("cinema" to "Chinachem Golden Plaza Cinema", "country" to "Hong Kong", "country_code" to "hk", "county" to "Yau Tsim Mong District", "road" to "Science Museum Road", "state" to "Hong Kong", "state_district" to "Kowloon", "suburb" to "Tsim Sha Tsui"),
         expected = """
         |Chinachem Golden Plaza Cinema
         |Science Museum Road
@@ -2417,8 +1971,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - hk",
       ),
       TestCase(
-        components = mapOf("city" to "Hong Kong", "country" to "Hong Kong", "country_code" to "hk",
-            "road" to "211 Test Street"),
+        components = mapOf("city" to "Hong Kong", "country" to "Hong Kong", "country_code" to "hk", "road" to "211 Test Street"),
         expected = """
         |211 Test Street
         |Hong Kong
@@ -2427,8 +1980,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - hk",
       ),
       TestCase(
-        components = mapOf("country" to "Heard Island and McDonald Islands", "country_code" to "hm",
-            "island" to "Heard Island"),
+        components = mapOf("country" to "Heard Island and McDonald Islands", "country_code" to "hm", "island" to "Heard Island"),
         expected = """
         |Heard Island
         |Heard Island and McDonald Islands
@@ -2438,10 +1990,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - hm",
       ),
       TestCase(
-        components = mapOf("city" to "Tegucigalpa", "country" to "Honduras", "country_code" to "hn",
-            "county" to "Tegucigalpa", "footway" to "Paseo Liquidambar",
-            "post_office" to "Correo Nacional de Honduras", "postcode" to "504",
-            "state" to "Francisco Morazán", "suburb" to "El Jazmin"),
+        components = mapOf("city" to "Tegucigalpa", "country" to "Honduras", "country_code" to "hn", "county" to "Tegucigalpa", "footway" to "Paseo Liquidambar", "post_office" to "Correo Nacional de Honduras", "postcode" to "504", "state" to "Francisco Morazán", "suburb" to "El Jazmin"),
         expected = """
         |Correo Nacional de Honduras
         |Paseo Liquidambar
@@ -2452,9 +2001,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - hn",
       ),
       TestCase(
-        components = mapOf("city" to "Dubrovnik", "country" to "Croatia", "country_code" to "hr",
-            "county" to "Dubrovnik-Neretva", "house_number" to "2", "postcode" to "20000",
-            "road" to "Marijana Blazica", "suburb" to "Pile"),
+        components = mapOf("city" to "Dubrovnik", "country" to "Croatia", "country_code" to "hr", "county" to "Dubrovnik-Neretva", "house_number" to "2", "postcode" to "20000", "road" to "Marijana Blazica", "suburb" to "Pile"),
         expected = """
         |Marijana Blazica 2
         |20000 Dubrovnik
@@ -2464,10 +2011,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - hr",
       ),
       TestCase(
-        components = mapOf("bank" to "Banque de l'Union Haitienne SA",
-            "city" to "Commune de Port-au-Prince", "country" to "Haiti", "country_code" to "ht",
-            "postcode" to "HT6114", "road" to "Rue Bonne Foi", "state" to "Département de l'Ouest",
-            "state_district" to "Port-au-Prince", "suburb" to "6e Turgeau"),
+        components = mapOf("bank" to "Banque de l'Union Haitienne SA", "city" to "Commune de Port-au-Prince", "country" to "Haiti", "country_code" to "ht", "postcode" to "HT6114", "road" to "Rue Bonne Foi", "state" to "Département de l'Ouest", "state_district" to "Port-au-Prince", "suburb" to "6e Turgeau"),
         expected = """
         |Banque de l'Union Haitienne SA
         |Rue Bonne Foi
@@ -2478,11 +2022,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ht",
       ),
       TestCase(
-        components = mapOf("city" to "Budapest", "city_district" to "1. kerület",
-            "country" to "Hungary", "country_code" to "hu", "county" to "Budapesti kistérség",
-            "house_number" to "11", "neighbourhood" to "Naphegy", "postcode" to "1016",
-            "road" to "Dezső utca", "state" to "Közép-Magyarország",
-            "state_district" to "Central Hungary", "suburb" to "Krisztinaváros"),
+        components = mapOf("city" to "Budapest", "city_district" to "1. kerület", "country" to "Hungary", "country_code" to "hu", "county" to "Budapesti kistérség", "house_number" to "11", "neighbourhood" to "Naphegy", "postcode" to "1016", "road" to "Dezső utca", "state" to "Közép-Magyarország", "state_district" to "Central Hungary", "suburb" to "Krisztinaváros"),
         expected = """
         |1016 Budapest
         |Dezső utca 11.
@@ -2492,10 +2032,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - hu",
       ),
       TestCase(
-        components = mapOf("bar" to "Moodz Gastro Bar", "city" to "RW 05",
-            "city_district" to "1. kerület", "country" to "Indonesia", "country_code" to "ID",
-            "postcode" to "12960", "road" to "Epicentrum Boulevard Barat",
-            "state" to "Jakarta Special Capital Region"),
+        components = mapOf("bar" to "Moodz Gastro Bar", "city" to "RW 05", "city_district" to "1. kerület", "country" to "Indonesia", "country_code" to "ID", "postcode" to "12960", "road" to "Epicentrum Boulevard Barat", "state" to "Jakarta Special Capital Region"),
         expected = """
         |Moodz Gastro Bar
         |Epicentrum Boulevard Barat
@@ -2508,9 +2045,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - id",
       ),
       TestCase(
-        components = mapOf("city" to "Galway City", "country" to "Ireland", "country_code" to "ie",
-            "county" to "Galway City", "house_number" to "8-9", "road" to "Mainguard Street",
-            "state_district" to "Connacht", "suburb" to "Claddagh"),
+        components = mapOf("city" to "Galway City", "country" to "Ireland", "country_code" to "ie", "county" to "Galway City", "house_number" to "8-9", "road" to "Mainguard Street", "state_district" to "Connacht", "suburb" to "Claddagh"),
         expected = """
         |8-9 Mainguard Street
         |Claddagh
@@ -2521,8 +2056,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("country" to "Ireland", "country_code" to "ie", "county" to "Kilkenny",
-            "state" to "Leinster", "town" to "Kilkenny"),
+        components = mapOf("country" to "Ireland", "country_code" to "ie", "county" to "Kilkenny", "state" to "Leinster", "town" to "Kilkenny"),
         expected = """
         |Kilkenny
         |Ireland
@@ -2531,9 +2065,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("country" to "Ireland", "country_code" to "ie",
-            "county" to "County Kilkenny", "residential" to "Friar's Hill",
-            "state_district" to "Leinster", "town" to "Graiguenamanagh"),
+        components = mapOf("country" to "Ireland", "country_code" to "ie", "county" to "County Kilkenny", "residential" to "Friar's Hill", "state_district" to "Leinster", "town" to "Graiguenamanagh"),
         expected = """
         |Friar's Hill
         |Graiguenamanagh
@@ -2544,11 +2076,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("city" to "Dublin", "city_district" to "Wood Quay A ED",
-            "continent" to "Europe", "country" to "Ireland", "country_code" to "ie",
-            "county" to "County Dublin", "county_code" to "D", "library" to "The National Archives",
-            "postcode" to "D02 TD99", "road" to "Bishop Street", "state" to "Leinster",
-            "state_code" to "L"),
+        components = mapOf("city" to "Dublin", "city_district" to "Wood Quay A ED", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Dublin", "county_code" to "D", "library" to "The National Archives", "postcode" to "D02 TD99", "road" to "Bishop Street", "state" to "Leinster", "state_code" to "L"),
         expected = """
         |The National Archives
         |Bishop Street
@@ -2561,10 +2089,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("city" to "The Metropolitan District of Limerick City",
-            "city_district" to "Farranshone", "country" to "Ireland", "country_code" to "ie",
-            "county" to "County Limerick", "county_code" to "LK", "locality" to "Farranshone Beg",
-            "road" to "Shelbourne Road", "road_reference" to "R464", "state" to "Munster"),
+        components = mapOf("city" to "The Metropolitan District of Limerick City", "city_district" to "Farranshone", "country" to "Ireland", "country_code" to "ie", "county" to "County Limerick", "county_code" to "LK", "locality" to "Farranshone Beg", "road" to "Shelbourne Road", "road_reference" to "R464", "state" to "Munster"),
         expected = """
         |Shelbourne Road
         |Farranshone
@@ -2575,11 +2100,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("city_district" to "Clifden Electoral Division", "continent" to "Europe",
-            "country" to "Ireland", "country_code" to "ie", "county" to "County Galway",
-            "county_code" to "G", "guest_house" to "Connemara Country Lodge",
-            "region" to "Conamara Municipal District", "road" to "N59", "state" to "Connacht",
-            "state_code" to "C", "town" to "Clifden"),
+        components = mapOf("city_district" to "Clifden Electoral Division", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Galway", "county_code" to "G", "guest_house" to "Connemara Country Lodge", "region" to "Conamara Municipal District", "road" to "N59", "state" to "Connacht", "state_code" to "C", "town" to "Clifden"),
         expected = """
         |Connemara Country Lodge
         |N59
@@ -2591,10 +2112,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("building" to "G", "city_district" to "Maynooth ED",
-            "continent" to "Europe", "country" to "Ireland", "country_code" to "ie",
-            "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23P466",
-            "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road"),
+        components = mapOf("building" to "G", "city_district" to "Maynooth ED", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23P466", "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road"),
         expected = """
         |G
         |Ballygoran Road
@@ -2607,10 +2125,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("building" to "G", "city_district" to "Maynooth ED",
-            "continent" to "Europe", "country" to "Ireland", "country_code" to "ie",
-            "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23-P466",
-            "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road"),
+        components = mapOf("building" to "G", "city_district" to "Maynooth ED", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23-P466", "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road"),
         expected = """
         |G
         |Ballygoran Road
@@ -2623,9 +2138,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ie",
       ),
       TestCase(
-        components = mapOf("city" to "Tel Aviv-Yafo", "country" to "Israel", "country_code" to "il",
-            "house_number" to "29", "postcode" to "64739", "residential" to "Tel Aviv",
-            "road" to "Yizhak Sadeh", "state" to "Tel Aviv District", "suburb" to "Montefiore"),
+        components = mapOf("city" to "Tel Aviv-Yafo", "country" to "Israel", "country_code" to "il", "house_number" to "29", "postcode" to "64739", "residential" to "Tel Aviv", "road" to "Yizhak Sadeh", "state" to "Tel Aviv District", "suburb" to "Montefiore"),
         expected = """
         |Yizhak Sadeh 29
         |64739 Tel Aviv-Yafo
@@ -2635,9 +2148,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - il",
       ),
       TestCase(
-        components = mapOf("address29" to "3FM", "country" to "Isle of Man", "country_code" to "im",
-            "county" to "Middle", "house_number" to "45", "postcode" to "IM1 2AY",
-            "road" to "Victoria Street", "town" to "Douglas"),
+        components = mapOf("address29" to "3FM", "country" to "Isle of Man", "country_code" to "im", "county" to "Middle", "house_number" to "45", "postcode" to "IM1 2AY", "road" to "Victoria Street", "town" to "Douglas"),
         expected = """
         |3FM
         |45 Victoria Street
@@ -2649,10 +2160,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - im",
       ),
       TestCase(
-        components = mapOf("road" to "uppuguda", "city" to "Hyderabad",
-            "neighbourhood" to "Patthergatti", "country" to "India", "country_code" to "IN",
-            "postcode" to "500064", "restaurant" to "Anand Bhavan (vegetarian)",
-            "state" to "Telangana", "suburb" to "Charminar"),
+        components = mapOf("road" to "uppuguda", "city" to "Hyderabad", "neighbourhood" to "Patthergatti", "country" to "India", "country_code" to "IN", "postcode" to "500064", "restaurant" to "Anand Bhavan (vegetarian)", "state" to "Telangana", "suburb" to "Charminar"),
         expected = """
         |Anand Bhavan (vegetarian)
         |uppuguda
@@ -2665,8 +2173,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - in",
       ),
       TestCase(
-        components = mapOf("state" to "Mahārāshtra", "postcode" to "400096", "country" to "India",
-            "country_code" to "in"),
+        components = mapOf("state" to "Mahārāshtra", "postcode" to "400096", "country" to "India", "country_code" to "in"),
         expected = """
         |400096
         |Mahārāshtra
@@ -2676,8 +2183,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - in",
       ),
       TestCase(
-        components = mapOf("city" to "Pune", "country" to "India", "country_code" to "in",
-            "road" to "Baner", "state" to "Maharashtra"),
+        components = mapOf("city" to "Pune", "country" to "India", "country_code" to "in", "road" to "Baner", "state" to "Maharashtra"),
         expected = """
         |Baner
         |Pune
@@ -2688,8 +2194,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - in",
       ),
       TestCase(
-        components = mapOf("country" to "British Indian Ocean Territory", "country_code" to "io",
-            "road" to "DG1", "village" to "Seabreeze Village"),
+        components = mapOf("country" to "British Indian Ocean Territory", "country_code" to "io", "road" to "DG1", "village" to "Seabreeze Village"),
         expected = """
         |DG1
         |Seabreeze Village
@@ -2700,10 +2205,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - io",
       ),
       TestCase(
-        components = mapOf("city" to "Baghdad", "city_district" to "Rusafa", "country" to "Iraq",
-            "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222",
-            "road" to "A86/N11/D383", "state" to "Baghdad", "suburb" to "Mustansiriya",
-            "supermarket" to "al mustansriya Central Market"),
+        components = mapOf("city" to "Baghdad", "city_district" to "Rusafa", "country" to "Iraq", "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222", "road" to "A86/N11/D383", "state" to "Baghdad", "suburb" to "Mustansiriya", "supermarket" to "al mustansriya Central Market"),
         expected = """
         |al mustansriya Central Market
         |Rusafa
@@ -2716,10 +2218,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - iq",
       ),
       TestCase(
-        components = mapOf("city" to "بغداد", "city_district" to "Rusafa", "country" to "العراق",
-            "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222",
-            "road" to "A86/N11/D383", "state" to "محافظة بغداد", "suburb" to "Mustansiriya",
-            "supermarket" to "al mustansriya Central Market"),
+        components = mapOf("city" to "بغداد", "city_district" to "Rusafa", "country" to "العراق", "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222", "road" to "A86/N11/D383", "state" to "محافظة بغداد", "suburb" to "Mustansiriya", "supermarket" to "al mustansriya Central Market"),
         expected = """
         |al mustansriya Central Market
         |Rusafa
@@ -2732,9 +2231,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - iq",
       ),
       TestCase(
-        components = mapOf("city" to "Mosul", "country" to "Iraq", "country_code" to "iq",
-            "county" to "Al Mnsul Qadha", "hospital" to "Mosul General Hospital",
-            "road" to "الجسر الرابع", "state" to "Nineveh", "suburb" to "وادي حجر"),
+        components = mapOf("city" to "Mosul", "country" to "Iraq", "country_code" to "iq", "county" to "Al Mnsul Qadha", "hospital" to "Mosul General Hospital", "road" to "الجسر الرابع", "state" to "Nineveh", "suburb" to "وادي حجر"),
         expected = """
         |Mosul General Hospital
         |وادي حجر
@@ -2746,9 +2243,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - iq",
       ),
       TestCase(
-        components = mapOf("city" to "Baghdad", "city_district" to "Rasheed", "country" to "Iraq",
-            "country_code" to "iq", "county" to "Karkh", "road" to "شارع قطر الندى",
-            "state" to "Baghdad", "suburb" to "Resala", "townhall" to "Masgd"),
+        components = mapOf("city" to "Baghdad", "city_district" to "Rasheed", "country" to "Iraq", "country_code" to "iq", "county" to "Karkh", "road" to "شارع قطر الندى", "state" to "Baghdad", "suburb" to "Resala", "townhall" to "Masgd"),
         expected = """
         |Masgd
         |Rasheed
@@ -2760,10 +2255,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - iq",
       ),
       TestCase(
-        components = mapOf("city" to "Arbil", "continent" to "Asia", "country" to "Iraq",
-            "country_code" to "iq", "county" to "قضاء أربيل", "house_number" to "391",
-            "neighbourhood" to "English Village", "postcode" to "44001",
-            "state" to "هەرێمی کوردستان", "suburb" to "گوندی ئینگلیزی"),
+        components = mapOf("city" to "Arbil", "continent" to "Asia", "country" to "Iraq", "country_code" to "iq", "county" to "قضاء أربيل", "house_number" to "391", "neighbourhood" to "English Village", "postcode" to "44001", "state" to "هەرێمی کوردستان", "suburb" to "گوندی ئینگلیزی"),
         expected = """
         |391 English Village
         |Arbil
@@ -2774,9 +2266,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - iq",
       ),
       TestCase(
-        components = mapOf("attraction" to "Azadi Tower", "city" to "Tehran", "country" to "Iran",
-            "country_code" to "ir", "postcode" to "1351956118", "road" to "Azadi Square",
-            "suburb" to "Ostad Moein"),
+        components = mapOf("attraction" to "Azadi Tower", "city" to "Tehran", "country" to "Iran", "country_code" to "ir", "postcode" to "1351956118", "road" to "Azadi Square", "suburb" to "Ostad Moein"),
         expected = """
         |Azadi Tower
         |Tehran
@@ -2789,8 +2279,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ir",
       ),
       TestCase(
-        components = mapOf("city" to "Tehran", "country" to "Iran", "country_code" to "ir",
-            "district" to "بخش مرکزی شهرستان تهران", "province" to "Tehran Province"),
+        components = mapOf("city" to "Tehran", "country" to "Iran", "country_code" to "ir", "district" to "بخش مرکزی شهرستان تهران", "province" to "Tehran Province"),
         expected = """
         |Tehran
         |بخش مرکزی شهرستان تهران
@@ -2800,9 +2289,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ir",
       ),
       TestCase(
-        components = mapOf("city" to "Reykjavik", "country" to "Iceland", "country_code" to "is",
-            "house_number" to "15", "postcode" to "101", "road" to "Bergstaðastræti",
-            "state_district" to "Capital Region", "suburb" to "Austurbær"),
+        components = mapOf("city" to "Reykjavik", "country" to "Iceland", "country_code" to "is", "house_number" to "15", "postcode" to "101", "road" to "Bergstaðastræti", "state_district" to "Capital Region", "suburb" to "Austurbær"),
         expected = """
         |Bergstaðastræti 15
         |101 Reykjavik
@@ -2812,9 +2299,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - is",
       ),
       TestCase(
-        components = mapOf("city" to "Barletta", "country" to "Italy", "country_code" to "it",
-            "county" to "BT", "house_number" to "13", "postcode" to "76121",
-            "road" to "Via Pisacane", "state" to "Apulia", "suburb" to "Montaltino"),
+        components = mapOf("city" to "Barletta", "country" to "Italy", "country_code" to "it", "county" to "BT", "house_number" to "13", "postcode" to "76121", "road" to "Via Pisacane", "state" to "Apulia", "suburb" to "Montaltino"),
         expected = """
         |Via Pisacane 13
         |76121 Barletta BT
@@ -2824,9 +2309,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - it",
       ),
       TestCase(
-        components = mapOf("city" to "Milano", "country" to "Italy", "country_code" to "it",
-            "county" to "Milano", "postcode" to "20147", "road" to "Via Giovanni Della Casa",
-            "state" to "Lombardy", "suburb" to "Boldinasco"),
+        components = mapOf("city" to "Milano", "country" to "Italy", "country_code" to "it", "county" to "Milano", "postcode" to "20147", "road" to "Via Giovanni Della Casa", "state" to "Lombardy", "suburb" to "Boldinasco"),
         expected = """
         |Via Giovanni Della Casa
         |20147 Milano MI
@@ -2836,9 +2319,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - it",
       ),
       TestCase(
-        components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy",
-            "country_code" to "it", "county" to "Torino", "postcode" to "10032",
-            "road" to "Via Pertengo", "state" to "Piemonte"),
+        components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy", "country_code" to "it", "county" to "Torino", "postcode" to "10032", "road" to "Via Pertengo", "state" to "Piemonte"),
         expected = """
         |Via Pertengo
         |10032 San Raffaele Cimena TO
@@ -2848,9 +2329,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - it",
       ),
       TestCase(
-        components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy",
-            "country_code" to "it", "county" to "Provincia di Torino", "postcode" to "10032",
-            "road" to "Via Pertengo", "state" to "Piemonte"),
+        components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy", "country_code" to "it", "county" to "Provincia di Torino", "postcode" to "10032", "road" to "Via Pertengo", "state" to "Piemonte"),
         expected = """
         |Via Pertengo
         |10032 San Raffaele Cimena TO
@@ -2860,10 +2339,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - it",
       ),
       TestCase(
-        components = mapOf("building" to "Palazzo Gondi", "city" to "Firenze",
-            "country" to "Italia", "country_code" to "it",
-            "county" to "Città metropolitana di Firenze", "pedestrian" to "Via dei Gondi",
-            "postcode" to "50122", "state" to "TOS", "suburb" to "Quartiere 1"),
+        components = mapOf("building" to "Palazzo Gondi", "city" to "Firenze", "country" to "Italia", "country_code" to "it", "county" to "Città metropolitana di Firenze", "pedestrian" to "Via dei Gondi", "postcode" to "50122", "state" to "TOS", "suburb" to "Quartiere 1"),
         expected = """
         |Palazzo Gondi
         |Via dei Gondi
@@ -2874,9 +2350,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - it",
       ),
       TestCase(
-        components = mapOf("country" to "Jersey", "country_code" to "je", "house_number" to "5",
-            "postcode" to "JE2 4TN", "road" to "Le Geyt Street", "state" to "Jersey",
-            "town" to "Saint Helier"),
+        components = mapOf("country" to "Jersey", "country_code" to "je", "house_number" to "5", "postcode" to "JE2 4TN", "road" to "Le Geyt Street", "state" to "Jersey", "town" to "Saint Helier"),
         expected = """
         |5 Le Geyt Street
         |Saint Helier
@@ -2887,10 +2361,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - je",
       ),
       TestCase(
-        components = mapOf("building" to "Old Court House", "city" to "Spanish Town",
-            "country" to "Jamaica", "country_code" to "jm", "county" to "Saint Catherine",
-            "neighbourhood" to "Tawes Meadows", "road" to "Constitution Street",
-            "state_district" to "Middlesex County"),
+        components = mapOf("building" to "Old Court House", "city" to "Spanish Town", "country" to "Jamaica", "country_code" to "jm", "county" to "Saint Catherine", "neighbourhood" to "Tawes Meadows", "road" to "Constitution Street", "state_district" to "Middlesex County"),
         expected = """
         |Old Court House
         |Constitution Street
@@ -2902,9 +2373,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jm",
       ),
       TestCase(
-        components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo",
-            "museum" to "Jordan National Gallery of Fine Arts, Building 1", "postcode" to "11190",
-            "road" to "Husni Fareez Street", "state" to "Amman"),
+        components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo", "museum" to "Jordan National Gallery of Fine Arts, Building 1", "postcode" to "11190", "road" to "Husni Fareez Street", "state" to "Amman"),
         expected = """
         |Jordan National Gallery of Fine Arts, Building 1
         |Husni Fareez Street
@@ -2915,9 +2384,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jo",
       ),
       TestCase(
-        components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo",
-            "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street", "state" to "Amman",
-            "supermarket" to "هَبوب - Haboob"),
+        components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo", "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street", "state" to "Amman", "supermarket" to "هَبوب - Haboob"),
         expected = """
         |هَبوب - Haboob
         |Abu Al Wafa Al Dajani Street
@@ -2928,9 +2395,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jo",
       ),
       TestCase(
-        components = mapOf("city" to "عمان", "country" to "الأردن", "country_code" to "jo",
-            "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street",
-            "state" to "‏محافظة العاصمة‎", "supermarket" to "هَبوب"),
+        components = mapOf("city" to "عمان", "country" to "الأردن", "country_code" to "jo", "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street", "state" to "‏محافظة العاصمة‎", "supermarket" to "هَبوب"),
         expected = """
         |هَبوب
         |Abu Al Wafa Al Dajani Street
@@ -2941,9 +2406,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jo",
       ),
       TestCase(
-        components = mapOf("building" to "Khalifeh Mall", "city" to "Amman", "country" to "Jordan",
-            "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات",
-            "state" to "Amman", "suburb" to "Sweifieh"),
+        components = mapOf("building" to "Khalifeh Mall", "city" to "Amman", "country" to "Jordan", "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات", "state" to "Amman", "suburb" to "Sweifieh"),
         expected = """
         |Khalifeh Mall
         |جبل عرفات
@@ -2954,9 +2417,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jo",
       ),
       TestCase(
-        components = mapOf("building" to "خليفة مول", "city" to "عمان", "country" to "الأردن",
-            "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات",
-            "state" to "‏محافظة العاصمة‎", "suburb" to "حي الصويفية"),
+        components = mapOf("building" to "خليفة مول", "city" to "عمان", "country" to "الأردن", "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات", "state" to "‏محافظة العاصمة‎", "suburb" to "حي الصويفية"),
         expected = """
         |خليفة مول
         |جبل عرفات
@@ -2967,9 +2428,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jo",
       ),
       TestCase(
-        components = mapOf("city" to "Hiroshima", "country" to "Japan", "country_code" to "jp",
-            "county" to "Aki County", "postcode" to "7300846", "restaurant" to "食辛房",
-            "road" to "舟入通り", "state" to "Chugoku Region", "suburb" to "Naka Ward"),
+        components = mapOf("city" to "Hiroshima", "country" to "Japan", "country_code" to "jp", "county" to "Aki County", "postcode" to "7300846", "restaurant" to "食辛房", "road" to "舟入通り", "state" to "Chugoku Region", "suburb" to "Naka Ward"),
         expected = """
         |食辛房
         |舟入通り
@@ -2981,9 +2440,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - jp",
       ),
       TestCase(
-        components = mapOf("building" to "Jubilee Insurance Place", "city" to "Nairobi",
-            "country" to "Kenya", "country_code" to "ke", "postcode" to "46464",
-            "road" to "Wabera Street", "state" to "Nairobi", "suburb" to "Madaraka Estate"),
+        components = mapOf("building" to "Jubilee Insurance Place", "city" to "Nairobi", "country" to "Kenya", "country_code" to "ke", "postcode" to "46464", "road" to "Wabera Street", "state" to "Nairobi", "suburb" to "Madaraka Estate"),
         expected = """
         |Jubilee Insurance Place
         |Wabera Street
@@ -2995,9 +2452,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ke",
       ),
       TestCase(
-        components = mapOf("city" to "Бишкек", "country" to "Kyrgyzstan", "country_code" to "KG",
-            "county" to "Аламудунский район", "cafe" to "Даамдан", "house_number" to "473",
-            "postcode" to "720033", "road" to "Frunze Mikhail Street", "state" to "Astana"),
+        components = mapOf("city" to "Бишкек", "country" to "Kyrgyzstan", "country_code" to "KG", "county" to "Аламудунский район", "cafe" to "Даамдан", "house_number" to "473", "postcode" to "720033", "road" to "Frunze Mikhail Street", "state" to "Astana"),
         expected = """
         |Kyrgyzstan
         |Astana
@@ -3009,9 +2464,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kg",
       ),
       TestCase(
-        components = mapOf("city" to "Phnom Penh", "country" to "Cambodia", "country_code" to "kh",
-            "hotel" to "Cambodiana", "postcode" to "12301", "road" to "Preah Sisowath Quay",
-            "state" to "Phnom Penh", "suburb" to "Daun Penh"),
+        components = mapOf("city" to "Phnom Penh", "country" to "Cambodia", "country_code" to "kh", "hotel" to "Cambodiana", "postcode" to "12301", "road" to "Preah Sisowath Quay", "state" to "Phnom Penh", "suburb" to "Daun Penh"),
         expected = """
         |Cambodiana
         |Preah Sisowath Quay
@@ -3023,8 +2476,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kh",
       ),
       TestCase(
-        components = mapOf("bank" to "The ANZ Bank", "city" to "Tarawa Teinainano",
-            "country" to "Kiribati", "country_code" to "ki", "road" to "Postplatz"),
+        components = mapOf("bank" to "The ANZ Bank", "city" to "Tarawa Teinainano", "country" to "Kiribati", "country_code" to "ki", "road" to "Postplatz"),
         expected = """
         |The ANZ Bank
         |Postplatz
@@ -3035,8 +2487,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ki",
       ),
       TestCase(
-        components = mapOf("city" to "Moroni", "country" to "Comoros", "country_code" to "km",
-            "courthouse" to "Palais de Justice", "road" to "RN2", "state" to "Grande Comore"),
+        components = mapOf("city" to "Moroni", "country" to "Comoros", "country_code" to "km", "courthouse" to "Palais de Justice", "road" to "RN2", "state" to "Grande Comore"),
         expected = """
         |Palais de Justice
         |RN2
@@ -3047,9 +2498,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - km",
       ),
       TestCase(
-        components = mapOf("country" to "Saint Kitts and Nevis", "country_code" to "kn",
-            "province" to "Saint Kitts", "restaurant" to "Ballahoo Restaurant",
-            "road" to "Fort Street", "town" to "Basseterre"),
+        components = mapOf("country" to "Saint Kitts and Nevis", "country_code" to "kn", "province" to "Saint Kitts", "restaurant" to "Ballahoo Restaurant", "road" to "Fort Street", "town" to "Basseterre"),
         expected = """
         |Ballahoo Restaurant
         |Fort Street
@@ -3060,10 +2509,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kn",
       ),
       TestCase(
-        components = mapOf("city" to "Pyongyang", "country" to "North Korea",
-            "country_code" to "kp", "library" to "Grand People's Study House",
-            "road" to "Somun Street", "state" to "Pyongyang",
-            "state_district" to "Central District", "suburb" to "동신3동 (Tongsin 3-dong)"),
+        components = mapOf("city" to "Pyongyang", "country" to "North Korea", "country_code" to "kp", "library" to "Grand People's Study House", "road" to "Somun Street", "state" to "Pyongyang", "state_district" to "Central District", "suburb" to "동신3동 (Tongsin 3-dong)"),
         expected = """
         |Grand People's Study House
         |Somun Street
@@ -3075,10 +2521,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kp",
       ),
       TestCase(
-        components = mapOf("city" to "Seoul", "city_district" to "서초2동 (Seocho2-dong)",
-            "country" to "South Korea", "country_code" to "kr", "hotel" to "Haeundae Grand Hotel",
-            "postcode" to "135-934", "road" to "Seocho-daero 74-gil", "town" to "Seocho-gu",
-            "village" to "Seocho-dong"),
+        components = mapOf("city" to "Seoul", "city_district" to "서초2동 (Seocho2-dong)", "country" to "South Korea", "country_code" to "kr", "hotel" to "Haeundae Grand Hotel", "postcode" to "135-934", "road" to "Seocho-daero 74-gil", "town" to "Seocho-gu", "village" to "Seocho-dong"),
         expected = """
         |South Korea
         |Seoul, 서초2동 (Seocho2-dong), Seocho-daero 74-gil
@@ -3089,8 +2532,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kr",
       ),
       TestCase(
-        components = mapOf("city" to "Seoul", "country" to "South Korea", "country_code" to "kr",
-            "city_district" to "Gangnam-gu"),
+        components = mapOf("city" to "Seoul", "country" to "South Korea", "country_code" to "kr", "city_district" to "Gangnam-gu"),
         expected = """
         |Gangnam-gu
         |Seoul
@@ -3100,10 +2542,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kr",
       ),
       TestCase(
-        components = mapOf("city" to "Jaleeb Al Shoyoukh", "country" to "Kuwait",
-            "country_code" to "kw", "postcode" to "32018", "road" to "79 St",
-            "state" to "Farwaniya", "suburb" to "Al Dajeej",
-            "supermarket" to "Sultan Center Wholesale"),
+        components = mapOf("city" to "Jaleeb Al Shoyoukh", "country" to "Kuwait", "country_code" to "kw", "postcode" to "32018", "road" to "79 St", "state" to "Farwaniya", "suburb" to "Al Dajeej", "supermarket" to "Sultan Center Wholesale"),
         expected = """
         |Sultan Center Wholesale
         |Al Dajeej
@@ -3115,9 +2554,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kw",
       ),
       TestCase(
-        components = mapOf("city" to "جليب الشيوخ", "country" to "الكويت", "country_code" to "kw",
-            "postcode" to "32018", "road" to "79 St", "state" to "الفروانية", "suburb" to "الضجيج",
-            "supermarket" to "Sultan Center Wholesale"),
+        components = mapOf("city" to "جليب الشيوخ", "country" to "الكويت", "country_code" to "kw", "postcode" to "32018", "road" to "79 St", "state" to "الفروانية", "suburb" to "الضجيج", "supermarket" to "Sultan Center Wholesale"),
         expected = """
         |Sultan Center Wholesale
         |الضجيج
@@ -3129,10 +2566,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kw",
       ),
       TestCase(
-        components = mapOf("city" to "Shuwaikh Residential", "country" to "Kuwait",
-            "country_code" to "kw", "hospital" to "Faiha Primary Healthcare Center",
-            "postcode" to "13009", "road" to "Third Ring Road", "state" to "Al Asimah",
-            "suburb" to "Faiha"),
+        components = mapOf("city" to "Shuwaikh Residential", "country" to "Kuwait", "country_code" to "kw", "hospital" to "Faiha Primary Healthcare Center", "postcode" to "13009", "road" to "Third Ring Road", "state" to "Al Asimah", "suburb" to "Faiha"),
         expected = """
         |Faiha Primary Healthcare Center
         |Faiha
@@ -3144,9 +2578,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kw",
       ),
       TestCase(
-        components = mapOf("building" to "Kuwait National Library", "city" to "Kuwait City",
-            "country" to "Kuwait", "country_code" to "kw", "postcode" to "13009",
-            "road" to "Gulf Road", "state" to "Al Asimah", "suburb" to "Dasma"),
+        components = mapOf("building" to "Kuwait National Library", "city" to "Kuwait City", "country" to "Kuwait", "country_code" to "kw", "postcode" to "13009", "road" to "Gulf Road", "state" to "Al Asimah", "suburb" to "Dasma"),
         expected = """
         |Kuwait National Library
         |Dasma
@@ -3158,10 +2590,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kw",
       ),
       TestCase(
-        components = mapOf("building" to "Butterfield Place", "city" to "George Town",
-            "country" to "Cayman Islands", "country_code" to "ky", "house_number" to "12",
-            "postcode" to "KY1-1103", "road" to "Albert Panton Street",
-            "suburb" to "Rock Hole Road"),
+        components = mapOf("building" to "Butterfield Place", "city" to "George Town", "country" to "Cayman Islands", "country_code" to "ky", "house_number" to "12", "postcode" to "KY1-1103", "road" to "Albert Panton Street", "suburb" to "Rock Hole Road"),
         expected = """
         |Butterfield Place
         |12 Albert Panton Street
@@ -3172,9 +2601,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ky",
       ),
       TestCase(
-        components = mapOf("city" to "Astana", "country" to "Kazakhstan", "country_code" to "KZ",
-            "county" to "район Сарыарка", "name" to "Хива", "house_number" to "24",
-            "postcode" to "010000", "road" to "улица Конституции", "state" to "Astana"),
+        components = mapOf("city" to "Astana", "country" to "Kazakhstan", "country_code" to "KZ", "county" to "район Сарыарка", "name" to "Хива", "house_number" to "24", "postcode" to "010000", "road" to "улица Конституции", "state" to "Astana"),
         expected = """
         |Kazakhstan
         |Astana
@@ -3186,9 +2613,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - kz",
       ),
       TestCase(
-        components = mapOf("city" to "Vientiane", "country" to "Laos", "country_code" to "la",
-            "postcode" to "01003", "public_building" to "Ministre de la santé",
-            "road" to "Mahosot Road", "state" to "Vientiane Capital"),
+        components = mapOf("city" to "Vientiane", "country" to "Laos", "country_code" to "la", "postcode" to "01003", "public_building" to "Ministre de la santé", "road" to "Mahosot Road", "state" to "Vientiane Capital"),
         expected = """
         |Ministre de la santé
         |Mahosot Road
@@ -3199,9 +2624,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - la",
       ),
       TestCase(
-        components = mapOf("cinema" to "Circuit Empire Sodeco", "city" to "Beirut",
-            "country" to "Lebanon", "country_code" to "lb", "postcode" to "2052 6703",
-            "road" to "Damascus Road", "state" to "Beirut Governorate", "suburb" to "Achrafieh"),
+        components = mapOf("cinema" to "Circuit Empire Sodeco", "city" to "Beirut", "country" to "Lebanon", "country_code" to "lb", "postcode" to "2052 6703", "road" to "Damascus Road", "state" to "Beirut Governorate", "suburb" to "Achrafieh"),
         expected = """
         |Circuit Empire Sodeco
         |Damascus Road
@@ -3212,9 +2635,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lb",
       ),
       TestCase(
-        components = mapOf("cinema" to "سيركوي امبير سوديكو", "city" to "بيروت",
-            "country" to "الجمهورية اللبنانية", "country_code" to "lb", "postcode" to "2052 6703",
-            "road" to "طريق الشام", "state" to "محافظة بيروت", "suburb" to "الأشرفية"),
+        components = mapOf("cinema" to "سيركوي امبير سوديكو", "city" to "بيروت", "country" to "الجمهورية اللبنانية", "country_code" to "lb", "postcode" to "2052 6703", "road" to "طريق الشام", "state" to "محافظة بيروت", "suburb" to "الأشرفية"),
         expected = """
         |سيركوي امبير سوديكو
         |طريق الشام
@@ -3225,9 +2646,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lb",
       ),
       TestCase(
-        components = mapOf("city" to "Beirut", "country" to "Lebanon", "country_code" to "lb",
-            "restaurant" to "Kushari Society", "road" to "Rue Mahatma Gandhi",
-            "state" to "Beirut Governorate", "suburb" to "Ras Beirut"),
+        components = mapOf("city" to "Beirut", "country" to "Lebanon", "country_code" to "lb", "restaurant" to "Kushari Society", "road" to "Rue Mahatma Gandhi", "state" to "Beirut Governorate", "suburb" to "Ras Beirut"),
         expected = """
         |Kushari Society
         |Rue Mahatma Gandhi
@@ -3238,9 +2657,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lb",
       ),
       TestCase(
-        components = mapOf("city" to "بيروت", "country" to "الجمهورية اللبنانية",
-            "country_code" to "lb", "restaurant" to "Kushari Society",
-            "road" to "شارع المهتما غاندي", "state" to "محافظة بيروت", "suburb" to "رأس بيروت"),
+        components = mapOf("city" to "بيروت", "country" to "الجمهورية اللبنانية", "country_code" to "lb", "restaurant" to "Kushari Society", "road" to "شارع المهتما غاندي", "state" to "محافظة بيروت", "suburb" to "رأس بيروت"),
         expected = """
         |Kushari Society
         |شارع المهتما غاندي
@@ -3251,9 +2668,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lb",
       ),
       TestCase(
-        components = mapOf("city" to "Tripoli", "country" to "Lebanon", "country_code" to "lb",
-            "road" to "شارع عشير الدايه", "state" to "Qada Tarablos",
-            "supermarket" to "SEVEN TO TWELVE"),
+        components = mapOf("city" to "Tripoli", "country" to "Lebanon", "country_code" to "lb", "road" to "شارع عشير الدايه", "state" to "Qada Tarablos", "supermarket" to "SEVEN TO TWELVE"),
         expected = """
         |SEVEN TO TWELVE
         |شارع عشير الدايه
@@ -3264,9 +2679,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lb",
       ),
       TestCase(
-        components = mapOf("bank" to "First Caribbean International Bank",
-            "country" to "Saint Lucia", "country_code" to "lc", "road" to "Bridge Street",
-            "town" to "Castries"),
+        components = mapOf("bank" to "First Caribbean International Bank", "country" to "Saint Lucia", "country_code" to "lc", "road" to "Bridge Street", "town" to "Castries"),
         expected = """
         |First Caribbean International Bank
         |Bridge Street
@@ -3277,10 +2690,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lc",
       ),
       TestCase(
-        components = mapOf("country" to "Liechtenstein", "country_code" to "li",
-            "county" to "Wahlkreis Oberland", "house_number" to "32",
-            "museum" to "Kunstmuseum Liechtenstein", "pedestrian" to "Städtle",
-            "postcode" to "9490", "village" to "Vaduz"),
+        components = mapOf("country" to "Liechtenstein", "country_code" to "li", "county" to "Wahlkreis Oberland", "house_number" to "32", "museum" to "Kunstmuseum Liechtenstein", "pedestrian" to "Städtle", "postcode" to "9490", "village" to "Vaduz"),
         expected = """
         |Kunstmuseum Liechtenstein
         |Städtle 32
@@ -3291,10 +2701,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - li",
       ),
       TestCase(
-        components = mapOf("address29" to "Colombo Lotus Tower", "city" to "Colombo",
-            "country" to "Sri Lanka", "country_code" to "lk", "postcode" to "00200",
-            "road" to "D. R. Wijewardene Mawatha", "state" to "Western Province",
-            "state_district" to "Colombo District", "suburb" to "Suduwella"),
+        components = mapOf("address29" to "Colombo Lotus Tower", "city" to "Colombo", "country" to "Sri Lanka", "country_code" to "lk", "postcode" to "00200", "road" to "D. R. Wijewardene Mawatha", "state" to "Western Province", "state_district" to "Colombo District", "suburb" to "Suduwella"),
         expected = """
         |Colombo Lotus Tower
         |D. R. Wijewardene Mawatha
@@ -3306,10 +2713,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lk",
       ),
       TestCase(
-        components = mapOf("city" to "Monrovia", "country" to "Liberia", "country_code" to "lr",
-            "county" to "Greater Monrovia", "neighbourhood" to "Vai Town", "postcode" to "1000",
-            "public_building" to "Palm Hotel", "road" to "Broad Street",
-            "state" to "Montserrado County", "suburb" to "Crown Hill"),
+        components = mapOf("city" to "Monrovia", "country" to "Liberia", "country_code" to "lr", "county" to "Greater Monrovia", "neighbourhood" to "Vai Town", "postcode" to "1000", "public_building" to "Palm Hotel", "road" to "Broad Street", "state" to "Montserrado County", "suburb" to "Crown Hill"),
         expected = """
         |Palm Hotel
         |Broad Street
@@ -3320,9 +2724,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lr",
       ),
       TestCase(
-        components = mapOf("bank" to "Nedbank", "city" to "Maseru", "country" to "Lesotho",
-            "country_code" to "ls", "postcode" to "100", "road" to "Kingsway", "state" to "Maseru",
-            "suburb" to "Cathedral Area"),
+        components = mapOf("bank" to "Nedbank", "city" to "Maseru", "country" to "Lesotho", "country_code" to "ls", "postcode" to "100", "road" to "Kingsway", "state" to "Maseru", "suburb" to "Cathedral Area"),
         expected = """
         |Nedbank
         |Kingsway
@@ -3333,10 +2735,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ls",
       ),
       TestCase(
-        components = mapOf("city" to "Vilnius", "country" to "Lithuania", "country_code" to "lt",
-            "house_number" to "5", "postcode" to "02112", "road" to "Aduti\\u0161kio g.",
-            "state" to "Vilnius County", "state_district" to "Vilniaus m. savivaldyb\\u0117",
-            "suburb" to "Naujinink\\u0173 seni\\u016bnija"),
+        components = mapOf("city" to "Vilnius", "country" to "Lithuania", "country_code" to "lt", "house_number" to "5", "postcode" to "02112", "road" to "Aduti\\u0161kio g.", "state" to "Vilnius County", "state_district" to "Vilniaus m. savivaldyb\\u0117", "suburb" to "Naujinink\\u0173 seni\\u016bnija"),
         expected = """
         |Aduti\u0161kio g. 5
         |02112 Vilnius
@@ -3346,9 +2745,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lt",
       ),
       TestCase(
-        components = mapOf("address29" to "Comed", "city" to "Luxembourg", "country" to "Luxemburg",
-            "country_code" to "lu", "county" to "Canton Luxembourg", "house_number" to "13",
-            "postcode" to "2016", "road" to "Route d'Esch", "suburb" to "Hollerich"),
+        components = mapOf("address29" to "Comed", "city" to "Luxembourg", "country" to "Luxemburg", "country_code" to "lu", "county" to "Canton Luxembourg", "house_number" to "13", "postcode" to "2016", "road" to "Route d'Esch", "suburb" to "Hollerich"),
         expected = """
         |Comed
         |13 Route d'Esch
@@ -3359,9 +2756,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lu",
       ),
       TestCase(
-        components = mapOf("city" to "Riga", "country" to "Latvia", "country_code" to "lv",
-            "county" to "Rīga", "house_number" to "81", "postcode" to "LV-1009",
-            "road" to "Ģertrūdes iela", "state" to "Vidzeme", "suburb" to "Avoti"),
+        components = mapOf("city" to "Riga", "country" to "Latvia", "country_code" to "lv", "county" to "Rīga", "house_number" to "81", "postcode" to "LV-1009", "road" to "Ģertrūdes iela", "state" to "Vidzeme", "suburb" to "Avoti"),
         expected = """
         |Ģertrūdes iela 81
         |Riga, LV-1009
@@ -3371,9 +2766,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - lv",
       ),
       TestCase(
-        components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly",
-            "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi",
-            "state" to "Tripoli", "suburb" to "Old City المدينة القديمه"),
+        components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly", "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi", "state" to "Tripoli", "suburb" to "Old City المدينة القديمه"),
         expected = """
         |Capital Hotel
         |Arasafi
@@ -3384,9 +2777,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ly",
       ),
       TestCase(
-        components = mapOf("city" to "طرابلس", "country" to "ليبيا", "country_code" to "ly",
-            "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi",
-            "state" to "طرابلس", "suburb" to "Old City المدينة القديمه"),
+        components = mapOf("city" to "طرابلس", "country" to "ليبيا", "country_code" to "ly", "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi", "state" to "طرابلس", "suburb" to "Old City المدينة القديمه"),
         expected = """
         |Capital Hotel
         |Arasafi
@@ -3397,9 +2788,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ly",
       ),
       TestCase(
-        components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly",
-            "postcode" to "82510", "road" to "Shara Muhammad Soukny", "state" to "Tripoli",
-            "suburb" to "Bab Tajura", "supermarket" to "Suuq Nufleen"),
+        components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly", "postcode" to "82510", "road" to "Shara Muhammad Soukny", "state" to "Tripoli", "suburb" to "Bab Tajura", "supermarket" to "Suuq Nufleen"),
         expected = """
         |Suuq Nufleen
         |Shara Muhammad Soukny
@@ -3410,8 +2799,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ly",
       ),
       TestCase(
-        components = mapOf("city" to "Az zintan", "country" to "Libya", "country_code" to "ly",
-            "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "Jabal al Gharbi"),
+        components = mapOf("city" to "Az zintan", "country" to "Libya", "country_code" to "ly", "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "Jabal al Gharbi"),
         expected = """
         |محل مواد غدائية
         |طريق الصلوعة
@@ -3422,8 +2810,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ly",
       ),
       TestCase(
-        components = mapOf("city" to "الزنتان", "country" to "ليبيا", "country_code" to "ly",
-            "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "الجبل الغربي"),
+        components = mapOf("city" to "الزنتان", "country" to "ليبيا", "country_code" to "ly", "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "الجبل الغربي"),
         expected = """
         |محل مواد غدائية
         |طريق الصلوعة
@@ -3434,11 +2821,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ly",
       ),
       TestCase(
-        components = mapOf("city" to "Marrakesh", "city_district" to "Marrakech-Medina",
-            "country" to "Morocco", "country_code" to "MA", "county" to "Province Marrakech",
-            "neighbourhood" to "Quartier des tanneurs", "road" to "Rue El Adala",
-            "state" to "Marrakech-Tensift-El Haouz", "suburb" to "Bab Doukkala",
-            "townhall" to "Hotel de Ville"),
+        components = mapOf("city" to "Marrakesh", "city_district" to "Marrakech-Medina", "country" to "Morocco", "country_code" to "MA", "county" to "Province Marrakech", "neighbourhood" to "Quartier des tanneurs", "road" to "Rue El Adala", "state" to "Marrakech-Tensift-El Haouz", "suburb" to "Bab Doukkala", "townhall" to "Hotel de Ville"),
         expected = """
         |Hotel de Ville
         |Rue El Adala
@@ -3449,10 +2832,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ma",
       ),
       TestCase(
-        components = mapOf("country" to "Monaco", "country_code" to "mc", "hotel" to "Novotel",
-            "house_number" to "16", "postcode" to "98000",
-            "road" to "Boulevard Princesse Charlotte", "suburb" to "Monte-Carlo",
-            "town" to "Monaco"),
+        components = mapOf("country" to "Monaco", "country_code" to "mc", "hotel" to "Novotel", "house_number" to "16", "postcode" to "98000", "road" to "Boulevard Princesse Charlotte", "suburb" to "Monte-Carlo", "town" to "Monaco"),
         expected = """
         |Novotel
         |16 Boulevard Princesse Charlotte
@@ -3463,10 +2843,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mc",
       ),
       TestCase(
-        components = mapOf("city" to "Chișinău", "country" to "Moldova", "country_code" to "MD",
-            "county" to "Municipiul Chișinău", "house_number" to "121a",
-            "museum" to "Muzeul de Istorie", "road" to "str. 31 August 1989",
-            "postcode" to "MD-2012"),
+        components = mapOf("city" to "Chișinău", "country" to "Moldova", "country_code" to "MD", "county" to "Municipiul Chișinău", "house_number" to "121a", "museum" to "Muzeul de Istorie", "road" to "str. 31 August 1989", "postcode" to "MD-2012"),
         expected = """
         |Muzeul de Istorie
         |str. 31 August 1989, 121a
@@ -3477,10 +2854,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - md",
       ),
       TestCase(
-        components = mapOf("country" to "Montenegro", "country_code" to "me",
-            "county" to "Opština Kotor", "hotel" to "Hotel Maria", "house_number" to "449",
-            "pedestrian" to "Trg Sv. Luke", "postcode" to "85339", "suburb" to "Škaljari",
-            "town" to "Kotor"),
+        components = mapOf("country" to "Montenegro", "country_code" to "me", "county" to "Opština Kotor", "hotel" to "Hotel Maria", "house_number" to "449", "pedestrian" to "Trg Sv. Luke", "postcode" to "85339", "suburb" to "Škaljari", "town" to "Kotor"),
         expected = """
         |Hotel Maria
         |Trg Sv. Luke 449
@@ -3491,9 +2865,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - me",
       ),
       TestCase(
-        components = mapOf("country" to "Saint-Martin", "country_code" to "mf",
-            "post_office" to "Bureau de Poste", "postcode" to "97150", "road" to "Rue de La Poste",
-            "state" to "Saint-Martin", "suburb" to "Concordia", "town" to "Marigot"),
+        components = mapOf("country" to "Saint-Martin", "country_code" to "mf", "post_office" to "Bureau de Poste", "postcode" to "97150", "road" to "Rue de La Poste", "state" to "Saint-Martin", "suburb" to "Concordia", "town" to "Marigot"),
         expected = """
         |Bureau de Poste
         |Rue de La Poste
@@ -3504,10 +2876,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mf",
       ),
       TestCase(
-        components = mapOf("building" to "Ambassade de l'Inde", "city" to "Antananarivo",
-            "country" to "Madagascar", "country_code" to "mg", "postcode" to "1",
-            "road" to "Làlana Rajhonson Emile", "state" to "Province d'Antananarivo",
-            "suburb" to "Tsaralalana"),
+        components = mapOf("building" to "Ambassade de l'Inde", "city" to "Antananarivo", "country" to "Madagascar", "country_code" to "mg", "postcode" to "1", "road" to "Làlana Rajhonson Emile", "state" to "Province d'Antananarivo", "suburb" to "Tsaralalana"),
         expected = """
         |Ambassade de l'Inde
         |Làlana Rajhonson Emile
@@ -3519,9 +2888,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mg",
       ),
       TestCase(
-        components = mapOf("city" to "Majuro", "country" to "Marshall Islands",
-            "country_code" to "mh", "hotel" to "Marshall Islands Resort",
-            "neighbourhood" to "Delap", "postcode" to "96060", "road" to "Lagoon Road"),
+        components = mapOf("city" to "Majuro", "country" to "Marshall Islands", "country_code" to "mh", "hotel" to "Marshall Islands Resort", "neighbourhood" to "Delap", "postcode" to "96060", "road" to "Lagoon Road"),
         expected = """
         |Marshall Islands Resort
         |Lagoon Road
@@ -3532,9 +2899,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mh",
       ),
       TestCase(
-        components = mapOf("city" to "Skopje", "country" to "F.Y.R.O.M.", "country_code" to "mk",
-            "county" to "Municipality of Centar", "postcode" to "1000", "road" to "Мирче Ацев",
-            "school" to "ОУ 11-ти Октомври", "state" to "Skopje Region", "suburb" to "Prolet"),
+        components = mapOf("city" to "Skopje", "country" to "F.Y.R.O.M.", "country_code" to "mk", "county" to "Municipality of Centar", "postcode" to "1000", "road" to "Мирче Ацев", "school" to "ОУ 11-ти Октомври", "state" to "Skopje Region", "suburb" to "Prolet"),
         expected = """
         |ОУ 11-ти Октомври
         |Мирче Ацев
@@ -3545,10 +2910,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mk",
       ),
       TestCase(
-        components = mapOf("building" to "Ambassade de Russie", "city" to "Bamako",
-            "country" to "Mali", "country_code" to "ml", "county" to "Bamako District",
-            "postcode" to "E4373", "road" to "Rue 415", "state" to "Bamako District",
-            "suburb" to "Niaréla"),
+        components = mapOf("building" to "Ambassade de Russie", "city" to "Bamako", "country" to "Mali", "country_code" to "ml", "county" to "Bamako District", "postcode" to "E4373", "road" to "Rue 415", "state" to "Bamako District", "suburb" to "Niaréla"),
         expected = """
         |Ambassade de Russie
         |Rue 415
@@ -3559,10 +2921,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ml",
       ),
       TestCase(
-        components = mapOf("country" to "Myanmar", "country_code" to "mm",
-            "hotel" to "The Strand Hotel", "house_number" to "92", "postcode" to "11182",
-            "road" to "ဆိပ်ကမ်းသာလမ်း - Seik Kan Tha St", "state" to "Yangon",
-            "town" to "Kyauktada"),
+        components = mapOf("country" to "Myanmar", "country_code" to "mm", "hotel" to "The Strand Hotel", "house_number" to "92", "postcode" to "11182", "road" to "ဆိပ်ကမ်းသာလမ်း - Seik Kan Tha St", "state" to "Yangon", "town" to "Kyauktada"),
         expected = """
         |The Strand Hotel
         |92 ဆိပ်ကမ်းသာလမ်း - Seik Kan Tha St
@@ -3573,9 +2932,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mm",
       ),
       TestCase(
-        components = mapOf("bank" to "TDB картын төв", "city" to "Ulaanbaatar",
-            "country" to "Mongolia", "country_code" to "mn", "postcode" to "00976",
-            "road" to "Seoul street", "state" to "Border Ulan Bator - Töv"),
+        components = mapOf("bank" to "TDB картын төв", "city" to "Ulaanbaatar", "country" to "Mongolia", "country_code" to "mn", "postcode" to "00976", "road" to "Seoul street", "state" to "Border Ulan Bator - Töv"),
         expected = """
         |TDB картын төв
         |Seoul street
@@ -3587,10 +2944,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mn",
       ),
       TestCase(
-        components = mapOf("building" to "第四座欣濠軒 Torre 4", "country" to "Macau",
-            "country_code" to "mo", "county" to "嘉模堂區 Nossa Senhora do Carmo",
-            "house_number" to "641", "road" to "南京街 Rua de Nam Keng", "state" to "Macao",
-            "state_district" to "Taipa", "suburb" to "Taipa", "village" to "Taipa Old Village"),
+        components = mapOf("building" to "第四座欣濠軒 Torre 4", "country" to "Macau", "country_code" to "mo", "county" to "嘉模堂區 Nossa Senhora do Carmo", "house_number" to "641", "road" to "南京街 Rua de Nam Keng", "state" to "Macao", "state_district" to "Taipa", "suburb" to "Taipa", "village" to "Taipa Old Village"),
         expected = """
         |第四座欣濠軒 Torre 4
         |南京街 Rua de Nam Keng 641
@@ -3601,10 +2955,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mo",
       ),
       TestCase(
-        components = mapOf("building" to "Red Cross", "country" to "Northern Mariana Islands",
-            "country_code" to "mp", "county" to "Saipan Municipality", "postcode" to "96950",
-            "road" to "Chalan Tun Herman Pan", "state" to "Northern Mariana Islands",
-            "town" to "Saipan"),
+        components = mapOf("building" to "Red Cross", "country" to "Northern Mariana Islands", "country_code" to "mp", "county" to "Saipan Municipality", "postcode" to "96950", "road" to "Chalan Tun Herman Pan", "state" to "Northern Mariana Islands", "town" to "Saipan"),
         expected = """
         |Red Cross
         |Chalan Tun Herman Pan
@@ -3615,10 +2966,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mp",
       ),
       TestCase(
-        components = mapOf("city" to "Fort-de-France", "country" to "Martinique",
-            "country_code" to "mq", "county" to "Fort-de-France",
-            "courthouse" to "Tribunal Administratif de Fort-de-France", "postcode" to "97200",
-            "road" to "Avenue Condorcet", "state" to "Martinique"),
+        components = mapOf("city" to "Fort-de-France", "country" to "Martinique", "country_code" to "mq", "county" to "Fort-de-France", "courthouse" to "Tribunal Administratif de Fort-de-France", "postcode" to "97200", "road" to "Avenue Condorcet", "state" to "Martinique"),
         expected = """
         |Tribunal Administratif de Fort-de-France
         |Avenue Condorcet
@@ -3629,9 +2977,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mq",
       ),
       TestCase(
-        components = mapOf("city" to "Nouakchott", "country" to "Mauritania",
-            "country_code" to "mr", "hospital" to "CENTRE DE SANTE",
-            "road" to "Route de la Résistance", "state" to "Nouakchott"),
+        components = mapOf("city" to "Nouakchott", "country" to "Mauritania", "country_code" to "mr", "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance", "state" to "Nouakchott"),
         expected = """
         |CENTRE DE SANTE
         |Route de la Résistance
@@ -3642,9 +2988,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mr",
       ),
       TestCase(
-        components = mapOf("city" to "نواكشوط", "country" to "موريتانيا", "country_code" to "mr",
-            "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance",
-            "state" to "نواكشوط"),
+        components = mapOf("city" to "نواكشوط", "country" to "موريتانيا", "country_code" to "mr", "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance", "state" to "نواكشوط"),
         expected = """
         |CENTRE DE SANTE
         |Route de la Résistance
@@ -3655,9 +2999,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mr",
       ),
       TestCase(
-        components = mapOf("city" to "Nouakchott", "country" to "Mauritania",
-            "country_code" to "mr", "place_of_worship" to "Mosquée du Qatar", "postcode" to "170",
-            "road" to "Route Famille Dia", "state" to "Nouakchott"),
+        components = mapOf("city" to "Nouakchott", "country" to "Mauritania", "country_code" to "mr", "place_of_worship" to "Mosquée du Qatar", "postcode" to "170", "road" to "Route Famille Dia", "state" to "Nouakchott"),
         expected = """
         |Mosquée du Qatar
         |Route Famille Dia
@@ -3668,9 +3010,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mr",
       ),
       TestCase(
-        components = mapOf("country" to "Mauritania", "country_code" to "mr",
-            "hospital" to "Hôpital Régional de Nouadhibou", "road" to "N2",
-            "state" to "Dakhlet Nouadhibou", "town" to "Nouadhibou"),
+        components = mapOf("country" to "Mauritania", "country_code" to "mr", "hospital" to "Hôpital Régional de Nouadhibou", "road" to "N2", "state" to "Dakhlet Nouadhibou", "town" to "Nouadhibou"),
         expected = """
         |Hôpital Régional de Nouadhibou
         |N2
@@ -3681,9 +3021,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mr",
       ),
       TestCase(
-        components = mapOf("country" to "Montserrat", "country_code" to "ms",
-            "county" to "Saint Peter", "public_building" to "Government Headquarters",
-            "road" to "Farer Plaza", "suburb" to "Gerald's", "town" to "Brades"),
+        components = mapOf("country" to "Montserrat", "country_code" to "ms", "county" to "Saint Peter", "public_building" to "Government Headquarters", "road" to "Farer Plaza", "suburb" to "Gerald's", "town" to "Brades"),
         expected = """
         |Government Headquarters
         |Farer Plaza
@@ -3694,10 +3032,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ms",
       ),
       TestCase(
-        components = mapOf("city" to "Mellieha", "country" to "1002", "country_code" to "mt",
-            "pharmacy" to "Karizia Pharmacy", "residential" to "mELLIEHA",
-            "road" to "Triq \\u0120or\\u0121 Borg Olivier", "state" to "Malta",
-            "suburb" to "I\\u010b-\\u010airkewwa"),
+        components = mapOf("city" to "Mellieha", "country" to "1002", "country_code" to "mt", "pharmacy" to "Karizia Pharmacy", "residential" to "mELLIEHA", "road" to "Triq \\u0120or\\u0121 Borg Olivier", "state" to "Malta", "suburb" to "I\\u010b-\\u010airkewwa"),
         expected = """
         |Karizia Pharmacy
         |Triq \u0120or\u0121 Borg Olivier
@@ -3708,10 +3043,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mt",
       ),
       TestCase(
-        components = mapOf("building" to "State Bank of Mauritius", "city" to "Port Louis",
-            "country" to "Mauritius", "country_code" to "mu", "house_number" to "1",
-            "neighbourhood" to "Caudan Waterfront", "road" to "Queen Elizabeth II Avenue",
-            "state" to "Port Louis"),
+        components = mapOf("building" to "State Bank of Mauritius", "city" to "Port Louis", "country" to "Mauritius", "country_code" to "mu", "house_number" to "1", "neighbourhood" to "Caudan Waterfront", "road" to "Queen Elizabeth II Avenue", "state" to "Port Louis"),
         expected = """
         |State Bank of Mauritius
         |1, Queen Elizabeth II Avenue
@@ -3723,9 +3055,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mu",
       ),
       TestCase(
-        components = mapOf("city" to "Lallmatie", "country" to "Mauritius", "country_code" to "mu",
-            "house_number" to "21", "neighbourhood" to "Mission Cross", "postcode" to "42602",
-            "road" to "Old Trafford Road"),
+        components = mapOf("city" to "Lallmatie", "country" to "Mauritius", "country_code" to "mu", "house_number" to "21", "neighbourhood" to "Mission Cross", "postcode" to "42602", "road" to "Old Trafford Road"),
         expected = """
         |21, Old Trafford Road
         |Mission Cross
@@ -3736,9 +3066,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mu",
       ),
       TestCase(
-        components = mapOf("address29" to "Voice of Maledives", "city" to "Malé",
-            "country" to "Maldives", "country_code" to "mv", "postcode" to "20237",
-            "road" to "Buruzu Magu", "state" to "Malé"),
+        components = mapOf("address29" to "Voice of Maledives", "city" to "Malé", "country" to "Maldives", "country_code" to "mv", "postcode" to "20237", "road" to "Buruzu Magu", "state" to "Malé"),
         expected = """
         |Voice of Maledives
         |Buruzu Magu
@@ -3749,9 +3077,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mv",
       ),
       TestCase(
-        components = mapOf("building" to "Mpatsa House", "city" to "Lilongwe",
-            "country" to "Malawi", "country_code" to "mw", "residential" to "Chilambula",
-            "road" to "Paul Kagame Road", "state" to "Central"),
+        components = mapOf("building" to "Mpatsa House", "city" to "Lilongwe", "country" to "Malawi", "country_code" to "mw", "residential" to "Chilambula", "road" to "Paul Kagame Road", "state" to "Central"),
         expected = """
         |Mpatsa House
         |Paul Kagame Road
@@ -3762,10 +3088,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mw",
       ),
       TestCase(
-        components = mapOf("pub" to "Wallace Whisky Bar", "house_number" to "45",
-            "road" to "Avenida Tamaulipas", "city" to "Mexico City",
-            "city_district" to "Cuauhtémoc", "country" to "Mexico", "country_code" to "MX",
-            "state" to "Federal District", "postcode" to "06100"),
+        components = mapOf("pub" to "Wallace Whisky Bar", "house_number" to "45", "road" to "Avenida Tamaulipas", "city" to "Mexico City", "city_district" to "Cuauhtémoc", "country" to "Mexico", "country_code" to "MX", "state" to "Federal District", "postcode" to "06100"),
         expected = """
         |Wallace Whisky Bar
         |Avenida Tamaulipas 45
@@ -3777,9 +3100,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mx",
       ),
       TestCase(
-        components = mapOf("country" to "Malaysia", "country_code" to "my", "hamlet" to "Pudu",
-            "museum" to "Telekom Museum", "postcode" to "50000", "road" to "Jalan Gereja",
-            "state" to "Kuala Lumpur", "suburb" to "Kampung Baru"),
+        components = mapOf("country" to "Malaysia", "country_code" to "my", "hamlet" to "Pudu", "museum" to "Telekom Museum", "postcode" to "50000", "road" to "Jalan Gereja", "state" to "Kuala Lumpur", "suburb" to "Kampung Baru"),
         expected = """
         |Telekom Museum
         |Jalan Gereja
@@ -3792,10 +3113,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - my",
       ),
       TestCase(
-        components = mapOf("address29" to "Sturrock Shipping", "city" to "Cidade de Maputo",
-            "city_district" to "Distrito Urbano de KaMpfumo", "country" to "Mozambique",
-            "country_code" to "mz", "house_number" to "362", "postcode" to "1100",
-            "road" to "Avenida Mao Tsé Tung", "state" to "Maputo", "suburb" to "Polana Cimento B"),
+        components = mapOf("address29" to "Sturrock Shipping", "city" to "Cidade de Maputo", "city_district" to "Distrito Urbano de KaMpfumo", "country" to "Mozambique", "country_code" to "mz", "house_number" to "362", "postcode" to "1100", "road" to "Avenida Mao Tsé Tung", "state" to "Maputo", "suburb" to "Polana Cimento B"),
         expected = """
         |Sturrock Shipping
         |Avenida Mao Tsé Tung, 362
@@ -3806,10 +3124,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - mz",
       ),
       TestCase(
-        components = mapOf("city" to "Swakopmund", "country" to "Namibia", "country_code" to "na",
-            "hotel" to "Hotel Zum Kaiser", "house_number" to "4",
-            "road" to "Sam Nujoma Avenue (Kaiser Wilhelm St)", "state" to "Erongo Region",
-            "suburb" to "Central"),
+        components = mapOf("city" to "Swakopmund", "country" to "Namibia", "country_code" to "na", "hotel" to "Hotel Zum Kaiser", "house_number" to "4", "road" to "Sam Nujoma Avenue (Kaiser Wilhelm St)", "state" to "Erongo Region", "suburb" to "Central"),
         expected = """
         |Hotel Zum Kaiser
         |4 Sam Nujoma Avenue (Kaiser Wilhelm St)
@@ -3820,11 +3135,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - na",
       ),
       TestCase(
-        components = mapOf("building" to "Immeuble Maréchal Foch", "city" to "Nouméa",
-            "city_district" to "Secteur Ouest",
-            "country" to "France, Nouvelle-Calédonie, Grande Terre et récifs d'Entrecasteaux (eaux territoriales)",
-            "country_code" to "nc", "county" to "Province Sud", "postcode" to "98800",
-            "road" to "Rue Jean Jaurès", "state" to "New Caledonia", "suburb" to "Centre-Ville"),
+        components = mapOf("building" to "Immeuble Maréchal Foch", "city" to "Nouméa", "city_district" to "Secteur Ouest", "country" to "France, Nouvelle-Calédonie, Grande Terre et récifs d'Entrecasteaux (eaux territoriales)", "country_code" to "nc", "county" to "Province Sud", "postcode" to "98800", "road" to "Rue Jean Jaurès", "state" to "New Caledonia", "suburb" to "Centre-Ville"),
         expected = """
         |Immeuble Maréchal Foch
         |Rue Jean Jaurès
@@ -3835,10 +3146,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nc",
       ),
       TestCase(
-        components = mapOf("address" to "Embassy of the Federal Republic of Germany",
-            "city" to "Niamey", "country" to "Niger", "country_code" to "ne",
-            "house_number" to "71", "postcode" to "13416", "road" to "Boulevard Général De Gaulle",
-            "state" to "Niamey", "suburb" to "Plateau", "village" to "Néini Goungou"),
+        components = mapOf("address" to "Embassy of the Federal Republic of Germany", "city" to "Niamey", "country" to "Niger", "country_code" to "ne", "house_number" to "71", "postcode" to "13416", "road" to "Boulevard Général De Gaulle", "state" to "Niamey", "suburb" to "Plateau", "village" to "Néini Goungou"),
         expected = """
         |Embassy of the Federal Republic of Germany
         |71
@@ -3850,9 +3158,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ne",
       ),
       TestCase(
-        components = mapOf("country" to "Norfolk Island", "country_code" to "nf",
-            "postcode" to "2899", "road" to "Mitchells Lane", "supermarket" to "P & R Groceries",
-            "town" to "Burnt Pine"),
+        components = mapOf("country" to "Norfolk Island", "country_code" to "nf", "postcode" to "2899", "road" to "Mitchells Lane", "supermarket" to "P & R Groceries", "town" to "Burnt Pine"),
         expected = """
         |P & R Groceries
         |Mitchells Lane
@@ -3863,9 +3169,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nf",
       ),
       TestCase(
-        components = mapOf("building" to "Maro Polo Hotel", "country" to "Nigeria",
-            "country_code" to "ng", "county" to "Eti Osa", "road" to "Yeni Crescent",
-            "state" to "Lagos", "village" to "Maiyegun"),
+        components = mapOf("building" to "Maro Polo Hotel", "country" to "Nigeria", "country_code" to "ng", "county" to "Eti Osa", "road" to "Yeni Crescent", "state" to "Lagos", "village" to "Maiyegun"),
         expected = """
         |Maro Polo Hotel
         |Yeni Crescent
@@ -3877,11 +3181,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ng",
       ),
       TestCase(
-        components = mapOf("city" to "Managua", "city_district" to "District I",
-            "country" to "Nicaragua", "country_code" to "ni", "county" to "Managua (Municipio)",
-            "pedestrian" to "Plaza de la República", "postcode" to "11001",
-            "public_building" to "Antiguo Palacio de Gobierno", "state" to "Managua",
-            "suburb" to "Centro Histórico Cultural"),
+        components = mapOf("city" to "Managua", "city_district" to "District I", "country" to "Nicaragua", "country_code" to "ni", "county" to "Managua (Municipio)", "pedestrian" to "Plaza de la República", "postcode" to "11001", "public_building" to "Antiguo Palacio de Gobierno", "state" to "Managua", "suburb" to "Centro Histórico Cultural"),
         expected = """
         |Antiguo Palacio de Gobierno
         |Plaza de la República
@@ -3893,10 +3193,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ni",
       ),
       TestCase(
-        components = mapOf("city" to "Amsterdam", "city_district" to "Centrum",
-            "country" to "The Netherlands", "country_code" to "nl", "county" to "MRA",
-            "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht",
-            "state" to "North Holland", "suburb" to "Amsterdam"),
+        components = mapOf("city" to "Amsterdam", "city_district" to "Centrum", "country" to "The Netherlands", "country_code" to "nl", "county" to "MRA", "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht", "state" to "North Holland", "suburb" to "Amsterdam"),
         expected = """
         |Herengracht 573
         |1017 CD Amsterdam
@@ -3906,10 +3203,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nl",
       ),
       TestCase(
-        components = mapOf("city" to "Amsterdam", "city_district" to "Centrum",
-            "country" to "Koninkrijk der Nederlanden", "country_code" to "nl", "county" to "MRA",
-            "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht",
-            "state" to "North Holland", "suburb" to "Amsterdam"),
+        components = mapOf("city" to "Amsterdam", "city_district" to "Centrum", "country" to "Koninkrijk der Nederlanden", "country_code" to "nl", "county" to "MRA", "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht", "state" to "North Holland", "suburb" to "Amsterdam"),
         expected = """
         |Herengracht 573
         |1017 CD Amsterdam
@@ -3919,10 +3213,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nl",
       ),
       TestCase(
-        components = mapOf("country" to "The Netherlands", "country_code" to "nl",
-            "house_number" to "14", "neighbourhood" to "Colon", "postcode" to "0000NA",
-            "road" to "Jan Erasmusstraat", "state" to "Curaçao", "suburb" to "Seru Domi",
-            "town" to "Willemstad"),
+        components = mapOf("country" to "The Netherlands", "country_code" to "nl", "house_number" to "14", "neighbourhood" to "Colon", "postcode" to "0000NA", "road" to "Jan Erasmusstraat", "state" to "Curaçao", "suburb" to "Seru Domi", "town" to "Willemstad"),
         expected = """
         |Jan Erasmusstraat 14
         |Willemstad
@@ -3932,9 +3223,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nl",
       ),
       TestCase(
-        components = mapOf("name" to "Parliament of Aruba", "country" to "The Netherlands",
-            "country_code" to "nl", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard",
-            "state" to "Aruba", "town" to "Oranjestad"),
+        components = mapOf("name" to "Parliament of Aruba", "country" to "The Netherlands", "country_code" to "nl", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard", "state" to "Aruba", "town" to "Oranjestad"),
         expected = """
         |Parliament of Aruba
         |L.G. Smith Boulevard LSB 70
@@ -3945,10 +3234,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nl",
       ),
       TestCase(
-        components = mapOf("city" to "Oslo", "city_district" to "Gamle Oslo", "country" to "Norway",
-            "country_code" to "no", "county" to "Oslo", "house_number" to "28",
-            "neighbourhood" to "Arctanderbyen", "postcode" to "0650", "road" to "Åkebergveien",
-            "state" to "Oslo", "suburb" to "Enerhaugen"),
+        components = mapOf("city" to "Oslo", "city_district" to "Gamle Oslo", "country" to "Norway", "country_code" to "no", "county" to "Oslo", "house_number" to "28", "neighbourhood" to "Arctanderbyen", "postcode" to "0650", "road" to "Åkebergveien", "state" to "Oslo", "suburb" to "Enerhaugen"),
         expected = """
         |Åkebergveien 28
         |0650 Oslo
@@ -3958,10 +3244,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - no",
       ),
       TestCase(
-        components = mapOf("country" to "Norge", "country_code" to "no", "county" to "Viken",
-            "house_number" to "33", "neighbourhood" to "Belset", "postal_city" to "Rykkinn",
-            "postcode" to "1349", "road" to "Grindstuveien", "suburb" to "Angerst",
-            "village" to "Ringvoll"),
+        components = mapOf("country" to "Norge", "country_code" to "no", "county" to "Viken", "house_number" to "33", "neighbourhood" to "Belset", "postal_city" to "Rykkinn", "postcode" to "1349", "road" to "Grindstuveien", "suburb" to "Angerst", "village" to "Ringvoll"),
         expected = """
         |Grindstuveien 33
         |1349 Rykkinn
@@ -3971,11 +3254,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - no",
       ),
       TestCase(
-        components = mapOf("city" to "Kathmandu", "country" to "Nepal", "country_code" to "np",
-            "county" to "Kathmandu", "mall" to "United World Trade Centre",
-            "neighbourhood" to "Hyumat", "postcode" to "2243", "road" to "Tripureshwor Marg",
-            "state" to "Central Development Region", "state_district" to "Bagmati",
-            "suburb" to "Kuleshwor"),
+        components = mapOf("city" to "Kathmandu", "country" to "Nepal", "country_code" to "np", "county" to "Kathmandu", "mall" to "United World Trade Centre", "neighbourhood" to "Hyumat", "postcode" to "2243", "road" to "Tripureshwor Marg", "state" to "Central Development Region", "state_district" to "Bagmati", "suburb" to "Kuleshwor"),
         expected = """
         |United World Trade Centre
         |Tripureshwor Marg
@@ -3987,8 +3266,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - np",
       ),
       TestCase(
-        components = mapOf("country" to "Nauru", "country_code" to "nr",
-            "public_building" to "Parliament", "road" to "Island Ring Road", "village" to "Yaren"),
+        components = mapOf("country" to "Nauru", "country_code" to "nr", "public_building" to "Parliament", "road" to "Island Ring Road", "village" to "Yaren"),
         expected = """
         |Parliament
         |Island Ring Road
@@ -3999,8 +3277,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nr",
       ),
       TestCase(
-        components = mapOf("bank" to "Kiwibank", "country" to "Niue", "country_code" to "nu",
-            "road" to "Tuila Road", "town" to "Alofi"),
+        components = mapOf("bank" to "Kiwibank", "country" to "Niue", "country_code" to "nu", "road" to "Tuila Road", "town" to "Alofi"),
         expected = """
         |Kiwibank
         |Tuila Road
@@ -4019,10 +3296,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "other - null",
       ),
       TestCase(
-        components = mapOf("city" to "Wellington", "country" to "New Zealand",
-            "country_code" to "nz", "county" to "Wellington City", "house_number" to "53",
-            "postcode" to "6011", "road" to "Pirie Street", "state" to "Wellington",
-            "suburb" to "Mount Victoria"),
+        components = mapOf("city" to "Wellington", "country" to "New Zealand", "country_code" to "nz", "county" to "Wellington City", "house_number" to "53", "postcode" to "6011", "road" to "Pirie Street", "state" to "Wellington", "suburb" to "Mount Victoria"),
         expected = """
         |53 Pirie Street
         |Mount Victoria
@@ -4033,8 +3307,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nz",
       ),
       TestCase(
-        components = mapOf("city" to "Wellington", "country" to "New Zealand",
-            "country_code" to "nz", "county" to "Wellington City", "state" to "Wellington"),
+        components = mapOf("city" to "Wellington", "country" to "New Zealand", "country_code" to "nz", "county" to "Wellington City", "state" to "Wellington"),
         expected = """
         |Wellington
         |New Zealand
@@ -4043,9 +3316,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - nz",
       ),
       TestCase(
-        components = mapOf("city" to "Muscat, Oman", "country" to "Oman", "country_code" to "om",
-            "postcode" to "116", "residential" to "Muscat", "road" to "Al Noor Street",
-            "state" to "Muscat", "supermarket" to "Fathima Super Market"),
+        components = mapOf("city" to "Muscat, Oman", "country" to "Oman", "country_code" to "om", "postcode" to "116", "residential" to "Muscat", "road" to "Al Noor Street", "state" to "Muscat", "supermarket" to "Fathima Super Market"),
         expected = """
         |Fathima Super Market
         |Al Noor Street
@@ -4058,10 +3329,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - om",
       ),
       TestCase(
-        components = mapOf("city" to "Muscat, Oman", "country" to "سلطنة عمان",
-            "country_code" to "om", "postcode" to "116", "residential" to "Muscat",
-            "road" to "Al Noor Street", "state" to "محافظة مسقط",
-            "supermarket" to "Fathima Super Market"),
+        components = mapOf("city" to "Muscat, Oman", "country" to "سلطنة عمان", "country_code" to "om", "postcode" to "116", "residential" to "Muscat", "road" to "Al Noor Street", "state" to "محافظة مسقط", "supermarket" to "Fathima Super Market"),
         expected = """
         |Fathima Super Market
         |Al Noor Street
@@ -4074,9 +3342,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - om",
       ),
       TestCase(
-        components = mapOf("bakery" to "Muscat Bakery", "city" to "Muscat, Oman",
-            "country" to "Oman", "country_code" to "om", "postcode" to "1727",
-            "road" to "Street 3305", "state" to "Muscat", "suburb" to "Madinat al Sultan Qaboos"),
+        components = mapOf("bakery" to "Muscat Bakery", "city" to "Muscat, Oman", "country" to "Oman", "country_code" to "om", "postcode" to "1727", "road" to "Street 3305", "state" to "Muscat", "suburb" to "Madinat al Sultan Qaboos"),
         expected = """
         |Muscat Bakery
         |Street 3305
@@ -4089,9 +3355,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - om",
       ),
       TestCase(
-        components = mapOf("city" to "Salalah", "clinic" to "Al Zahir Medical Complex",
-            "country" to "Oman", "country_code" to "om", "road" to "Al Nahdah Street",
-            "state" to "Dhofar"),
+        components = mapOf("city" to "Salalah", "clinic" to "Al Zahir Medical Complex", "country" to "Oman", "country_code" to "om", "road" to "Al Nahdah Street", "state" to "Dhofar"),
         expected = """
         |Al Zahir Medical Complex
         |Al Nahdah Street
@@ -4103,9 +3367,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - om",
       ),
       TestCase(
-        components = mapOf("city" to "Panamá", "country" to "Panamá", "country_code" to "pa",
-            "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte",
-            "suburb" to "El Cangrejo"),
+        components = mapOf("city" to "Panamá", "country" to "Panamá", "country_code" to "pa", "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte", "suburb" to "El Cangrejo"),
         expected = """
         |Panama House Bed & Breakfast
         |Avenida 1 C Norte
@@ -4117,9 +3379,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pa",
       ),
       TestCase(
-        components = mapOf("city" to "Panama City", "country" to "Panama", "country_code" to "pa",
-            "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte",
-            "suburb" to "El Cangrejo"),
+        components = mapOf("city" to "Panama City", "country" to "Panama", "country_code" to "pa", "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte", "suburb" to "El Cangrejo"),
         expected = """
         |Panama House Bed & Breakfast
         |Avenida 1 C Norte
@@ -4131,9 +3391,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pa",
       ),
       TestCase(
-        components = mapOf("country" to "Panama", "country_code" to "pa",
-            "hamlet" to "Nueva California", "pharmacy" to "Celina", "road" to "Volcan-Rio Sereno",
-            "state" to "Chiriquí"),
+        components = mapOf("country" to "Panama", "country_code" to "pa", "hamlet" to "Nueva California", "pharmacy" to "Celina", "road" to "Volcan-Rio Sereno", "state" to "Chiriquí"),
         expected = """
         |Celina
         |Volcan-Rio Sereno
@@ -4145,9 +3403,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pa",
       ),
       TestCase(
-        components = mapOf("pub" to "Discoteca Ophera", "county" to "Huaural",
-            "road" to "TUPAC AMARU", "town" to "Huacho", "country" to "Peru",
-            "country_code" to "PE", "state" to "Lima"),
+        components = mapOf("pub" to "Discoteca Ophera", "county" to "Huaural", "road" to "TUPAC AMARU", "town" to "Huacho", "country" to "Peru", "country_code" to "PE", "state" to "Lima"),
         expected = """
         |Discoteca Ophera
         |TUPAC AMARU
@@ -4158,10 +3414,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pe",
       ),
       TestCase(
-        components = mapOf("building" to "Mairie (bureaux administratifs)", "city" to "Papeete",
-            "country" to "Polynésie française, Îles du Vent (eaux territoriales)",
-            "country_code" to "pf", "county" to "Îles du Vent", "postcode" to "98714",
-            "road" to "Rue des Remparts", "state" to "French Polynesia"),
+        components = mapOf("building" to "Mairie (bureaux administratifs)", "city" to "Papeete", "country" to "Polynésie française, Îles du Vent (eaux territoriales)", "country_code" to "pf", "county" to "Îles du Vent", "postcode" to "98714", "road" to "Rue des Remparts", "state" to "French Polynesia"),
         expected = """
         |Mairie (bureaux administratifs)
         |Rue des Remparts
@@ -4172,10 +3425,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pf",
       ),
       TestCase(
-        components = mapOf("city" to "Port Moresby", "country" to "Papua New Guinea",
-            "country_code" to "pg", "county" to "National Capital District",
-            "hotel" to "Crowne Plaza Hotel", "road" to "Mary Street",
-            "state" to "National Capital District", "suburb" to "Ela Beach"),
+        components = mapOf("city" to "Port Moresby", "country" to "Papua New Guinea", "country_code" to "pg", "county" to "National Capital District", "hotel" to "Crowne Plaza Hotel", "road" to "Mary Street", "state" to "National Capital District", "suburb" to "Ela Beach"),
         expected = """
         |Crowne Plaza Hotel
         |Mary Street
@@ -4186,10 +3436,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pg",
       ),
       TestCase(
-        components = mapOf("house_number" to "1140", "road" to "Alhambra", "city" to "Ermita",
-            "postcode" to "1000", "county" to "Fifth District", "country" to "Philippines",
-            "country_code" to "PH", "restaurant" to "Emerald Garden", "state" to "Metro Manila",
-            "suburb" to "Ermita"),
+        components = mapOf("house_number" to "1140", "road" to "Alhambra", "city" to "Ermita", "postcode" to "1000", "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH", "restaurant" to "Emerald Garden", "state" to "Metro Manila", "suburb" to "Ermita"),
         expected = """
         |Emerald Garden
         |1140 Alhambra, Ermita
@@ -4200,8 +3447,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ph",
       ),
       TestCase(
-        components = mapOf("archipelago" to "Mindanao", "country" to "Philippines",
-            "country_code" to "ph"),
+        components = mapOf("archipelago" to "Mindanao", "country" to "Philippines", "country_code" to "ph"),
         expected = """
         |Mindanao
         |Philippines
@@ -4210,10 +3456,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ph",
       ),
       TestCase(
-        components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.",
-            "city" to "Mandaluyong", "postcode" to "1550", "suburb" to "Wack-wack Greenhills",
-            "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH",
-            "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila"),
+        components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.", "city" to "Mandaluyong", "postcode" to "1550", "suburb" to "Wack-wack Greenhills", "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH", "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila"),
         expected = """
         |Mr. Juan Maliksi
         |121 Epifanio Delos Santos Ave., Wack-wack Greenhills, Mandaluyong
@@ -4224,11 +3467,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ph",
       ),
       TestCase(
-        components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.",
-            "city" to "Mandaluyong", "postcode" to "1550",
-            "city_district" to "Wack-wack Greenhills", "county" to "Fifth District",
-            "country" to "Philippines", "country_code" to "PH", "attention" to "Mr. Juan Maliksi",
-            "state" to "Metro Manila"),
+        components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.", "city" to "Mandaluyong", "postcode" to "1550", "city_district" to "Wack-wack Greenhills", "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH", "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila"),
         expected = """
         |Mr. Juan Maliksi
         |121 Epifanio Delos Santos Ave., Wack-wack Greenhills, Mandaluyong
@@ -4239,10 +3478,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ph",
       ),
       TestCase(
-        components = mapOf("building" to "Avari Beach Luxury Hotel", "city" to "Karachi",
-            "country" to "Pakistan", "country_code" to "pk", "county" to "Karachi District",
-            "postcode" to "75000", "road" to "Khan Road", "state" to "Sindh",
-            "suburb" to "Lyari Town"),
+        components = mapOf("building" to "Avari Beach Luxury Hotel", "city" to "Karachi", "country" to "Pakistan", "country_code" to "pk", "county" to "Karachi District", "postcode" to "75000", "road" to "Khan Road", "state" to "Sindh", "suburb" to "Lyari Town"),
         expected = """
         |Avari Beach Luxury Hotel
         |Khan Road
@@ -4254,10 +3490,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pk",
       ),
       TestCase(
-        components = mapOf("house_number" to "1", "road" to "Adama Asnyka",
-            "neighbourhood" to "Południe", "city" to "Bolesławiec", "postcode" to "59-700",
-            "county" to "Bolesławiec", "state" to "Lower Silesian Voivodeship",
-            "country" to "Poland", "country_code" to "PL"),
+        components = mapOf("house_number" to "1", "road" to "Adama Asnyka", "neighbourhood" to "Południe", "city" to "Bolesławiec", "postcode" to "59-700", "county" to "Bolesławiec", "state" to "Lower Silesian Voivodeship", "country" to "Poland", "country_code" to "PL"),
         expected = """
         |Adama Asnyka 1
         |59-700 Bolesławiec
@@ -4267,11 +3500,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pl",
       ),
       TestCase(
-        components = mapOf("city" to "Tarnów", "country" to "Poland", "country_code" to "pl",
-            "county" to "Tarnów",
-            "fuel" to "http://ump.waw.pl/ retrieved 11:18:52 11/17/09 (UMP-Tarnow/src/POI-paliwo.pnt-converted.txt)",
-            "neighbourhood" to "XXVI Lecia", "postcode" to "33-106", "road" to "Mostowa",
-            "state" to "Lesser Poland Voivodeship"),
+        components = mapOf("city" to "Tarnów", "country" to "Poland", "country_code" to "pl", "county" to "Tarnów", "fuel" to "http://ump.waw.pl/ retrieved 11:18:52 11/17/09 (UMP-Tarnow/src/POI-paliwo.pnt-converted.txt)", "neighbourhood" to "XXVI Lecia", "postcode" to "33-106", "road" to "Mostowa", "state" to "Lesser Poland Voivodeship"),
         expected = """
         |Mostowa
         |33-106 Tarnów
@@ -4281,11 +3510,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pl",
       ),
       TestCase(
-        components = mapOf("city" to "Szczecin", "city_district" to "Śródmieście",
-            "country" to "Poland", "country_code" to "pl", "county" to "Szczecin",
-            "house_number" to "19", "neighbourhood" to "Grabowo", "postcode" to "71637",
-            "road" to "Teofila Firlika", "state" to "West Pomeranian Voivodeship",
-            "suburb" to "Drzetowo-Grabowo"),
+        components = mapOf("city" to "Szczecin", "city_district" to "Śródmieście", "country" to "Poland", "country_code" to "pl", "county" to "Szczecin", "house_number" to "19", "neighbourhood" to "Grabowo", "postcode" to "71637", "road" to "Teofila Firlika", "state" to "West Pomeranian Voivodeship", "suburb" to "Drzetowo-Grabowo"),
         expected = """
         |Teofila Firlika 19
         |71-637 Szczecin
@@ -4295,10 +3520,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pl",
       ),
       TestCase(
-        components = mapOf("building" to "Société nouvelle des pêches de Miquelon",
-            "city" to "Miquelon-Langlade", "country" to "Saint Pierre and Miquelon",
-            "country_code" to "pm", "postcode" to "97500", "road" to "Rue Jacques Vigneau",
-            "state" to "Saint Pierre and Miquelon"),
+        components = mapOf("building" to "Société nouvelle des pêches de Miquelon", "city" to "Miquelon-Langlade", "country" to "Saint Pierre and Miquelon", "country_code" to "pm", "postcode" to "97500", "road" to "Rue Jacques Vigneau", "state" to "Saint Pierre and Miquelon"),
         expected = """
         |Société nouvelle des pêches de Miquelon
         |Rue Jacques Vigneau
@@ -4309,9 +3531,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pm",
       ),
       TestCase(
-        components = mapOf("country" to "Pitcairn Islands", "country_code" to "pn",
-            "hospital" to "Pitcairn Health Centre", "residential" to "Adamstown",
-            "road" to "Hill of Difficulty", "town" to "Adamstown"),
+        components = mapOf("country" to "Pitcairn Islands", "country_code" to "pn", "hospital" to "Pitcairn Health Centre", "residential" to "Adamstown", "road" to "Hill of Difficulty", "town" to "Adamstown"),
         expected = """
         |Pitcairn Health Centre
         |Adamstown
@@ -4321,10 +3541,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pn",
       ),
       TestCase(
-        components = mapOf("bar" to "Wisos Velillas Bar", "house_number" to "252",
-            "road" to "Calle San Francisco", "city" to "San Juan Antiguo",
-            "country" to "Puerto Rico", "country_code" to "PR", "county" to "San Juan",
-            "postcode" to "00901"),
+        components = mapOf("bar" to "Wisos Velillas Bar", "house_number" to "252", "road" to "Calle San Francisco", "city" to "San Juan Antiguo", "country" to "Puerto Rico", "country_code" to "PR", "county" to "San Juan", "postcode" to "00901"),
         expected = """
         |Wisos Velillas Bar
         |252 Calle San Francisco
@@ -4335,11 +3552,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pr",
       ),
       TestCase(
-        components = mapOf("country" to "Palestine", "country_code" to "ps",
-            "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074",
-            "road" to "Al-Nuzha Street", "state" to "Area A",
-            "state_district" to "Ramallah and al-Bireh Governorate",
-            "suburb" to "Ramallah Altahtah", "town" to "Ramallah"),
+        components = mapOf("country" to "Palestine", "country_code" to "ps", "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074", "road" to "Al-Nuzha Street", "state" to "Area A", "state_district" to "Ramallah and al-Bireh Governorate", "suburb" to "Ramallah Altahtah", "town" to "Ramallah"),
         expected = """
         |Hostel in Ramallah
         |Al-Nuzha Street 12
@@ -4350,11 +3563,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ps",
       ),
       TestCase(
-        components = mapOf("country" to "فلسطين", "country_code" to "ps",
-            "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074",
-            "road" to "شارع النزهة", "state" to "منطقة A",
-            "state_district" to "محافظة رام الله والبيرة", "suburb" to "رام الله التحتة",
-            "town" to "رام الله"),
+        components = mapOf("country" to "فلسطين", "country_code" to "ps", "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074", "road" to "شارع النزهة", "state" to "منطقة A", "state_district" to "محافظة رام الله والبيرة", "suburb" to "رام الله التحتة", "town" to "رام الله"),
         expected = """
         |Hostel in Ramallah
         |شارع النزهة 12
@@ -4365,9 +3574,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ps",
       ),
       TestCase(
-        components = mapOf("city" to "Nablus", "country" to "Palestine", "country_code" to "ps",
-            "doctors" to "Al Adham X-ray", "road" to "Sufian Street", "state" to "Area A",
-            "state_district" to "Nablus Governorate", "suburb" to "Old City"),
+        components = mapOf("city" to "Nablus", "country" to "Palestine", "country_code" to "ps", "doctors" to "Al Adham X-ray", "road" to "Sufian Street", "state" to "Area A", "state_district" to "Nablus Governorate", "suburb" to "Old City"),
         expected = """
         |Al Adham X-ray
         |Sufian Street
@@ -4378,9 +3585,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ps",
       ),
       TestCase(
-        components = mapOf("city" to "Nablus", "country" to "فلسطين", "country_code" to "ps",
-            "doctors" to "الادهم للاشعه", "road" to "شارع سفيان", "state" to "منطقة A",
-            "state_district" to "محافظة نابلس", "suburb" to "البلدة القديمة"),
+        components = mapOf("city" to "Nablus", "country" to "فلسطين", "country_code" to "ps", "doctors" to "الادهم للاشعه", "road" to "شارع سفيان", "state" to "منطقة A", "state_district" to "محافظة نابلس", "suburb" to "البلدة القديمة"),
         expected = """
         |الادهم للاشعه
         |شارع سفيان
@@ -4391,10 +3596,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ps",
       ),
       TestCase(
-        components = mapOf("city" to "Gaza", "country" to "Palestine", "country_code" to "ps",
-            "doctors" to "Khorsheed Optician", "postcode" to "00972", "region" to "Gaza Strip",
-            "road" to "Omar Al-Mukhtar St.", "state_district" to "Gaza Governorate",
-            "suburb" to "Saknat az Zarqa"),
+        components = mapOf("city" to "Gaza", "country" to "Palestine", "country_code" to "ps", "doctors" to "Khorsheed Optician", "postcode" to "00972", "region" to "Gaza Strip", "road" to "Omar Al-Mukhtar St.", "state_district" to "Gaza Governorate", "suburb" to "Saknat az Zarqa"),
         expected = """
         |Khorsheed Optician
         |Omar Al-Mukhtar St.
@@ -4405,9 +3607,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ps",
       ),
       TestCase(
-        components = mapOf("city" to "غزة", "country" to "فلسطين", "country_code" to "ps",
-            "doctors" to "خورشيد للبصريات", "postcode" to "00972", "region" to "‏قطاع غزّة‎",
-            "road" to "شارع عمر المختار", "state_district" to "غزة", "suburb" to "ثكنة الزرقاء"),
+        components = mapOf("city" to "غزة", "country" to "فلسطين", "country_code" to "ps", "doctors" to "خورشيد للبصريات", "postcode" to "00972", "region" to "‏قطاع غزّة‎", "road" to "شارع عمر المختار", "state_district" to "غزة", "suburb" to "ثكنة الزرقاء"),
         expected = """
         |خورشيد للبصريات
         |شارع عمر المختار
@@ -4418,9 +3618,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ps",
       ),
       TestCase(
-        components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt",
-            "county" to "Lisboa", "house_number" to "11", "postcode" to "1500-203",
-            "road" to "Avenida Conselheiro Barjona de Freitas", "suburb" to "Benfica"),
+        components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt", "county" to "Lisboa", "house_number" to "11", "postcode" to "1500-203", "road" to "Avenida Conselheiro Barjona de Freitas", "suburb" to "Benfica"),
         expected = """
         |Avenida Conselheiro Barjona de Freitas 11
         |1500-203 Lisbon
@@ -4430,9 +3628,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pt",
       ),
       TestCase(
-        components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt",
-            "county" to "Lisbon", "house_number" to "2", "neighbourhood" to "São Vicente de Fora",
-            "postcode" to "1170169", "road" to "Rua da Graça", "suburb" to "São Vicente"),
+        components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt", "county" to "Lisbon", "house_number" to "2", "neighbourhood" to "São Vicente de Fora", "postcode" to "1170169", "road" to "Rua da Graça", "suburb" to "São Vicente"),
         expected = """
         |Rua da Graça 2
         |1170-169 Lisbon
@@ -4442,11 +3638,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pt",
       ),
       TestCase(
-        components = mapOf("archipelago" to "Azores", "city" to "Ponta Delgada",
-            "city_district" to "Rosto do Cão (Livramento)", "country" to "Portugal",
-            "country_code" to "pt", "guest_house" to "Casa Do Populo", "house_number" to "1015",
-            "neighbourhood" to "Livramento", "postcode" to "9500-614",
-            "road" to "Rua Padre Domingos da Silva Costay", "state_district" to "São Miguel"),
+        components = mapOf("archipelago" to "Azores", "city" to "Ponta Delgada", "city_district" to "Rosto do Cão (Livramento)", "country" to "Portugal", "country_code" to "pt", "guest_house" to "Casa Do Populo", "house_number" to "1015", "neighbourhood" to "Livramento", "postcode" to "9500-614", "road" to "Rua Padre Domingos da Silva Costay", "state_district" to "São Miguel"),
         expected = """
         |Casa Do Populo
         |Rua Padre Domingos da Silva Costay 1015
@@ -4458,8 +3650,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pt",
       ),
       TestCase(
-        components = mapOf("country" to "Palau", "country_code" to "pw",
-            "courthouse" to "Palau Supreme Court", "road" to "Main Street", "town" to "Koror"),
+        components = mapOf("country" to "Palau", "country_code" to "pw", "courthouse" to "Palau Supreme Court", "road" to "Main Street", "town" to "Koror"),
         expected = """
         |Palau Supreme Court
         |Main Street
@@ -4470,9 +3661,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - pw",
       ),
       TestCase(
-        components = mapOf("bakery" to "Old Germany German Bakery", "city" to "Asuncion",
-            "country" to "Paraguay", "country_code" to "py", "postcode" to "1409",
-            "road" to "Milano", "state" to "Distrito Capital de Paraguay", "suburb" to "Tacumbú"),
+        components = mapOf("bakery" to "Old Germany German Bakery", "city" to "Asuncion", "country" to "Paraguay", "country_code" to "py", "postcode" to "1409", "road" to "Milano", "state" to "Distrito Capital de Paraguay", "suburb" to "Tacumbú"),
         expected = """
         |Old Germany German Bakery
         |Milano
@@ -4483,10 +3672,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - py",
       ),
       TestCase(
-        components = mapOf("bank" to "ahlibank Merqab Branch", "city" to "Doha",
-            "country" to "Qatar", "country_code" to "qa", "postcode" to "22050",
-            "road" to "Al Muthaf Street", "state" to "Doha",
-            "suburb" to "(Sharg Zone) - Aslata (18)"),
+        components = mapOf("bank" to "ahlibank Merqab Branch", "city" to "Doha", "country" to "Qatar", "country_code" to "qa", "postcode" to "22050", "road" to "Al Muthaf Street", "state" to "Doha", "suburb" to "(Sharg Zone) - Aslata (18)"),
         expected = """
         |ahlibank Merqab Branch
         |Al Muthaf Street
@@ -4497,9 +3683,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - qa",
       ),
       TestCase(
-        components = mapOf("country" to "Qatar", "country_code" to "qa", "postcode" to "41",
-            "road" to "Main Al Thakira Street", "state" to "Al Khawr", "supermarket" to "Al Meera",
-            "town" to "Al Thakira"),
+        components = mapOf("country" to "Qatar", "country_code" to "qa", "postcode" to "41", "road" to "Main Al Thakira Street", "state" to "Al Khawr", "supermarket" to "Al Meera", "town" to "Al Thakira"),
         expected = """
         |Al Meera
         |Main Al Thakira Street
@@ -4510,9 +3694,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - qa",
       ),
       TestCase(
-        components = mapOf("country" to "Qatar", "country_code" to "qa",
-            "pharmacy" to "Al Ayaan Pharmacy, Wakra", "road" to "Abdul Rahman Bin Jasim Street",
-            "state" to "Al Wakrah", "town" to "Al Wakrah"),
+        components = mapOf("country" to "Qatar", "country_code" to "qa", "pharmacy" to "Al Ayaan Pharmacy, Wakra", "road" to "Abdul Rahman Bin Jasim Street", "state" to "Al Wakrah", "town" to "Al Wakrah"),
         expected = """
         |Al Ayaan Pharmacy, Wakra
         |Abdul Rahman Bin Jasim Street
@@ -4523,10 +3705,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - qa",
       ),
       TestCase(
-        components = mapOf("city" to "Le Port",
-            "country" to "France, La Réunion (eaux territoriales)", "country_code" to "re",
-            "county" to "Saint-Paul", "house_number" to "17", "postcode" to "97420",
-            "road" to "Rue François de Mahy", "state" to "Réunion"),
+        components = mapOf("city" to "Le Port", "country" to "France, La Réunion (eaux territoriales)", "country_code" to "re", "county" to "Saint-Paul", "house_number" to "17", "postcode" to "97420", "road" to "Rue François de Mahy", "state" to "Réunion"),
         expected = """
         |17 Rue François de Mahy
         |97420 Le Port
@@ -4536,9 +3715,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - re",
       ),
       TestCase(
-        components = mapOf("city" to "Cluj-Napoca", "country" to "Romania", "country_code" to "ro",
-            "county" to "Cluj-Napoca", "house_number" to "6", "postcode" to "400157",
-            "road" to "Strada Ploiești", "state" to "Cluj", "suburb" to "Gruia"),
+        components = mapOf("city" to "Cluj-Napoca", "country" to "Romania", "country_code" to "ro", "county" to "Cluj-Napoca", "house_number" to "6", "postcode" to "400157", "road" to "Strada Ploiești", "state" to "Cluj", "suburb" to "Gruia"),
         expected = """
         |Strada Ploiești 6
         |400157 Cluj-Napoca
@@ -4548,10 +3725,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ro",
       ),
       TestCase(
-        components = mapOf("restaurant" to "Ресторан Лидо", "city" to "Belgrade",
-            "country" to "Serbia", "country_code" to "RS", "neighbourhood" to "Donji Grad",
-            "house_number" to "2", "postcode" to "11080", "road" to "Goce Delceva",
-            "state" to "Central Serbia", "suburb" to "Zemun"),
+        components = mapOf("restaurant" to "Ресторан Лидо", "city" to "Belgrade", "country" to "Serbia", "country_code" to "RS", "neighbourhood" to "Donji Grad", "house_number" to "2", "postcode" to "11080", "road" to "Goce Delceva", "state" to "Central Serbia", "suburb" to "Zemun"),
         expected = """
         |Ресторан Лидо
         |Goce Delceva 2
@@ -4562,10 +3736,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - rs",
       ),
       TestCase(
-        components = mapOf("cafe" to "Efes Istambul", "city" to "Сенной округ",
-            "house_number" to "23", "postcode" to "190000", "road" to "Гороховая улица",
-            "state" to "Санкт-Петербург", "state_district" to "Адмиралтейский район",
-            "country" to "Российская Федерация", "country_code" to "ru"),
+        components = mapOf("cafe" to "Efes Istambul", "city" to "Сенной округ", "house_number" to "23", "postcode" to "190000", "road" to "Гороховая улица", "state" to "Санкт-Петербург", "state_district" to "Адмиралтейский район", "country" to "Российская Федерация", "country_code" to "ru"),
         expected = """
         |Efes Istambul
         |Гороховая улица, 23
@@ -4578,9 +3749,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ru",
       ),
       TestCase(
-        components = mapOf("city" to "Батуринский сельсовет", "country" to "Россия",
-            "country_code" to "ru", "county" to "Шадринский район", "hamlet" to "Камчатка",
-            "state" to "Курганская область"),
+        components = mapOf("city" to "Батуринский сельсовет", "country" to "Россия", "country_code" to "ru", "county" to "Шадринский район", "hamlet" to "Камчатка", "state" to "Курганская область"),
         expected = """
         |Камчатка
         |Батуринский сельсовет
@@ -4591,9 +3760,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ru",
       ),
       TestCase(
-        components = mapOf("city" to "Малиновараккское сельское поселение", "country" to "Россия",
-            "country_code" to "ru", "county" to "Лоухский район", "island" to "Ярославль",
-            "state" to "Республика Карелия"),
+        components = mapOf("city" to "Малиновараккское сельское поселение", "country" to "Россия", "country_code" to "ru", "county" to "Лоухский район", "island" to "Ярославль", "state" to "Республика Карелия"),
         expected = """
         |Ярославль
         |Малиновараккское сельское поселение
@@ -4604,10 +3771,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ru",
       ),
       TestCase(
-        components = mapOf("building" to "Energy Water and Sanitation Authority head office",
-            "city" to "Kigali", "country" to "Rwanda", "country_code" to "rw",
-            "county" to "Nyarugenge", "postcode" to "5011 Kigali-Rwanda", "road" to "KN 82 Street",
-            "state" to "Kigali City", "suburb" to "Nyarugenge"),
+        components = mapOf("building" to "Energy Water and Sanitation Authority head office", "city" to "Kigali", "country" to "Rwanda", "country_code" to "rw", "county" to "Nyarugenge", "postcode" to "5011 Kigali-Rwanda", "road" to "KN 82 Street", "state" to "Kigali City", "suburb" to "Nyarugenge"),
         expected = """
         |Energy Water and Sanitation Authority head office
         |KN 82 Street
@@ -4618,9 +3782,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - rw",
       ),
       TestCase(
-        components = mapOf("museum" to "National Museum of Saudi Arabia", "city" to "Riyadh",
-            "country" to "Saudi Arabia", "country_code" to "sa", "postcode" to "12844",
-            "road" to "شارع الوزير", "region" to "Riyadh Region"),
+        components = mapOf("museum" to "National Museum of Saudi Arabia", "city" to "Riyadh", "country" to "Saudi Arabia", "country_code" to "sa", "postcode" to "12844", "road" to "شارع الوزير", "region" to "Riyadh Region"),
         expected = """
         |National Museum of Saudi Arabia
         |شارع الوزير
@@ -4631,9 +3793,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sa",
       ),
       TestCase(
-        components = mapOf("city" to "Honiara", "country" to "Solomon Islands",
-            "country_code" to "sb", "library" to "Solomon Islands National Library",
-            "road" to "Mendana Avenue", "state" to "Capital Territory"),
+        components = mapOf("city" to "Honiara", "country" to "Solomon Islands", "country_code" to "sb", "library" to "Solomon Islands National Library", "road" to "Mendana Avenue", "state" to "Capital Territory"),
         expected = """
         |Solomon Islands National Library
         |Mendana Avenue
@@ -4644,9 +3804,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sb",
       ),
       TestCase(
-        components = mapOf("city" to "Victoria", "country" to "Seychelles", "country_code" to "sc",
-            "hotel" to "Bel Air Hotel", "island" to "Mahé", "postcode" to "SEZ",
-            "road" to "Chemin Bel Air"),
+        components = mapOf("city" to "Victoria", "country" to "Seychelles", "country_code" to "sc", "hotel" to "Bel Air Hotel", "island" to "Mahé", "postcode" to "SEZ", "road" to "Chemin Bel Air"),
         expected = """
         |Bel Air Hotel
         |Chemin Bel Air
@@ -4658,10 +3816,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sc",
       ),
       TestCase(
-        components = mapOf("building" to "Khartoum Train Station", "city" to "Khartoum",
-            "country" to "Sudan", "country_code" to "sd", "neighbourhood" to "Railway",
-            "postcode" to "11114", "road" to "Al Imam Al Mahdi Road", "state" to "al-Khartum",
-            "suburb" to "Downtown"),
+        components = mapOf("building" to "Khartoum Train Station", "city" to "Khartoum", "country" to "Sudan", "country_code" to "sd", "neighbourhood" to "Railway", "postcode" to "11114", "road" to "Al Imam Al Mahdi Road", "state" to "al-Khartum", "suburb" to "Downtown"),
         expected = """
         |Khartoum Train Station
         |Al Imam Al Mahdi Road
@@ -4672,10 +3827,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sd",
       ),
       TestCase(
-        components = mapOf("city" to "Gothenburg", "city_district" to "Centrum",
-            "country" to "Sweden", "country_code" to "se", "county" to "Göteborgs och Bohus län",
-            "hotel" to "Poseidon", "house_number" to "33", "postcode" to "41134",
-            "road" to "Storgatan", "state" to "Västra Götalands län", "suburb" to "Vasastaden"),
+        components = mapOf("city" to "Gothenburg", "city_district" to "Centrum", "country" to "Sweden", "country_code" to "se", "county" to "Göteborgs och Bohus län", "hotel" to "Poseidon", "house_number" to "33", "postcode" to "41134", "road" to "Storgatan", "state" to "Västra Götalands län", "suburb" to "Vasastaden"),
         expected = """
         |Poseidon
         |Storgatan 33
@@ -4686,10 +3838,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - se",
       ),
       TestCase(
-        components = mapOf("cafe" to "Restaurang Thai House", "country" to "Sweden",
-            "country_code" to "se", "county" to "Stockholms län", "house_number" to "7",
-            "postcode" to "194 61", "road" to "Kanalvägen", "state" to "Stockholms län",
-            "suburb" to "Infra City", "town" to "Upplands Väsby"),
+        components = mapOf("cafe" to "Restaurang Thai House", "country" to "Sweden", "country_code" to "se", "county" to "Stockholms län", "house_number" to "7", "postcode" to "194 61", "road" to "Kanalvägen", "state" to "Stockholms län", "suburb" to "Infra City", "town" to "Upplands Väsby"),
         expected = """
         |Restaurang Thai House
         |Kanalvägen 7
@@ -4700,8 +3849,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - se",
       ),
       TestCase(
-        components = mapOf("country" to "Singapore", "country_code" to "SG", "house_number" to "76",
-            "neighbourhood" to "Chinatown", "road" to "Shenton Way", "suburb" to "Shenton Way"),
+        components = mapOf("country" to "Singapore", "country_code" to "SG", "house_number" to "76", "neighbourhood" to "Chinatown", "road" to "Shenton Way", "suburb" to "Shenton Way"),
         expected = """
         |76 Shenton Way
         |Singapore
@@ -4710,8 +3858,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sg",
       ),
       TestCase(
-        components = mapOf("country" to "Singapore", "country_code" to "SG", "city" to "Singapore",
-            "postcode" to "546080", "house_number" to "16", "road" to "Sandilands Road"),
+        components = mapOf("country" to "Singapore", "country_code" to "SG", "city" to "Singapore", "postcode" to "546080", "house_number" to "16", "road" to "Sandilands Road"),
         expected = """
         |16 Sandilands Road
         |Singapore 546080
@@ -4721,9 +3868,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sg",
       ),
       TestCase(
-        components = mapOf("country" to "Singapore", "country_code" to "sg",
-            "county" to "Southwest", "house_number" to "26", "postcode" to "130026",
-            "residential" to "Dover Gardens", "road" to "Dover Crescent", "suburb" to "Queenstown"),
+        components = mapOf("country" to "Singapore", "country_code" to "sg", "county" to "Southwest", "house_number" to "26", "postcode" to "130026", "residential" to "Dover Gardens", "road" to "Dover Crescent", "suburb" to "Queenstown"),
         expected = """
         |26 Dover Crescent, Dover Gardens
         |Singapore 130026
@@ -4733,10 +3878,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sg",
       ),
       TestCase(
-        components = mapOf("city" to "Jurong East", "country" to "Singapore",
-            "country_code" to "sg", "county" to "Southwest", "house_number" to "26",
-            "postcode" to "130026", "residential" to "Dover Gardens", "road" to "Dover Crescent",
-            "suburb" to "Queenstown"),
+        components = mapOf("city" to "Jurong East", "country" to "Singapore", "country_code" to "sg", "county" to "Southwest", "house_number" to "26", "postcode" to "130026", "residential" to "Dover Gardens", "road" to "Dover Crescent", "suburb" to "Queenstown"),
         expected = """
         |26 Dover Crescent, Dover Gardens
         |Singapore 130026
@@ -4746,9 +3888,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sg",
       ),
       TestCase(
-        components = mapOf("country" to "Saint Helena, Ascension and Tristan da Cunha",
-            "country_code" to "sh", "public_building" to "Museum of St Helena",
-            "road" to "Castle Terrace", "state" to "Saint Helena", "town" to "Jamestown"),
+        components = mapOf("country" to "Saint Helena, Ascension and Tristan da Cunha", "country_code" to "sh", "public_building" to "Museum of St Helena", "road" to "Castle Terrace", "state" to "Saint Helena", "town" to "Jamestown"),
         expected = """
         |Museum of St Helena
         |Castle Terrace
@@ -4760,10 +3900,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sh",
       ),
       TestCase(
-        components = mapOf("community_centre" to "Prince Philip Hall",
-            "country" to "Saint Helena, Ascension and Tristan da Cunha", "country_code" to "sh",
-            "hamlet" to "Edinburgh of the Seven Seas", "postcode" to "TDCU 1ZZ",
-            "state" to "Tristan da Cunha"),
+        components = mapOf("community_centre" to "Prince Philip Hall", "country" to "Saint Helena, Ascension and Tristan da Cunha", "country_code" to "sh", "hamlet" to "Edinburgh of the Seven Seas", "postcode" to "TDCU 1ZZ", "state" to "Tristan da Cunha"),
         expected = """
         |Prince Philip Hall
         |Edinburgh of the Seven Seas
@@ -4775,9 +3912,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sh",
       ),
       TestCase(
-        components = mapOf("city" to "Piran / Pirano", "country" to "Slovenia",
-            "country_code" to "si", "house" to "Casino Riviera", "house_number" to "33",
-            "postcode" to "6320", "road" to "Obala", "suburb" to "Liminjan / Limignano"),
+        components = mapOf("city" to "Piran / Pirano", "country" to "Slovenia", "country_code" to "si", "house" to "Casino Riviera", "house_number" to "33", "postcode" to "6320", "road" to "Obala", "suburb" to "Liminjan / Limignano"),
         expected = """
         |Casino Riviera
         |Obala 33
@@ -4788,8 +3923,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - si",
       ),
       TestCase(
-        components = mapOf("country" to "Svalbard and Jan Mayen", "country_code" to "sj",
-            "state" to "Jan Mayen"),
+        components = mapOf("country" to "Svalbard and Jan Mayen", "country_code" to "sj", "state" to "Jan Mayen"),
         expected = """
         |Jan Mayen
         |Norway
@@ -4798,11 +3932,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sj",
       ),
       TestCase(
-        components = mapOf("city" to "District of Bratislava",
-            "city_district" to "Bratislava - mestská časť Staré Mesto", "country" to "Slovakia",
-            "country_code" to "sk", "county" to "Bratislava", "house_number" to "666/20",
-            "postcode" to "811 03", "road" to "Panenská", "state" to "Region of Bratislava",
-            "suburb" to "Staré Mesto"),
+        components = mapOf("city" to "District of Bratislava", "city_district" to "Bratislava - mestská časť Staré Mesto", "country" to "Slovakia", "country_code" to "sk", "county" to "Bratislava", "house_number" to "666/20", "postcode" to "811 03", "road" to "Panenská", "state" to "Region of Bratislava", "suburb" to "Staré Mesto"),
         expected = """
         |Panenská 666/20
         |811 03 Bratislava
@@ -4812,10 +3942,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sk",
       ),
       TestCase(
-        components = mapOf("city" to "Bratislava", "city_district" to "District of Bratislava I",
-            "country" to "Slovakia", "country_code" to "sk", "house_number" to "12",
-            "neighbourhood" to "Desiatky", "postcode" to "81105", "road" to "Železničiarska",
-            "state" to "Region of Bratislava", "state_code" to "BL", "town" to "Old Town"),
+        components = mapOf("city" to "Bratislava", "city_district" to "District of Bratislava I", "country" to "Slovakia", "country_code" to "sk", "house_number" to "12", "neighbourhood" to "Desiatky", "postcode" to "81105", "road" to "Železničiarska", "state" to "Region of Bratislava", "state_code" to "BL", "town" to "Old Town"),
         expected = """
         |Železničiarska 12
         |811 05 Bratislava
@@ -4825,10 +3952,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sk",
       ),
       TestCase(
-        components = mapOf("building" to "St Thomas Primary School", "city" to "Freetown",
-            "country" to "Sierra Leone", "country_code" to "sl", "neighbourhood" to "GRAYBUSH COM",
-            "postcode" to "00232", "road" to "BISMARK JOHNSON ST", "state" to "Western Area",
-            "state_district" to "Western Area Urban", "suburb" to "Kingtom"),
+        components = mapOf("building" to "St Thomas Primary School", "city" to "Freetown", "country" to "Sierra Leone", "country_code" to "sl", "neighbourhood" to "GRAYBUSH COM", "postcode" to "00232", "road" to "BISMARK JOHNSON ST", "state" to "Western Area", "state_district" to "Western Area Urban", "suburb" to "Kingtom"),
         expected = """
         |St Thomas Primary School
         |BISMARK JOHNSON ST
@@ -4839,9 +3963,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sl",
       ),
       TestCase(
-        components = mapOf("country" to "San Marino", "country_code" to "sm",
-            "pedestrian" to "Contrada Santa Croce", "postcode" to "47893",
-            "restaurant" to "Pier piz. rist.", "town" to "City of San Marino"),
+        components = mapOf("country" to "San Marino", "country_code" to "sm", "pedestrian" to "Contrada Santa Croce", "postcode" to "47893", "restaurant" to "Pier piz. rist.", "town" to "City of San Marino"),
         expected = """
         |Pier piz. rist.
         |Contrada Santa Croce
@@ -4852,9 +3974,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sm",
       ),
       TestCase(
-        components = mapOf("city" to "Dakar", "country" to "Senegal", "country_code" to "sn",
-            "hotel" to "Hotel ndjambour", "postcode" to "24951", "road" to "Rue Carnot",
-            "state" to "Dakar", "suburb" to "Plateau"),
+        components = mapOf("city" to "Dakar", "country" to "Senegal", "country_code" to "sn", "hotel" to "Hotel ndjambour", "postcode" to "24951", "road" to "Rue Carnot", "state" to "Dakar", "suburb" to "Plateau"),
         expected = """
         |Hotel ndjambour
         |Rue Carnot
@@ -4865,10 +3985,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sn",
       ),
       TestCase(
-        components = mapOf("commune" to "Commune de Yeumbeul Nord", "country" to "Senegal",
-            "country_code" to "sn", "postcode" to "17000", "road" to "unnamed road",
-            "state" to "Dakar Region", "state_district" to "Département de Keur Massar",
-            "town" to "Arrondissement de Yeumbeul"),
+        components = mapOf("commune" to "Commune de Yeumbeul Nord", "country" to "Senegal", "country_code" to "sn", "postcode" to "17000", "road" to "unnamed road", "state" to "Dakar Region", "state_district" to "Département de Keur Massar", "town" to "Arrondissement de Yeumbeul"),
         expected = """
         |unnamed road
         |17000 Yeumbeul
@@ -4878,10 +3995,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sn",
       ),
       TestCase(
-        components = mapOf("building" to "Urubu Hotel", "city" to "Mogadishu",
-            "city_district" to "Xamar Weyne", "country" to "Somalia", "country_code" to "so",
-            "county" to "Mogadishu", "road" to "Port Road", "state" to "Banadir",
-            "suburb" to "Xamar Weyne"),
+        components = mapOf("building" to "Urubu Hotel", "city" to "Mogadishu", "city_district" to "Xamar Weyne", "country" to "Somalia", "country_code" to "so", "county" to "Mogadishu", "road" to "Port Road", "state" to "Banadir", "suburb" to "Xamar Weyne"),
         expected = """
         |Urubu Hotel
         |Port Road
@@ -4893,9 +4007,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - so",
       ),
       TestCase(
-        components = mapOf("city" to "Paramaribo", "country" to "Suriname", "country_code" to "sr",
-            "county" to "Distrikt Paramaribo", "house_number" to "7", "postcode" to "597",
-            "road" to "Simonsweg", "school" to "R.D. Simonsschool"),
+        components = mapOf("city" to "Paramaribo", "country" to "Suriname", "country_code" to "sr", "county" to "Distrikt Paramaribo", "house_number" to "7", "postcode" to "597", "road" to "Simonsweg", "school" to "R.D. Simonsschool"),
         expected = """
         |R.D. Simonsschool
         |Simonsweg 7
@@ -4906,9 +4018,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sr",
       ),
       TestCase(
-        components = mapOf("address29" to "Diakonie Katastrophenhilfe", "city" to "Juba",
-            "country" to "South Sudan", "country_code" to "ss", "road" to "Kokora Road",
-            "state" to "Central Equatoria", "suburb" to "Governments Cantonment"),
+        components = mapOf("address29" to "Diakonie Katastrophenhilfe", "city" to "Juba", "country" to "South Sudan", "country_code" to "ss", "road" to "Kokora Road", "state" to "Central Equatoria", "suburb" to "Governments Cantonment"),
         expected = """
         |Diakonie Katastrophenhilfe
         |Kokora Road
@@ -4919,10 +4029,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ss",
       ),
       TestCase(
-        components = mapOf("city" to "São Tomé", "country" to "São Tomé and Príncipe",
-            "country_code" to "st", "county" to "Agua Grande", "library" to "Biblioteca Nacional",
-            "road" to "Avenida das Naçoes Unidas", "state" to "São Tomé Province",
-            "suburb" to "Riboque"),
+        components = mapOf("city" to "São Tomé", "country" to "São Tomé and Príncipe", "country_code" to "st", "county" to "Agua Grande", "library" to "Biblioteca Nacional", "road" to "Avenida das Naçoes Unidas", "state" to "São Tomé Province", "suburb" to "Riboque"),
         expected = """
         |Biblioteca Nacional
         |Avenida das Naçoes Unidas
@@ -4933,10 +4040,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - st",
       ),
       TestCase(
-        components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador",
-            "country" to "El Salvador", "country_code" to "sv", "house_number" to "827",
-            "neighbourhood" to "Centro Urbano IVU", "postcode" to "503", "road" to "Calle Arce",
-            "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa"),
+        components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador", "country" to "El Salvador", "country_code" to "sv", "house_number" to "827", "neighbourhood" to "Centro Urbano IVU", "postcode" to "503", "road" to "Calle Arce", "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa"),
         expected = """
         |Ministerio de Salud
         |Calle Arce 827
@@ -4948,10 +4052,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sv",
       ),
       TestCase(
-        components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador",
-            "country" to "El Salvador", "country_code" to "sv", "house_number" to "827",
-            "neighbourhood" to "Centro Urbano IVU", "road" to "Calle Arce",
-            "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa"),
+        components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador", "country" to "El Salvador", "country_code" to "sv", "house_number" to "827", "neighbourhood" to "Centro Urbano IVU", "road" to "Calle Arce", "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa"),
         expected = """
         |Ministerio de Salud
         |Calle Arce 827
@@ -4963,10 +4064,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sv",
       ),
       TestCase(
-        components = mapOf("city" to "Sint Maarten", "country" to "Sint Maarten",
-            "country_code" to "sx", "hotel" to "La Vista Beach Resort",
-            "neighbourhood" to "Pelican Key", "postcode" to "46226", "road" to "Billy Folly Road",
-            "state" to "Sint Maarten (State of)", "suburb" to "Saint John's Estate"),
+        components = mapOf("city" to "Sint Maarten", "country" to "Sint Maarten", "country_code" to "sx", "hotel" to "La Vista Beach Resort", "neighbourhood" to "Pelican Key", "postcode" to "46226", "road" to "Billy Folly Road", "state" to "Sint Maarten (State of)", "suburb" to "Saint John's Estate"),
         expected = """
         |La Vista Beach Resort
         |Billy Folly Road
@@ -4976,9 +4074,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sx",
       ),
       TestCase(
-        components = mapOf("city" to "Damascus", "clinic" to "Plastic Surgery Clinic",
-            "country" to "Syria", "country_code" to "sy", "neighbourhood" to "Baramkeh",
-            "pedestrian" to "سوق الصالحية", "state" to "Rif Dimashq", "suburb" to "Kafar Sousseh"),
+        components = mapOf("city" to "Damascus", "clinic" to "Plastic Surgery Clinic", "country" to "Syria", "country_code" to "sy", "neighbourhood" to "Baramkeh", "pedestrian" to "سوق الصالحية", "state" to "Rif Dimashq", "suburb" to "Kafar Sousseh"),
         expected = """
         |Plastic Surgery Clinic
         |سوق الصالحية
@@ -4990,10 +4086,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sy",
       ),
       TestCase(
-        components = mapOf("city" to "دمشق", "clinic" to "عيادة الجراحة التجميلية",
-            "country" to "الجمهورية العربية السورية", "country_code" to "sy",
-            "neighbourhood" to "البرامكة", "pedestrian" to "شارع جمال عبد الناصر",
-            "state" to "ريف دمشق", "suburb" to "كفر سوسه"),
+        components = mapOf("city" to "دمشق", "clinic" to "عيادة الجراحة التجميلية", "country" to "الجمهورية العربية السورية", "country_code" to "sy", "neighbourhood" to "البرامكة", "pedestrian" to "شارع جمال عبد الناصر", "state" to "ريف دمشق", "suburb" to "كفر سوسه"),
         expected = """
         |عيادة الجراحة التجميلية
         |شارع جمال عبد الناصر
@@ -5005,9 +4098,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sy",
       ),
       TestCase(
-        components = mapOf("city" to "Damascus", "country" to "Syria", "country_code" to "sy",
-            "pharmacy" to "Maooneh", "road" to "Albeirudi Street", "state" to "Rif Dimashq",
-            "suburb" to "Soufanieh"),
+        components = mapOf("city" to "Damascus", "country" to "Syria", "country_code" to "sy", "pharmacy" to "Maooneh", "road" to "Albeirudi Street", "state" to "Rif Dimashq", "suburb" to "Soufanieh"),
         expected = """
         |Maooneh
         |Albeirudi Street
@@ -5019,9 +4110,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sy",
       ),
       TestCase(
-        components = mapOf("city" to "دمشق", "country" to "الجمهورية العربية السورية",
-            "country_code" to "sy", "pharmacy" to "المعونة", "road" to "شارع البيرودي",
-            "state" to "ريف دمشق", "suburb" to "Soufanieh"),
+        components = mapOf("city" to "دمشق", "country" to "الجمهورية العربية السورية", "country_code" to "sy", "pharmacy" to "المعونة", "road" to "شارع البيرودي", "state" to "ريف دمشق", "suburb" to "Soufanieh"),
         expected = """
         |المعونة
         |شارع البيرودي
@@ -5033,10 +4122,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sy",
       ),
       TestCase(
-        components = mapOf("city" to "Aleppo", "country" to "Syria", "country_code" to "sy",
-            "neighbourhood" to "Al Jdeida", "pedestrian" to "Souq el Attarine",
-            "place_of_worship" to "Al Bahramiyeh Mosque", "state" to "Aleppo",
-            "suburb" to "حي باب النيرب"),
+        components = mapOf("city" to "Aleppo", "country" to "Syria", "country_code" to "sy", "neighbourhood" to "Al Jdeida", "pedestrian" to "Souq el Attarine", "place_of_worship" to "Al Bahramiyeh Mosque", "state" to "Aleppo", "suburb" to "حي باب النيرب"),
         expected = """
         |Al Bahramiyeh Mosque
         |Souq el Attarine
@@ -5048,10 +4134,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sy",
       ),
       TestCase(
-        components = mapOf("country" to "Swaziland", "country_code" to "sz",
-            "county" to "Inkhundla Manzini", "postcode" to "M100", "road" to "Kelly Street",
-            "sports_centre" to "Manzini Club", "state" to "Sifundza seManzini",
-            "town" to "Manzini"),
+        components = mapOf("country" to "Swaziland", "country_code" to "sz", "county" to "Inkhundla Manzini", "postcode" to "M100", "road" to "Kelly Street", "sports_centre" to "Manzini Club", "state" to "Sifundza seManzini", "town" to "Manzini"),
         expected = """
         |Manzini Club
         |Kelly Street
@@ -5063,10 +4146,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - sz",
       ),
       TestCase(
-        components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc",
-            "county" to "Provinciales and West Caicos", "neighbourhood" to "Five Cays",
-            "road" to "Daffodil Close", "shop" to "Betty's market", "suburb" to "Millenium Hieghts",
-            "town" to "Providenciales"),
+        components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc", "county" to "Provinciales and West Caicos", "neighbourhood" to "Five Cays", "road" to "Daffodil Close", "shop" to "Betty's market", "suburb" to "Millenium Hieghts", "town" to "Providenciales"),
         expected = """
         |Betty's market
         |Daffodil Close
@@ -5077,8 +4157,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tc",
       ),
       TestCase(
-        components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc",
-            "island" to "Middle Caicos", "hamlet" to "Bambarra"),
+        components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc", "island" to "Middle Caicos", "hamlet" to "Bambarra"),
         expected = """
         |Bambarra
         |Middle Caicos
@@ -5088,9 +4167,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tc",
       ),
       TestCase(
-        components = mapOf("city" to "N'Djamena", "country" to "Chad", "country_code" to "td",
-            "hotel" to "Le Meridien - Chari", "postcode" to "456",
-            "road" to "Boulevard de Strasbourg", "state" to "N'Djamena Region"),
+        components = mapOf("city" to "N'Djamena", "country" to "Chad", "country_code" to "td", "hotel" to "Le Meridien - Chari", "postcode" to "456", "road" to "Boulevard de Strasbourg", "state" to "N'Djamena Region"),
         expected = """
         |Le Meridien - Chari
         |Boulevard de Strasbourg
@@ -5101,9 +4178,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - td",
       ),
       TestCase(
-        components = mapOf("country" to "France", "country_code" to "tf", "hospital" to "Hôpital",
-            "road" to "Route de la Plage", "state" to "French Southern and Antarctic Lands",
-            "village" to "Base Alfred Faure"),
+        components = mapOf("country" to "France", "country_code" to "tf", "hospital" to "Hôpital", "road" to "Route de la Plage", "state" to "French Southern and Antarctic Lands", "village" to "Base Alfred Faure"),
         expected = """
         |Hôpital
         |Route de la Plage
@@ -5114,10 +4189,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tf",
       ),
       TestCase(
-        components = mapOf("city" to "Lomé", "country" to "Togo", "country_code" to "tg",
-            "postcode" to "BP: 353", "public_building" to "Palais de Justice",
-            "road" to "Aveenue de la Cooperation", "state" to "Maritime Region",
-            "suburb" to "Hanoukopé"),
+        components = mapOf("city" to "Lomé", "country" to "Togo", "country_code" to "tg", "postcode" to "BP: 353", "public_building" to "Palais de Justice", "road" to "Aveenue de la Cooperation", "state" to "Maritime Region", "suburb" to "Hanoukopé"),
         expected = """
         |Palais de Justice
         |Aveenue de la Cooperation
@@ -5128,10 +4200,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tg",
       ),
       TestCase(
-        components = mapOf("country" to "Thailand", "country_code" to "th",
-            "neighbourhood" to "Wat Phraya Krai", "postcode" to "10120",
-            "road" to "Thanon Charoen Krung", "school" to "Shrewsbury International School",
-            "state" to "Bangkok", "suburb" to "Bang Kho Laem District"),
+        components = mapOf("country" to "Thailand", "country_code" to "th", "neighbourhood" to "Wat Phraya Krai", "postcode" to "10120", "road" to "Thanon Charoen Krung", "school" to "Shrewsbury International School", "state" to "Bangkok", "suburb" to "Bang Kho Laem District"),
         expected = """
         |Shrewsbury International School
         |Thanon Charoen Krung
@@ -5143,9 +4212,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - th",
       ),
       TestCase(
-        components = mapOf("city" to "Dushanbe", "country" to "Tajikistan", "country_code" to "tj",
-            "county" to "Rudaki District", "house_number" to "160", "postcode" to "734018",
-            "road" to "Mushfiki Street", "state" to "Districts of Republican Subordination"),
+        components = mapOf("city" to "Dushanbe", "country" to "Tajikistan", "country_code" to "tj", "county" to "Rudaki District", "house_number" to "160", "postcode" to "734018", "road" to "Mushfiki Street", "state" to "Districts of Republican Subordination"),
         expected = """
         |Mushfiki Street 160
         |734018 Dushanbe
@@ -5164,9 +4231,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tk",
       ),
       TestCase(
-        components = mapOf("embassy" to "Embaixada do Brasil", "country" to "East Timor",
-            "country_code" to "tl", "hamlet" to "Palapasot", "postcode" to "10",
-            "road" to "Rua César Maria de Serpa Rosa", "state" to "Dili"),
+        components = mapOf("embassy" to "Embaixada do Brasil", "country" to "East Timor", "country_code" to "tl", "hamlet" to "Palapasot", "postcode" to "10", "road" to "Rua César Maria de Serpa Rosa", "state" to "Dili"),
         expected = """
         |Embaixada do Brasil
         |Rua César Maria de Serpa Rosa
@@ -5177,9 +4242,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tl",
       ),
       TestCase(
-        components = mapOf("city" to "Ashgabat", "country" to "Turkmenistan",
-            "country_code" to "tm", "postcode" to "744000", "road" to "Kemine (2035) kocesi",
-            "state" to "Ahal", "theatre" to "National Drama Theatre"),
+        components = mapOf("city" to "Ashgabat", "country" to "Turkmenistan", "country_code" to "tm", "postcode" to "744000", "road" to "Kemine (2035) kocesi", "state" to "Ahal", "theatre" to "National Drama Theatre"),
         expected = """
         |National Drama Theatre
         |Kemine (2035) kocesi
@@ -5190,10 +4253,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tm",
       ),
       TestCase(
-        components = mapOf("city" to "Tunis", "country" to "Tunisia", "country_code" to "tn",
-            "postcode" to "1000", "road" to "Rue de Grèce نهج اليونان", "state" to "Tunis",
-            "state_district" to "Bab Bhar",
-            "theatre" to "Théâtre Municipal de Tunis المسرح البلدي بتونس"),
+        components = mapOf("city" to "Tunis", "country" to "Tunisia", "country_code" to "tn", "postcode" to "1000", "road" to "Rue de Grèce نهج اليونان", "state" to "Tunis", "state_district" to "Bab Bhar", "theatre" to "Théâtre Municipal de Tunis المسرح البلدي بتونس"),
         expected = """
         |Théâtre Municipal de Tunis المسرح البلدي بتونس
         |Rue de Grèce نهج اليونان
@@ -5204,9 +4264,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tn",
       ),
       TestCase(
-        components = mapOf("cinema" to "Cinéma Palace", "city" to "Sousse", "country" to "Tunisia",
-            "country_code" to "tn", "postcode" to "4000", "road" to "Rue Pasteur",
-            "state" to "Sousse", "suburb" to "Sousse Riadh"),
+        components = mapOf("cinema" to "Cinéma Palace", "city" to "Sousse", "country" to "Tunisia", "country_code" to "tn", "postcode" to "4000", "road" to "Rue Pasteur", "state" to "Sousse", "suburb" to "Sousse Riadh"),
         expected = """
         |Cinéma Palace
         |Rue Pasteur
@@ -5217,9 +4275,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tn",
       ),
       TestCase(
-        components = mapOf("city" to "صفاقس", "country" to "Tunisia", "country_code" to "tn",
-            "county" to "Sfax Medina", "hospital" to "CNSS", "postcode" to "3000",
-            "road" to "RN 1 طو", "state" to "Sfax", "suburb" to "صفاقس الجديدة"),
+        components = mapOf("city" to "صفاقس", "country" to "Tunisia", "country_code" to "tn", "county" to "Sfax Medina", "hospital" to "CNSS", "postcode" to "3000", "road" to "RN 1 طو", "state" to "Sfax", "suburb" to "صفاقس الجديدة"),
         expected = """
         |CNSS
         |RN 1 طو
@@ -5230,9 +4286,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tn",
       ),
       TestCase(
-        components = mapOf("bank" to "National Reserve Bank of Tonga", "country" to "Tonga",
-            "country_code" to "to", "neighbourhood" to "Fongoloa", "road" to "Hala Sālote",
-            "state" to "Vahe Kolofo'ou", "suburb" to "Kolofo'ou", "town" to "Ma'ufanga"),
+        components = mapOf("bank" to "National Reserve Bank of Tonga", "country" to "Tonga", "country_code" to "to", "neighbourhood" to "Fongoloa", "road" to "Hala Sālote", "state" to "Vahe Kolofo'ou", "suburb" to "Kolofo'ou", "town" to "Ma'ufanga"),
         expected = """
         |National Reserve Bank of Tonga
         |Hala Sālote
@@ -5243,10 +4297,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - to",
       ),
       TestCase(
-        components = mapOf("country" to "Turkey", "country_code" to "tr", "county" to "Beşiktaş",
-            "house" to "Swissotel Bosphorus", "house_number" to "2", "postcode" to "34357",
-            "road" to "Bayıldım Caddesi", "state" to "Istanbul", "suburb" to "Vişnezade",
-            "town" to "Beşiktaş"),
+        components = mapOf("country" to "Turkey", "country_code" to "tr", "county" to "Beşiktaş", "house" to "Swissotel Bosphorus", "house_number" to "2", "postcode" to "34357", "road" to "Bayıldım Caddesi", "state" to "Istanbul", "suburb" to "Vişnezade", "town" to "Beşiktaş"),
         expected = """
         |Swissotel Bosphorus
         |Bayıldım Caddesi 2
@@ -5257,10 +4308,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tr",
       ),
       TestCase(
-        components = mapOf("house_number" to "23", "road" to "O'Connor Street",
-            "neighbourhood" to "Ellerslie Park", "city" to "Port of Spain", "suburb" to "Woodbrook",
-            "postcode" to "190130", "restaurant" to "More Vino Limited",
-            "country" to "Trinidad and Tobago", "country_code" to "TT"),
+        components = mapOf("house_number" to "23", "road" to "O'Connor Street", "neighbourhood" to "Ellerslie Park", "city" to "Port of Spain", "suburb" to "Woodbrook", "postcode" to "190130", "restaurant" to "More Vino Limited", "country" to "Trinidad and Tobago", "country_code" to "TT"),
         expected = """
         |More Vino Limited
         |23 O'Connor Street
@@ -5272,8 +4320,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tt",
       ),
       TestCase(
-        components = mapOf("city" to "Funafuti", "country" to "Tuvalu", "country_code" to "tv",
-            "public_building" to "Philatelic Office", "road" to "Vaiaku Road"),
+        components = mapOf("city" to "Funafuti", "country" to "Tuvalu", "country_code" to "tv", "public_building" to "Philatelic Office", "road" to "Vaiaku Road"),
         expected = """
         |Philatelic Office
         |Vaiaku Road
@@ -5284,9 +4331,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tv",
       ),
       TestCase(
-        components = mapOf("city" to "新北市板橋區", "country" to "中華民國", "country_code" to "tw",
-            "house_number" to "168", "library" to "新北市立圖書館板橋四維分館", "postcode" to "220",
-            "road" to "陽明街", "state" to "台中台北各種語言名稱", "suburb" to "新北板橋土城多語言"),
+        components = mapOf("city" to "新北市板橋區", "country" to "中華民國", "country_code" to "tw", "house_number" to "168", "library" to "新北市立圖書館板橋四維分館", "postcode" to "220", "road" to "陽明街", "state" to "台中台北各種語言名稱", "suburb" to "新北板橋土城多語言"),
         expected = """
         |中華民國
         |220
@@ -5297,10 +4342,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tw",
       ),
       TestCase(
-        components = mapOf("city" to "Dar es Salaam", "city_district" to "Buguruni",
-            "country" to "Tanzania", "country_code" to "tz", "hotel" to "CWE Hotel",
-            "postcode" to "78570", "road" to "Mivinjeni Street", "state" to "Dar es Salaam",
-            "suburb" to "Mivinjeni"),
+        components = mapOf("city" to "Dar es Salaam", "city_district" to "Buguruni", "country" to "Tanzania", "country_code" to "tz", "hotel" to "CWE Hotel", "postcode" to "78570", "road" to "Mivinjeni Street", "state" to "Dar es Salaam", "suburb" to "Mivinjeni"),
         expected = """
         |CWE Hotel
         |Mivinjeni Street
@@ -5311,9 +4353,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tz",
       ),
       TestCase(
-        components = mapOf("city" to "Songea", "country" to "Tanzania", "country_code" to "tz",
-            "hospital" to "Ruvuma Regional Hospital", "road" to "Sokoine Road", "state" to "Ruvuma",
-            "state_district" to "Songea"),
+        components = mapOf("city" to "Songea", "country" to "Tanzania", "country_code" to "tz", "hospital" to "Ruvuma Regional Hospital", "road" to "Sokoine Road", "state" to "Ruvuma", "state_district" to "Songea"),
         expected = """
         |Ruvuma Regional Hospital
         |Sokoine Road
@@ -5325,8 +4365,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tz",
       ),
       TestCase(
-        components = mapOf("country" to "Tanzania", "country_code" to "tz", "road" to "T14",
-            "state" to "Manyara", "state_district" to "Babati"),
+        components = mapOf("country" to "Tanzania", "country_code" to "tz", "road" to "T14", "state" to "Manyara", "state_district" to "Babati"),
         expected = """
         |T14
         |Babati
@@ -5337,8 +4376,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tz",
       ),
       TestCase(
-        components = mapOf("country" to "Tanzania", "country_code" to "tz", "state" to "Manyara",
-            "state_district" to "Babati"),
+        components = mapOf("country" to "Tanzania", "country_code" to "tz", "state" to "Manyara", "state_district" to "Babati"),
         expected = """
         |Babati
         |Manyara
@@ -5348,9 +4386,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - tz",
       ),
       TestCase(
-        components = mapOf("city" to "Kyiv", "suburb" to "Solomianskyi district",
-            "country" to "Ukraine", "country_code" to "UA", "house_number" to "2д",
-            "bar" to "Утка Bar", "postcode" to "03038", "road" to "Protasiv Yar Street"),
+        components = mapOf("city" to "Kyiv", "suburb" to "Solomianskyi district", "country" to "Ukraine", "country_code" to "UA", "house_number" to "2д", "bar" to "Утка Bar", "postcode" to "03038", "road" to "Protasiv Yar Street"),
         expected = """
         |Утка Bar
         |Protasiv Yar Street, 2д
@@ -5363,10 +4399,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ua",
       ),
       TestCase(
-        components = mapOf("building" to "Orient Plaza", "city" to "Kampala", "country" to "Uganda",
-            "country_code" to "ug", "county" to "Kampala", "house_number" to "6/6A",
-            "neighbourhood" to "Nakivubo", "postcode" to "7063", "road" to "Kampala Road",
-            "state" to "Central Region", "suburb" to "Kibuli"),
+        components = mapOf("building" to "Orient Plaza", "city" to "Kampala", "country" to "Uganda", "country_code" to "ug", "county" to "Kampala", "house_number" to "6/6A", "neighbourhood" to "Nakivubo", "postcode" to "7063", "road" to "Kampala Road", "state" to "Central Region", "suburb" to "Kibuli"),
         expected = """
         |Orient Plaza
         |6/6A Kampala Road
@@ -5377,8 +4410,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ug",
       ),
       TestCase(
-        components = mapOf("country" to "Uganda", "country_code" to "ug", "state" to "Arua",
-            "subcounty" to "Ayivuni"),
+        components = mapOf("country" to "Uganda", "country_code" to "ug", "state" to "Arua", "subcounty" to "Ayivuni"),
         expected = """
         |Ayivuni
         |Arua
@@ -5388,8 +4420,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ug",
       ),
       TestCase(
-        components = mapOf("country" to "United States Minor Outlying Islands",
-            "country_code" to "um", "island" to "Wake Island"),
+        components = mapOf("country" to "United States Minor Outlying Islands", "country_code" to "um", "island" to "Wake Island"),
         expected = """
         |Wake Island, US Minor Outlying Islands
         |United States of America
@@ -5398,10 +4429,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - um",
       ),
       TestCase(
-        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
-            "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
-            "county" to "Santa Clara County", "state" to "California",
-            "country" to "United States of America", "country_code" to "US"),
+        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "United States of America", "country_code" to "US"),
         expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -5411,10 +4439,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
-            "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
-            "county" to "Santa Clara County", "state" to "California", "country" to "USA",
-            "country_code" to "US"),
+        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "USA", "country_code" to "US"),
         expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -5424,10 +4449,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
-            "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
-            "county" to "Santa Clara County", "state" to "California", "country" to "United States",
-            "country_code" to "US"),
+        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "United States", "country_code" to "US"),
         expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -5437,10 +4459,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
-            "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
-            "county" to "Santa Clara County", "state" to "California", "country" to "US",
-            "country_code" to "US"),
+        components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "US", "country_code" to "US"),
         expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -5450,8 +4469,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("city" to "Palo Alto", "country" to "United States of America",
-            "country_code" to "US", "county" to "Santa Clara County", "state" to "California"),
+        components = mapOf("city" to "Palo Alto", "country" to "United States of America", "country_code" to "US", "county" to "Santa Clara County", "state" to "California"),
         expected = """
         |Palo Alto, California
         |United States of America
@@ -5460,8 +4478,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("city" to "New York", "country" to "United States of America",
-            "country_code" to "US", "state" to "New York"),
+        components = mapOf("city" to "New York", "country" to "United States of America", "country_code" to "US", "state" to "New York"),
         expected = """
         |New York, New York
         |United States of America
@@ -5470,10 +4487,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("house_number" to "175", "road" to "Varick Street",
-            "neighbourhood" to "Greenwich Village", "postcode" to "10014",
-            "county" to "New York County", "state_district" to "New York City",
-            "state" to "New York", "country" to "United States of America", "country_code" to "US"),
+        components = mapOf("house_number" to "175", "road" to "Varick Street", "neighbourhood" to "Greenwich Village", "postcode" to "10014", "county" to "New York County", "state_district" to "New York City", "state" to "New York", "country" to "United States of America", "country_code" to "US"),
         expected = """
         |175 Varick Street
         |New York City, NY 10014
@@ -5483,8 +4497,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "postcode" to "20500", "state" to "Washington, D.C."),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "postcode" to "20500", "state" to "Washington, D.C."),
         expected = """
         |Washington, DC 20500
         |United States of America
@@ -5493,8 +4506,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "postcode" to "20500", "state" to "Washington DC"),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "postcode" to "20500", "state" to "Washington DC"),
         expected = """
         |Washington, DC 20500
         |United States of America
@@ -5503,9 +4515,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County",
-            "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue",
-            "state" to "Florida", "state_code" to "FL", "suburb" to "Edgewater"),
+        components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County", "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue", "state" to "Florida", "state_code" to "FL", "suburb" to "Edgewater"),
         expected = """
         |928 Flagler Avenue
         |Edgewater, FL 32132
@@ -5515,10 +4525,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States", "country_code" to "us",
-            "county" to "Nassau County", "house_number" to "4",
-            "municipality" to "Town of Oyster Bay", "postcode" to "11803",
-            "road" to "Lakeville Lane", "state" to "New York", "state_code" to "NY"),
+        components = mapOf("country" to "United States", "country_code" to "us", "county" to "Nassau County", "house_number" to "4", "municipality" to "Town of Oyster Bay", "postcode" to "11803", "road" to "Lakeville Lane", "state" to "New York", "state_code" to "NY"),
         expected = """
         |4 Lakeville Lane
         |Oyster Bay, NY 11803
@@ -5528,9 +4535,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County",
-            "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue",
-            "state" to "Florida", "state_code" to "FL"),
+        components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County", "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue", "state" to "Florida", "state_code" to "FL"),
         expected = """
         |928 Flagler Avenue
         |Volusia County, FL 32132
@@ -5540,8 +4545,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("city" to "Washington", "country" to "United States of America",
-            "country_code" to "us", "postcode" to "20500", "state" to "District of Columbia"),
+        components = mapOf("city" to "Washington", "country" to "United States of America", "country_code" to "us", "postcode" to "20500", "state" to "District of Columbia"),
         expected = """
         |Washington, DC 20500
         |United States of America
@@ -5550,10 +4554,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives",
-            "postcode" to "00803", "road" to "Dronningens Gade",
-            "state" to "United States Virgin Islands", "town" to "Charlotte Amalie"),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives", "postcode" to "00803", "road" to "Dronningens Gade", "state" to "United States Virgin Islands", "town" to "Charlotte Amalie"),
         expected = """
         |Enid M Baa Library and Archives
         |Dronningens Gade
@@ -5564,8 +4565,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "state" to "New York", "state_district" to "New York"),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "state" to "New York", "state_district" to "New York"),
         expected = """
         |New York, New York
         |United States of America
@@ -5574,8 +4574,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "state" to "New York"),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "state" to "New York"),
         expected = """
         |New York
         |United States of America
@@ -5584,9 +4583,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "county" to "Saginaw County", "municipality" to "Taymouth Township",
-            "state" to "Michigan", "village" to "Burt"),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "county" to "Saginaw County", "municipality" to "Taymouth Township", "state" to "Michigan", "village" to "Burt"),
         expected = """
         |Burt
         |Taymouth Township, Michigan
@@ -5596,9 +4593,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "us",
-            "county" to "Costilla County", "postcode" to "08113", "state" to "Colorado",
-            "village" to "Fort Garland"),
+        components = mapOf("country" to "United States of America", "country_code" to "us", "county" to "Costilla County", "postcode" to "08113", "state" to "Colorado", "village" to "Fort Garland"),
         expected = """
         |Fort Garland
         |Costilla County, CO 08113
@@ -5608,9 +4603,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("city" to "Homestead", "country" to "United States of America",
-            "country_code" to "us", "county" to "Miami-Dade County",
-            "hamlet" to "Homestead Trailer Park", "postcode" to "33030", "state" to "Florida"),
+        components = mapOf("city" to "Homestead", "country" to "United States of America", "country_code" to "us", "county" to "Miami-Dade County", "hamlet" to "Homestead Trailer Park", "postcode" to "33030", "state" to "Florida"),
         expected = """
         |Homestead Trailer Park
         |Homestead, FL 33030
@@ -5620,10 +4613,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - us",
       ),
       TestCase(
-        components = mapOf("city" to "Maldonado", "country" to "Uruguay", "country_code" to "uy",
-            "neighbourhood" to "Barrio Centro", "postcode" to "20000",
-            "restaurant" to "Classic Restaurant y Parrillada", "road" to "Román Guerra",
-            "state" to "Maldonado", "suburb" to "Sarubbi"),
+        components = mapOf("city" to "Maldonado", "country" to "Uruguay", "country_code" to "uy", "neighbourhood" to "Barrio Centro", "postcode" to "20000", "restaurant" to "Classic Restaurant y Parrillada", "road" to "Román Guerra", "state" to "Maldonado", "suburb" to "Sarubbi"),
         expected = """
         |Classic Restaurant y Parrillada
         |Román Guerra
@@ -5634,9 +4624,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - uy",
       ),
       TestCase(
-        components = mapOf("city" to "Samarkand", "country" to "Uzbekistan", "country_code" to "uz",
-            "postcode" to "140100", "pub" to "BLUES Cafe", "house_number" to "66",
-            "road" to "Amir Temur street", "state" to "Samarkand Province"),
+        components = mapOf("city" to "Samarkand", "country" to "Uzbekistan", "country_code" to "uz", "postcode" to "140100", "pub" to "BLUES Cafe", "house_number" to "66", "road" to "Amir Temur street", "state" to "Samarkand Province"),
         expected = """
         |BLUES Cafe
         |Amir Temur street 66
@@ -5649,8 +4637,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - uz",
       ),
       TestCase(
-        components = mapOf("building" to "Gallinaro Tower", "country" to "Vatican City",
-            "country_code" to "va", "postcode" to "00120", "road" to "Viale San Benedetto"),
+        components = mapOf("building" to "Gallinaro Tower", "country" to "Vatican City", "country_code" to "va", "postcode" to "00120", "road" to "Viale San Benedetto"),
         expected = """
         |Gallinaro Tower
         |Viale San Benedetto
@@ -5661,9 +4648,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - va",
       ),
       TestCase(
-        components = mapOf("country" to "Vatican City", "country_code" to "va",
-            "postcode" to "00120", "road" to "Press Way", "supermarket" to "Vatican Supermarket",
-            "town" to "Vatican City"),
+        components = mapOf("country" to "Vatican City", "country_code" to "va", "postcode" to "00120", "road" to "Press Way", "supermarket" to "Vatican Supermarket", "town" to "Vatican City"),
         expected = """
         |Vatican Supermarket
         |Press Way
@@ -5674,9 +4659,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - va",
       ),
       TestCase(
-        components = mapOf("bank" to "Bank of St Vincent and the Grenadines", "city" to "Kingstown",
-            "country" to "Saint Vincent and the Grenadines", "country_code" to "vc",
-            "county" to "Saint George", "road" to "Grenville Street"),
+        components = mapOf("bank" to "Bank of St Vincent and the Grenadines", "city" to "Kingstown", "country" to "Saint Vincent and the Grenadines", "country_code" to "vc", "county" to "Saint George", "road" to "Grenville Street"),
         expected = """
         |Bank of St Vincent and the Grenadines
         |Grenville Street
@@ -5687,11 +4670,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - vc",
       ),
       TestCase(
-        components = mapOf("house_number" to "33", "road" to "Av. Teresa de La Parra",
-            "city" to "Parroquia San Pedro", "county" to "Municipio Libertador",
-            "neighbourhood" to "Los Chaguaramos", "country" to "Venezuela", "country_code" to "VE",
-            "postcode" to "1040", "restaurant" to "El Carretón", "state_district" to "Caracas",
-            "state" to "Capital District"),
+        components = mapOf("house_number" to "33", "road" to "Av. Teresa de La Parra", "city" to "Parroquia San Pedro", "county" to "Municipio Libertador", "neighbourhood" to "Los Chaguaramos", "country" to "Venezuela", "country_code" to "VE", "postcode" to "1040", "restaurant" to "El Carretón", "state_district" to "Caracas", "state" to "Capital District"),
         expected = """
         |El Carretón
         |Av. Teresa de La Parra 33
@@ -5702,10 +4681,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ve",
       ),
       TestCase(
-        components = mapOf("building" to "Government of the BVI",
-            "country" to "British Virgin Islands", "country_code" to "vg", "house_number" to "33",
-            "island" to "Tortola", "postcode" to "VG1110", "road" to "Admin Drive",
-            "town" to "Road Town"),
+        components = mapOf("building" to "Government of the BVI", "country" to "British Virgin Islands", "country_code" to "vg", "house_number" to "33", "island" to "Tortola", "postcode" to "VG1110", "road" to "Admin Drive", "town" to "Road Town"),
         expected = """
         |Government of the BVI
         |33 Admin Drive
@@ -5716,10 +4692,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - vg",
       ),
       TestCase(
-        components = mapOf("country" to "United States of America", "country_code" to "vi",
-            "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives",
-            "postcode" to "00803", "road" to "Dronningens Gade",
-            "state" to "United States Virgin Islands", "town" to "Charlotte Amalie"),
+        components = mapOf("country" to "United States of America", "country_code" to "vi", "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives", "postcode" to "00803", "road" to "Dronningens Gade", "state" to "United States Virgin Islands", "town" to "Charlotte Amalie"),
         expected = """
         |Enid M Baa Library and Archives
         |Dronningens Gade
@@ -5730,10 +4703,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - vi",
       ),
       TestCase(
-        components = mapOf("road" to "Tran Quang Khai", "city" to "Nha Trang",
-            "country" to "Vietnam", "country_code" to "VN", "postcode" to "48058",
-            "bar" to "Why Not Bar", "suburb" to "Tan Lap District",
-            "state" to "Khanh Hoa province"),
+        components = mapOf("road" to "Tran Quang Khai", "city" to "Nha Trang", "country" to "Vietnam", "country_code" to "VN", "postcode" to "48058", "bar" to "Why Not Bar", "suburb" to "Tan Lap District", "state" to "Khanh Hoa province"),
         expected = """
         |Why Not Bar
         |Tran Quang Khai
@@ -5746,9 +4716,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - vn",
       ),
       TestCase(
-        components = mapOf("city" to "Port Vila", "country" to "Vanuatu", "country_code" to "vu",
-            "guest_house" to "Room with a view", "road" to "Rue de Paris Street",
-            "state" to "Shefa Province"),
+        components = mapOf("city" to "Port Vila", "country" to "Vanuatu", "country_code" to "vu", "guest_house" to "Room with a view", "road" to "Rue de Paris Street", "state" to "Shefa Province"),
         expected = """
         |Room with a view
         |Rue de Paris Street
@@ -5759,9 +4727,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - vu",
       ),
       TestCase(
-        components = mapOf("building" to "Palais royal d'Uvéa",
-            "country" to "France, Wallis-et-Futuna (eaux territoriales)", "country_code" to "wf",
-            "road" to "RT1", "state" to "Wallis and Futuna", "town" to "Mata'utu"),
+        components = mapOf("building" to "Palais royal d'Uvéa", "country" to "France, Wallis-et-Futuna (eaux territoriales)", "country_code" to "wf", "road" to "RT1", "state" to "Wallis and Futuna", "town" to "Mata'utu"),
         expected = """
         |Palais royal d'Uvéa
         |RT1
@@ -5772,8 +4738,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - wf",
       ),
       TestCase(
-        components = mapOf("city" to "Āpia", "country" to "Samoa", "country_code" to "ws",
-            "post_office" to "Samoa Post Office", "road" to "Beach Road", "suburb" to "Tuanaimato"),
+        components = mapOf("city" to "Āpia", "country" to "Samoa", "country_code" to "ws", "post_office" to "Samoa Post Office", "road" to "Beach Road", "suburb" to "Tuanaimato"),
         expected = """
         |Samoa Post Office
         |Beach Road
@@ -5784,9 +4749,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ws",
       ),
       TestCase(
-        components = mapOf("country" to "Sovereign Base Areas of Akrotiri and Dhekelia",
-            "country_code" to "xc", "county" to "Dhekelia", "road" to "unnamed road",
-            "village" to "Dasaki Achnas"),
+        components = mapOf("country" to "Sovereign Base Areas of Akrotiri and Dhekelia", "country_code" to "xc", "county" to "Dhekelia", "road" to "unnamed road", "village" to "Dasaki Achnas"),
         expected = """
         |unnamed road
         |Dasaki Achnas
@@ -5797,10 +4760,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - xc",
       ),
       TestCase(
-        components = mapOf("city" to "Pristina", "continent" to "Europe", "country" to "Kosovo",
-            "country_code" to "xk", "district" to "District of Prishtina", "house_number" to "13",
-            "municipality" to "Municipality of Pristina", "postcode" to "10010",
-            "road" to "Ahmet Haxhiu", "suburb" to "Medresa"),
+        components = mapOf("city" to "Pristina", "continent" to "Europe", "country" to "Kosovo", "country_code" to "xk", "district" to "District of Prishtina", "house_number" to "13", "municipality" to "Municipality of Pristina", "postcode" to "10010", "road" to "Ahmet Haxhiu", "suburb" to "Medresa"),
         expected = """
         |13, Ahmet Haxhiu
         |Pristina 10010
@@ -5810,9 +4770,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - xk",
       ),
       TestCase(
-        components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX",
-            "county" to "County", "house_number" to "123", "postcode" to "PCPCPC",
-            "road" to "Main Street", "state" to "State", "suburb" to "The Hood"),
+        components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX", "county" to "County", "house_number" to "123", "postcode" to "PCPCPC", "road" to "Main Street", "state" to "State", "suburb" to "The Hood"),
         expected = """
         |Main Street 123
         |PCPCPC City
@@ -5822,8 +4780,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "other - xx",
       ),
       TestCase(
-        components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX",
-            "state" to "State"),
+        components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX", "state" to "State"),
         expected = """
         |City
         |State
@@ -5833,8 +4790,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "other - xx",
       ),
       TestCase(
-        components = mapOf("city" to "Sanʿaʾ", "country" to "Yemen", "country_code" to "ye",
-            "county" to "Qada Sana", "mall" to "Yassin Spices", "road" to "شارع الحربي"),
+        components = mapOf("city" to "Sanʿaʾ", "country" to "Yemen", "country_code" to "ye", "county" to "Qada Sana", "mall" to "Yassin Spices", "road" to "شارع الحربي"),
         expected = """
         |Yassin Spices
         |شارع الحربي
@@ -5845,8 +4801,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ye",
       ),
       TestCase(
-        components = mapOf("city" to "صنعاء", "country" to "اليمن", "country_code" to "ye",
-            "county" to "قضاء صنعاء", "mall" to "بهارات ياسين", "road" to "شارع الحربي"),
+        components = mapOf("city" to "صنعاء", "country" to "اليمن", "country_code" to "ye", "county" to "قضاء صنعاء", "mall" to "بهارات ياسين", "road" to "شارع الحربي"),
         expected = """
         |بهارات ياسين
         |شارع الحربي
@@ -5857,9 +4812,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ye",
       ),
       TestCase(
-        components = mapOf("bank" to "Centeral Bank of Yemen", "city" to "Sanʿaʾ",
-            "country" to "Yemen", "country_code" to "ye", "county" to "Qada Sana",
-            "postcode" to "01", "road" to "Al Zubayri Street"),
+        components = mapOf("bank" to "Centeral Bank of Yemen", "city" to "Sanʿaʾ", "country" to "Yemen", "country_code" to "ye", "county" to "Qada Sana", "postcode" to "01", "road" to "Al Zubayri Street"),
         expected = """
         |Centeral Bank of Yemen
         |Al Zubayri Street
@@ -5870,9 +4823,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ye",
       ),
       TestCase(
-        components = mapOf("city" to "Aden", "country" to "Yemen", "country_code" to "ye",
-            "county" to "Aden Directorate", "fast_food" to "Pizza", "residential" to "كريتر",
-            "road" to "خط صيرة", "state" to "‘Adan Governorate"),
+        components = mapOf("city" to "Aden", "country" to "Yemen", "country_code" to "ye", "county" to "Aden Directorate", "fast_food" to "Pizza", "residential" to "كريتر", "road" to "خط صيرة", "state" to "‘Adan Governorate"),
         expected = """
         |Pizza
         |خط صيرة
@@ -5883,10 +4834,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - ye",
       ),
       TestCase(
-        components = mapOf("building" to "Conseil Général de Mayotte",
-            "country" to "France, Mayotte (eaux territoriales)", "country_code" to "yt",
-            "postcode" to "97600", "road" to "Rue Houmadi Bacar", "state" to "Mayotte",
-            "town" to "Mamoudzou"),
+        components = mapOf("building" to "Conseil Général de Mayotte", "country" to "France, Mayotte (eaux territoriales)", "country_code" to "yt", "postcode" to "97600", "road" to "Rue Houmadi Bacar", "state" to "Mayotte", "town" to "Mamoudzou"),
         expected = """
         |Conseil Général de Mayotte
         |Rue Houmadi Bacar
@@ -5897,10 +4845,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - yt",
       ),
       TestCase(
-        components = mapOf("city" to "Cape Town", "city_district" to "Cape Town Subcouncil 15",
-            "country" to "RSA", "country_code" to "za", "county" to "City of Cape Town",
-            "house_number" to "3", "postcode" to "7700", "road" to "Upper Alma Road",
-            "state" to "Western Cape", "suburb" to "Rosebank"),
+        components = mapOf("city" to "Cape Town", "city_district" to "Cape Town Subcouncil 15", "country" to "RSA", "country_code" to "za", "county" to "City of Cape Town", "house_number" to "3", "postcode" to "7700", "road" to "Upper Alma Road", "state" to "Western Cape", "suburb" to "Rosebank"),
         expected = """
         |3 Upper Alma Road
         |Rosebank
@@ -5912,9 +4857,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - za",
       ),
       TestCase(
-        components = mapOf("city" to "Lusaka", "country" to "Zambia", "country_code" to "zm",
-            "post_office" to "Central Post Office", "postcode" to "34681", "road" to "Church Road",
-            "state" to "Lusaka Province", "suburb" to "Luneta"),
+        components = mapOf("city" to "Lusaka", "country" to "Zambia", "country_code" to "zm", "post_office" to "Central Post Office", "postcode" to "34681", "road" to "Church Road", "state" to "Lusaka Province", "suburb" to "Luneta"),
         expected = """
         |Central Post Office
         |Church Road
@@ -5925,10 +4868,7 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - zm",
       ),
       TestCase(
-        components = mapOf("building" to "Russian Embassy", "city" to "Harare",
-            "country" to "Zimbabwe", "country_code" to "zw", "postcode" to "00263",
-            "road" to "Colquhoun Street", "state" to "Harare Province",
-            "suburb" to "Avondale West"),
+        components = mapOf("building" to "Russian Embassy", "city" to "Harare", "country" to "Zimbabwe", "country_code" to "zw", "postcode" to "00263", "road" to "Colquhoun Street", "state" to "Harare Province", "suburb" to "Avondale West"),
         expected = """
         |Russian Embassy
         |Colquhoun Street

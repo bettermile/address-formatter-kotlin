@@ -471,8 +471,7 @@ internal object Worldwide {
             |{{{country}}}
             |""".trimMargin(),
             postformatReplace = listOf(
-              CountryFormat.Replace(search = "\\b(\\d{5})(\\d{3})\\b",
-                    replacement = "${'$'}1-${'$'}2"),
+              CountryFormat.Replace(search = "\\b(\\d{5})(\\d{3})\\b", replacement = "${'$'}1-${'$'}2"),
             ),
           )
         },
@@ -716,10 +715,8 @@ internal object Worldwide {
             postformatReplace = listOf(
               CountryFormat.Replace(search = "Localidad ", replacement = " "),
               CountryFormat.Replace(search = "Bogota, Bogota", replacement = "Bogota"),
-              CountryFormat.Replace(search = "Bogota, Bogotá Distrito Capital",
-                    replacement = "Bogota"),
-              CountryFormat.Replace(search = "Bogotá, Bogotá Distrito Capital",
-                    replacement = "Bogotá"),
+              CountryFormat.Replace(search = "Bogota, Bogotá Distrito Capital", replacement = "Bogota"),
+              CountryFormat.Replace(search = "Bogotá, Bogotá Distrito Capital", replacement = "Bogotá"),
             ),
           )
         },
@@ -963,8 +960,7 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = generic1,
             postformatReplace = listOf(
-              CountryFormat.Replace(search = "Territorial waters of Faroe Islands",
-                    replacement = "Faroe Islands"),
+              CountryFormat.Replace(search = "Territorial waters of Faroe Islands", replacement = "Faroe Islands"),
             ),
           )
         },
@@ -972,20 +968,14 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = generic3,
             replace = listOf(
-              CountryFormat.Replace(search = "Polynésie française, Îles du Vent \\(eaux territoriales\\)",
-                    replacement = "Polynésie française"),
-              CountryFormat.Replace(search = "France, Mayotte \\(eaux territoriales\\)",
-                    replacement = "Mayotte, France"),
-              CountryFormat.Replace(search = "France, La Réunion \\(eaux territoriales\\)",
-                    replacement = "La Réunion, France"),
-              CountryFormat.Replace(search = "Grande Terre et récifs d'Entrecasteaux",
-                    replacement = ""),
-              CountryFormat.Replace(search = "France, Nouvelle-Calédonie",
-                    replacement = "Nouvelle-Calédonie, France"),
+              CountryFormat.Replace(search = "Polynésie française, Îles du Vent \\(eaux territoriales\\)", replacement = "Polynésie française"),
+              CountryFormat.Replace(search = "France, Mayotte \\(eaux territoriales\\)", replacement = "Mayotte, France"),
+              CountryFormat.Replace(search = "France, La Réunion \\(eaux territoriales\\)", replacement = "La Réunion, France"),
+              CountryFormat.Replace(search = "Grande Terre et récifs d'Entrecasteaux", replacement = ""),
+              CountryFormat.Replace(search = "France, Nouvelle-Calédonie", replacement = "Nouvelle-Calédonie, France"),
               CountryFormat.Replace(search = "\\(eaux territoriales\\)", replacement = ""),
               CountryFormat.Replace(search = "state= \\(France\\)${'$'}", replacement = ""),
-              CountryFormat.Replace(search = "Paris (\\d+)(\\w+) Arrondissement${'$'}",
-                    replacement = "Paris"),
+              CountryFormat.Replace(search = "Paris (\\d+)(\\w+) Arrondissement${'$'}", replacement = "Paris"),
             ),
           )
         },
@@ -2028,8 +2018,7 @@ internal object Worldwide {
         "PF" to lazy {
           CountryFormat(
             replace = listOf(
-              CountryFormat.Replace(search = "Polynésie française, Îles du Vent \\(eaux territoriales\\)",
-                    replacement = "Polynésie française"),
+              CountryFormat.Replace(search = "Polynésie française, Îles du Vent \\(eaux territoriales\\)", replacement = "Polynésie française"),
             ),
             useCountry = "FR",
             changeCountry = "Polynésie française, France",
@@ -2544,8 +2533,7 @@ internal object Worldwide {
             addressTemplate = generic4,
             fallbackTemplate = fallback2,
             replace = listOf(
-              CountryFormat.Replace(search = "state=United States Virgin Islands",
-                    replacement = "US Virgin Islands"),
+              CountryFormat.Replace(search = "state=United States Virgin Islands", replacement = "US Virgin Islands"),
               CountryFormat.Replace(search = "state=USVI", replacement = "US Virgin Islands"),
             ),
             postformatReplace = listOf(
