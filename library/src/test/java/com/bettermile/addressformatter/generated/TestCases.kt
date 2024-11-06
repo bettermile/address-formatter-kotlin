@@ -367,6 +367,16 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - be",
       ),
       TestCase(
+        components = mapOf("city_district" to "Perwez", "country" to "Belgium", "country_code" to "be", "county" to "Nivelles", "house_number" to "67", "postcode" to "1360", "region" to "Wallonia", "road" to "Rue Salmon", "state" to "Walloon Brabant", "village" to "Perwez"),
+        expected = """
+        |Rue Salmon 67
+        |1360 Perwez
+        |Belgium
+        |""".trimMargin(),
+        description = "50.62084,4.82240",
+        fileName = "countries - be",
+      ),
+      TestCase(
         components = mapOf("bank" to "Ecobank", "city" to "Ouagadougou", "country" to "Burkina Faso", "country_code" to "bf", "postcode" to "13", "region" to "Centre", "residential" to "Ouagadougou", "road" to "Avenue Nelson Mandela", "state_district" to "Kadiogo", "suburb" to "Bilbalogho"),
         expected = """
         |Ecobank
@@ -1564,13 +1574,13 @@ public val testCases: List<TestCase> = listOf(
         fileName = "countries - fr",
       ),
       TestCase(
-        components = mapOf("city" to "Sommières-du-Clain", "country" to "France", "country_code" to "fr", "place" to "Moulin Bois", "postcode" to "86160", "state" to "Nouvelle-Aquitaine", "state_code" to "NAQ", "county" to "Vienne"),
+        components = mapOf("country" to "France", "country_code" to "fr", "county" to "Bas-Rhin", "municipality" to "Haguenau-Wissembourg", "postcode" to "67500", "region" to "Metropolitan France", "road" to "Rue des Voituriers", "state" to "Grand Est", "state_code" to "GES", "town" to "Haguenau"),
         expected = """
-        |Moulin Bois
-        |86160 Sommières-du-Clain
+        |Rue des Voituriers
+        |67500 Haguenau
         |France
         |""".trimMargin(),
-        description = "46.2805264, 0.3462048",
+        description = "48.80868,7.78761",
         fileName = "countries - fr",
       ),
       TestCase(
