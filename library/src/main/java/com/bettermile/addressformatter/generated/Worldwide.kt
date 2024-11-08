@@ -16,205 +16,319 @@
 package com.bettermile.addressformatter.generated
 
 import com.bettermile.addressformatter.CountryFormat
+import com.github.mustachejava.DefaultMustacheFactory
+import com.github.mustachejava.Mustache
+import com.github.mustachejava.MustacheFactory
+import java.io.StringReader
 import kotlin.Lazy
 import kotlin.String
 import kotlin.collections.Map
 
 internal object Worldwide {
-  private const val generic1: String = """{{{attention}}}
-      {{{house}}}
-      {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-      {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-      {{{archipelago}}}
-      {{{country}}}"""
+  private val mustacheFactory: MustacheFactory = DefaultMustacheFactory()
 
-  private const val generic2: String = """{{{attention}}}
-      {{#first}} {{{house}}}, {{{quarter}}} || {{{house}}} {{/first}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
-      {{#first}} {{{country}}} || {{{state}}} {{/first}}"""
+  private val generic1: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
+        |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+        |{{{archipelago}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic3: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{{place}}}
-      {{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic2: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{#first}} {{{house}}}, {{{quarter}}} || {{{house}}} {{/first}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
+        |{{#first}} {{{country}}} || {{{state}}} {{/first}}
+        |""".trimMargin())
+      }
 
-  private const val generic4: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-      {{{country}}}"""
+  private val generic3: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{{place}}}
+        |{{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic5: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-      {{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic4: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic6: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-      {{{county}}}
-      {{{state}}}
-      {{{country}}}"""
+  private val generic5: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+        |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic7: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
-      {{{country}}}"""
+  private val generic6: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+        |{{{county}}}
+        |{{{state}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic8: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
-      {{{country}}}"""
+  private val generic7: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic9: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-      {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic8: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic10: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}}, {{{house_number}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-      {{{state}}}
-      {{{country}}}
-      {{{postcode}}}"""
+  private val generic9: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic11: String = """{{{country}}}
-      {{{state}}}
-      {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-      {{{suburb}}}
-      {{{road}}}, {{{house_number}}}
-      {{{house}}}
-      {{{attention}}}"""
+  private val generic10: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}}, {{{house_number}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+        |{{{state}}}
+        |{{{country}}}
+        |{{{postcode}}}
+        |""".trimMargin())
+      }
 
-  private const val generic12: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}}, {{{road}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
-      {{{state}}}
-      {{{country}}}"""
+  private val generic11: Mustache by lazy {
+        compileTemplate("""
+        |{{{country}}}
+        |{{{state}}}
+        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+        |{{{suburb}}}
+        |{{{road}}}, {{{house_number}}}
+        |{{{house}}}
+        |{{{attention}}}
+        |""".trimMargin())
+      }
 
-  private const val generic13: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-      {{{country}}}"""
+  private val generic12: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}}, {{{road}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
+        |{{{state}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic14: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-      {{{state}}}
-      {{{country}}}"""
+  private val generic13: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic15: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}}, {{{house_number}}}
-      {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
-      {{{country}}}"""
+  private val generic14: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
+        |{{{state}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic16: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic15: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}}, {{{house_number}}}
+        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic17: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic16: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic18: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}}, {{{road}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic17: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic19: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-      {{{country}}}"""
+  private val generic18: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}}, {{{road}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic20: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-      {{{country}}}"""
+  private val generic19: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic21: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic20: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic22: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}}, {{{road}}}
-      {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-      {{{country}}}"""
+  private val generic21: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val generic23: String = """{{{attention}}}
-      {{{house}}}
-      {{{house_number}}} {{{road}}}
-      {{{quarter}}}
-      {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
-      {{{postcode}}}
-      {{#first}} {{{country}}} || {{{state}}} {{/first}}"""
+  private val generic22: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}}, {{{road}}}
+        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val fallback1: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{{place}}}
-      {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-      {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
-      {{{country}}}"""
+  private val generic23: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{house_number}}} {{{road}}}
+        |{{{quarter}}}
+        |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
+        |{{{postcode}}}
+        |{{#first}} {{{country}}} || {{{state}}} {{/first}}
+        |""".trimMargin())
+      }
 
-  private const val fallback2: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{{place}}}
-      {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-      {{{country}}}"""
+  private val fallback1: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{{place}}}
+        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+        |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val fallback3: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{{place}}}
-      {{#first}} {{{suburb}}} || {{{island}}} {{/first}}
-      {{#first}} {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-      {{#first}} {{{town}}} || {{{city}}}{{/first}}
-      {{{county}}}
-      {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-      {{{country}}}"""
+  private val fallback2: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{{place}}}
+        |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
-  private const val fallback4: String = """{{{attention}}}
-      {{{house}}}
-      {{{road}}} {{{house_number}}}
-      {{{place}}}
-      {{{suburb}}}
-      {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
-      {{#first}} {{{state}}} || {{{county}}} {{/first}}
-      {{{country}}}"""
+  private val fallback3: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{{place}}}
+        |{{#first}} {{{suburb}}} || {{{island}}} {{/first}}
+        |{{#first}} {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+        |{{#first}} {{{town}}} || {{{city}}}{{/first}}
+        |{{{county}}}
+        |{{#first}} {{{state}}} || {{{state_code}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
+
+  private val fallback4: Mustache by lazy {
+        compileTemplate("""
+        |{{{attention}}}
+        |{{{house}}}
+        |{{{road}}} {{{house_number}}}
+        |{{{place}}}
+        |{{{suburb}}}
+        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
+        |{{#first}} {{{state}}} || {{{county}}} {{/first}}
+        |{{{country}}}
+        |""".trimMargin())
+      }
 
   public val default: CountryFormat = CountryFormat(
         addressTemplate = generic1,
@@ -229,7 +343,7 @@ internal object Worldwide {
         },
         "AE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -237,7 +351,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "AF" to lazy {
@@ -252,24 +366,24 @@ internal object Worldwide {
         },
         "AI" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{postcode}}} {{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "AL" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{city_district}}} || {{{municipality}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -283,7 +397,7 @@ internal object Worldwide {
         },
         "AM" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -291,7 +405,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "AO" to lazy {
@@ -301,16 +415,16 @@ internal object Worldwide {
         },
         "AQ" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{house}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{#first}} {{{country}}} || {{{continent}}} {{/first}}
-            |""".trimMargin(),
-            fallbackTemplate = """
+            |""".trimMargin()),
+            fallbackTemplate = compileTemplate("""
             |{{{house}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{#first}} {{{country}}} || {{{continent}}} {{/first}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "AR" to lazy {
@@ -375,26 +489,26 @@ internal object Worldwide {
         },
         "BD" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "BE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{archipelago}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "BF" to lazy {
@@ -435,14 +549,14 @@ internal object Worldwide {
         },
         "BN" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}}, {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
             |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "BO" to lazy {
@@ -461,7 +575,7 @@ internal object Worldwide {
         },
         "BR" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
@@ -469,7 +583,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = "\\b(\\d{5})(\\d{3})\\b", replacement = "${'$'}1-${'$'}2"),
             ),
@@ -477,26 +591,26 @@ internal object Worldwide {
         },
         "BS" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
             |{{{county}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "BT" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}, {{{house}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "BV" to lazy {
@@ -507,14 +621,14 @@ internal object Worldwide {
         },
         "BW" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "BY" to lazy {
@@ -529,20 +643,20 @@ internal object Worldwide {
         },
         "CA" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
-            fallbackTemplate = """
+            |""".trimMargin()),
+            fallbackTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -554,20 +668,20 @@ internal object Worldwide {
         },
         "CA_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
-            fallbackTemplate = """
+            |""".trimMargin()),
+            fallbackTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -579,13 +693,13 @@ internal object Worldwide {
         },
         "CA_fr" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{house_number}}}, {{{road}}} || {{{suburb}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}} {{#first}} ({{{state_code}}}) || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -618,13 +732,13 @@ internal object Worldwide {
         },
         "CH" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             replace = listOf(
               CountryFormat.Replace(search = "Verwaltungskreis", replacement = ""),
               CountryFormat.Replace(search = "Verwaltungsregion", replacement = ""),
@@ -645,14 +759,14 @@ internal object Worldwide {
         },
         "CL" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{region}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "CM" to lazy {
@@ -662,7 +776,7 @@ internal object Worldwide {
         },
         "CN" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{postcode}}} {{{country}}}
             |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
             |{{{county}}}
@@ -671,12 +785,12 @@ internal object Worldwide {
             |{{{road}}} {{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "CN_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -685,12 +799,12 @@ internal object Worldwide {
             |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
             |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
             |{{{country}}} {{{postcode}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "CN_zh" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{postcode}}} {{{country}}}
             |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
             |{{{county}}}
@@ -699,19 +813,19 @@ internal object Worldwide {
             |{{{road}}} {{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "CO" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = "Localidad ", replacement = " "),
               CountryFormat.Replace(search = "Bogota, Bogota", replacement = "Bogota"),
@@ -722,13 +836,13 @@ internal object Worldwide {
         },
         "CR" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{state}}}, {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{{postcode}}} {{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "CU" to lazy {
@@ -786,15 +900,15 @@ internal object Worldwide {
         },
         "DE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{archipelago}}}
             |{{{country}}}
-            |""".trimMargin(),
-            fallbackTemplate = """
+            |""".trimMargin()),
+            fallbackTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
@@ -802,7 +916,7 @@ internal object Worldwide {
             |{{#first}} {{{town}}} || {{{city}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
             |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             replace = listOf(
               CountryFormat.Replace(search = "^Stadtteil ", replacement = ""),
               CountryFormat.Replace(search = "^Stadtbezirk (\\d+)", replacement = ""),
@@ -858,7 +972,7 @@ internal object Worldwide {
         },
         "DO" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
@@ -866,7 +980,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{state}}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = ", Distrito Nacional", replacement = ", DN"),
             ),
@@ -879,19 +993,19 @@ internal object Worldwide {
         },
         "EC" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "EG" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -899,7 +1013,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "EE" to lazy {
@@ -981,14 +1095,14 @@ internal object Worldwide {
         },
         "GA" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "GB" to lazy {
@@ -1110,13 +1224,13 @@ internal object Worldwide {
         },
         "GT" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}}-{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -1153,30 +1267,30 @@ internal object Worldwide {
         },
         "HK" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{{state_district}}}
             |{{#first}} {{{state}}} || {{{country}}} {{/first}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "HK_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{{state_district}}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "HK_zh" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{state}}}
             |{{{state_district}}}
@@ -1184,7 +1298,7 @@ internal object Worldwide {
             |{{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "HM" to lazy {
@@ -1214,17 +1328,17 @@ internal object Worldwide {
         },
         "HU" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{road}}} {{{house_number}}}.
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "ID" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
@@ -1232,12 +1346,12 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "IE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -1246,7 +1360,7 @@ internal object Worldwide {
             |{{{county}}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             replace = listOf(
               CountryFormat.Replace(search = " City${'$'}", replacement = ""),
               CountryFormat.Replace(search = "The Municipal District of ", replacement = ""),
@@ -1319,7 +1433,7 @@ internal object Worldwide {
         },
         "IQ" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{#first}} {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
@@ -1327,12 +1441,12 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "IR" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
@@ -1342,12 +1456,12 @@ internal object Worldwide {
             |{{#first}}{{{province}}} || {{{state}}} || {{{state_district}}}{{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "IR_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
@@ -1357,12 +1471,12 @@ internal object Worldwide {
             |{{#first}}{{{state}}} || {{{state_district}}}{{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "IR_fa" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{state}}}
             |{{{state_district}}}
@@ -1374,7 +1488,7 @@ internal object Worldwide {
             |{{{house}}}
             |{{{attention}}}
             |{{{postcode}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "IS" to lazy {
@@ -1425,14 +1539,14 @@ internal object Worldwide {
         },
         "JP" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1444,14 +1558,14 @@ internal object Worldwide {
         },
         "JP_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1463,7 +1577,7 @@ internal object Worldwide {
         },
         "JP_ja" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{postcode}}}
             |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
@@ -1473,7 +1587,7 @@ internal object Worldwide {
             |{{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1485,14 +1599,14 @@ internal object Worldwide {
         },
         "KE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KG" to lazy {
@@ -1502,14 +1616,14 @@ internal object Worldwide {
         },
         "KH" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KI" to lazy {
@@ -1519,25 +1633,25 @@ internal object Worldwide {
         },
         "KM" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KN" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{island}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KP" to lazy {
@@ -1547,41 +1661,41 @@ internal object Worldwide {
         },
         "KR" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{state}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
             |{{{attention}}}
             |{{{postcode}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KR_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KR_ko" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{state}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
             |{{{attention}}}
             |{{{postcode}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KW" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
@@ -1590,7 +1704,7 @@ internal object Worldwide {
             |{{{house_number}}} {{{house}}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "KY" to lazy {
@@ -1677,13 +1791,13 @@ internal object Worldwide {
         },
         "MD" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}}, {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "ME" to lazy {
@@ -1705,14 +1819,14 @@ internal object Worldwide {
         },
         "MG" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MK" to lazy {
@@ -1727,18 +1841,18 @@ internal object Worldwide {
         },
         "MM" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}, {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MN" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{city_district}}}
@@ -1748,41 +1862,41 @@ internal object Worldwide {
             |{{{postcode}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MO" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MO_pt" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MO_zh" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
             |{{{road}}}
             |{{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MP" to lazy {
@@ -1799,14 +1913,14 @@ internal object Worldwide {
         },
         "MT" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MQ" to lazy {
@@ -1822,14 +1936,14 @@ internal object Worldwide {
         },
         "MU" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}}, {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MV" to lazy {
@@ -1844,19 +1958,19 @@ internal object Worldwide {
         },
         "MX" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MY" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -1864,7 +1978,7 @@ internal object Worldwide {
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "MZ" to lazy {
@@ -1886,14 +2000,14 @@ internal object Worldwide {
         },
         "NE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}}
             |{{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "NF" to lazy {
@@ -1905,14 +2019,14 @@ internal object Worldwide {
         },
         "NG" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "NI" to lazy {
@@ -1948,14 +2062,14 @@ internal object Worldwide {
         },
         "NP" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{neighbourhood}}} || {{{city}}} {{/first}}
             |{{#first}} {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "NR" to lazy {
@@ -1981,7 +2095,7 @@ internal object Worldwide {
         },
         "OM" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -1989,12 +2103,12 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "PA" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
@@ -2003,7 +2117,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             replace = listOf(
               CountryFormat.Replace(search = "city=Panama${'$'}", replacement = "Panama City"),
               CountryFormat.Replace(search = "city=Panamá${'$'}", replacement = "Ciudad de Panamá"),
@@ -2026,36 +2140,36 @@ internal object Worldwide {
         },
         "PG" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}} {{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "PH" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
             |{{{postcode}}} {{#first}} {{{municipality}}} {{{region}}} {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "PK" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "PL" to lazy {
@@ -2080,12 +2194,12 @@ internal object Worldwide {
         },
         "PN" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{island}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "PR" to lazy {
@@ -2148,7 +2262,7 @@ internal object Worldwide {
         "RU" to lazy {
           CountryFormat(
             addressTemplate = generic10,
-            fallbackTemplate = """
+            fallbackTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}}, {{{house_number}}}
@@ -2156,7 +2270,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} {{/first}}
             |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "RW" to lazy {
@@ -2166,13 +2280,13 @@ internal object Worldwide {
         },
         "SA" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}, {{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{suburb}}} || {{{neighbourhood}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "SB" to lazy {
@@ -2182,14 +2296,14 @@ internal object Worldwide {
         },
         "SC" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{island}}} {{/first}}
             |{{{island}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "SD" to lazy {
@@ -2213,13 +2327,13 @@ internal object Worldwide {
         },
         "SG" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{#first}} {{{house}}}, {{{quarter}}} || {{{house}}} {{/first}}
             |{{{house_number}}} {{{road}}}, {{{residential}}}
             |{{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "SH" to lazy {
@@ -2241,13 +2355,13 @@ internal object Worldwide {
         },
         "SK" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{city}}} || {{{town}}} || {{{village}}} || {{{municipality}}} || {{{city_district}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             replace = listOf(
               CountryFormat.Replace(search = "^District of ", replacement = ""),
               CountryFormat.Replace(search = "^Region of ", replacement = ""),
@@ -2305,14 +2419,14 @@ internal object Worldwide {
         },
         "SV" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{{postcode}}} - {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
             |{{{state}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -2331,7 +2445,7 @@ internal object Worldwide {
         },
         "SY" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}}, {{{house_number}}}
@@ -2339,32 +2453,32 @@ internal object Worldwide {
             |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{state}}} {{/first}}
             |
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "SZ" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TC" to lazy {
           CountryFormat(
             addressTemplate = generic23,
-            fallbackTemplate = """
+            fallbackTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house_number}}} {{{road}}}
             |{{{quarter}}}
             |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
             |{{{island}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TD" to lazy {
@@ -2385,7 +2499,7 @@ internal object Worldwide {
         },
         "TH" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
@@ -2393,7 +2507,7 @@ internal object Worldwide {
             |{{#first}} {{{neighbourhood}}} || {{{city}}} || {{{town}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
             |{{{state}}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TJ" to lazy {
@@ -2434,59 +2548,59 @@ internal object Worldwide {
         },
         "TT" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TV" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
             |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{island}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TW" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{postcode}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TW_en" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}}, {{{road}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TW_zh" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{country}}}
             |{{{postcode}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
             |{{{house}}}
             |{{{attention}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "TZ" to lazy {
@@ -2503,7 +2617,7 @@ internal object Worldwide {
         },
         "UA" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}}, {{{house_number}}}
@@ -2512,7 +2626,7 @@ internal object Worldwide {
             |{{#first}} {{{region}}} || {{{state}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "UG" to lazy {
@@ -2565,7 +2679,7 @@ internal object Worldwide {
         },
         "UZ" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
@@ -2573,7 +2687,7 @@ internal object Worldwide {
             |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
             |{{{country}}}
             |{{{postcode}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "UY" to lazy {
@@ -2593,24 +2707,24 @@ internal object Worldwide {
         },
         "VE" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{road}}} {{{house_number}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "VG" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{island}}}
             |{{{country}}}, {{{postcode}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "VI" to lazy {
@@ -2622,7 +2736,7 @@ internal object Worldwide {
         },
         "VN" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -2630,7 +2744,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
             |{{{state}}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "VU" to lazy {
@@ -2656,13 +2770,13 @@ internal object Worldwide {
         },
         "XK" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}}, {{{road}}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "YE" to lazy {
@@ -2678,7 +2792,7 @@ internal object Worldwide {
         },
         "ZA" to lazy {
           CountryFormat(
-            addressTemplate = """
+            addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}
@@ -2686,7 +2800,7 @@ internal object Worldwide {
             |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
             |{{{postcode}}}
             |{{{country}}}
-            |""".trimMargin(),
+            |""".trimMargin()),
           )
         },
         "ZM" to lazy {
@@ -2700,4 +2814,6 @@ internal object Worldwide {
           )
         },
       )
+
+  private fun compileTemplate(template: String): Mustache = mustacheFactory.compile(StringReader(template), "example")
 }
