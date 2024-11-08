@@ -24,9 +24,7 @@ import com.bettermile.addressformatter.generated.country2Languages
 import com.bettermile.addressformatter.generated.countryNames
 import com.bettermile.addressformatter.generated.countyCodes
 import com.bettermile.addressformatter.generated.stateCodes
-import com.github.mustachejava.DefaultMustacheFactory
-import com.github.mustachejava.MustacheFactory
-import java.io.StringReader
+import com.github.mustachejava.Mustache
 import java.io.StringWriter
 import java.util.function.Function
 import kotlin.contracts.ExperimentalContracts
@@ -282,8 +280,8 @@ class AddressFormatter(
     private fun chooseTemplateText(
         template: CountryFormat,
         components: Map<String, String>
-    ): String {
-        var selected: String =
+    ): Mustache {
+        var selected =
             template.addressTemplate ?: checkNotNull(Worldwide.default.addressTemplate)
         val required = listOf("road", "postcode")
         val missesAllRequired = required.none(components::containsKey)
@@ -314,10 +312,8 @@ class AddressFormatter(
             val split = s.splitToSequence(regexPatternCache["\\s*\\|\\|\\s*"])
             split.firstOrNull(String::isNotEmpty) ?: ""
         }
-        val templateText = chooseTemplateText(template, components)
-        val mf: MustacheFactory = DefaultMustacheFactory()
-        val m = mf.compile(StringReader(templateText), "example")
-        val st = m.execute(StringWriter(), listOf<Any>(components, callback))
+        val mustache = chooseTemplateText(template, components)
+        val st = mustache.execute(StringWriter(), listOf<Any>(components, callback))
         var rendered = cleanupRender(st.toString())
         val postformat = template.postformatReplace
         if (postformat.isNotEmpty()) {

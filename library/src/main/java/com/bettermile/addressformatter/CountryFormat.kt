@@ -16,9 +16,11 @@
 
 package com.bettermile.addressformatter
 
+import com.github.mustachejava.Mustache
+
 internal data class CountryFormat(
-    val addressTemplate: String? = null,
-    val fallbackTemplate: String? = null,
+    val addressTemplate: Mustache? = null,
+    val fallbackTemplate: Mustache? = null,
     val replace: List<Replace> = emptyList(),
     val postformatReplace: List<Replace> = emptyList(),
     val useCountry: String? = null,
