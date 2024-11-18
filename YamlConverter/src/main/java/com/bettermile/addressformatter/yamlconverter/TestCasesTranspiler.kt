@@ -36,10 +36,12 @@ object TestCasesTranspiler {
                     val components: List<CodeBlock> = testCase["components"].properties().map { (key, value) ->
                         CodeBlock.of("%S·to·%S", key, value.asText())
                     }
+                    val expected = testCase["expected"].asText()
+                    val description = testCase["description"]?.asText() ?: expected.trim().replace("\n", ", ")
                     val properties = listOf(
                         CodeBlock.of("components·=·mapOf(%L)", components.joinToCode(", ")),
-                        CodeBlock.of("expected·=·%S", testCase["expected"].asText()),
-                        CodeBlock.of("description·=·%S", testCase["description"].asText()),
+                        CodeBlock.of("expected·=·%S", expected),
+                        CodeBlock.of("description·=·%S", description),
                         CodeBlock.of("fileName·=·%S", fileName),
                     )
                     multilineFunctionCall(testCaseClass, properties)
