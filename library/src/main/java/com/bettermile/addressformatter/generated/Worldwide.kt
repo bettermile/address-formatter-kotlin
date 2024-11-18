@@ -41,7 +41,7 @@ internal object Worldwide {
   private val generic2: Mustache by lazy {
         compileTemplate("""
         |{{{attention}}}
-        |{{#first}} {{{house}}}, {{{quarter}}} || {{{house}}} {{/first}}
+        |{{{house}}}, {{{quarter}}}
         |{{{house_number}}} {{{road}}}
         |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
         |{{#first}} {{{country}}} || {{{state}}} {{/first}}
@@ -654,7 +654,7 @@ internal object Worldwide {
             |{{{attention}}}
             |{{{house}}}
             |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} || {{{region}}}{{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}} {{{postcode}}}
             |{{{country}}}
             |""".trimMargin()),
             postformatReplace = listOf(
@@ -2329,7 +2329,7 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = compileTemplate("""
             |{{{attention}}}
-            |{{#first}} {{{house}}}, {{{quarter}}} || {{{house}}} {{/first}}
+            |{{{house}}}, {{{quarter}}}
             |{{{house_number}}} {{{road}}}, {{{residential}}}
             |{{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
             |{{{country}}}

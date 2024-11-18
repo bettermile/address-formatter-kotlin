@@ -666,7 +666,7 @@ public val testCases: List<TestCase> = listOf(
       TestCase(
         components = mapOf("city" to "London", "country" to "Canada", "country_code" to "ca", "county" to "Middlesex County", "state" to "Ontario", "state_code" to "ON"),
         expected = """
-        |London, ON
+        |London, Ontario
         |Canada
         |""".trimMargin(),
         description = "city, state",
@@ -696,7 +696,7 @@ public val testCases: List<TestCase> = listOf(
       TestCase(
         components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Springfield", "state" to "Manitoba"),
         expected = """
-        |Springfield, MB
+        |Springfield, Manitoba
         |Canada
         |""".trimMargin(),
         description = "just county",
@@ -720,6 +720,15 @@ public val testCases: List<TestCase> = listOf(
         |Canada
         |""".trimMargin(),
         description = "postformat_replace applied to abbreviated street type",
+        fileName = "countries - ca",
+      ),
+      TestCase(
+        components = mapOf("country" to "Canada", "country_code" to "ca", "region" to "Greater Edmonton", "state" to "Alberta", "state_code" to "AB"),
+        expected = """
+        |Greater Edmonton, Alberta
+        |Canada
+        |""".trimMargin(),
+        description = "Greater Edmonton, Alberta, Canada",
         fileName = "countries - ca",
       ),
       TestCase(
