@@ -28,23 +28,27 @@ import org.junit.runners.Parameterized
 @RunWith(Enclosed::class)
 class AddressFormatterTest {
     @RunWith(Parameterized::class)
-    class ParameterizedAddressFormatterTest(testCase: TestCase, @Suppress("UNUSED_PARAMETER") testName: String?) {
-        private val components: Map<String, String> = testCase.components
-        private val address: String = testCase.expected
+    class ParameterizedAddressFormatterTest(
+        private val testCase: TestCase,
+        @Suppress("UNUSED_PARAMETER") testName: String?,
+    ) {
 
         @Test
         fun worksWithAddressesWorldwide() {
-            val formatted = formatter.format(components)
-            Assert.assertEquals(address, formatted)
+            val formatter = if (testCase.abbreviate) abbreviateFormatter else formatter
+            val formatted = formatter.format(testCase.components)
+            Assert.assertEquals(testCase.expected, formatted)
         }
 
         companion object {
             lateinit var formatter: AddressFormatter
+            lateinit var abbreviateFormatter: AddressFormatter
 
             @BeforeClass
             @JvmStatic
             fun setup() {
                 formatter = AddressFormatter(abbreviate = false, appendCountry = false)
+                abbreviateFormatter = AddressFormatter(abbreviate = true, appendCountry = false)
             }
 
             @JvmStatic

@@ -239,7 +239,7 @@ class AddressFormatter(
                 abbreviation.forEach abbreviationForEach@{ (component, abbrs) ->
                     var value = components[component] ?: return@abbreviationForEach
                     abbrs.forEach { (src, dest) ->
-                        val regex = regexPatternCache["\\b$src\\b"]
+                        val regex = regexPatternCache["(?<=^|\\s)$src(?=\\s|\$)"]
                         value = regex.replace(value, dest)
                     }
                     components[component] = value

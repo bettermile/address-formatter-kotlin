@@ -28,11 +28,11 @@ import com.squareup.kotlinpoet.joinToCode
 object TestCasesTranspiler {
     private val testCaseClass = ClassName("com.bettermile.addressformatter", "TestCase")
 
-    fun yamlToFile(testCases: List<Pair<String, List<ObjectNode>>>): FileSpec {
+    fun yamlToFile(testCases: List<Input>): FileSpec {
         return generatedFileSpec("TestCases") {
             val type = List::class.asClassName().parameterizedBy(testCaseClass)
-            val elements: List<CodeBlock> = testCases.flatMap { (fileName, testCases) ->
-                testCases.map { testCase ->
+            val elements: List<CodeBlock> = testCases.flatMap { input ->
+                input.tests.map { testCase ->
                     val components: List<CodeBlock> = testCase["components"].properties().map { (key, value) ->
                         CodeBlock.of("%S·to·%S", key, value.asText())
                     }
@@ -42,7 +42,8 @@ object TestCasesTranspiler {
                         CodeBlock.of("components·=·mapOf(%L)", components.joinToCode(", ")),
                         CodeBlock.of("expected·=·%S", expected),
                         CodeBlock.of("description·=·%S", description),
-                        CodeBlock.of("fileName·=·%S", fileName),
+                        CodeBlock.of("fileName·=·%S", input.fileName),
+                        CodeBlock.of("abbreviate·=·%L", input.abbreviate),
                     )
                     multilineFunctionCall(testCaseClass, properties)
                 }
@@ -54,4 +55,10 @@ object TestCasesTranspiler {
             )
         }
     }
+
+    data class Input(
+        val fileName: String,
+        val tests: List<ObjectNode>,
+        val abbreviate: Boolean,
+    )
 }
