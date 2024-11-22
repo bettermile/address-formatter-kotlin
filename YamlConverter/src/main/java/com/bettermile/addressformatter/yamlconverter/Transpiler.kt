@@ -28,9 +28,9 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Locale
-import java.util.stream.Stream
 import kotlin.io.path.name
 import kotlin.io.path.nameWithoutExtension
+import kotlin.io.path.pathString
 import kotlin.streams.asSequence
 
 object Transpiler {
@@ -103,12 +103,9 @@ object Transpiler {
 
     private fun testCases(yamlReader: ObjectMapper, yamlFactory: YAMLFactory) {
         try {
-            val paths = Stream.of(
-                "address-formatting/testcases/countries",
-                "address-formatting/testcases/other"
-            ).flatMap { path: String ->
+            val paths = Files.list(Paths.get("address-formatting/testcases")).flatMap { path ->
                 try {
-                    return@flatMap Files.list(Paths.get(path))
+                    Files.list(path)
                 } catch (e: IOException) {
                     throw RuntimeException("error while reading path $path", e)
                 }
@@ -118,8 +115,13 @@ object Transpiler {
                     yamlReader.readValues(yamlFactory.createParser(path.toFile()), JsonNode::class.java).readAll()
                         .filterNot { it is NullNode }
                         .filterIsInstance<ObjectNode>()
-                val fileName = "${path.parent.name} - ${path.fileName.nameWithoutExtension}"
-                fileName to array
+                val parentFolderName = path.parent.name
+                val fileName = "$parentFolderName - ${path.fileName.nameWithoutExtension}"
+                TestCasesTranspiler.Input(
+                    fileName = fileName,
+                    tests = array,
+                    abbreviate = parentFolderName == "abbreviations",
+                )
             }.toList()
             TestCasesTranspiler.yamlToFile(testCases).writeTo(Paths.get(TEST_DESTINATION_DIR))
         } catch (e: IOException) {
@@ -168,5 +170,5 @@ object Transpiler {
         return String(encoded, StandardCharsets.UTF_8)
     }
 
-    private val PATH_BY_NAME_COMPARATOR = compareBy { path: Path -> path.fileName.toString() }
+    private val PATH_BY_NAME_COMPARATOR = compareBy(Path::pathString)
 }

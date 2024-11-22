@@ -21,4 +21,5 @@ data class TestCase(
     val expected: String,
     val description: String,
     val fileName: String,
+    val abbreviate: Boolean,
 )
