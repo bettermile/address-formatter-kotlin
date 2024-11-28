@@ -25,10 +25,12 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+const val DEFAULT_PACKAGE = "com.bettermile.addressformatter.generated"
+
 @OptIn(ExperimentalContracts::class)
 inline fun generatedFileSpec(
     fileName: String,
-    packageName: String = "com.bettermile.addressformatter.generated",
+    packageName: String = DEFAULT_PACKAGE,
     block: FileSpec.Builder.() -> Unit,
 ): FileSpec {
     contract {
