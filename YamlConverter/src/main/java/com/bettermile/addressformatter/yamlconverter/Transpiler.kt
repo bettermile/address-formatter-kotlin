@@ -28,7 +28,8 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.Locale
-import kotlin.io.path.name
+import kotlin.io.path.ExperimentalPathApi
+import kotlin.io.path.deleteRecursively
 import kotlin.io.path.nameWithoutExtension
 import kotlin.io.path.pathString
 import kotlin.streams.asSequence
@@ -37,6 +38,10 @@ object Transpiler {
 
     @JvmStatic
     fun main(args: Array<String>) {
+        // delete old generated files, to clean up old generated files, which might not be needed anymore
+        Paths.get(KOTLIN_DESTINATION_DIR).deleteAllFiles()
+        Paths.get(TEST_DESTINATION_DIR).deleteAllFiles()
+
         val yamlFactory = YAMLFactory()
         val yamlReader = ObjectMapper(yamlFactory)
         transpileWorldwide(yamlReader)
@@ -110,20 +115,13 @@ object Transpiler {
                     throw RuntimeException("error while reading path $path", e)
                 }
             }
-            val testCases = paths.sorted(PATH_BY_NAME_COMPARATOR).asSequence().map { path: Path ->
+            paths.sorted(PATH_BY_NAME_COMPARATOR).forEach { path: Path ->
                 val array: List<ObjectNode> =
                     yamlReader.readValues(yamlFactory.createParser(path.toFile()), JsonNode::class.java).readAll()
                         .filterNot { it is NullNode }
                         .filterIsInstance<ObjectNode>()
-                val parentFolderName = path.parent.name
-                val fileName = "$parentFolderName - ${path.fileName.nameWithoutExtension}"
-                TestCasesTranspiler.Input(
-                    fileName = fileName,
-                    tests = array,
-                    abbreviate = parentFolderName == "abbreviations",
-                )
-            }.toList()
-            TestCasesTranspiler.yamlToFile(testCases).writeTo(Paths.get(TEST_DESTINATION_DIR))
+                TestCasesTranspiler.yamlToFile(path, array).writeTo(Paths.get(TEST_DESTINATION_DIR))
+            }
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -168,6 +166,12 @@ object Transpiler {
     fun readFile(path: String): String {
         val encoded = Files.readAllBytes(Paths.get(path))
         return String(encoded, StandardCharsets.UTF_8)
+    }
+
+    @OptIn(ExperimentalPathApi::class)
+    private fun Path.deleteAllFiles(packageName: String = DEFAULT_PACKAGE) {
+        val folderName = packageName.replace('.', '/')
+        resolve(folderName).deleteRecursively()
     }
 
     private val PATH_BY_NAME_COMPARATOR = compareBy(Path::pathString)
