@@ -1,6 +1,6 @@
 [versions]
 dokka = "1.9.20"
-jackson = "2.18.1"
+jackson = "2.18.2"
 kotlin = "2.1.0"
 kotlinpoet = "2.0.0"
 maven-publish = "0.30.0"
