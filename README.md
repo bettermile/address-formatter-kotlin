@@ -1,5 +1,4 @@
 # Address Formatter
-# Address Formatter
 
 A library for formatting addresses.
 
