@@ -17,7 +17,7 @@
 import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
-    kotlin("jvm")
+    kotlin("multiplatform")
     alias(libs.plugins.dokka)
     alias(libs.plugins.maven.publish)
 }
@@ -26,14 +26,19 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation(libs.mustache)
+kotlin {
+    jvm()
+    jvmToolchain(11)
 
-    testImplementation(libs.kotlin.test.junit)
+    sourceSets {
+        jvmMain.dependencies {
+            implementation(libs.mustache)
+        }
+    }
 }
 
-kotlin {
-    jvmToolchain(11)
+dependencies {
+    commonTestImplementation(libs.kotlin.test)
 }
 
 mavenPublishing {

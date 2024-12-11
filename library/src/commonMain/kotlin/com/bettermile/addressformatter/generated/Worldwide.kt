@@ -16,16 +16,14 @@
 package com.bettermile.addressformatter.generated
 
 import com.bettermile.addressformatter.CountryFormat
-import com.github.mustachejava.DefaultMustacheFactory
-import com.github.mustachejava.Mustache
-import com.github.mustachejava.MustacheFactory
-import java.io.StringReader
+import com.bettermile.addressformatter.mustache.Mustache
+import com.bettermile.addressformatter.mustache.MustacheFactory
 import kotlin.Lazy
 import kotlin.String
 import kotlin.collections.Map
 
 internal object Worldwide {
-  private val mustacheFactory: MustacheFactory = DefaultMustacheFactory()
+  private val mustacheFactory: MustacheFactory = MustacheFactory()
 
   private val generic1: Mustache by lazy {
         compileTemplate("""
@@ -2815,5 +2813,5 @@ internal object Worldwide {
         },
       )
 
-  private fun compileTemplate(template: String): Mustache = mustacheFactory.compile(StringReader(template), "example")
+  private fun compileTemplate(template: String): Mustache = mustacheFactory.compile(template)
 }

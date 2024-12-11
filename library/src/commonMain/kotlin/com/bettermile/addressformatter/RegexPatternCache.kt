@@ -23,5 +23,5 @@ internal class RegexPatternCache {
     operator fun get(
         key: String,
         vararg regexOptions: RegexOption,
-        ): Regex = map.computeIfAbsent(key) { Regex(it, regexOptions.toSet()) }
+    ): Regex = map[key] ?: Regex(key, regexOptions.toSet()).also { map[key] = it }
 }

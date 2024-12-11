@@ -63,3 +63,6 @@ archive/
 
 # MacOS temportal files
 .DS_Store
+
+# Kotlin
+.kotlin/
