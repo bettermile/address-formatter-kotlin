@@ -27,14 +27,13 @@ import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.asClassName
 import com.squareup.kotlinpoet.buildCodeBlock
-import java.io.StringReader
 
 object WorldwideTranspiler {
     private val countryFormatType = ClassName("com.bettermile.addressformatter", "CountryFormat")
     private val countryFormatReplaceType = ClassName("com.bettermile.addressformatter", "CountryFormat", "Replace")
-    private val mustacheFactoryClass = ClassName("com.github.mustachejava", "MustacheFactory")
-    private val mustacheClass = ClassName("com.github.mustachejava", "Mustache")
-    private val defaultMustacheFactoryClass = ClassName("com.github.mustachejava", "DefaultMustacheFactory")
+    private val mustacheFactoryClass = ClassName("com.bettermile.addressformatter.mustache", "MustacheFactory")
+    private val mustacheClass = ClassName("com.bettermile.addressformatter.mustache", "Mustache")
+    private val defaultMustacheFactoryClass = mustacheFactoryClass
     private const val MUSTACHE_COMPILE_TEMPLATE_FUNCTION_NAME = "compileTemplate"
 
     fun yamlToFile(obj: ObjectNode): FileSpec {
@@ -96,10 +95,7 @@ object WorldwideTranspiler {
                 .addModifiers(KModifier.PRIVATE)
                 .addParameter("template", String::class)
                 .returns(mustacheClass)
-                .addCode(
-                    "return $mustacheFactoryPropertyName.compile(%T(template), \"example\")",
-                    StringReader::class,
-                )
+                .addCode("return $mustacheFactoryPropertyName.compile(template)")
                 .build()
         )
     }
