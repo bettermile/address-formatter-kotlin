@@ -24,11 +24,11 @@ import com.bettermile.addressformatter.generated.country2Languages
 import com.bettermile.addressformatter.generated.countryNames
 import com.bettermile.addressformatter.generated.countyCodes
 import com.bettermile.addressformatter.generated.stateCodes
-import com.github.mustachejava.Mustache
-import java.io.StringWriter
-import java.util.function.Function
+import com.bettermile.addressformatter.mustache.Mustache
+import com.bettermile.addressformatter.mustache.MustacheLambda
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
+import kotlin.jvm.JvmOverloads
 
 /**
  * Formatter for addresses. The address format [String]s come from the
@@ -96,7 +96,8 @@ class AddressFormatter(
     private fun Map<String, String>.normalizeFields(): MutableMap<String, String> {
         val normalizedComponents: MutableMap<String, String> = hashMapOf()
         for ((field, value) in this) {
-            normalizedComponents.putIfAbsent(field.normalizeFieldName(), value)
+            val normalizeFieldName = field.normalizeFieldName()
+            if (!normalizedComponents.containsKey(normalizeFieldName)) normalizedComponents[normalizeFieldName] = value
         }
         return normalizedComponents
     }
@@ -307,14 +308,13 @@ class AddressFormatter(
     }
 
     private fun renderTemplate(template: CountryFormat, components: Map<String, String>): String {
-        val callback: MutableMap<String, Any> = HashMap()
-        callback["first"] = Function { s: String ->
+        val firstCallback = MustacheLambda { s: String ->
             val split = s.splitToSequence(regexPatternCache["\\s*\\|\\|\\s*"])
             split.firstOrNull(String::isNotEmpty) ?: ""
         }
         val mustache = chooseTemplateText(template, components)
-        val st = mustache.execute(StringWriter(), listOf<Any>(components, callback))
-        var rendered = cleanupRender(st.toString())
+        val st = mustache.execute(listOf<Any>(components, mapOf("first" to firstCallback)))
+        var rendered = cleanupRender(st)
         val postformat = template.postformatReplace
         if (postformat.isNotEmpty()) {
             rendered = postformat.fold(rendered) { acc, jsonNode ->
