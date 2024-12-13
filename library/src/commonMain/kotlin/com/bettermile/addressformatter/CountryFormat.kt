@@ -16,7 +16,7 @@
 
 package com.bettermile.addressformatter
 
-import com.github.mustachejava.Mustache
+import com.bettermile.addressformatter.mustache.Mustache
 
 internal data class CountryFormat(
     val addressTemplate: Mustache? = null,
