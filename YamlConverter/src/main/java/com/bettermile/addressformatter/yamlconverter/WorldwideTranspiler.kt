@@ -31,10 +31,7 @@ import com.squareup.kotlinpoet.buildCodeBlock
 object WorldwideTranspiler {
     private val countryFormatType = ClassName("com.bettermile.addressformatter", "CountryFormat")
     private val countryFormatReplaceType = ClassName("com.bettermile.addressformatter", "CountryFormat", "Replace")
-    private val mustacheFactoryClass = ClassName("com.bettermile.addressformatter.mustache", "MustacheFactory")
     private val mustacheClass = ClassName("com.bettermile.addressformatter.mustache", "Mustache")
-    private val defaultMustacheFactoryClass = mustacheFactoryClass
-    private const val MUSTACHE_COMPILE_TEMPLATE_FUNCTION_NAME = "compileTemplate"
 
     fun yamlToFile(obj: ObjectNode): FileSpec {
         return generatedFileSpec(fileName = "Worldwide") {
@@ -42,7 +39,6 @@ object WorldwideTranspiler {
                 TypeSpec.objectBuilder("Worldwide")
                     .addModifiers(KModifier.INTERNAL)
                     .apply {
-                        generateMustacheCompileFunction()
                         val countryBlocks = mutableListOf<CodeBlock>()
                         for ((key, value) in obj.properties()) {
                             if (key.startsWith("generic") || key.startsWith("fallback")) {
@@ -79,33 +75,101 @@ object WorldwideTranspiler {
         }
     }
 
-    private fun TypeSpec.Builder.generateMustacheCompileFunction() {
-        val mustacheFactoryPropertyName = "mustacheFactory"
-        addProperty(
-            PropertySpec.builder(
-                name = mustacheFactoryPropertyName,
-                type = mustacheFactoryClass,
-                KModifier.PRIVATE,
-            )
-                .initializer("%T()", defaultMustacheFactoryClass)
-                .build()
-        )
-        addFunction(
-            FunSpec.builder(MUSTACHE_COMPILE_TEMPLATE_FUNCTION_NAME)
-                .addModifiers(KModifier.PRIVATE)
-                .addParameter("template", String::class)
-                .returns(mustacheClass)
-                .addCode("return $mustacheFactoryPropertyName.compile(template)")
-                .build()
-        )
-    }
-
     private fun compileTemplate(template: String): CodeBlock {
         return buildCodeBlock {
             beginControlFlow("lazy")
-            add("$MUSTACHE_COMPILE_TEMPLATE_FUNCTION_NAME(%S)", template)
+            add("%L", template.toMustacheAnonymousClass())
             unindent()
             add("\n}")
+        }
+    }
+
+    private fun String.toMustacheAnonymousClass(): TypeSpec = TypeSpec.anonymousClassBuilder()
+        .addSuperinterface(mustacheClass)
+        .addFunction(
+            FunSpec.builder("execute")
+                .addModifiers(KModifier.OVERRIDE)
+                .addParameter("context", Map::class.parameterizedBy(String::class, String::class))
+                .returns(String::class)
+                .addCode(
+                    buildCodeBlock {
+                        beginControlFlow("return buildString")
+                        add(generateMustacheCodeBlock())
+                        endControlFlow()
+                    }
+                )
+                .build()
+        )
+        .build()
+
+    private fun String.generateMustacheCodeBlock(): CodeBlock = buildCodeBlock {
+        var index = 0
+        var literal = ""
+        fun readName(): String {
+            while (get(index).isWhitespace()) index++
+            val endIndex = indexOf('}', index)
+            return substring(index, endIndex).trim().also {
+                index = endIndex
+                while (get(index) == '}') index++
+            }
+        }
+
+        fun appendLiteral() {
+            if (literal.isNotEmpty()) {
+                if (literal.length == 1) {
+                    if (literal == "\n") literal = "\\n"
+                    addStatement("append('%L')", literal)
+                } else {
+                    addStatement("append(\"%L\")", literal.replace("\n", "\\n"))
+                }
+                literal = ""
+            }
+        }
+        while (index < length) {
+            val char = get(index++)
+            if (char != '{') {
+                literal += char
+            } else {
+                appendLiteral()
+                require(get(index++) == '{')
+                val mustacheClassChar = get(index++)
+                if (mustacheClassChar == '{') {
+                    addStatement("context[%S]?.also(::append)", readName())
+                } else {
+                    require(mustacheClassChar == '#')
+                    require(readName() == "first")
+                    beginControlFlow("sequence")
+                    do {
+                        when (val firstBlockChar = get(index++)) {
+                            '{' -> {
+                                require(get(index++) == '{')
+                                val mustacheClassChar2 = get(index++)
+                                if (mustacheClassChar2 == '{') {
+                                    literal += "\${context[\"${readName()}\"] ?: \"\"}"
+                                } else {
+                                    require(mustacheClassChar2 == '/')
+                                    require(readName() == "first")
+                                    addStatement("yield(%P)", literal)
+                                    literal = ""
+                                    break
+                                }
+                            }
+
+                            '|' -> {
+                                require(get(index++) == '|')
+                                addStatement("yield(%P)", literal)
+                                literal = ""
+                            }
+
+                            else -> {
+                                literal += firstBlockChar
+                            }
+                        }
+                    } while (true)
+                    endControlFlow()
+                    addStatement(".firstOrNull(String::isNotBlank)?.also(::append)")
+                }
+            }
         }
     }
 
@@ -141,7 +205,7 @@ object WorldwideTranspiler {
             val template = valueObject[propertyYamlName].asText()
             when {
                 template.startsWith("generic") || template.startsWith("fallback") -> CodeBlock.of("%L", template)
-                else -> CodeBlock.of("$MUSTACHE_COMPILE_TEMPLATE_FUNCTION_NAME(%S)", template)
+                else -> CodeBlock.of("%L", template.toMustacheAnonymousClass())
             }
         } else {
             null

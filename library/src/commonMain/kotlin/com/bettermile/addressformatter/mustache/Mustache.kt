@@ -2,5 +2,5 @@ package com.bettermile.addressformatter.mustache
 
 internal interface Mustache {
 
-    fun execute(context: List<Any>): String
+    fun execute(context: Map<String, String>): String
 }

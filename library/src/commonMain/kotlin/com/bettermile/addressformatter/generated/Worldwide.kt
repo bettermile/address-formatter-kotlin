@@ -17,315 +17,905 @@ package com.bettermile.addressformatter.generated
 
 import com.bettermile.addressformatter.CountryFormat
 import com.bettermile.addressformatter.mustache.Mustache
-import com.bettermile.addressformatter.mustache.MustacheFactory
 import kotlin.Lazy
 import kotlin.String
 import kotlin.collections.Map
 
 internal object Worldwide {
-  private val mustacheFactory: MustacheFactory = MustacheFactory()
-
   private val generic1: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-        |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-        |{{{archipelago}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["road"] ?: ""} """)
+              yield(""" ${context["place"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["postal_city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["archipelago"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic2: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}, {{{quarter}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
-        |{{#first}} {{{country}}} || {{{state}}} {{/first}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append(", ")
+            context["quarter"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            context["postcode"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["country"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+          }
+        }
       }
 
   private val generic3: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{{place}}}
-        |{{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            context["place"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic4: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(", ")
+            sequence {
+              yield(""" ${context["state_code"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            context["postcode"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic5: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["state_district"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic6: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-        |{{{county}}}
-        |{{{state}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["county"]?.also(::append)
+            append('\n')
+            context["state"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic7: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""}""")
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(", ")
+            context["postcode"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic8: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["county_code"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic9: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic10: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}}, {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{{state}}}
-        |{{{country}}}
-        |{{{postcode}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(", ")
+            context["house_number"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["state"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+          }
+        }
       }
 
   private val generic11: Mustache by lazy {
-        compileTemplate("""
-        |{{{country}}}
-        |{{{state}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{{suburb}}}
-        |{{{road}}}, {{{house_number}}}
-        |{{{house}}}
-        |{{{attention}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["country"]?.also(::append)
+            append('\n')
+            context["state"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["suburb"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(", ")
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["attention"]?.also(::append)
+          }
+        }
       }
 
   private val generic12: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}}, {{{road}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
-        |{{{state}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(", ")
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(" - ")
+            context["postcode"]?.also(::append)
+            append('\n')
+            context["state"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic13: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["region"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["state_code"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            context["postcode"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic14: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-        |{{{state}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["state"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic15: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}}, {{{house_number}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(", ")
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic16: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic17: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic18: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}}, {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(", ")
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["neighbourhood"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic19: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["neighbourhood"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            context["postcode"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic20: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["neighbourhood"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(' ')
+            context["postcode"]?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic21: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["neighbourhood"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic22: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}}, {{{road}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(", ")
+            context["road"]?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append(' ')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val generic23: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{{quarter}}}
-        |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
-        |{{{postcode}}}
-        |{{#first}} {{{country}}} || {{{state}}} {{/first}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["house_number"]?.also(::append)
+            append(' ')
+            context["road"]?.also(::append)
+            append('\n')
+            context["quarter"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["postcode"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["country"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+          }
+        }
       }
 
   private val fallback1: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-        |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["place"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["city_district"] ?: ""} """)
+              yield(""" ${context["neighbourhood"] ?: ""} """)
+              yield(""" ${context["island"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["county"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+              yield(""" ${context["state"] ?: ""} """)
+              yield(""" ${context["region"] ?: ""} """)
+              yield(""" ${context["island"] ?: ""}, ${context["archipelago"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val fallback2: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["place"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+              yield(""" ${context["island"] ?: ""} """)
+              yield(""" ${context["state_district"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append(", ")
+            sequence {
+              yield(""" ${context["state"] ?: ""} """)
+              yield(""" ${context["state_code"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val fallback3: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{#first}} {{{suburb}}} || {{{island}}} {{/first}}
-        |{{#first}} {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-        |{{#first}} {{{town}}} || {{{city}}}{{/first}}
-        |{{{county}}}
-        |{{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["place"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["suburb"] ?: ""} """)
+              yield(""" ${context["island"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["city"] ?: ""}""")
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["county"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["state"] ?: ""} """)
+              yield(""" ${context["state_code"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   private val fallback4: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{{suburb}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
-        |{{#first}} {{{state}}} || {{{county}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
+        object : Mustache {
+          override fun execute(context: Map<String, String>): String = buildString {
+            context["attention"]?.also(::append)
+            append('\n')
+            context["house"]?.also(::append)
+            append('\n')
+            context["road"]?.also(::append)
+            append(' ')
+            context["house_number"]?.also(::append)
+            append('\n')
+            context["place"]?.also(::append)
+            append('\n')
+            context["suburb"]?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["city"] ?: ""} """)
+              yield(""" ${context["town"] ?: ""} """)
+              yield(""" ${context["village"] ?: ""} """)
+              yield(""" ${context["hamlet"] ?: ""} """)
+              yield(""" ${context["municipality"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            sequence {
+              yield(""" ${context["state"] ?: ""} """)
+              yield(""" ${context["county"] ?: ""} """)
+            }
+            .firstOrNull(String::isNotBlank)?.also(::append)
+            append('\n')
+            context["country"]?.also(::append)
+          }
+        }
       }
 
   public val default: CountryFormat = CountryFormat(
@@ -341,15 +931,40 @@ internal object Worldwide {
         },
         "AE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "AF" to lazy {
@@ -364,24 +979,59 @@ internal object Worldwide {
         },
         "AI" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}} {{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "AL" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{city_district}}} || {{{municipality}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -395,15 +1045,35 @@ internal object Worldwide {
         },
         "AM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "AO" to lazy {
@@ -413,16 +1083,44 @@ internal object Worldwide {
         },
         "AQ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{country}}} || {{{continent}}} {{/first}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{country}}} || {{{continent}}} {{/first}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["country"] ?: ""} """)
+                  yield(""" ${context["continent"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+              }
+            },
+            fallbackTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["country"] ?: ""} """)
+                  yield(""" ${context["continent"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+              }
+            },
           )
         },
         "AR" to lazy {
@@ -487,26 +1185,69 @@ internal object Worldwide {
         },
         "BD" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(" - ")
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "BE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{archipelago}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["postal_city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["archipelago"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "BF" to lazy {
@@ -547,14 +1288,37 @@ internal object Worldwide {
         },
         "BN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(", ")
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "BO" to lazy {
@@ -573,15 +1337,42 @@ internal object Worldwide {
         },
         "BR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{{hamlet}}}{{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(" - ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = "\\b(\\d{5})(\\d{3})\\b", replacement = "${'$'}1-${'$'}2"),
             ),
@@ -589,26 +1380,67 @@ internal object Worldwide {
         },
         "BS" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{{county}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["county"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "BT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}, {{{house}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append(", ")
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "BV" to lazy {
@@ -619,14 +1451,34 @@ internal object Worldwide {
         },
         "BW" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "BY" to lazy {
@@ -641,20 +1493,73 @@ internal object Worldwide {
         },
         "CA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} || {{{region}}}{{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["house_number"] ?: ""} ${context["road"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
+            fallbackTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["house_number"] ?: ""} ${context["road"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["region"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_code"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -666,20 +1571,72 @@ internal object Worldwide {
         },
         "CA_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["house_number"] ?: ""} ${context["road"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
+            fallbackTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["house_number"] ?: ""} ${context["road"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -691,13 +1648,39 @@ internal object Worldwide {
         },
         "CA_fr" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}}, {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}} {{#first}} ({{{state_code}}}) || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["house_number"] ?: ""}, ${context["road"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" (${context["state_code"] ?: ""}) """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -730,13 +1713,33 @@ internal object Worldwide {
         },
         "CH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["postal_city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             replace = listOf(
               CountryFormat.Replace(search = "Verwaltungskreis", replacement = ""),
               CountryFormat.Replace(search = "Verwaltungsregion", replacement = ""),
@@ -757,14 +1760,35 @@ internal object Worldwide {
         },
         "CL" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{region}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["postal_city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["region"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "CM" to lazy {
@@ -774,56 +1798,178 @@ internal object Worldwide {
         },
         "CN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{postcode}}} {{{country}}}
-            |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
-            |{{{county}}}
-            |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["postcode"]?.also(::append)
+                append(' ')
+                context["country"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["region"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["county"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield("""${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""}""")
+                  yield(""" ${context["village"] ?: ""}""")
+                  yield(""" ${context["hamlet"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
           )
         },
         "CN_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{county}}}
-            |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
-            |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
-            |{{{country}}} {{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["county"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield("""${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""}""")
+                  yield(""" ${context["village"] ?: ""}""")
+                  yield(""" ${context["hamlet"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["region"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+              }
+            },
           )
         },
         "CN_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{postcode}}} {{{country}}}
-            |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
-            |{{{county}}}
-            |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["postcode"]?.also(::append)
+                append(' ')
+                context["country"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["region"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["county"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield("""${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""}""")
+                  yield(""" ${context["village"] ?: ""}""")
+                  yield(""" ${context["hamlet"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
           )
         },
         "CO" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = "Localidad ", replacement = " "),
               CountryFormat.Replace(search = "Bogota, Bogota", replacement = "Bogota"),
@@ -834,13 +1980,39 @@ internal object Worldwide {
         },
         "CR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{state}}}, {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "CU" to lazy {
@@ -898,23 +2070,80 @@ internal object Worldwide {
         },
         "DE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{archipelago}}}
-            |{{{country}}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{town}}} || {{{city}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
-            |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["road"] ?: ""} """)
+                  yield(""" ${context["place"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["village"] ?: ""} ${context["postal_city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["archipelago"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
+            fallbackTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["road"] ?: ""} """)
+                  yield(""" ${context["place"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             replace = listOf(
               CountryFormat.Replace(search = "^Stadtteil ", replacement = ""),
               CountryFormat.Replace(search = "^Stadtbezirk (\\d+)", replacement = ""),
@@ -970,15 +2199,38 @@ internal object Worldwide {
         },
         "DO" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{state}}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                context["state"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = ", Distrito Nacional", replacement = ", DN"),
             ),
@@ -991,27 +2243,64 @@ internal object Worldwide {
         },
         "EC" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "EG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "EE" to lazy {
@@ -1093,14 +2382,38 @@ internal object Worldwide {
         },
         "GA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "GB" to lazy {
@@ -1222,13 +2535,31 @@ internal object Worldwide {
         },
         "GT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}}-{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('-')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -1265,38 +2596,67 @@ internal object Worldwide {
         },
         "HK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{state_district}}}
-            |{{#first}} {{{state}}} || {{{country}}} {{/first}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                context["state_district"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["country"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+              }
+            },
           )
         },
         "HK_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{state_district}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                context["state_district"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "HK_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{{state_district}}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["state_district"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
           )
         },
         "HM" to lazy {
@@ -1326,39 +2686,100 @@ internal object Worldwide {
         },
         "HU" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{road}}} {{{house_number}}}.
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append(".\n")
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "ID" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "IE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{{county}}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["county"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             replace = listOf(
               CountryFormat.Replace(search = " City${'$'}", replacement = ""),
               CountryFormat.Replace(search = "The Municipal District of ", replacement = ""),
@@ -1431,62 +2852,162 @@ internal object Worldwide {
         },
         "IQ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{#first}} {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
-            |{{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "IR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{#first}}{{{province}}} || {{{state}}} || {{{state_district}}}{{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield("""${context["province"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "IR_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{#first}}{{{state}}} || {{{state_district}}}{{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield("""${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "IR_fa" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{{state_district}}}
-            |{{#first}} {{{state}}} || {{{province}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["state_district"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["province"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+              }
+            },
           )
         },
         "IS" to lazy {
@@ -1537,14 +3058,42 @@ internal object Worldwide {
         },
         "JP" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1556,14 +3105,42 @@ internal object Worldwide {
         },
         "JP_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1575,17 +3152,42 @@ internal object Worldwide {
         },
         "JP_ja" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{postcode}}}
-            |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1597,14 +3199,30 @@ internal object Worldwide {
         },
         "KE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "KG" to lazy {
@@ -1614,14 +3232,36 @@ internal object Worldwide {
         },
         "KH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "KI" to lazy {
@@ -1631,25 +3271,65 @@ internal object Worldwide {
         },
         "KM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "KN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{island}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["island"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "KP" to lazy {
@@ -1659,50 +3339,142 @@ internal object Worldwide {
         },
         "KR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
-            |{{{attention}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+              }
+            },
           )
         },
         "KR_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "KR_ko" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
-            |{{{attention}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+              }
+            },
           )
         },
         "KW" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |
-            |{{{road}}}
-            |{{{house_number}}} {{{house}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append("\n\n")
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["house"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "KY" to lazy {
@@ -1789,13 +3561,30 @@ internal object Worldwide {
         },
         "MD" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(", ")
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "ME" to lazy {
@@ -1817,14 +3606,36 @@ internal object Worldwide {
         },
         "MG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MK" to lazy {
@@ -1839,62 +3650,140 @@ internal object Worldwide {
         },
         "MM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}, {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{city_district}}}
-            |{{#first}} {{{suburb}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["city_district"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MO" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MO_pt" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MO_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
           )
         },
         "MP" to lazy {
@@ -1911,14 +3800,30 @@ internal object Worldwide {
         },
         "MT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MQ" to lazy {
@@ -1934,14 +3839,37 @@ internal object Worldwide {
         },
         "MU" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(", ")
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MV" to lazy {
@@ -1956,27 +3884,79 @@ internal object Worldwide {
         },
         "MX" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MY" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "MZ" to lazy {
@@ -1998,14 +3978,27 @@ internal object Worldwide {
         },
         "NE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}
-            |{{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "NF" to lazy {
@@ -2017,14 +4010,31 @@ internal object Worldwide {
         },
         "NG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "NI" to lazy {
@@ -2060,14 +4070,36 @@ internal object Worldwide {
         },
         "NP" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{neighbourhood}}} || {{{city}}} {{/first}}
-            |{{#first}} {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "NR" to lazy {
@@ -2093,29 +4125,69 @@ internal object Worldwide {
         },
         "OM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "PA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             replace = listOf(
               CountryFormat.Replace(search = "city=Panama${'$'}", replacement = "Panama City"),
               CountryFormat.Replace(search = "city=Panamá${'$'}", replacement = "Ciudad de Panamá"),
@@ -2138,36 +4210,107 @@ internal object Worldwide {
         },
         "PG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}} {{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append(' ')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "PH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{municipality}}} {{{region}}} {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append(", ")
+                sequence {
+                  yield("""${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""}""")
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["municipality"] ?: ""} ${context["region"] ?: ""} ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "PK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "PL" to lazy {
@@ -2192,12 +4335,22 @@ internal object Worldwide {
         },
         "PN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{island}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["island"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "PR" to lazy {
@@ -2260,15 +4413,43 @@ internal object Worldwide {
         "RU" to lazy {
           CountryFormat(
             addressTemplate = generic10,
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            fallbackTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(", ")
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                  yield(""" ${context["island"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "RW" to lazy {
@@ -2278,13 +4459,37 @@ internal object Worldwide {
         },
         "SA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}, {{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{suburb}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "SB" to lazy {
@@ -2294,14 +4499,30 @@ internal object Worldwide {
         },
         "SC" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{island}}} {{/first}}
-            |{{{island}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["island"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["island"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "SD" to lazy {
@@ -2325,13 +4546,36 @@ internal object Worldwide {
         },
         "SG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}, {{{quarter}}}
-            |{{{house_number}}} {{{road}}}, {{{residential}}}
-            |{{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append(", ")
+                context["quarter"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append(", ")
+                context["residential"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["country"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "SH" to lazy {
@@ -2353,13 +4597,34 @@ internal object Worldwide {
         },
         "SK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{city}}} || {{{town}}} || {{{village}}} || {{{municipality}}} || {{{city_district}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["postal_city"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             replace = listOf(
               CountryFormat.Replace(search = "^District of ", replacement = ""),
               CountryFormat.Replace(search = "^Region of ", replacement = ""),
@@ -2417,14 +4682,31 @@ internal object Worldwide {
         },
         "SV" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} - {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(" - ")
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -2443,40 +4725,96 @@ internal object Worldwide {
         },
         "SY" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{state}}} {{/first}}
-            |
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(", ")
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                  yield(""" ${context["suburb"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append("\n\n")
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "SZ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "TC" to lazy {
           CountryFormat(
             addressTemplate = generic23,
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{quarter}}}
-            |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
-            |{{{island}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            fallbackTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                context["quarter"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["county"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["island"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "TD" to lazy {
@@ -2497,15 +4835,43 @@ internal object Worldwide {
         },
         "TH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{road}}}
-            |{{#first}} {{{neighbourhood}}} || {{{city}}} || {{{town}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{{state}}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "TJ" to lazy {
@@ -2546,59 +4912,175 @@ internal object Worldwide {
         },
         "TT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "TV" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{island}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["county"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["island"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "TW" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
           )
         },
         "TW_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(", ")
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "TW_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["country"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["attention"]?.also(::append)
+              }
+            },
           )
         },
         "TZ" to lazy {
@@ -2615,16 +5097,43 @@ internal object Worldwide {
         },
         "UA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{region}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(", ")
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["municipality"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["region"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "UG" to lazy {
@@ -2677,15 +5186,35 @@ internal object Worldwide {
         },
         "UZ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["state"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+              }
+            },
           )
         },
         "UY" to lazy {
@@ -2705,24 +5234,65 @@ internal object Worldwide {
         },
         "VE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["road"]?.also(::append)
+                append(' ')
+                context["house_number"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append(", ")
+                sequence {
+                  yield(""" ${context["state_code"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "VG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{island}}}
-            |{{{country}}}, {{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(", ")
+                context["island"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+                append(", ")
+                context["postcode"]?.also(::append)
+              }
+            },
           )
         },
         "VI" to lazy {
@@ -2734,15 +5304,39 @@ internal object Worldwide {
         },
         "VN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{state}}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["neighbourhood"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["state"]?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "VU" to lazy {
@@ -2768,13 +5362,30 @@ internal object Worldwide {
         },
         "XK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(", ")
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append(' ')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "YE" to lazy {
@@ -2790,15 +5401,37 @@ internal object Worldwide {
         },
         "ZA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = object : Mustache {
+              override fun execute(context: Map<String, String>): String = buildString {
+                context["attention"]?.also(::append)
+                append('\n')
+                context["house"]?.also(::append)
+                append('\n')
+                context["house_number"]?.also(::append)
+                append(' ')
+                context["road"]?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["suburb"] ?: ""} """)
+                  yield(""" ${context["city_district"] ?: ""} """)
+                  yield(""" ${context["state_district"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                sequence {
+                  yield(""" ${context["city"] ?: ""} """)
+                  yield(""" ${context["town"] ?: ""} """)
+                  yield(""" ${context["village"] ?: ""} """)
+                  yield(""" ${context["hamlet"] ?: ""} """)
+                  yield(""" ${context["state"] ?: ""} """)
+                }
+                .firstOrNull(String::isNotBlank)?.also(::append)
+                append('\n')
+                context["postcode"]?.also(::append)
+                append('\n')
+                context["country"]?.also(::append)
+              }
+            },
           )
         },
         "ZM" to lazy {
@@ -2812,6 +5445,4 @@ internal object Worldwide {
           )
         },
       )
-
-  private fun compileTemplate(template: String): Mustache = mustacheFactory.compile(template)
 }
