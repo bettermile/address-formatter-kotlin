@@ -30,11 +30,8 @@ kotlin {
     jvm()
     jvmToolchain(11)
 
-    sourceSets {
-        jvmMain.dependencies {
-            implementation(libs.mustache)
-        }
-    }
+    iosArm64()
+    iosSimulatorArm64()
 }
 
 dependencies {

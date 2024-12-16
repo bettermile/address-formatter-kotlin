@@ -25,7 +25,6 @@ import com.bettermile.addressformatter.generated.countryNames
 import com.bettermile.addressformatter.generated.countyCodes
 import com.bettermile.addressformatter.generated.stateCodes
 import com.bettermile.addressformatter.mustache.Mustache
-import com.bettermile.addressformatter.mustache.MustacheLambda
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 import kotlin.jvm.JvmOverloads
@@ -259,10 +258,11 @@ class AddressFormatter(
         } else {
             aliases
         }
-        components.forEach { (key, value) ->
-            val newKey = aliases[key]?.takeIf { components[it] == null }
+        components.keys.sorted().forEach { key ->
+            val value = components.getValue(key)
             aliasedComponents[key] = value
-            if (newKey != null) {
+            val newKey = aliases[key]
+            if (newKey != null && newKey !in components && newKey !in aliasedComponents) {
                 aliasedComponents[newKey] = value
             }
         }
@@ -308,12 +308,8 @@ class AddressFormatter(
     }
 
     private fun renderTemplate(template: CountryFormat, components: Map<String, String>): String {
-        val firstCallback = MustacheLambda { s: String ->
-            val split = s.splitToSequence(regexPatternCache["\\s*\\|\\|\\s*"])
-            split.firstOrNull(String::isNotEmpty) ?: ""
-        }
         val mustache = chooseTemplateText(template, components)
-        val st = mustache.execute(listOf<Any>(components, mapOf("first" to firstCallback)))
+        val st = mustache.execute(components)
         var rendered = cleanupRender(st)
         val postformat = template.postformatReplace
         if (postformat.isNotEmpty()) {
