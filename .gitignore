@@ -66,3 +66,6 @@ archive/
 
 # Kotlin
 .kotlin/
+
+# ignore podspec
+**/*.podspec

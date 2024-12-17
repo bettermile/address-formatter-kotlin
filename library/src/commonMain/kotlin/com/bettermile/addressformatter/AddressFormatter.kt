@@ -259,10 +259,11 @@ class AddressFormatter(
         } else {
             aliases
         }
-        components.forEach { (key, value) ->
-            val newKey = aliases[key]?.takeIf { components[it] == null }
+        components.keys.sorted().forEach { key ->
+            val value = components.getValue(key)
             aliasedComponents[key] = value
-            if (newKey != null) {
+            val newKey = aliases[key]
+            if (newKey != null && newKey !in components && newKey !in aliasedComponents) {
                 aliasedComponents[newKey] = value
             }
         }
