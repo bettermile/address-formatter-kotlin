@@ -18,6 +18,7 @@ import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     kotlin("multiplatform")
+    kotlin("native.cocoapods")
     alias(libs.plugins.dokka)
     alias(libs.plugins.maven.publish)
 }
@@ -26,13 +27,37 @@ repositories {
     mavenCentral()
 }
 
+val libraryName = "Address Formatter Kotlin"
+val libraryLicense = "The Apache Software License, Version 2.0"
+val libraryVersion = "0.3.3"
+val libraryDescription = "An address components formatter for Kotlin"
+val libraryUrl = "https://github.com/bettermile/address-formatter-kotlin"
+val libraryAuthorName = "Bettermile"
+val libraryAuthorEmail = "app+maven@bettermile.com"
+val librarySourceControlUrl = "scm:git:git://github.com/bettermile/address-formatter-kotlin.git"
+
 kotlin {
     jvm()
     jvmToolchain(11)
 
+    iosArm64()
+    iosSimulatorArm64()
+
     sourceSets {
         jvmMain.dependencies {
             implementation(libs.mustache)
+        }
+    }
+    cocoapods {
+        name = libraryName
+        version = libraryVersion
+        summary = libraryDescription
+        homepage = libraryUrl
+        license = libraryLicense
+        authors = "$libraryAuthorName <$libraryAuthorEmail>"
+        source = librarySourceControlUrl
+        pod("GRMustache") {
+            version = "7.3.2"
         }
     }
 }
@@ -48,16 +73,16 @@ mavenPublishing {
         signAllPublications()
     }
 
-    coordinates("com.bettermile", "address-formatter-kotlin", "0.3.3")
+    coordinates("com.bettermile", "address-formatter-kotlin", libraryVersion)
 
     pom {
-        name.set("Address Formatter Kotlin")
+        name.set(libraryName)
         packaging = "jar"
-        description.set("An address components formatter for Kotlin")
-        url.set("https://github.com/bettermile/address-formatter-kotlin")
+        description.set(libraryDescription)
+        url.set(libraryUrl)
         scm {
-            url.set("https://github.com/bettermile/address-formatter-kotlin")
-            connection.set("scm:git:git://github.com/bettermile/address-formatter-kotlin.git")
+            url.set(libraryUrl)
+            connection.set(librarySourceControlUrl)
             developerConnection.set("scm:git:ssh://github.com/bettermile/address-formatter-kotlin.git")
             tag.set(System.getenv("VCS_TAG"))
         }
@@ -70,8 +95,8 @@ mavenPublishing {
         }
         developers {
             developer {
-                email.set("app+maven@bettermile.com")
-                organization.set("Bettermile")
+                email.set(libraryAuthorEmail)
+                organization.set(libraryAuthorName)
                 organizationUrl.set("https://bettermile.com/")
             }
         }
