@@ -2155,7 +2155,7 @@ internal object Worldwide {
             |{{{attention}}}
             |{{{house}}}
             |{{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{municipality}}} {{{region}}} {{{state}}} {{/first}}
+            |{{{postcode}}} {{#first}} {{{municipality}}} || {{{region}}} || {{{state}}} || {{/first}}
             |{{{country}}}
             |""".trimMargin()),
           )
