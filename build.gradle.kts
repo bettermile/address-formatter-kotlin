@@ -30,4 +30,5 @@ repositories {
 
 plugins {
     alias(libs.plugins.dokka) apply false
+    alias(libs.plugins.ksp) apply false
 }

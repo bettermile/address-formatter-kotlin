@@ -14,7 +14,21 @@
  * limitations under the License.
  */
 
-include(":library")
-include(":template")
-include(":template-processor")
-include(":YamlConverter")
+plugins {
+    kotlin("multiplatform")
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    jvm()
+    jvmToolchain(11)
+
+    iosArm64()
+    iosSimulatorArm64()
+}
+
+dependencies {
+}

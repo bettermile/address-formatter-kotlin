@@ -24,7 +24,7 @@ import com.bettermile.addressformatter.generated.country2Languages
 import com.bettermile.addressformatter.generated.countryNames
 import com.bettermile.addressformatter.generated.countyCodes
 import com.bettermile.addressformatter.generated.stateCodes
-import com.bettermile.addressformatter.mustache.Mustache
+import com.bettermile.addressformatter.template.AddressTemplate
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 import kotlin.jvm.JvmOverloads
@@ -281,7 +281,7 @@ class AddressFormatter(
     private fun chooseTemplateText(
         template: CountryFormat,
         components: Map<String, String>
-    ): Mustache {
+    ): AddressTemplate {
         var selected =
             template.addressTemplate ?: checkNotNull(Worldwide.default.addressTemplate)
         val required = listOf("road", "postcode")

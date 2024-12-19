@@ -16,11 +16,13 @@
 
 package com.bettermile.addressformatter.yamlconverter
 
+import com.bettermile.addressformatter.template.AddressTemplate
+import com.bettermile.addressformatter.template.AddressTemplateDefinition
 import com.fasterxml.jackson.databind.node.ObjectNode
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
-import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
@@ -31,7 +33,7 @@ import com.squareup.kotlinpoet.buildCodeBlock
 object WorldwideTranspiler {
     private val countryFormatType = ClassName("com.bettermile.addressformatter", "CountryFormat")
     private val countryFormatReplaceType = ClassName("com.bettermile.addressformatter", "CountryFormat", "Replace")
-    private val mustacheClass = ClassName("com.bettermile.addressformatter.mustache", "Mustache")
+    private val mustacheClass = AddressTemplate::class
 
     fun yamlToFile(obj: ObjectNode): FileSpec {
         return generatedFileSpec(fileName = "Worldwide") {
@@ -40,23 +42,31 @@ object WorldwideTranspiler {
                     .addModifiers(KModifier.INTERNAL)
                     .apply {
                         val countryBlocks = mutableListOf<CodeBlock>()
+                        val annotations = mutableListOf<AnnotationSpec>()
                         for ((key, value) in obj.properties()) {
                             if (key.startsWith("generic") || key.startsWith("fallback")) {
                                 addProperty(
                                     PropertySpec.builder(key, mustacheClass, KModifier.PRIVATE)
-                                        .delegate(compileTemplate(value.asText()))
+                                        .addAnnotation(
+                                            AnnotationSpec.builder(AddressTemplateDefinition::class)
+                                                .addMember("%S", value.asText())
+                                                .build()
+                                        )
+                                        .delegate("lazy(AddressTemplates::%L)", key)
                                         .build()
                                 )
                             } else if (key == "default") {
                                 addProperty(
                                     PropertySpec.builder(key, countryFormatType)
-                                        .initializer(printCountryFormat(value as ObjectNode))
+                                        .initializer(printCountryFormat(value as ObjectNode, key).first)
                                         .build()
                                 )
                             } else {
                                 countryBlocks += buildCodeBlock {
                                     beginControlFlow("%S to lazy", key)
-                                    add(printCountryFormat(value as ObjectNode))
+                                    val countryFormat = printCountryFormat(value as ObjectNode, key)
+                                    add(countryFormat.first)
+                                    annotations += countryFormat.second
                                     unindent()
                                     add("\n}")
                                 }
@@ -68,122 +78,33 @@ object WorldwideTranspiler {
                                 name = "countries",
                                 type = Map::class.parameterizedBy(String::class)
                                     .plusParameter(Lazy::class.asClassName().parameterizedBy(countryFormatType))
-                            ).initializer(multilineFunctionCall("mapOf", countryBlocks)).build()
+                            )
+                                .addAnnotations(annotations)
+                                .initializer(multilineFunctionCall("mapOf", countryBlocks)).build()
                         )
                     }.build()
             )
         }
     }
 
-    private fun compileTemplate(template: String): CodeBlock {
-        return buildCodeBlock {
-            beginControlFlow("lazy")
-            add("%L", template.toMustacheAnonymousClass())
-            unindent()
-            add("\n}")
-        }
-    }
-
-    private fun String.toMustacheAnonymousClass(): TypeSpec = TypeSpec.anonymousClassBuilder()
-        .addSuperinterface(mustacheClass)
-        .addFunction(
-            FunSpec.builder("execute")
-                .addModifiers(KModifier.OVERRIDE)
-                .addParameter("context", Map::class.parameterizedBy(String::class, String::class))
-                .returns(String::class)
-                .addCode(
-                    buildCodeBlock {
-                        beginControlFlow("return buildString")
-                        add(generateMustacheCodeBlock())
-                        endControlFlow()
-                    }
-                )
-                .build()
-        )
-        .build()
-
-    private fun String.generateMustacheCodeBlock(): CodeBlock = buildCodeBlock {
-        var index = 0
-        var literal = ""
-        fun readName(): String {
-            while (get(index).isWhitespace()) index++
-            val endIndex = indexOf('}', index)
-            return substring(index, endIndex).trim().also {
-                index = endIndex
-                while (get(index) == '}') index++
-            }
-        }
-
-        fun appendLiteral() {
-            if (literal.isNotEmpty()) {
-                if (literal.length == 1) {
-                    if (literal == "\n") literal = "\\n"
-                    addStatement("append('%L')", literal)
-                } else {
-                    addStatement("append(\"%L\")", literal.replace("\n", "\\n"))
-                }
-                literal = ""
-            }
-        }
-        while (index < length) {
-            val char = get(index++)
-            if (char != '{') {
-                literal += char
-            } else {
-                appendLiteral()
-                require(get(index++) == '{')
-                val mustacheClassChar = get(index++)
-                if (mustacheClassChar == '{') {
-                    addStatement("context[%S]?.also(::append)", readName())
-                } else {
-                    require(mustacheClassChar == '#')
-                    require(readName() == "first")
-                    beginControlFlow("sequence")
-                    do {
-                        when (val firstBlockChar = get(index++)) {
-                            '{' -> {
-                                require(get(index++) == '{')
-                                val mustacheClassChar2 = get(index++)
-                                if (mustacheClassChar2 == '{') {
-                                    literal += "\${context[\"${readName()}\"] ?: \"\"}"
-                                } else {
-                                    require(mustacheClassChar2 == '/')
-                                    require(readName() == "first")
-                                    addStatement("yield(%P)", literal)
-                                    literal = ""
-                                    break
-                                }
-                            }
-
-                            '|' -> {
-                                require(get(index++) == '|')
-                                addStatement("yield(%P)", literal)
-                                literal = ""
-                            }
-
-                            else -> {
-                                literal += firstBlockChar
-                            }
-                        }
-                    } while (true)
-                    endControlFlow()
-                    addStatement(".firstOrNull(String::isNotBlank)?.also(::append)")
-                }
-            }
-        }
-    }
-
-    private fun printCountryFormat(valueObject: ObjectNode): CodeBlock {
+    private fun printCountryFormat(valueObject: ObjectNode, country: String): Pair<CodeBlock, List<AnnotationSpec>> {
+        val annotations = mutableListOf<AnnotationSpec>()
         val parameters = buildMap {
-            printTemplateProperty(valueObject, "address_template")?.also { put("addressTemplate", it) }
-            printTemplateProperty(valueObject, "fallback_template")?.also { put("fallbackTemplate", it) }
+            printTemplateProperty(valueObject, "address_template", country)?.also {
+                put("addressTemplate", it.first)
+                it.second?.also { annotations += it }
+            }
+            printTemplateProperty(valueObject, "fallback_template", country)?.also {
+                put("fallbackTemplate", it.first)
+                it.second?.also { annotations += it }
+            }
             printRegexProperty(valueObject, "replace")?.also { put("replace", it) }
             printRegexProperty(valueObject, "postformat_replace")?.also { put("postformatReplace", it) }
             printProperty(valueObject, "use_country")?.also { put("useCountry", it) }
             printProperty(valueObject, "change_country")?.also { put("changeCountry", it) }
             printProperty(valueObject, "add_component")?.also { put("addComponent", it) }
         }.map { CodeBlock.of("${it.key}·=·%L", it.value) }
-        return multilineFunctionCall(countryFormatType, parameters)
+        return multilineFunctionCall(countryFormatType, parameters) to annotations
     }
 
     private fun printProperty(
@@ -199,13 +120,22 @@ object WorldwideTranspiler {
 
     private fun printTemplateProperty(
         valueObject: ObjectNode,
-        propertyYamlName: String
-    ): CodeBlock? {
+        propertyYamlName: String,
+        country: String,
+    ): Pair<CodeBlock, AnnotationSpec?>? {
         return if (valueObject.has(propertyYamlName)) {
             val template = valueObject[propertyYamlName].asText()
             when {
-                template.startsWith("generic") || template.startsWith("fallback") -> CodeBlock.of("%L", template)
-                else -> CodeBlock.of("%L", template.toMustacheAnonymousClass())
+                template.startsWith("generic") || template.startsWith("fallback") ->
+                    CodeBlock.of("%L", template) to null
+
+                else -> {
+                    val annotation = AnnotationSpec.builder(AddressTemplateDefinition::class)
+                        .addMember("%S", template)
+                        .addMember("\"%L_%L\"", country, propertyYamlName)
+                        .build()
+                    CodeBlock.of("AddressTemplates.%L_%L", country, propertyYamlName) to annotation
+                }
             }
         } else {
             null
