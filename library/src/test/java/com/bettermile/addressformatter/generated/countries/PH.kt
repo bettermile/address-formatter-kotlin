@@ -76,4 +76,18 @@ public class PH {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun address_ignore_additional_region() {
+    // description: address - ignore additional region
+    val components = mapOf("road" to "Gerona - Pura Road", "village" to "Poblacion 1", "postcode" to "2312", "municipality" to "Pura", "province" to "Tarlac", "region" to "Central Luzon", "country" to "Philippines", "country_code" to "PH", "attention" to "PYS Pharmacy")
+    val expected = """
+        |PYS Pharmacy
+        |Gerona - Pura Road, Poblacion 1
+        |2312 Pura
+        |Philippines
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
