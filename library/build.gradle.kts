@@ -15,11 +15,13 @@
  */
 
 import com.vanniktech.maven.publish.SonatypeHost
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     kotlin("multiplatform")
     alias(libs.plugins.dokka)
     alias(libs.plugins.maven.publish)
+    alias(libs.plugins.ksp)
 }
 
 repositories {
@@ -30,15 +32,28 @@ kotlin {
     jvm()
     jvmToolchain(11)
 
+    iosArm64()
+    iosSimulatorArm64()
+
     sourceSets {
-        jvmMain.dependencies {
-            implementation(libs.mustache)
+        commonMain {
+            kotlin {
+                srcDirs(project.layout.buildDirectory.dir("generated/ksp/metadata/commonMain/kotlin"))
+            }
         }
     }
 }
 
 dependencies {
+    add("kspCommonMainMetadata", project(":template-processor"))
+    commonMainImplementation(project(":template"))
     commonTestImplementation(libs.kotlin.test)
+}
+
+tasks.withType<KotlinCompilationTask<*>> {
+    if(name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
 }
 
 mavenPublishing {

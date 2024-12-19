@@ -24,6 +24,11 @@ buildscript {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 plugins {
     alias(libs.plugins.dokka) apply false
+    alias(libs.plugins.ksp) apply false
 }

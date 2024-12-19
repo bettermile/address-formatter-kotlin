@@ -35,6 +35,7 @@ dependencies {
     implementation(libs.jackson.core)
     implementation(libs.jackson.yaml)
     implementation(libs.kotlinpoet)
+    implementation(project(":template"))
 }
 
 tasks.run.configure {
