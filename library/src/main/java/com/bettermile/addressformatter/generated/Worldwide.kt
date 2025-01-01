@@ -913,7 +913,7 @@ internal object Worldwide {
             |{{{house}}}
             |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{town}}} || {{{city}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
+            |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
             |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
             |{{{country}}}
             |""".trimMargin()),

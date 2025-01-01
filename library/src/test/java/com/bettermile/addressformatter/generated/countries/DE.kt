@@ -270,4 +270,17 @@ public class DE {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun village_and_town_fallback_() {
+    // description: village and town (fallback)
+    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Landkreis Schwäbisch Hall", "municipality" to "Verwaltungsgemeinschaft Schwäbisch Hall", "state" to "Baden-Württemberg", "state_code" to "BW", "town" to "Schwäbisch Hall", "village" to "Tüngental")
+    val expected = """
+        |Tüngental
+        |Baden-Württemberg
+        |Germany
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
