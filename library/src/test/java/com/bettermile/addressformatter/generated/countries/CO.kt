@@ -36,4 +36,19 @@ public class CO {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun deal_with_Bogota_Capital_District_4_61164_74_08527() {
+    // description: deal with Bogota, Capital District / 4.61164, -74.08527
+    val components = mapOf("city" to "Bogota", "country" to "Colombia", "country_code" to "co", "neighbourhood" to "UPZs de Bogotá", "postcode" to "111411", "region" to "RAP (Especial) Central", "road" to "Transversal 22", "shop" to "Polytech", "state" to "Bogota, Capital District", "suburb" to "Localidad Los Mártires")
+    val expected = """
+        |Polytech
+        |Transversal 22
+        |Los Mártires
+        |111411 Bogota
+        |Colombia
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }

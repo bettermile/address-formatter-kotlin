@@ -81,4 +81,19 @@ public class BR {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun Maranh_o_quarter_2_493246_44_267475() {
+    // description: Maranhão [+quarter] / -2.493246,-44.267475
+    val components = mapOf("road" to "Av. dos Holandeses", "house_number" to "9", "quarter" to "Quadra 33", "suburb" to "Calhau", "city" to "São Luís", "state" to "Maranhão", "state_code" to "MA", "postcode" to "65071-380", "country_code" to "br", "country" to "Brazil")
+    val expected = """
+        |Av. dos Holandeses 9, Quadra 33
+        |Calhau
+        |São Luís - MA
+        |65071-380
+        |Brazil
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }

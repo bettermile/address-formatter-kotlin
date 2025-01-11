@@ -578,7 +578,7 @@ internal object Worldwide {
             addressTemplate = compileTemplate("""
             |{{{attention}}}
             |{{{house}}}
-            |{{{road}}} {{{house_number}}}
+            |{{{road}}} {{{house_number}}}{{#first}}, {{{quarter}}}{{/first}}
             |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{{hamlet}}}{{/first}}
             |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
             |{{{postcode}}}
@@ -828,9 +828,8 @@ internal object Worldwide {
             |""".trimMargin()),
             postformatReplace = listOf(
               CountryFormat.Replace(search = "Localidad ", replacement = " "),
-              CountryFormat.Replace(search = "Bogota, Bogota", replacement = "Bogota"),
-              CountryFormat.Replace(search = "Bogota, Bogotá Distrito Capital", replacement = "Bogota"),
-              CountryFormat.Replace(search = "Bogotá, Bogotá Distrito Capital", replacement = "Bogotá"),
+              CountryFormat.Replace(search = "(Bogot[áa]),? (Distrito Capital|Capital District)", replacement = "${'$'}1"),
+              CountryFormat.Replace(search = "(Bogot[áa]), Bogot[áa]", replacement = "${'$'}1"),
             ),
           )
         },
