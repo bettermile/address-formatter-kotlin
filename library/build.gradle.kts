@@ -43,7 +43,7 @@ mavenPublishing {
         signAllPublications()
     }
 
-    coordinates("com.bettermile", "address-formatter-kotlin", "0.3.3")
+    coordinates("com.bettermile", "address-formatter-kotlin", "0.3.4")
 
     pom {
         name.set("Address Formatter Kotlin")
