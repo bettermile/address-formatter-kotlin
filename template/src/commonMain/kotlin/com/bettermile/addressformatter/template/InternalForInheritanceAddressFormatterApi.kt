@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 
-include(":library")
-include(":template")
-include(":YamlConverter")
+package com.bettermile.addressformatter.template
+
+@Target(AnnotationTarget.CLASS)
+@RequiresOptIn(
+    level = RequiresOptIn.Level.WARNING,
+    message = "This is a com.bettermile.addressformatter API that is not intended to be inherited from. " +
+            "Use the AddressTemplateDefinition annotation to generate an address template based on an " +
+            "address template String.",
+)
+annotation class InternalForInheritanceAddressFormatterApi
