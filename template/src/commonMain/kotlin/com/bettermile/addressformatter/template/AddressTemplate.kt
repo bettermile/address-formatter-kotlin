@@ -14,6 +14,20 @@
  * limitations under the License.
  */
 
-include(":library")
-include(":template")
-include(":YamlConverter")
+package com.bettermile.addressformatter.template
+
+/**
+ * Represents the logic to render address from one specific template.
+ *
+ * Use [AddressTemplateDefinition] annotation to create an instance of [AddressTemplate].
+ */
+@SubclassOptInRequired(InternalForInheritanceAddressFormatterApi::class)
+interface AddressTemplate {
+
+    /**
+     * Render an address based on the address components from [context]. Uses only some specific components.
+     *
+     * @param context [Map] of address component names and values for the address to render
+     */
+    fun render(context: Map<String, String>): String
+}
