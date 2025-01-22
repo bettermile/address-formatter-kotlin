@@ -1,4 +1,4 @@
-name: Publish on GitHub Packages
+name: Publish to Maven Central
 on:
   push:
     tags:
@@ -6,12 +6,11 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-24.04
+    runs-on: macos-14
     timeout-minutes: 20
 
     permissions:
       contents: read
-      packages: write
 
     steps:
       - name: Checkout repo
@@ -27,7 +26,7 @@ jobs:
         id: variables
         run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
 
-      - name: Publish on GitHub Packages
+      - name: Publish to Maven central
         run: ./gradlew publish
         env:
           ORG_GRADLE_PROJECT_signReleaseEnabled: true
