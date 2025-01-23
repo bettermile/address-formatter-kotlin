@@ -14,7 +14,23 @@
  * limitations under the License.
  */
 
-include(":library")
-include(":template")
-include(":template-processor")
-include(":YamlConverter")
+plugins {
+    kotlin("jvm")
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+    jvmToolchain(11)
+}
+
+dependencies {
+    implementation(project(":template"))
+    implementation(libs.kotlinpoet.ksp)
+    implementation(libs.ksp.api)
+
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.ksp.test)
+}

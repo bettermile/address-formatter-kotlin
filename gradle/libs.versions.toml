@@ -2,6 +2,8 @@
 dokka = "2.0.0"
 jackson = "2.18.2"
 kotlin = "2.1.0"
+ksp = "2.1.0-1.0.29"
+ksp-test = "0.7.0"
 kotlinpoet = "2.0.0"
 maven-publish = "0.30.0"
 mustache = "0.9.14"
@@ -14,8 +16,11 @@ kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
 jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }
 kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
+kotlinpoet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlinpoet" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 mustache = { module = "com.github.spullara.mustache.java:compiler", version.ref = "mustache" }
+ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+ksp-test = { module = "dev.zacsweers.kctfork:ksp", version.ref = "ksp-test" }
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
