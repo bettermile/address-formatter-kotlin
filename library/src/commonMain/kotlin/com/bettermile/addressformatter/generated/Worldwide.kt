@@ -16,323 +16,1348 @@
 package com.bettermile.addressformatter.generated
 
 import com.bettermile.addressformatter.CountryFormat
-import com.bettermile.addressformatter.mustache.Mustache
-import com.bettermile.addressformatter.mustache.MustacheFactory
+import com.bettermile.addressformatter.template.AddressTemplate
+import com.bettermile.addressformatter.template.AddressTemplateDefinition
 import kotlin.Lazy
 import kotlin.String
 import kotlin.collections.Map
 
 internal object Worldwide {
-  private val mustacheFactory: MustacheFactory = MustacheFactory()
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
+  {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+  {{{archipelago}}}
+  {{{country}}}
+  """)
+  private val generic1: AddressTemplate by lazy(AddressTemplates::generic1)
 
-  private val generic1: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-        |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-        |{{{archipelago}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}, {{{quarter}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
+  {{#first}} {{{country}}} || {{{state}}} {{/first}}
+  """)
+  private val generic2: AddressTemplate by lazy(AddressTemplates::generic2)
 
-  private val generic2: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}, {{{quarter}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}} {{{postcode}}}
-        |{{#first}} {{{country}}} || {{{state}}} {{/first}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{{place}}}
+  {{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic3: AddressTemplate by lazy(AddressTemplates::generic3)
 
-  private val generic3: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{{place}}}
-        |{{{postcode}}} {{#first}} {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{city}}} || {{{municipality}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+  {{{country}}}
+  """)
+  private val generic4: AddressTemplate by lazy(AddressTemplates::generic4)
 
-  private val generic4: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{suburb}}} || {{{municipality}}} || {{{county}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+  {{#first}} {{{state_district}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic5: AddressTemplate by lazy(AddressTemplates::generic5)
 
-  private val generic5: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+  {{{county}}}
+  {{{state}}}
+  {{{country}}}
+  """)
+  private val generic6: AddressTemplate by lazy(AddressTemplates::generic6)
 
-  private val generic6: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-        |{{{county}}}
-        |{{{state}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
+  {{{country}}}
+  """)
+  private val generic7: AddressTemplate by lazy(AddressTemplates::generic7)
 
-  private val generic7: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}}{{/first}}, {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic8: AddressTemplate by lazy(AddressTemplates::generic8)
 
-  private val generic8: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{county_code}}} || {{{county}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic9: AddressTemplate by lazy(AddressTemplates::generic9)
 
-  private val generic9: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}}, {{{house_number}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+  {{{state}}}
+  {{{country}}}
+  {{{postcode}}}
+  """)
+  private val generic10: AddressTemplate by lazy(AddressTemplates::generic10)
 
-  private val generic10: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}}, {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{{state}}}
-        |{{{country}}}
-        |{{{postcode}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{country}}}
+  {{{state}}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+  {{{suburb}}}
+  {{{road}}}, {{{house_number}}}
+  {{{house}}}
+  {{{attention}}}
+  """)
+  private val generic11: AddressTemplate by lazy(AddressTemplates::generic11)
 
-  private val generic11: Mustache by lazy {
-        compileTemplate("""
-        |{{{country}}}
-        |{{{state}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{{suburb}}}
-        |{{{road}}}, {{{house_number}}}
-        |{{{house}}}
-        |{{{attention}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}}, {{{road}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
+  {{{state}}}
+  {{{country}}}
+  """)
+  private val generic12: AddressTemplate by lazy(AddressTemplates::generic12)
 
-  private val generic12: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}}, {{{road}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
-        |{{{state}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+  {{{country}}}
+  """)
+  private val generic13: AddressTemplate by lazy(AddressTemplates::generic13)
 
-  private val generic13: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} || {{{region}}} {{/first}} {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
+  {{{state}}}
+  {{{country}}}
+  """)
+  private val generic14: AddressTemplate by lazy(AddressTemplates::generic14)
 
-  private val generic14: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-        |{{{state}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}}, {{{house_number}}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic15: AddressTemplate by lazy(AddressTemplates::generic15)
 
-  private val generic15: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}}, {{{house_number}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic16: AddressTemplate by lazy(AddressTemplates::generic16)
 
-  private val generic16: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic17: AddressTemplate by lazy(AddressTemplates::generic17)
 
-  private val generic17: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}}, {{{road}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic18: AddressTemplate by lazy(AddressTemplates::generic18)
 
-  private val generic18: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}}, {{{road}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+  {{{country}}}
+  """)
+  private val generic19: AddressTemplate by lazy(AddressTemplates::generic19)
 
-  private val generic19: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+  {{{country}}}
+  """)
+  private val generic20: AddressTemplate by lazy(AddressTemplates::generic20)
 
-  private val generic20: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic21: AddressTemplate by lazy(AddressTemplates::generic21)
 
-  private val generic21: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}}, {{{road}}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+  {{{country}}}
+  """)
+  private val generic22: AddressTemplate by lazy(AddressTemplates::generic22)
 
-  private val generic22: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}}, {{{road}}}
-        |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{house_number}}} {{{road}}}
+  {{{quarter}}}
+  {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
+  {{{postcode}}}
+  {{#first}} {{{country}}} || {{{state}}} {{/first}}
+  """)
+  private val generic23: AddressTemplate by lazy(AddressTemplates::generic23)
 
-  private val generic23: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{house_number}}} {{{road}}}
-        |{{{quarter}}}
-        |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
-        |{{{postcode}}}
-        |{{#first}} {{{country}}} || {{{state}}} {{/first}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{{place}}}
+  {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+  {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
+  {{{country}}}
+  """)
+  private val fallback1: AddressTemplate by lazy(AddressTemplates::fallback1)
 
-  private val fallback1: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-        |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{region}}} || {{{island}}}, {{{archipelago}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{{place}}}
+  {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
+  {{{country}}}
+  """)
+  private val fallback2: AddressTemplate by lazy(AddressTemplates::fallback2)
 
-  private val fallback2: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{island}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{{place}}}
+  {{#first}} {{{suburb}}} || {{{island}}} {{/first}}
+  {{#first}} {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+  {{#first}} {{{town}}} || {{{city}}}{{/first}}
+  {{{county}}}
+  {{#first}} {{{state}}} || {{{state_code}}} {{/first}}
+  {{{country}}}
+  """)
+  private val fallback3: AddressTemplate by lazy(AddressTemplates::fallback3)
 
-  private val fallback3: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{#first}} {{{suburb}}} || {{{island}}} {{/first}}
-        |{{#first}} {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-        |{{#first}} {{{town}}} || {{{city}}}{{/first}}
-        |{{{county}}}
-        |{{#first}} {{{state}}} || {{{state_code}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
-
-  private val fallback4: Mustache by lazy {
-        compileTemplate("""
-        |{{{attention}}}
-        |{{{house}}}
-        |{{{road}}} {{{house_number}}}
-        |{{{place}}}
-        |{{{suburb}}}
-        |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
-        |{{#first}} {{{state}}} || {{{county}}} {{/first}}
-        |{{{country}}}
-        |""".trimMargin())
-      }
+  @AddressTemplateDefinition("""
+  {{{attention}}}
+  {{{house}}}
+  {{{road}}} {{{house_number}}}
+  {{{place}}}
+  {{{suburb}}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
+  {{#first}} {{{state}}} || {{{county}}} {{/first}}
+  {{{country}}}
+  """)
+  private val fallback4: AddressTemplate by lazy(AddressTemplates::fallback4)
 
   public val default: CountryFormat = CountryFormat(
         addressTemplate = generic1,
         fallbackTemplate = fallback1,
       )
 
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{state_district}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "AE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{postcode}}} {{{country}}}
+    """,
+    propertyName = "AI_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{city_district}}} || {{{municipality}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "AL_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{state_district}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "AM_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{house}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{country}}} || {{{continent}}} {{/first}}
+    """,
+    propertyName = "AQ_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{house}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{country}}} || {{{continent}}} {{/first}}
+    """,
+    propertyName = "AQ_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "BD_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{archipelago}}}
+    {{{country}}}
+    """,
+    propertyName = "BE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}}, {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+    {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "BN_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}{{#first}}, {{{quarter}}}{{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{{hamlet}}}{{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "BR_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+    {{{county}}}
+    {{{country}}}
+    """,
+    propertyName = "BS_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}, {{{house}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "BT_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "BW_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "CA_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} || {{{region}}}{{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "CA_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "CA_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "CA_en_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{house_number}}}, {{{road}}} || {{{suburb}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}} {{#first}} ({{{state_code}}}) || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "CA_fr_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "CH_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{region}}}
+    {{{country}}}
+    """,
+    propertyName = "CL_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{postcode}}} {{{country}}}
+    {{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
+    {{{county}}}
+    {{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}} {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "CN_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{county}}}
+    {{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
+    {{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
+    {{{country}}} {{{postcode}}}
+    """,
+    propertyName = "CN_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{postcode}}} {{{country}}}
+    {{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
+    {{{county}}}
+    {{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}} {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "CN_zh_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "CO_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{state}}}, {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{postcode}}} {{{country}}}
+    """,
+    propertyName = "CR_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{archipelago}}}
+    {{{country}}}
+    """,
+    propertyName = "DE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
+    {{#first}} {{{state}}} || {{{state_district}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "DE_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{state}}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "DO_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "EC_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "EG_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "GA_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}}-{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "GT_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{{state_district}}}
+    {{#first}} {{{state}}} || {{{country}}} {{/first}}
+    """,
+    propertyName = "HK_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{{state_district}}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "HK_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{state}}}
+    {{{state_district}}}
+    {{{road}}}
+    {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "HK_zh_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{road}}} {{{house_number}}}.
+    {{{country}}}
+    """,
+    propertyName = "HU_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "ID_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+    {{{county}}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "IE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{#first}} {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
+    {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "IQ_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}}
+    {{{house_number}}}
+    {{#first}}{{{province}}} || {{{state}}} || {{{state_district}}}{{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "IR_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}}
+    {{{house_number}}}
+    {{#first}}{{{state}}} || {{{state_district}}}{{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "IR_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{state}}}
+    {{{state_district}}}
+    {{#first}} {{{state}}} || {{{province}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}}
+    {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    {{{postcode}}}
+    """,
+    propertyName = "IR_fa_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "JP_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "JP_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{postcode}}}
+    {{#first}} {{{state}}} || {{{state_district}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}}
+    {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "JP_ja_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "KE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "KH_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "KM_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{island}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "KN_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{state}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
+    {{{attention}}}
+    {{{postcode}}}
+    """,
+    propertyName = "KR_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "KR_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{state}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
+    {{{attention}}}
+    {{{postcode}}}
+    """,
+    propertyName = "KR_ko_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+
+    {{{road}}}
+    {{{house_number}}} {{{house}}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "KW_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}}, {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "MD_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "MG_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}, {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "MM_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{city_district}}}
+    {{#first}} {{{suburb}}} || {{{neighbourhood}}} {{/first}}
+    {{{road}}}
+    {{{house_number}}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "MN_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "MO_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "MO_pt_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
+    {{{road}}}
+    {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "MO_zh_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "MT_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}}, {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "MU_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "MX_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "MY_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}}
+    {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "NE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "NG_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{neighbourhood}}} || {{{city}}} {{/first}}
+    {{#first}} {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "NP_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "OM_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "PA_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}} {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "PG_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
+    {{{postcode}}} {{#first}} {{{municipality}}} || {{{region}}} || {{{state}}} || {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "PH_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "PK_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{island}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "PN_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}}, {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} {{/first}}
+    {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "RU_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}, {{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{suburb}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "SA_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{island}}} {{/first}}
+    {{{island}}}
+    {{{country}}}
+    """,
+    propertyName = "SC_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}, {{{quarter}}}
+    {{{house_number}}} {{{road}}}, {{{residential}}}
+    {{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "SG_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{postal_city}}} || {{{city}}} || {{{town}}} || {{{village}}} || {{{municipality}}} || {{{city_district}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "SK_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{postcode}}} - {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{state}}}
+    {{{country}}}
+    """,
+    propertyName = "SV_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}}, {{{house_number}}}
+    {{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
+    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{state}}} {{/first}}
+
+    {{{country}}}
+    """,
+    propertyName = "SY_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "SZ_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house_number}}} {{{road}}}
+    {{{quarter}}}
+    {{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
+    {{{island}}}
+    {{{country}}}
+    """,
+    propertyName = "TC_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{road}}}
+    {{#first}} {{{neighbourhood}}} || {{{city}}} || {{{town}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+    {{{state}}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "TH_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "TT_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+    {{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{island}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "TV_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "TW_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}}, {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "TW_en_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
+    {{{house}}}
+    {{{attention}}}
+    """,
+    propertyName = "TW_zh_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}}, {{{house_number}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
+    {{#first}} {{{region}}} || {{{state}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "UA_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{#first}} {{{state}}} || {{{state_district}}} {{/first}}
+    {{{country}}}
+    {{{postcode}}}
+    """,
+    propertyName = "UZ_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "VE_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{island}}}
+    {{{country}}}, {{{postcode}}}
+    """,
+    propertyName = "VG_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
+    {{{state}}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "VN_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}}, {{{road}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "XK_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
+    {{{house_number}}} {{{road}}}
+    {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
+    {{{postcode}}}
+    {{{country}}}
+    """,
+    propertyName = "ZA_address_template",
+  )
   public val countries: Map<String, Lazy<CountryFormat>> = mapOf(
         "AD" to lazy {
           CountryFormat(
@@ -341,15 +1366,7 @@ internal object Worldwide {
         },
         "AE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.AE_address_template,
           )
         },
         "AF" to lazy {
@@ -364,24 +1381,12 @@ internal object Worldwide {
         },
         "AI" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}} {{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.AI_address_template,
           )
         },
         "AL" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{city_district}}} || {{{municipality}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.AL_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -395,15 +1400,7 @@ internal object Worldwide {
         },
         "AM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.AM_address_template,
           )
         },
         "AO" to lazy {
@@ -413,16 +1410,8 @@ internal object Worldwide {
         },
         "AQ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{country}}} || {{{continent}}} {{/first}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{country}}} || {{{continent}}} {{/first}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.AQ_address_template,
+            fallbackTemplate = AddressTemplates.AQ_fallback_template,
           )
         },
         "AR" to lazy {
@@ -487,26 +1476,12 @@ internal object Worldwide {
         },
         "BD" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} - {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BD_address_template,
           )
         },
         "BE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{archipelago}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BE_address_template,
           )
         },
         "BF" to lazy {
@@ -547,14 +1522,7 @@ internal object Worldwide {
         },
         "BN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BN_address_template,
           )
         },
         "BO" to lazy {
@@ -573,15 +1541,7 @@ internal object Worldwide {
         },
         "BR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}{{#first}}, {{{quarter}}}{{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{{hamlet}}}{{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BR_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = "\\b(\\d{5})(\\d{3})\\b", replacement = "${'$'}1-${'$'}2"),
             ),
@@ -589,26 +1549,12 @@ internal object Worldwide {
         },
         "BS" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{{county}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BS_address_template,
           )
         },
         "BT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}, {{{house}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BT_address_template,
           )
         },
         "BV" to lazy {
@@ -619,14 +1565,7 @@ internal object Worldwide {
         },
         "BW" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.BW_address_template,
           )
         },
         "BY" to lazy {
@@ -641,20 +1580,8 @@ internal object Worldwide {
         },
         "CA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} || {{{region}}}{{/first}}, {{#first}} {{{state}}} || {{{state_code}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CA_address_template,
+            fallbackTemplate = AddressTemplates.CA_fallback_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -666,20 +1593,8 @@ internal object Worldwide {
         },
         "CA_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}} {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CA_en_address_template,
+            fallbackTemplate = AddressTemplates.CA_en_fallback_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -691,13 +1606,7 @@ internal object Worldwide {
         },
         "CA_fr" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{house_number}}}, {{{road}}} || {{{suburb}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state_district}}} {{/first}} {{#first}} ({{{state_code}}}) || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CA_fr_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | ([A-Za-z]{2}) ([A-Za-z]\d[A-Za-z])(\d[A-Za-z]\d)
@@ -730,13 +1639,7 @@ internal object Worldwide {
         },
         "CH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CH_address_template,
             replace = listOf(
               CountryFormat.Replace(search = "Verwaltungskreis", replacement = ""),
               CountryFormat.Replace(search = "Verwaltungsregion", replacement = ""),
@@ -757,14 +1660,7 @@ internal object Worldwide {
         },
         "CL" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{region}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CL_address_template,
           )
         },
         "CM" to lazy {
@@ -774,56 +1670,22 @@ internal object Worldwide {
         },
         "CN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{postcode}}} {{{country}}}
-            |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
-            |{{{county}}}
-            |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CN_address_template,
           )
         },
         "CN_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{county}}}
-            |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
-            |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
-            |{{{country}}} {{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CN_en_address_template,
           )
         },
         "CN_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{postcode}}} {{{country}}}
-            |{{#first}} {{{state_code}}} || {{{state}}} || {{{state_district}}} || {{{region}}}{{/first}}
-            |{{{county}}}
-            |{{#first}}{{{city}}} || {{{town}}} || {{{municipality}}}|| {{{village}}}|| {{{hamlet}}}{{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CN_zh_address_template,
           )
         },
         "CO" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CO_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = "Localidad ", replacement = " "),
               CountryFormat.Replace(search = "(Bogot[áa]),? (Distrito Capital|Capital District)", replacement = "${'$'}1"),
@@ -833,13 +1695,7 @@ internal object Worldwide {
         },
         "CR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{state}}}, {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.CR_address_template,
           )
         },
         "CU" to lazy {
@@ -897,23 +1753,8 @@ internal object Worldwide {
         },
         "DE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{archipelago}}}
-            |{{{country}}}
-            |""".trimMargin()),
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
-            |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.DE_address_template,
+            fallbackTemplate = AddressTemplates.DE_fallback_template,
             replace = listOf(
               CountryFormat.Replace(search = "^Stadtteil ", replacement = ""),
               CountryFormat.Replace(search = "^Stadtbezirk (\\d+)", replacement = ""),
@@ -969,15 +1810,7 @@ internal object Worldwide {
         },
         "DO" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{state}}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.DO_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = ", Distrito Nacional", replacement = ", DN"),
             ),
@@ -990,27 +1823,12 @@ internal object Worldwide {
         },
         "EC" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.EC_address_template,
           )
         },
         "EG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.EG_address_template,
           )
         },
         "EE" to lazy {
@@ -1092,14 +1910,7 @@ internal object Worldwide {
         },
         "GA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.GA_address_template,
           )
         },
         "GB" to lazy {
@@ -1221,13 +2032,7 @@ internal object Worldwide {
         },
         "GT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}}-{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.GT_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -1264,38 +2069,17 @@ internal object Worldwide {
         },
         "HK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{state_district}}}
-            |{{#first}} {{{state}}} || {{{country}}} {{/first}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.HK_address_template,
           )
         },
         "HK_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{state_district}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.HK_en_address_template,
           )
         },
         "HK_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{{state_district}}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.HK_zh_address_template,
           )
         },
         "HM" to lazy {
@@ -1325,39 +2109,17 @@ internal object Worldwide {
         },
         "HU" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{road}}} {{{house_number}}}.
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.HU_address_template,
           )
         },
         "ID" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.ID_address_template,
           )
         },
         "IE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{{county}}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.IE_address_template,
             replace = listOf(
               CountryFormat.Replace(search = " City${'$'}", replacement = ""),
               CountryFormat.Replace(search = "The Municipal District of ", replacement = ""),
@@ -1430,62 +2192,22 @@ internal object Worldwide {
         },
         "IQ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{#first}} {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
-            |{{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.IQ_address_template,
           )
         },
         "IR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{#first}}{{{province}}} || {{{state}}} || {{{state_district}}}{{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.IR_address_template,
           )
         },
         "IR_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{#first}}{{{state}}} || {{{state_district}}}{{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.IR_en_address_template,
           )
         },
         "IR_fa" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{{state_district}}}
-            |{{#first}} {{{state}}} || {{{province}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.IR_fa_address_template,
           )
         },
         "IS" to lazy {
@@ -1536,14 +2258,7 @@ internal object Worldwide {
         },
         "JP" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.JP_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1555,14 +2270,7 @@ internal object Worldwide {
         },
         "JP_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{state_district}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.JP_en_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1574,17 +2282,7 @@ internal object Worldwide {
         },
         "JP_ja" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{postcode}}}
-            |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.JP_ja_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 | (\d{3})(\d{4})
@@ -1596,14 +2294,7 @@ internal object Worldwide {
         },
         "KE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KE_address_template,
           )
         },
         "KG" to lazy {
@@ -1613,14 +2304,7 @@ internal object Worldwide {
         },
         "KH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KH_address_template,
           )
         },
         "KI" to lazy {
@@ -1630,25 +2314,12 @@ internal object Worldwide {
         },
         "KM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KM_address_template,
           )
         },
         "KN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state}}} || {{{island}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KN_address_template,
           )
         },
         "KP" to lazy {
@@ -1658,50 +2329,22 @@ internal object Worldwide {
         },
         "KR" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
-            |{{{attention}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KR_address_template,
           )
         },
         "KR_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KR_en_address_template,
           )
         },
         "KR_ko" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{state}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{{road}}} {{{house_number}}}
-            |{{{attention}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KR_ko_address_template,
           )
         },
         "KW" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |
-            |{{{road}}}
-            |{{{house_number}}} {{{house}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.KW_address_template,
           )
         },
         "KY" to lazy {
@@ -1788,13 +2431,7 @@ internal object Worldwide {
         },
         "MD" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MD_address_template,
           )
         },
         "ME" to lazy {
@@ -1816,14 +2453,7 @@ internal object Worldwide {
         },
         "MG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MG_address_template,
           )
         },
         "MK" to lazy {
@@ -1838,62 +2468,27 @@ internal object Worldwide {
         },
         "MM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}, {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MM_address_template,
           )
         },
         "MN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{city_district}}}
-            |{{#first}} {{{suburb}}} || {{{neighbourhood}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MN_address_template,
           )
         },
         "MO" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MO_address_template,
           )
         },
         "MO_pt" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MO_pt_address_template,
           )
         },
         "MO_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{road}}}
-            |{{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MO_zh_address_template,
           )
         },
         "MP" to lazy {
@@ -1910,14 +2505,7 @@ internal object Worldwide {
         },
         "MT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MT_address_template,
           )
         },
         "MQ" to lazy {
@@ -1933,14 +2521,7 @@ internal object Worldwide {
         },
         "MU" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MU_address_template,
           )
         },
         "MV" to lazy {
@@ -1955,27 +2536,12 @@ internal object Worldwide {
         },
         "MX" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MX_address_template,
           )
         },
         "MY" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.MY_address_template,
           )
         },
         "MZ" to lazy {
@@ -1997,14 +2563,7 @@ internal object Worldwide {
         },
         "NE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}
-            |{{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.NE_address_template,
           )
         },
         "NF" to lazy {
@@ -2016,14 +2575,7 @@ internal object Worldwide {
         },
         "NG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.NG_address_template,
           )
         },
         "NI" to lazy {
@@ -2059,14 +2611,7 @@ internal object Worldwide {
         },
         "NP" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{neighbourhood}}} || {{{city}}} {{/first}}
-            |{{#first}} {{{municipality}}} || {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.NP_address_template,
           )
         },
         "NR" to lazy {
@@ -2092,29 +2637,12 @@ internal object Worldwide {
         },
         "OM" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.OM_address_template,
           )
         },
         "PA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.PA_address_template,
             replace = listOf(
               CountryFormat.Replace(search = "city=Panama${'$'}", replacement = "Panama City"),
               CountryFormat.Replace(search = "city=Panamá${'$'}", replacement = "Ciudad de Panamá"),
@@ -2137,36 +2665,17 @@ internal object Worldwide {
         },
         "PG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}} {{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.PG_address_template,
           )
         },
         "PH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{municipality}}} || {{{region}}} || {{{state}}} || {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.PH_address_template,
           )
         },
         "PK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.PK_address_template,
           )
         },
         "PL" to lazy {
@@ -2191,12 +2700,7 @@ internal object Worldwide {
         },
         "PN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{island}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.PN_address_template,
           )
         },
         "PR" to lazy {
@@ -2259,15 +2763,7 @@ internal object Worldwide {
         "RU" to lazy {
           CountryFormat(
             addressTemplate = generic10,
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{island}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            fallbackTemplate = AddressTemplates.RU_fallback_template,
           )
         },
         "RW" to lazy {
@@ -2277,13 +2773,7 @@ internal object Worldwide {
         },
         "SA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}, {{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{suburb}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SA_address_template,
           )
         },
         "SB" to lazy {
@@ -2293,14 +2783,7 @@ internal object Worldwide {
         },
         "SC" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{island}}} {{/first}}
-            |{{{island}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SC_address_template,
           )
         },
         "SD" to lazy {
@@ -2324,13 +2807,7 @@ internal object Worldwide {
         },
         "SG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}, {{{quarter}}}
-            |{{{house_number}}} {{{road}}}, {{{residential}}}
-            |{{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SG_address_template,
           )
         },
         "SH" to lazy {
@@ -2352,13 +2829,7 @@ internal object Worldwide {
         },
         "SK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} {{#first}} {{{postal_city}}} || {{{city}}} || {{{town}}} || {{{village}}} || {{{municipality}}} || {{{city_district}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SK_address_template,
             replace = listOf(
               CountryFormat.Replace(search = "^District of ", replacement = ""),
               CountryFormat.Replace(search = "^Region of ", replacement = ""),
@@ -2416,14 +2887,7 @@ internal object Worldwide {
         },
         "SV" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{{postcode}}} - {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{state}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SV_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |
@@ -2442,40 +2906,18 @@ internal object Worldwide {
         },
         "SY" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{#first}} {{{village}}} || {{{hamlet}}} || {{{city_district}}} || {{{neighbourhood}}} || {{{suburb}}} {{/first}}
-            |{{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{state}}} {{/first}}
-            |
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SY_address_template,
           )
         },
         "SZ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.SZ_address_template,
           )
         },
         "TC" to lazy {
           CountryFormat(
             addressTemplate = generic23,
-            fallbackTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house_number}}} {{{road}}}
-            |{{{quarter}}}
-            |{{#first}} {{{village}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} {{/first}}
-            |{{{island}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            fallbackTemplate = AddressTemplates.TC_fallback_template,
           )
         },
         "TD" to lazy {
@@ -2496,15 +2938,7 @@ internal object Worldwide {
         },
         "TH" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{#first}} {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{{road}}}
-            |{{#first}} {{{neighbourhood}}} || {{{city}}} || {{{town}}} {{/first}}, {{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{{state}}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.TH_address_template,
           )
         },
         "TJ" to lazy {
@@ -2545,59 +2979,27 @@ internal object Worldwide {
         },
         "TT" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.TT_address_template,
           )
         },
         "TV" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{county}}} || {{{state_district}}} || {{{state}}} || {{{island}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.TV_address_template,
           )
         },
         "TW" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.TW_address_template,
           )
         },
         "TW_en" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.TW_en_address_template,
           )
         },
         "TW_zh" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{country}}}
-            |{{{postcode}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
-            |{{{house}}}
-            |{{{attention}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.TW_zh_address_template,
           )
         },
         "TZ" to lazy {
@@ -2614,16 +3016,7 @@ internal object Worldwide {
         },
         "UA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}}, {{{house_number}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} {{/first}}
-            |{{#first}} {{{region}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.UA_address_template,
           )
         },
         "UG" to lazy {
@@ -2676,15 +3069,7 @@ internal object Worldwide {
         },
         "UZ" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}
-            |{{#first}} {{{state}}} || {{{state_district}}} {{/first}}
-            |{{{country}}}
-            |{{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.UZ_address_template,
           )
         },
         "UY" to lazy {
@@ -2704,24 +3089,12 @@ internal object Worldwide {
         },
         "VE" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{road}}} {{{house_number}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{{postcode}}}, {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.VE_address_template,
           )
         },
         "VG" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}}, {{{island}}}
-            |{{{country}}}, {{{postcode}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.VG_address_template,
           )
         },
         "VI" to lazy {
@@ -2733,15 +3106,7 @@ internal object Worldwide {
         },
         "VN" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state_district}}} {{/first}}
-            |{{{state}}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.VN_address_template,
           )
         },
         "VU" to lazy {
@@ -2767,13 +3132,7 @@ internal object Worldwide {
         },
         "XK" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}}, {{{road}}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}} {{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.XK_address_template,
           )
         },
         "YE" to lazy {
@@ -2789,15 +3148,7 @@ internal object Worldwide {
         },
         "ZA" to lazy {
           CountryFormat(
-            addressTemplate = compileTemplate("""
-            |{{{attention}}}
-            |{{{house}}}
-            |{{{house_number}}} {{{road}}}
-            |{{#first}} {{{suburb}}} || {{{city_district}}} || {{{state_district}}} {{/first}}
-            |{{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
-            |{{{postcode}}}
-            |{{{country}}}
-            |""".trimMargin()),
+            addressTemplate = AddressTemplates.ZA_address_template,
           )
         },
         "ZM" to lazy {
@@ -2811,6 +3162,4 @@ internal object Worldwide {
           )
         },
       )
-
-  private fun compileTemplate(template: String): Mustache = mustacheFactory.compile(template)
 }
