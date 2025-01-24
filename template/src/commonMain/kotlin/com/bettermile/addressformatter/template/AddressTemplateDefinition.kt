@@ -39,18 +39,19 @@ package com.bettermile.addressformatter.template
  * ```kotlin
  * package com.example.addresses
  *
- * @AddressTemplateDefinition("""{{{attention}}}
- * {{{house}}}
- * {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
- * {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
- * {{{archipelago}}}
- * {{{country}}}""")
+ * @AddressTemplateDefinition("""
+ *     {{attention}}}
+ *     {{{house}}}
+ *     {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
+ *     {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{village}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+ *     {{{archipelago}}}
+ *     {{{country}}}""")
  * val customTemplate = AddressTemplates.customTemplate
  * ```
  *
  * The `AddressTemplates` object will be in the same package as the definition
  *
- * @param value address template used to render addresses
+ * @param value address template used to render addresses (indent will be trimmed)
  * @param propertyName name of the property to hold the information. Defaults to the name of the target property.
  */
 @Repeatable
