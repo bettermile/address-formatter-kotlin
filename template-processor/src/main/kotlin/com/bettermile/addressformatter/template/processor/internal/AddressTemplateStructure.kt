@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 
-include(":library")
-include(":template")
-include(":template-processor")
-include(":YamlConverter")
+package com.bettermile.addressformatter.template.processor.internal
+
+internal sealed interface AddressTemplateStructure {
+    sealed interface Simple : AddressTemplateStructure {
+        data class Literal(val text: String) : Simple
+        data class Placeholder(val name: String) : Simple
+    }
+
+    data class FirstLambda(val elements: List<List<Simple>>) : AddressTemplateStructure
+}
