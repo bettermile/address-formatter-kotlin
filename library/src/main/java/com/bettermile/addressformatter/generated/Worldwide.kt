@@ -960,7 +960,8 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = generic1,
             replace = listOf(
-              CountryFormat.Replace(search = "^Capital Region of ", replacement = ""),
+              CountryFormat.Replace(search = "state=Capital Region of Denmark", replacement = "Capital Region"),
+              CountryFormat.Replace(search = "^Region of ", replacement = ""),
             ),
           )
         },
