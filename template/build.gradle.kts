@@ -16,6 +16,7 @@
 
 plugins {
     kotlin("multiplatform")
+    bettermile.`maven-publish`
 }
 
 repositories {
@@ -28,4 +29,13 @@ kotlin {
 
     iosArm64()
     iosSimulatorArm64()
+}
+
+mavenPublishing {
+    coordinates("com.bettermile", "address-template-kotlin", "0.1.0")
+
+    pom {
+        name.set("Address Template")
+        description.set("Address templates used to format addresses in Kotlin")
+    }
 }

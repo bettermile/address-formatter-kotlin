@@ -14,20 +14,6 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath(libs.kotlin.gradle)
-    }
-}
-
 repositories {
     mavenCentral()
-}
-
-plugins {
-    alias(libs.plugins.dokka) apply false
 }
