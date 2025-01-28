@@ -32,6 +32,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":template"))
     implementation(libs.jackson.core)
     implementation(libs.jackson.yaml)
     implementation(libs.kotlinpoet)
