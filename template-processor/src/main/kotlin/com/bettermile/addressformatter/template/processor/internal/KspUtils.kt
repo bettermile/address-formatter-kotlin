@@ -16,27 +16,25 @@
 
 package com.bettermile.addressformatter.template.processor.internal
 
-import com.google.devtools.ksp.KspExperimental
-import com.google.devtools.ksp.getAnnotationsByType
+import com.bettermile.addressformatter.template.AddressTemplateDefinition
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSAnnotation
 
-@KspExperimental
-internal inline fun <reified T : Annotation> KSAnnotated.getAnnotationsAndNodes(): Sequence<Pair<KSAnnotation, T>> {
-    val clazz = T::class
+internal fun KSAnnotated.getAnnotationsAndNodes(): Sequence<Pair<KSAnnotation, AddressTemplateDefinition>> {
+    val clazz = AddressTemplateDefinition::class
     // copied from getAnnotationsByType implementation
-    return annotations.filter {
-        it.shortName.getShortName() == clazz.simpleName &&
-                it.annotationType.resolve().declaration.qualifiedName?.asString() == clazz.qualifiedName
-    }.zipSameSize(getAnnotationsByType(clazz))
+    return annotations.filter { annotationNode ->
+        annotationNode.shortName.getShortName() == clazz.simpleName &&
+                annotationNode.annotationType.resolve().declaration.qualifiedName?.asString() == clazz.qualifiedName
+    }.map { annotationNode ->
+        val value = annotationNode.argumentValue<String>(AddressTemplateDefinition::value.name)
+        val propertyName = annotationNode.argumentValue<String>(AddressTemplateDefinition::propertyName.name, "")
+        annotationNode to AddressTemplateDefinition(value, propertyName)
+    }
 }
 
-fun <T, R> Sequence<T>.zipSameSize(other: Sequence<R>): Sequence<Pair<T, R>> {
-    val iterator1 = this.iterator()
-    val iterator2 = other.iterator()
-
-    return sequence {
-        while (iterator1.hasNext() && iterator2.hasNext()) yield(iterator1.next() to iterator2.next())
-        require(!iterator1.hasNext() && !iterator2.hasNext()) { "Sequences have different sizes" }
-    }
+private inline fun <reified T : Any> KSAnnotation.argumentValue(name: String, default: T? = null): T {
+    return arguments.firstOrNull { it.name?.asString() == name }?.value as T?
+        ?: defaultArguments.firstOrNull { it.name?.asString() == name }?.value as T?
+        ?: checkNotNull(default)
 }

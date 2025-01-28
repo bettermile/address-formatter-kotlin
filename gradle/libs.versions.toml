@@ -6,7 +6,6 @@ ksp = "2.1.0-1.0.29"
 ksp-test = "0.7.0"
 kotlinpoet = "2.0.0"
 maven-publish = "0.30.0"
-mustache = "0.9.14"
 
 [libraries]
 # gradle classpath plugins
@@ -18,10 +17,10 @@ jackson-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-y
 kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
 kotlinpoet-ksp = { module = "com.squareup:kotlinpoet-ksp", version.ref = "kotlinpoet" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
-mustache = { module = "com.github.spullara.mustache.java:compiler", version.ref = "mustache" }
 ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
 ksp-test = { module = "dev.zacsweers.kctfork:ksp", version.ref = "ksp-test" }
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }

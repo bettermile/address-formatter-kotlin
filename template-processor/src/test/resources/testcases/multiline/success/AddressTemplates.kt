@@ -8,7 +8,6 @@ internal object AddressTemplates {
   public val test: AddressTemplate
     get() = object : AddressTemplate {
       override fun render(context: Map<String, String>): String = buildString {
-        append('\n')
         context["attention"]?.also(::append)
         append('\n')
         context["house"]?.also(::append)
@@ -39,7 +38,6 @@ internal object AddressTemplates {
         context["archipelago"]?.also(::append)
         append('\n')
         context["country"]?.also(::append)
-        append('\n')
       }
     }
 }

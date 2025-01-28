@@ -20,7 +20,6 @@ import com.bettermile.addressformatter.template.AddressTemplateDefinition
 import com.bettermile.addressformatter.template.processor.internal.AddressFormatterCodeGenerator
 import com.bettermile.addressformatter.template.processor.internal.AddressTemplateInfo
 import com.bettermile.addressformatter.template.processor.internal.getAnnotationsAndNodes
-import com.google.devtools.ksp.KspExperimental
 import com.google.devtools.ksp.containingFile
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
@@ -80,23 +79,21 @@ class AddressTemplateProcessor(
             return emptySequence()
         }
         val propertyName = (property as? KSDeclaration)?.simpleName?.getShortName()
-        @OptIn(KspExperimental::class)
-        return property.getAnnotationsAndNodes<AddressTemplateDefinition>()
-            .mapNotNull { (node, addressTemplateDefinition) ->
-                val template = addressTemplateDefinition.value
-                val name = addressTemplateDefinition.propertyName.takeIf(String::isNotEmpty) ?: propertyName
-                if (name == null) {
-                    logger.error("no property name found, please specify one explicitly", node)
-                    null
-                } else {
-                    AddressTemplateInfo(
-                        name = name,
-                        packageName = packageName,
-                        template = template,
-                        location = node,
-                        file = containingFile,
-                    )
-                }
+        return property.getAnnotationsAndNodes().mapNotNull { (node, addressTemplateDefinition) ->
+            val template = addressTemplateDefinition.value.trimIndent()
+            val name = addressTemplateDefinition.propertyName.takeIf(String::isNotEmpty) ?: propertyName
+            if (name == null) {
+                logger.error("no property name found, please specify one explicitly", node)
+                null
+            } else {
+                AddressTemplateInfo(
+                    name = name,
+                    packageName = packageName,
+                    template = template,
+                    location = node,
+                    file = containingFile,
+                )
             }
+        }
     }
 }
