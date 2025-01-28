@@ -35,4 +35,16 @@ public class DK {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun Hiller_d_Denmark() {
+    // description: Hillerød, Denmark
+    val components = mapOf("country" to "Denmark", "country_code" to "dk", "municipality" to "Hillerød Municipality", "postal_city" to "Hillerød", "postcode" to "3400", "state" to "Capital Region", "town" to "Hillerød")
+    val expected = """
+        |3400 Hillerød
+        |Denmark
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
