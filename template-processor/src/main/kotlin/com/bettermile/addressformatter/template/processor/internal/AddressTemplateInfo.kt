@@ -14,7 +14,15 @@
  * limitations under the License.
  */
 
-include(":library")
-include(":template")
-include(":template-processor")
-include(":YamlConverter")
+package com.bettermile.addressformatter.template.processor.internal
+
+import com.google.devtools.ksp.symbol.KSFile
+import com.google.devtools.ksp.symbol.KSNode
+
+internal class AddressTemplateInfo(
+    val name: String,
+    val packageName: String,
+    val template: String,
+    val location: KSNode,
+    val file: KSFile,
+)
