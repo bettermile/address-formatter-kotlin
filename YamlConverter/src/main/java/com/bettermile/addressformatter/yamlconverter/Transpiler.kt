@@ -54,8 +54,8 @@ object Transpiler {
         testCases(yamlReader, yamlFactory)
     }
 
-    private const val KOTLIN_DESTINATION_DIR = "library/src/commonMain/kotlin/"
-    private const val TEST_DESTINATION_DIR = "library/src/commonTest/kotlin/"
+    private const val KOTLIN_DESTINATION_DIR = "formatter/src/commonMain/kotlin/"
+    private const val TEST_DESTINATION_DIR = "formatter/src/commonTest/kotlin/"
 
     private fun transpileWorldwide(yamlReader: ObjectMapper) {
         try {

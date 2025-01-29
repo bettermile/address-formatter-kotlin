@@ -7,8 +7,7 @@ A library for formatting addresses.
 This project uses the address templates from [OpenCage](https://github.com/OpenCageData/address-formatting/) to format
 addresses.
 
-This library has only the [kotlin standard library](https://kotlinlang.org/) and 
-[Mustache.java](https://github.com/spullara/mustache.java) (needed to format the address template) as dependencies.
+This library has only the [kotlin standard library](https://kotlinlang.org/) as dependency.
 
 For Java 11 and above.
 
