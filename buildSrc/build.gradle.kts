@@ -14,7 +14,17 @@
  * limitations under the License.
  */
 
-include(":formatter")
-include(":template")
-include(":template-processor")
-include(":YamlConverter")
+plugins {
+    `kotlin-dsl`
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation(libs.dokka.gradle)
+    implementation(libs.kotlin.gradle)
+    implementation(libs.maven.publish.gradle)
+}

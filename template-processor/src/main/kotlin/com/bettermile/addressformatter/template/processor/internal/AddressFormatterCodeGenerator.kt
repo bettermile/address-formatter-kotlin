@@ -27,7 +27,7 @@ import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 
-class AddressFormatterCodeGenerator(private val logger: KSPLogger) {
+internal class AddressFormatterCodeGenerator(private val logger: KSPLogger) {
 
     private val optInAddressFormatterApiAnnotation = AnnotationSpec.builder(ClassName("kotlin", "OptIn"))
         .addMember(

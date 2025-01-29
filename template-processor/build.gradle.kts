@@ -16,6 +16,7 @@
 
 plugins {
     kotlin("jvm")
+    bettermile.`maven-publish`
 }
 
 repositories {
@@ -33,4 +34,13 @@ dependencies {
 
     testImplementation(libs.kotlin.test)
     testImplementation(libs.ksp.test)
+}
+
+mavenPublishing {
+    coordinates("com.bettermile", "address-template-processor", "0.1.0")
+
+    pom {
+        name.set("Address Template Processor")
+        description.set("A Kotlin symbol processor to convert address templates to Kotlin code")
+    }
 }

@@ -19,7 +19,7 @@ package com.bettermile.addressformatter.template.processor.internal
 import com.google.devtools.ksp.processing.KSPLogger
 import com.google.devtools.ksp.symbol.KSNode
 
-class AddressTemplateParser(
+internal class AddressTemplateParser(
     private val logger: KSPLogger,
     private val node: KSNode,
     private val template: String,

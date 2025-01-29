@@ -9,7 +9,9 @@ maven-publish = "0.30.0"
 
 [libraries]
 # gradle classpath plugins
+dokka-gradle = { module = "org.jetbrains.dokka:org.jetbrains.dokka.gradle.plugin", version.ref = "dokka" }
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+maven-publish-gradle = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "maven-publish"}
 
 # libraries
 jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
@@ -21,6 +23,4 @@ ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.re
 ksp-test = { module = "dev.zacsweers.kctfork:ksp", version.ref = "ksp-test" }
 
 [plugins]
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }

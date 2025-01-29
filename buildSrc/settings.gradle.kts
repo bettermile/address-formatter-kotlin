@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-include(":formatter")
-include(":template")
-include(":template-processor")
-include(":YamlConverter")
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
+}
