@@ -58,10 +58,12 @@ import kotlin.jvm.JvmOverloads
  * @param abbreviate use abbreviation rules to abbreviate components depending on the country code of the address
  * @param appendCountry
  *  add the country name to the components depending on the country code, when it's not already in it
+ * @param customTemplates override address templates for specific country codes
  */
-class AddressFormatter(
+class AddressFormatter @JvmOverloads constructor(
     private val abbreviate: Boolean,
     private val appendCountry: Boolean,
+    private val customTemplates: Map<String, AddressTemplate> = emptyMap(),
 ) {
 
     /**
@@ -278,19 +280,22 @@ class AddressFormatter(
         }
     }
 
-    private fun chooseTemplateText(
+    private fun chooseTemplate(
         template: CountryFormat,
         components: Map<String, String>
     ): AddressTemplate {
-        var selected =
-            template.addressTemplate ?: checkNotNull(Worldwide.default.addressTemplate)
-        val required = listOf("road", "postcode")
-        val missesAllRequired = required.none(components::containsKey)
-        if (missesAllRequired) {
-            selected =
+        val customTemplate = components["country_code"]?.let(customTemplates::get)
+        return if (customTemplate != null) {
+            customTemplate
+        } else {
+            val required = listOf("road", "postcode")
+            val containsAnyRequired = required.any(components::containsKey)
+            if (containsAnyRequired) {
+                template.addressTemplate ?: checkNotNull(Worldwide.default.addressTemplate)
+            } else {
                 template.fallbackTemplate ?: checkNotNull(Worldwide.default.fallbackTemplate)
+            }
         }
-        return selected
     }
 
     private fun getStateCode(state: String, countryCode: String): String? {
@@ -308,7 +313,7 @@ class AddressFormatter(
     }
 
     private fun renderTemplate(template: CountryFormat, components: Map<String, String>): String {
-        val addressTemplate = chooseTemplateText(template, components)
+        val addressTemplate = chooseTemplate(template, components)
         val st = addressTemplate.render(components)
         var rendered = cleanupRender(st)
         val postformat = template.postformatReplace
