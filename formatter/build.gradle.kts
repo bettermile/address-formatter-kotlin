@@ -46,7 +46,7 @@ kotlin {
 dependencies {
     kspCommonMainMetadata(project(":template-processor"))
 
-    commonMainImplementation(project(":template"))
+    commonMainApi(project(":template"))
 
     commonTestImplementation(libs.kotlin.test)
     // TODO ksp doesn't support common test source set https://github.com/google/ksp/issues/567

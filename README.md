@@ -79,13 +79,40 @@ println(appendCountryFormatter.format(json))
 Palo Alto, CA 94303
 United States of America
 */
-
 ```
 
 #### Overwrite formats
 
 If you like to overwrite some default address templates, but still want to keep the component cleanup done by the
 formatter, you can overwrite the address template for specific countries in the `AddressFormatter` constructor.
+
+##### Install
+
+Gradle (Kotlin) additions
+
+```kotlin
+plugins {
+    id("com.google.devtools.ksp") version "<CURRENT_KSP_VERSION>"
+}
+
+dependencies {
+    ksp("com.bettermile:address-template-processor:0.1.0")
+}
+```
+
+Gradle (Groovy) additions
+
+```groovy
+plugins {
+    id 'com.google.devtools.ksp' version '<CURRENT_KSP_VERSION>'
+}
+
+dependencies {
+    ksp 'com.bettermile:address-template-processor:0.1.0'
+}
+```
+
+##### Usage
 
 ```kotlin
 @AddressTemplateDefinition("""
@@ -110,7 +137,6 @@ println(formatter.format(components))
 Hamilton Avenue 301
 94303 Palo Alto
 */
-
 ```
 
 The supported format is a small subset of the [Mustache specification](https://mustache.github.io/). You can find more
