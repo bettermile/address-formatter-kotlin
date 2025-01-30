@@ -96,7 +96,7 @@ plugins {
 }
 
 dependencies {
-    ksp("com.bettermile:address-template-processor:0.1.0")
+    ksp("com.bettermile:address-template-processor:0.3.4")
 }
 ```
 
@@ -108,7 +108,7 @@ plugins {
 }
 
 dependencies {
-    ksp 'com.bettermile:address-template-processor:0.1.0'
+    ksp 'com.bettermile:address-template-processor:0.3.4'
 }
 ```
 
