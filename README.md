@@ -79,8 +79,69 @@ println(appendCountryFormatter.format(json))
 Palo Alto, CA 94303
 United States of America
 */
-
 ```
+
+#### Overwrite formats
+
+If you like to overwrite some default address templates, but still want to keep the component cleanup done by the
+formatter, you can overwrite the address template for specific countries in the `AddressFormatter` constructor.
+
+##### Install
+
+Gradle (Kotlin) additions
+
+```kotlin
+plugins {
+    id("com.google.devtools.ksp") version "<CURRENT_KSP_VERSION>"
+}
+
+dependencies {
+    ksp("com.bettermile:address-template-processor:0.3.4")
+}
+```
+
+Gradle (Groovy) additions
+
+```groovy
+plugins {
+    id 'com.google.devtools.ksp' version '<CURRENT_KSP_VERSION>'
+}
+
+dependencies {
+    ksp 'com.bettermile:address-template-processor:0.3.4'
+}
+```
+
+##### Usage
+
+```kotlin
+@AddressTemplateDefinition("""
+{{{road}}} {{{house_number}}}
+{{{postcode}}} {{{city}}}
+""",
+propertyName = "customUSFormat")
+val formatter = AddressFormatter(abbreviate = false, appendCountry = false, mapOf("US" to AddressTemplates.customUSFormat))
+val components = mapOf(
+    "country_code" to "US",
+    "house_number" to "301",
+    "road" to "Hamilton Avenue",
+    "neighbourhood" to "Crescent Park",
+    "city" to "Palo Alto",
+    "postcode" to "94303",
+    "county" to "Santa Clara County",
+    "state" to "California",
+    "country" to "United States",
+)
+println(formatter.format(components))
+/*
+Hamilton Avenue 301
+94303 Palo Alto
+*/
+```
+
+The supported format is a small subset of the [Mustache specification](https://mustache.github.io/). You can find more
+information in the `@AddressTemplateDefinition` documentation.
+
 ### License
 
 This project is licensed under the Apache 2.0. See the [LICENSE](LICENSE.txt) for details.
