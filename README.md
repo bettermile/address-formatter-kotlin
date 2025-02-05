@@ -19,7 +19,7 @@ Gradle (Kotlin)
 
 ```kotlin
 dependencies {
-    implementation("com.bettermile:address-formatter-kotlin:0.3.4")
+    implementation("com.bettermile:address-formatter-kotlin:0.4.0")
 }
 ```
 
@@ -27,7 +27,7 @@ Gradle (Groovy)
 
 ```groovy
 dependencies {
-    implementation 'com.bettermile:address-formatter-kotlin:0.3.4'
+    implementation 'com.bettermile:address-formatter-kotlin:0.4.0'
 }
 ```
 
@@ -37,7 +37,7 @@ Maven
 <dependency>
   <groupId>com.bettermile</groupId>
   <artifactId>address-formatter-kotlin</artifactId>
-  <version>0.3.4</version>
+  <version>0.4.0</version>
 </dependency> 
 ```
 
@@ -96,7 +96,7 @@ plugins {
 }
 
 dependencies {
-    ksp("com.bettermile:address-template-processor:0.3.4")
+    ksp("com.bettermile:address-template-processor:0.4.0")
 }
 ```
 
@@ -108,7 +108,7 @@ plugins {
 }
 
 dependencies {
-    ksp 'com.bettermile:address-template-processor:0.3.4'
+    ksp 'com.bettermile:address-template-processor:0.4.0'
 }
 ```
 
