@@ -12,10 +12,28 @@ internal object AddressTemplates {
         append('\n')
         context["house"]?.also(::append)
         append('\n')
-        sequence {
-          yield(""" ${context["road"] ?: ""} """)
-          yield(""" ${context["place"] ?: ""} """)
-          yield(""" ${context["hamlet"] ?: ""} """)
+        sequence<String> {
+          yield(
+            buildString {
+              append(' ')
+              context["road"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["place"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["hamlet"]?.also(::append)
+              append(' ')
+            }
+          )
         }
         .firstOrNull(String::isNotBlank)?.also(::append)
         append(' ')
@@ -23,15 +41,63 @@ internal object AddressTemplates {
         append('\n')
         context["postcode"]?.also(::append)
         append(' ')
-        sequence {
-          yield(""" ${context["postal_city"] ?: ""} """)
-          yield(""" ${context["town"] ?: ""} """)
-          yield(""" ${context["city"] ?: ""} """)
-          yield(""" ${context["village"] ?: ""} """)
-          yield(""" ${context["municipality"] ?: ""} """)
-          yield(""" ${context["hamlet"] ?: ""} """)
-          yield(""" ${context["county"] ?: ""} """)
-          yield(""" ${context["state"] ?: ""} """)
+        sequence<String> {
+          yield(
+            buildString {
+              append(' ')
+              context["postal_city"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["town"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["city"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["village"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["municipality"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["hamlet"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["county"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["state"]?.also(::append)
+              append(' ')
+            }
+          )
         }
         .firstOrNull(String::isNotBlank)?.also(::append)
         append('\n')

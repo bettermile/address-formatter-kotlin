@@ -8,9 +8,21 @@ internal object AddressTemplates {
   public val test: AddressTemplate
     get() = object : AddressTemplate {
       override fun render(context: Map<String, String>): String = buildString {
-        sequence {
-          yield(""" ${context["content1"] ?: ""} """)
-          yield(""" ${context["content2"] ?: ""} """)
+        sequence<String> {
+          yield(
+            buildString {
+              append(' ')
+              context["content1"]?.also(::append)
+              append(' ')
+            }
+          )
+          yield(
+            buildString {
+              append(' ')
+              context["content2"]?.also(::append)
+              append(' ')
+            }
+          )
         }
         .firstOrNull(String::isNotBlank)?.also(::append)
       }

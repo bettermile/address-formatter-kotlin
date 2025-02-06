@@ -103,8 +103,12 @@ class AddressFormattersRendererTest {
         )
         val expected = """
             return buildString {
-              sequence {
-                yield(${MULTI_LINE_STRING_INDICATOR}text$MULTI_LINE_STRING_INDICATOR)
+              sequence<String> {
+                yield(
+                  buildString {
+                    append("text")
+                  }
+                )
               }
               .firstOrNull(String::isNotBlank)?.also(::append)
             }
@@ -123,8 +127,12 @@ class AddressFormattersRendererTest {
         )
         val expected = """
             return buildString {
-              sequence {
-                yield($MULTI_LINE_STRING_INDICATOR${'$'}{context["text"] ?: ""}$MULTI_LINE_STRING_INDICATOR)
+              sequence<String> {
+                yield(
+                  buildString {
+                    context["text"]?.also(::append)
+                  }
+                )
               }
               .firstOrNull(String::isNotBlank)?.also(::append)
             }
@@ -151,8 +159,14 @@ class AddressFormattersRendererTest {
         )
         val expected = """
             return buildString {
-              sequence {
-                yield($MULTI_LINE_STRING_INDICATOR ${'$'}{context["text"] ?: ""} $MULTI_LINE_STRING_INDICATOR)
+              sequence<String> {
+                yield(
+                  buildString {
+                    append(' ')
+                    context["text"]?.also(::append)
+                    append(' ')
+                  }
+                )
               }
               .firstOrNull(String::isNotBlank)?.also(::append)
             }
@@ -188,10 +202,27 @@ class AddressFormattersRendererTest {
         )
         val expected = """
             return buildString {
-              sequence {
-                yield($MULTI_LINE_STRING_INDICATOR ${'$'}{context["text"] ?: ""} $MULTI_LINE_STRING_INDICATOR)
-                yield($MULTI_LINE_STRING_INDICATOR${'$'}{context["component"] ?: ""}, ${'$'}{context["element"] ?: ""}$MULTI_LINE_STRING_INDICATOR)
-                yield($MULTI_LINE_STRING_INDICATOR ${'$'}{context["street"] ?: ""}$MULTI_LINE_STRING_INDICATOR)
+              sequence<String> {
+                yield(
+                  buildString {
+                    append(' ')
+                    context["text"]?.also(::append)
+                    append(' ')
+                  }
+                )
+                yield(
+                  buildString {
+                    context["component"]?.also(::append)
+                    append(", ")
+                    context["element"]?.also(::append)
+                  }
+                )
+                yield(
+                  buildString {
+                    append(' ')
+                    context["street"]?.also(::append)
+                  }
+                )
               }
               .firstOrNull(String::isNotBlank)?.also(::append)
             }
@@ -240,10 +271,28 @@ class AddressFormattersRendererTest {
               append('\n')
               context["house"]?.also(::append)
               append('\n')
-              sequence {
-                yield($MULTI_LINE_STRING_INDICATOR ${'$'}{context["road"] ?: ""} $MULTI_LINE_STRING_INDICATOR)
-                yield($MULTI_LINE_STRING_INDICATOR ${'$'}{context["place"] ?: ""} $MULTI_LINE_STRING_INDICATOR)
-                yield($MULTI_LINE_STRING_INDICATOR ${'$'}{context["hamlet"] ?: ""} $MULTI_LINE_STRING_INDICATOR)
+              sequence<String> {
+                yield(
+                  buildString {
+                    append(' ')
+                    context["road"]?.also(::append)
+                    append(' ')
+                  }
+                )
+                yield(
+                  buildString {
+                    append(' ')
+                    context["place"]?.also(::append)
+                    append(' ')
+                  }
+                )
+                yield(
+                  buildString {
+                    append(' ')
+                    context["hamlet"]?.also(::append)
+                    append(' ')
+                  }
+                )
               }
               .firstOrNull(String::isNotBlank)?.also(::append)
               append(' ')
@@ -259,5 +308,3 @@ class AddressFormattersRendererTest {
         assertEquals(expected, actual)
     }
 }
-
-private const val MULTI_LINE_STRING_INDICATOR = "\"\"\""
