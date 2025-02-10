@@ -1852,8 +1852,8 @@ internal object Worldwide {
             addressTemplate = generic15,
             fallbackTemplate = fallback4,
             replace = listOf(
-              CountryFormat.Replace(search = "Autonomous Community of the", replacement = ""),
-              CountryFormat.Replace(search = "Autonomous Community of", replacement = ""),
+              CountryFormat.Replace(search = "Autonomous Community of the ", replacement = ""),
+              CountryFormat.Replace(search = "Autonomous Community of ", replacement = ""),
               CountryFormat.Replace(search = "^Community of ", replacement = ""),
             ),
           )
