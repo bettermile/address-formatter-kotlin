@@ -21,9 +21,12 @@ import com.squareup.kotlinpoet.buildCodeBlock
 
 internal object AddressFormattersRenderer {
 
-    fun render(structure: List<AddressTemplateStructure>): CodeBlock {
+    fun render(structure: List<AddressTemplateStructure>): CodeBlock =
+        CodeBlock.of("return %L", structuresCodeBlock(structure))
+
+    private fun structuresCodeBlock(structure: List<AddressTemplateStructure>): CodeBlock {
         return buildCodeBlock {
-            beginControlFlow("return buildString")
+            beginControlFlow("buildString")
             structure.forEach {
                 when (it) {
                     is AddressTemplateStructure.FirstLambda -> appendFirstLambda(it)
@@ -50,15 +53,13 @@ internal object AddressFormattersRenderer {
     }
 
     private fun CodeBlock.Builder.appendFirstLambda(lambda: AddressTemplateStructure.FirstLambda) {
-        beginControlFlow("sequence")
+        beginControlFlow("sequence<String>")
         lambda.elements.forEach { elements ->
-            val element = elements.joinToString(separator = "") {
-                when (it) {
-                    is AddressTemplateStructure.Simple.Literal -> it.text
-                    is AddressTemplateStructure.Simple.Placeholder -> "\${context[\"${it.name}\"] ?: \"\"}"
-                }
-            }
-            addStatement("yield(%P)", element)
+            add("yield(\n")
+            indent()
+            add(structuresCodeBlock(elements))
+            unindent()
+            add(")\n")
         }
         endControlFlow()
         addStatement(".firstOrNull(String::isNotBlank)?.also(::append)")
