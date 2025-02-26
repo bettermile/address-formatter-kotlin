@@ -32,7 +32,7 @@ kotlin {
 }
 
 mavenPublishing {
-    coordinates("com.bettermile", "address-template-kotlin", "0.4.0")
+    coordinates("com.bettermile", "address-template-kotlin", "0.4.1")
 
     pom {
         name.set("Address Template")
