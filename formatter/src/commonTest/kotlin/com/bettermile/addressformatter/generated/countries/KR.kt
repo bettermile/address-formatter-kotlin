@@ -29,7 +29,7 @@ public class KR {
     val components = mapOf("city" to "Seoul", "city_district" to "서초2동 (Seocho2-dong)", "country" to "South Korea", "country_code" to "kr", "hotel" to "Haeundae Grand Hotel", "postcode" to "135-934", "road" to "Seocho-daero 74-gil", "town" to "Seocho-gu", "village" to "Seocho-dong")
     val expected = """
         |South Korea
-        |Seoul, 서초2동 (Seocho2-dong), Seocho-daero 74-gil
+        |Seoul 서초2동 (Seocho2-dong) Seocho-daero 74-gil
         |Haeundae Grand Hotel
         |135-934
         |""".trimMargin()

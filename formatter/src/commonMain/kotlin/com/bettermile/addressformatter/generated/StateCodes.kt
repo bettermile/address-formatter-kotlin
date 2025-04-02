@@ -766,10 +766,11 @@ internal val stateCodes: Map<String, Map<String, Name>> = mapOf(
         "WP" to Name(default = "Western"),
       ),
       "GL" to mapOf(
-        "KU" to Name(default = "Kommune Kujalleq"),
-        "QA" to Name(default = "Qaasuitsup Kommunia"),
-        "QE" to Name(default = "Qeqqata Kommunia"),
-        "SM" to Name(default = "Kommuneqarfik Sermersooq"),
+        "AV" to Name(default = "Avannaata"),
+        "KU" to Name(default = "Kujalleq"),
+        "QA" to Name(default = "Qaasuitsup Kommunia", alternativesByLanguage = mapOf("en" to "Qaasuitsup")),
+        "QE" to Name(default = "Qeqqata"),
+        "SM" to Name(default = "Sermersooq"),
       ),
       "GM" to mapOf(
         "B" to Name(default = "Banjul"),
