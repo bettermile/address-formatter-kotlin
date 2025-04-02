@@ -27,7 +27,7 @@ object CountryNamesTranspiler {
     fun yamlToFile(node: ObjectNode): FileSpec {
         return generatedFileSpec("CountryNames") {
             val elements: List<CodeBlock> = node.properties().map { (key, value) ->
-                CodeBlock.of("%S to %S", key, value.asText())
+                CodeBlock.of("%S♢to♢%S", key, value.asText())
             }
             addProperty(
                 PropertySpec.builder(

@@ -29,7 +29,7 @@ object Country2LangTranspiler {
         return generatedFileSpec("Country2Lang") {
             val elements: List<CodeBlock> = node.properties().map { (key, value) ->
                 val languages: List<CodeBlock> = value.asText().split(',').map { CodeBlock.of("%S", it.uppercase()) }
-                CodeBlock.of("%S to listOf(%L)", key, languages.joinToCode(", "))
+                CodeBlock.of("%S♢to♢listOf(%L)", key, languages.joinToCode(", "))
             }
             addProperty(
                 PropertySpec.builder(

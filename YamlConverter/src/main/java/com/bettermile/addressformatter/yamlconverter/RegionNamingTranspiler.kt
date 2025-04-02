@@ -24,7 +24,6 @@ import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
-import com.squareup.kotlinpoet.buildCodeBlock
 import com.squareup.kotlinpoet.joinToCode
 
 object RegionNamingTranspiler {
@@ -47,19 +46,16 @@ object RegionNamingTranspiler {
                                 .filterNot { it.key in listOf("default", "alt") }
                                 .map { (key, value) ->
                                     check(key.startsWith("alt_")) { "unexpected key: '$key'" }
-                                    CodeBlock.of("%S·to·%S", key.drop(4), value.asText())
+                                    CodeBlock.of("%S to %S", key.drop(4), value.asText())
                                 }
                             if (alternatives.isNotEmpty()) {
-                                put("alternativesByLanguage", CodeBlock.of("mapOf(%L)", alternatives.joinToCode(", ")))
+                                put("alternativesByLanguage", CodeBlock.of("mapOf(%L)", alternatives.joinToCode(",♢")))
                             }
                         }
-                    }.map { CodeBlock.of("${it.key}·=·%L", it.value) }
-                    CodeBlock.of("%S to %T(%L)", region, nameType, nameParameters.joinToCode(separator = ", "))
+                    }.map { CodeBlock.of("${it.key} = %L", it.value) }
+                    CodeBlock.of("%S♢to♢%T(%L)", region, nameType, nameParameters.joinToCode(separator = ",♢"))
                 }
-                buildCodeBlock {
-                    add("%S to ", country)
-                    add(multilineFunctionCall("mapOf", regionBlocks))
-                }
+                CodeBlock.of("%S♢to♢%L", country, multilineFunctionCall("mapOf", regionBlocks))
             }
             addProperty(
                 PropertySpec.builder(

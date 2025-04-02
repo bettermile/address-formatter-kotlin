@@ -29,9 +29,9 @@ object ComponentsTranspiler {
             val elements: List<CodeBlock> = array.flatMap { node ->
                 buildList {
                     val name = node["name"].asText()
-                    add(CodeBlock.of("%S to %S", name, name))
+                    add(CodeBlock.of("%S♢to♢%S", name, name))
                     val aliases = node["aliases"]?.elements()?.asSequence().orEmpty()
-                    addAll(aliases.map { CodeBlock.of("%S to %S", it.asText(), name) })
+                    addAll(aliases.map { CodeBlock.of("%S♢to♢%S", it.asText(), name) })
                 }
             }
             addProperty(
