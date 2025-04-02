@@ -26,7 +26,9 @@ public class IR {
   @Test
   public fun Tower_in_Tehran_35_699_51_33810() {
     // description: Tower in Tehran, 35.699,51.33810
-    val components = mapOf("attraction" to "Azadi Tower", "city" to "Tehran", "country" to "Iran", "country_code" to "ir", "postcode" to "1351956118", "road" to "Azadi Square", "suburb" to "Ostad Moein")
+    val components = mapOf("attraction" to "Azadi Tower", "city" to "Tehran", "country" to "Iran",
+        "country_code" to "ir", "postcode" to "1351956118", "road" to "Azadi Square",
+        "suburb" to "Ostad Moein")
     val expected = """
         |Azadi Tower
         |Tehran
@@ -42,7 +44,8 @@ public class IR {
   @Test
   public fun district_should_be_treated_as_alias_of_state_district() {
     // description: district should be treated as alias of state_district
-    val components = mapOf("city" to "Tehran", "country" to "Iran", "country_code" to "ir", "district" to "بخش مرکزی شهرستان تهران", "province" to "Tehran Province")
+    val components = mapOf("city" to "Tehran", "country" to "Iran", "country_code" to "ir",
+        "district" to "بخش مرکزی شهرستان تهران", "province" to "Tehran Province")
     val expected = """
         |Tehran
         |بخش مرکزی شهرستان تهران

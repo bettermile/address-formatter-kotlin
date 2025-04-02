@@ -26,7 +26,10 @@ public class PM {
   @Test
   public fun Building_in_Miquelon_47_10099_56_37706() {
     // description: Building in Miquelon, 47.10099,-56.37706
-    val components = mapOf("building" to "Société nouvelle des pêches de Miquelon", "city" to "Miquelon-Langlade", "country" to "Saint Pierre and Miquelon", "country_code" to "pm", "postcode" to "97500", "road" to "Rue Jacques Vigneau", "state" to "Saint Pierre and Miquelon")
+    val components = mapOf("building" to "Société nouvelle des pêches de Miquelon",
+        "city" to "Miquelon-Langlade", "country" to "Saint Pierre and Miquelon",
+        "country_code" to "pm", "postcode" to "97500", "road" to "Rue Jacques Vigneau",
+        "state" to "Saint Pierre and Miquelon")
     val expected = """
         |Société nouvelle des pêches de Miquelon
         |Rue Jacques Vigneau

@@ -26,7 +26,10 @@ public class GP {
   @Test
   public fun Museum_in_Pointe_Pitre_16_23832_61_53703() {
     // description: Museum in Pointe-à-Pitre, 16.23832,-61.53703
-    val components = mapOf("country" to "Guadeloupe", "country_code" to "gp", "county" to "Pointe-à-Pitre", "museum" to "Musée Lherminier", "postcode" to "97110", "road" to "Rue Sadi-Carnot", "state" to "Guadeloupe", "suburb" to "Centre-Ville", "town" to "Pointe-à-Pitre")
+    val components = mapOf("country" to "Guadeloupe", "country_code" to "gp",
+        "county" to "Pointe-à-Pitre", "museum" to "Musée Lherminier", "postcode" to "97110",
+        "road" to "Rue Sadi-Carnot", "state" to "Guadeloupe", "suburb" to "Centre-Ville",
+        "town" to "Pointe-à-Pitre")
     val expected = """
         |Musée Lherminier
         |Rue Sadi-Carnot

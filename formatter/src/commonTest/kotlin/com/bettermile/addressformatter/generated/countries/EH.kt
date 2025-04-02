@@ -26,7 +26,9 @@ public class EH {
   @Test
   public fun Hotel_in_Laayoune_27_15658_13_20123() {
     // description: Hotel in Laayoune, 27.15658,-13.20123
-    val components = mapOf("country" to "Western Sahara", "country_code" to "eh", "county" to "Pachalik de Laâyoune", "hotel" to "Hôtel Al-Massira", "postcode" to "70036", "road" to "Boulevard de la Mecque", "state_district" to "Laayoune Province")
+    val components = mapOf("country" to "Western Sahara", "country_code" to "eh",
+        "county" to "Pachalik de Laâyoune", "hotel" to "Hôtel Al-Massira", "postcode" to "70036",
+        "road" to "Boulevard de la Mecque", "state_district" to "Laayoune Province")
     val expected = """
         |Hôtel Al-Massira
         |Boulevard de la Mecque

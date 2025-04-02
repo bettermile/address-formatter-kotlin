@@ -26,7 +26,10 @@ public class PG {
   @Test
   public fun Hotel_in_Port_Moresby_9_47861_147_15138() {
     // description: Hotel in Port Moresby, -9.47861,147.15138
-    val components = mapOf("city" to "Port Moresby", "country" to "Papua New Guinea", "country_code" to "pg", "county" to "National Capital District", "hotel" to "Crowne Plaza Hotel", "road" to "Mary Street", "state" to "National Capital District", "suburb" to "Ela Beach")
+    val components = mapOf("city" to "Port Moresby", "country" to "Papua New Guinea",
+        "country_code" to "pg", "county" to "National Capital District",
+        "hotel" to "Crowne Plaza Hotel", "road" to "Mary Street",
+        "state" to "National Capital District", "suburb" to "Ela Beach")
     val expected = """
         |Crowne Plaza Hotel
         |Mary Street

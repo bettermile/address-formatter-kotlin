@@ -26,7 +26,9 @@ public class CM {
   @Test
   public fun UN_building_in_Yaound_3_85890_11_51580() {
     // description: UN building in Yaoundé, 3.85890,11.51580
-    val components = mapOf("building" to "ONUDI", "city" to "Yaoundé III", "country" to "Cameroon", "country_code" to "cm", "county" to "CUY", "postcode" to "11852", "road" to "rue 3.025", "state" to "Centre", "suburb" to "Centre Administratif")
+    val components = mapOf("building" to "ONUDI", "city" to "Yaoundé III", "country" to "Cameroon",
+        "country_code" to "cm", "county" to "CUY", "postcode" to "11852", "road" to "rue 3.025",
+        "state" to "Centre", "suburb" to "Centre Administratif")
     val expected = """
         |ONUDI
         |rue 3.025

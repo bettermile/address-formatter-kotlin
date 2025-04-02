@@ -26,7 +26,9 @@ public class SC {
   @Test
   public fun Hotel_near_Victoria_4_62549_55_44879() {
     // description: Hotel near Victoria, -4.62549,55.44879
-    val components = mapOf("city" to "Victoria", "country" to "Seychelles", "country_code" to "sc", "hotel" to "Bel Air Hotel", "island" to "Mahé", "postcode" to "SEZ", "road" to "Chemin Bel Air")
+    val components = mapOf("city" to "Victoria", "country" to "Seychelles", "country_code" to "sc",
+        "hotel" to "Bel Air Hotel", "island" to "Mahé", "postcode" to "SEZ",
+        "road" to "Chemin Bel Air")
     val expected = """
         |Bel Air Hotel
         |Chemin Bel Air

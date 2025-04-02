@@ -26,7 +26,10 @@ public class TN {
   @Test
   public fun main_theatre_in_Tunis_36_79900_10_18083() {
     // description: main theatre in Tunis 36.79900,10.18083
-    val components = mapOf("city" to "Tunis", "country" to "Tunisia", "country_code" to "tn", "postcode" to "1000", "road" to "Rue de Grèce نهج اليونان", "state" to "Tunis", "state_district" to "Bab Bhar", "theatre" to "Théâtre Municipal de Tunis المسرح البلدي بتونس")
+    val components = mapOf("city" to "Tunis", "country" to "Tunisia", "country_code" to "tn",
+        "postcode" to "1000", "road" to "Rue de Grèce نهج اليونان", "state" to "Tunis",
+        "state_district" to "Bab Bhar",
+        "theatre" to "Théâtre Municipal de Tunis المسرح البلدي بتونس")
     val expected = """
         |Théâtre Municipal de Tunis المسرح البلدي بتونس
         |Rue de Grèce نهج اليونان
@@ -40,7 +43,9 @@ public class TN {
   @Test
   public fun cinema_in_Sousse_35_83053_10_64063() {
     // description: cinema in Sousse 35.83053,10.64063
-    val components = mapOf("cinema" to "Cinéma Palace", "city" to "Sousse", "country" to "Tunisia", "country_code" to "tn", "postcode" to "4000", "road" to "Rue Pasteur", "state" to "Sousse", "suburb" to "Sousse Riadh")
+    val components = mapOf("cinema" to "Cinéma Palace", "city" to "Sousse", "country" to "Tunisia",
+        "country_code" to "tn", "postcode" to "4000", "road" to "Rue Pasteur", "state" to "Sousse",
+        "suburb" to "Sousse Riadh")
     val expected = """
         |Cinéma Palace
         |Rue Pasteur
@@ -54,7 +59,9 @@ public class TN {
   @Test
   public fun hospital_in_Sfax_34_7411_10_7590() {
     // description: hospital in Sfax 34.7411,10.7590
-    val components = mapOf("city" to "صفاقس", "country" to "Tunisia", "country_code" to "tn", "county" to "Sfax Medina", "hospital" to "CNSS", "postcode" to "3000", "road" to "RN 1 طو", "state" to "Sfax", "suburb" to "صفاقس الجديدة")
+    val components = mapOf("city" to "صفاقس", "country" to "Tunisia", "country_code" to "tn",
+        "county" to "Sfax Medina", "hospital" to "CNSS", "postcode" to "3000", "road" to "RN 1 طو",
+        "state" to "Sfax", "suburb" to "صفاقس الجديدة")
     val expected = """
         |CNSS
         |RN 1 طو

@@ -26,7 +26,9 @@ public class CN {
   @Test
   public fun Building_in_Shanghai_31_23980_121_49316() {
     // description: Building in Shanghai, 31.23980,121.49316
-    val components = mapOf("building" to "万向大厦", "country" to "China", "country_code" to "cn", "county" to "Pudong New District", "house_number" to "99号", "neighbourhood" to "Lijuazui", "postcode" to "200120", "road" to "West Lujiazui Road", "state" to "Shanghai")
+    val components = mapOf("building" to "万向大厦", "country" to "China", "country_code" to "cn",
+        "county" to "Pudong New District", "house_number" to "99号", "neighbourhood" to "Lijuazui",
+        "postcode" to "200120", "road" to "West Lujiazui Road", "state" to "Shanghai")
     val expected = """
         |200120 China
         |Shanghai
@@ -54,7 +56,9 @@ public class CN {
   @Test
   public fun `null`() {
     // description: null
-    val components = mapOf("city" to "Nyingchi", "country" to "China", "country_code" to "cn", "district" to "Bayi District", "postcode" to "860000", "region" to "Nyingchi Prefecture", "state" to "Tibet", "town" to "Bayi")
+    val components = mapOf("city" to "Nyingchi", "country" to "China", "country_code" to "cn",
+        "district" to "Bayi District", "postcode" to "860000", "region" to "Nyingchi Prefecture",
+        "state" to "Tibet", "town" to "Bayi")
     val expected = """
         |860000 China
         |Tibet

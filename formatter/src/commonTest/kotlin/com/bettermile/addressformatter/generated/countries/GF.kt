@@ -26,7 +26,10 @@ public class GF {
   @Test
   public fun House_in_Cayenne_4_93802_52_32985() {
     // description: House in Cayenne, 4.93802,-52.32985
-    val components = mapOf("country" to "French Guiana", "country_code" to "gf", "county" to "Cayenne", "house_number" to "53", "neighbourhood" to "Cité Floralies", "postcode" to "97300", "road" to "Rue du Lieutenant Becker", "state" to "French Guiana", "town" to "Cayenne")
+    val components = mapOf("country" to "French Guiana", "country_code" to "gf",
+        "county" to "Cayenne", "house_number" to "53", "neighbourhood" to "Cité Floralies",
+        "postcode" to "97300", "road" to "Rue du Lieutenant Becker", "state" to "French Guiana",
+        "town" to "Cayenne")
     val expected = """
         |53 Rue du Lieutenant Becker
         |97300 Cayenne

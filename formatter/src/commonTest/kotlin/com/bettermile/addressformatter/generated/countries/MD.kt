@@ -26,7 +26,9 @@ public class MD {
   @Test
   public fun museum_in_Chi_in_u() {
     // description: museum in Chișinău
-    val components = mapOf("city" to "Chișinău", "country" to "Moldova", "country_code" to "MD", "county" to "Municipiul Chișinău", "house_number" to "121a", "museum" to "Muzeul de Istorie", "road" to "str. 31 August 1989", "postcode" to "MD-2012")
+    val components = mapOf("city" to "Chișinău", "country" to "Moldova", "country_code" to "MD",
+        "county" to "Municipiul Chișinău", "house_number" to "121a",
+        "museum" to "Muzeul de Istorie", "road" to "str. 31 August 1989", "postcode" to "MD-2012")
     val expected = """
         |Muzeul de Istorie
         |str. 31 August 1989, 121a

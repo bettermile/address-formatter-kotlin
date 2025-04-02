@@ -26,7 +26,9 @@ public class IT {
   @Test
   public fun Barletta_street_address_41_312006_16_2704745() {
     // description: Barletta street address - 41.312006,16.2704745
-    val components = mapOf("city" to "Barletta", "country" to "Italy", "country_code" to "it", "county" to "BT", "house_number" to "13", "postcode" to "76121", "road" to "Via Pisacane", "state" to "Apulia", "suburb" to "Montaltino")
+    val components = mapOf("city" to "Barletta", "country" to "Italy", "country_code" to "it",
+        "county" to "BT", "house_number" to "13", "postcode" to "76121", "road" to "Via Pisacane",
+        "state" to "Apulia", "suburb" to "Montaltino")
     val expected = """
         |Via Pisacane 13
         |76121 Barletta BT
@@ -39,7 +41,9 @@ public class IT {
   @Test
   public fun Milano_correcty_add_county_code() {
     // description: Milano, correcty add county_code
-    val components = mapOf("city" to "Milano", "country" to "Italy", "country_code" to "it", "county" to "Milano", "postcode" to "20147", "road" to "Via Giovanni Della Casa", "state" to "Lombardy", "suburb" to "Boldinasco")
+    val components = mapOf("city" to "Milano", "country" to "Italy", "country_code" to "it",
+        "county" to "Milano", "postcode" to "20147", "road" to "Via Giovanni Della Casa",
+        "state" to "Lombardy", "suburb" to "Boldinasco")
     val expected = """
         |Via Giovanni Della Casa
         |20147 Milano MI
@@ -52,7 +56,9 @@ public class IT {
   @Test
   public fun Torino_correcty_add_county_code() {
     // description: Torino, correcty add county_code
-    val components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy", "country_code" to "it", "county" to "Torino", "postcode" to "10032", "road" to "Via Pertengo", "state" to "Piemonte")
+    val components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy",
+        "country_code" to "it", "county" to "Torino", "postcode" to "10032",
+        "road" to "Via Pertengo", "state" to "Piemonte")
     val expected = """
         |Via Pertengo
         |10032 San Raffaele Cimena TO
@@ -65,7 +71,9 @@ public class IT {
   @Test
   public fun Provincia_di_Torino_correcty_add_county_code() {
     // description: Provincia di Torino, correcty add county_code
-    val components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy", "country_code" to "it", "county" to "Provincia di Torino", "postcode" to "10032", "road" to "Via Pertengo", "state" to "Piemonte")
+    val components = mapOf("city" to "San Raffaele Cimena", "country" to "Italy",
+        "country_code" to "it", "county" to "Provincia di Torino", "postcode" to "10032",
+        "road" to "Via Pertengo", "state" to "Piemonte")
     val expected = """
         |Via Pertengo
         |10032 San Raffaele Cimena TO
@@ -78,7 +86,10 @@ public class IT {
   @Test
   public fun deal_with_Citt_metropolitana_di_Firenze() {
     // description: deal with Città metropolitana di Firenze
-    val components = mapOf("building" to "Palazzo Gondi", "city" to "Firenze", "country" to "Italia", "country_code" to "it", "county" to "Città metropolitana di Firenze", "pedestrian" to "Via dei Gondi", "postcode" to "50122", "state" to "TOS", "suburb" to "Quartiere 1")
+    val components = mapOf("building" to "Palazzo Gondi", "city" to "Firenze",
+        "country" to "Italia", "country_code" to "it", "county" to "Città metropolitana di Firenze",
+        "pedestrian" to "Via dei Gondi", "postcode" to "50122", "state" to "TOS",
+        "suburb" to "Quartiere 1")
     val expected = """
         |Palazzo Gondi
         |Via dei Gondi

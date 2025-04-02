@@ -26,7 +26,9 @@ public class LB {
   @Test
   public fun Cinema_33_88591_35_50907() {
     // description: Cinema, 33.88591,35.50907
-    val components = mapOf("cinema" to "Circuit Empire Sodeco", "city" to "Beirut", "country" to "Lebanon", "country_code" to "lb", "postcode" to "2052 6703", "road" to "Damascus Road", "state" to "Beirut Governorate", "suburb" to "Achrafieh")
+    val components = mapOf("cinema" to "Circuit Empire Sodeco", "city" to "Beirut",
+        "country" to "Lebanon", "country_code" to "lb", "postcode" to "2052 6703",
+        "road" to "Damascus Road", "state" to "Beirut Governorate", "suburb" to "Achrafieh")
     val expected = """
         |Circuit Empire Sodeco
         |Damascus Road
@@ -40,7 +42,9 @@ public class LB {
   @Test
   public fun Cinema_language_ar_33_88591_35_50907() {
     // description: Cinema, language=ar, 33.88591,35.50907
-    val components = mapOf("cinema" to "سيركوي امبير سوديكو", "city" to "بيروت", "country" to "الجمهورية اللبنانية", "country_code" to "lb", "postcode" to "2052 6703", "road" to "طريق الشام", "state" to "محافظة بيروت", "suburb" to "الأشرفية")
+    val components = mapOf("cinema" to "سيركوي امبير سوديكو", "city" to "بيروت",
+        "country" to "الجمهورية اللبنانية", "country_code" to "lb", "postcode" to "2052 6703",
+        "road" to "طريق الشام", "state" to "محافظة بيروت", "suburb" to "الأشرفية")
     val expected = """
         |سيركوي امبير سوديكو
         |طريق الشام
@@ -54,7 +58,9 @@ public class LB {
   @Test
   public fun Restaurant_33_89821_35_47893() {
     // description: Restaurant, 33.89821,35.47893
-    val components = mapOf("city" to "Beirut", "country" to "Lebanon", "country_code" to "lb", "restaurant" to "Kushari Society", "road" to "Rue Mahatma Gandhi", "state" to "Beirut Governorate", "suburb" to "Ras Beirut")
+    val components = mapOf("city" to "Beirut", "country" to "Lebanon", "country_code" to "lb",
+        "restaurant" to "Kushari Society", "road" to "Rue Mahatma Gandhi",
+        "state" to "Beirut Governorate", "suburb" to "Ras Beirut")
     val expected = """
         |Kushari Society
         |Rue Mahatma Gandhi
@@ -68,7 +74,9 @@ public class LB {
   @Test
   public fun Restaurant_language_ar_33_89821_35_47893() {
     // description: Restaurant, language=ar, 33.89821,35.47893
-    val components = mapOf("city" to "بيروت", "country" to "الجمهورية اللبنانية", "country_code" to "lb", "restaurant" to "Kushari Society", "road" to "شارع المهتما غاندي", "state" to "محافظة بيروت", "suburb" to "رأس بيروت")
+    val components = mapOf("city" to "بيروت", "country" to "الجمهورية اللبنانية",
+        "country_code" to "lb", "restaurant" to "Kushari Society", "road" to "شارع المهتما غاندي",
+        "state" to "محافظة بيروت", "suburb" to "رأس بيروت")
     val expected = """
         |Kushari Society
         |شارع المهتما غاندي
@@ -82,7 +90,9 @@ public class LB {
   @Test
   public fun Supermarket_34_43088_35_83017() {
     // description: Supermarket, 34.43088,35.83017
-    val components = mapOf("city" to "Tripoli", "country" to "Lebanon", "country_code" to "lb", "road" to "شارع عشير الدايه", "state" to "Qada Tarablos", "supermarket" to "SEVEN TO TWELVE")
+    val components = mapOf("city" to "Tripoli", "country" to "Lebanon", "country_code" to "lb",
+        "road" to "شارع عشير الدايه", "state" to "Qada Tarablos",
+        "supermarket" to "SEVEN TO TWELVE")
     val expected = """
         |SEVEN TO TWELVE
         |شارع عشير الدايه

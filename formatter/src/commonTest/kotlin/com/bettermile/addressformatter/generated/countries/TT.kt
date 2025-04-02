@@ -26,7 +26,10 @@ public class TT {
   @Test
   public fun cafe_in_Port_of_Spain() {
     // description: cafe in Port of Spain
-    val components = mapOf("house_number" to "23", "road" to "O'Connor Street", "neighbourhood" to "Ellerslie Park", "city" to "Port of Spain", "suburb" to "Woodbrook", "postcode" to "190130", "restaurant" to "More Vino Limited", "country" to "Trinidad and Tobago", "country_code" to "TT")
+    val components = mapOf("house_number" to "23", "road" to "O'Connor Street",
+        "neighbourhood" to "Ellerslie Park", "city" to "Port of Spain", "suburb" to "Woodbrook",
+        "postcode" to "190130", "restaurant" to "More Vino Limited",
+        "country" to "Trinidad and Tobago", "country_code" to "TT")
     val expected = """
         |More Vino Limited
         |23 O'Connor Street

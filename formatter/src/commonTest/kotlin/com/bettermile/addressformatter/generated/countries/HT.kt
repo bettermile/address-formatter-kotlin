@@ -26,7 +26,10 @@ public class HT {
   @Test
   public fun Bank_in_Port_au_Prince_18_55005_72_34510() {
     // description: Bank in Port-au-Prince, 18.55005,-72.34510
-    val components = mapOf("bank" to "Banque de l'Union Haitienne SA", "city" to "Commune de Port-au-Prince", "country" to "Haiti", "country_code" to "ht", "postcode" to "HT6114", "road" to "Rue Bonne Foi", "state" to "Département de l'Ouest", "state_district" to "Port-au-Prince", "suburb" to "6e Turgeau")
+    val components = mapOf("bank" to "Banque de l'Union Haitienne SA",
+        "city" to "Commune de Port-au-Prince", "country" to "Haiti", "country_code" to "ht",
+        "postcode" to "HT6114", "road" to "Rue Bonne Foi", "state" to "Département de l'Ouest",
+        "state_district" to "Port-au-Prince", "suburb" to "6e Turgeau")
     val expected = """
         |Banque de l'Union Haitienne SA
         |Rue Bonne Foi

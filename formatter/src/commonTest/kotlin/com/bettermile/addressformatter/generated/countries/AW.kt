@@ -26,7 +26,9 @@ public class AW {
   @Test
   public fun Parliament_in_Oranjestad_12_51781_70_03646() {
     // description: Parliament in Oranjestad, 12.51781,-70.03646
-    val components = mapOf("name" to "Parliament of Aruba", "country" to "Aruba", "country_code" to "aw", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard", "town" to "Oranjestad")
+    val components = mapOf("name" to "Parliament of Aruba", "country" to "Aruba",
+        "country_code" to "aw", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard",
+        "town" to "Oranjestad")
     val expected = """
         |Parliament of Aruba
         |L.G. Smith Boulevard LSB 70

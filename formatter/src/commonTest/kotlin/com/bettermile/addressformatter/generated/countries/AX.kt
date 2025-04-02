@@ -26,7 +26,10 @@ public class AX {
   @Test
   public fun Post_office_in_Mariehamn() {
     // description: Post office in Mariehamn
-    val components = mapOf("country" to "Åland Islands", "country_code" to "ax", "county" to "Åland Islands", "post_box" to "Posten Åland", "postcode" to "22101", "road" to "Nygatan", "state" to "Åland", "state_district" to "Regional State Agency Åland", "suburb" to "Johannebo", "town" to "Mariehamn")
+    val components = mapOf("country" to "Åland Islands", "country_code" to "ax",
+        "county" to "Åland Islands", "post_box" to "Posten Åland", "postcode" to "22101",
+        "road" to "Nygatan", "state" to "Åland", "state_district" to "Regional State Agency Åland",
+        "suburb" to "Johannebo", "town" to "Mariehamn")
     val expected = """
         |Posten Åland
         |Nygatan

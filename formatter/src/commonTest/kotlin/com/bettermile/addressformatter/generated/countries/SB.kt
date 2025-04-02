@@ -26,7 +26,9 @@ public class SB {
   @Test
   public fun Library_in_Honiara_9_43683_159_96441() {
     // description: Library in Honiara, -9.43683,159.96441
-    val components = mapOf("city" to "Honiara", "country" to "Solomon Islands", "country_code" to "sb", "library" to "Solomon Islands National Library", "road" to "Mendana Avenue", "state" to "Capital Territory")
+    val components = mapOf("city" to "Honiara", "country" to "Solomon Islands",
+        "country_code" to "sb", "library" to "Solomon Islands National Library",
+        "road" to "Mendana Avenue", "state" to "Capital Territory")
     val expected = """
         |Solomon Islands National Library
         |Mendana Avenue

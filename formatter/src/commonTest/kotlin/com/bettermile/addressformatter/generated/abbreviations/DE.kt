@@ -26,7 +26,8 @@ public class DE {
   @Test
   public fun Platz_der_Republik() {
     // description: Platz der Republik
-    val components = mapOf("city" to "Berlin", "country" to "Deutschland", "country_code" to "de", "road" to "Platz der Republik", "state" to "Berlin")
+    val components = mapOf("city" to "Berlin", "country" to "Deutschland", "country_code" to "de",
+        "road" to "Platz der Republik", "state" to "Berlin")
     val expected = """
         |Pl der Republik
         |Berlin
@@ -39,7 +40,9 @@ public class DE {
   @Test
   public fun willy_Brandt_Platz() {
     // description: willy-Brandt-Platz
-    val components = mapOf("city" to "München", "country" to "Deutschland", "country_code" to "de", "house_number" to "6", "postcode" to "81829", "road" to "Willy-Brandt-Platz", "state" to "Bayern")
+    val components = mapOf("city" to "München", "country" to "Deutschland", "country_code" to "de",
+        "house_number" to "6", "postcode" to "81829", "road" to "Willy-Brandt-Platz",
+        "state" to "Bayern")
     val expected = """
         |Willy-Brandt-Platz 6
         |81829 München

@@ -26,7 +26,10 @@ public class GW {
   @Test
   public fun Embassy_in_Bissau_11_86213_15_58436() {
     // description: Embassy in Bissau, 11.86213,-15.58436
-    val components = mapOf("building" to "Embaixada d'Espanha", "city" to "Bissau", "country" to "Guinea-Bissau", "country_code" to "gw", "neighbourhood" to "Tchada", "road" to "Praça dos Herois Nacionais", "state" to "Setor autónomo de Bissau", "suburb" to "Reino")
+    val components = mapOf("building" to "Embaixada d'Espanha", "city" to "Bissau",
+        "country" to "Guinea-Bissau", "country_code" to "gw", "neighbourhood" to "Tchada",
+        "road" to "Praça dos Herois Nacionais", "state" to "Setor autónomo de Bissau",
+        "suburb" to "Reino")
     val expected = """
         |Embaixada d'Espanha
         |Praça dos Herois Nacionais

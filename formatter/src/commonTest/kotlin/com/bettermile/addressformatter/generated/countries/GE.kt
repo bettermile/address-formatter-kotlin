@@ -26,7 +26,9 @@ public class GE {
   @Test
   public fun bar_in_Tbilisi() {
     // description: bar in Tbilisi
-    val components = mapOf("bar" to "Mojito Bar", "city" to "Tbilisi", "country" to "Georgia", "country_code" to "GE", "house_number" to "7", "postcode" to "0114", "road" to "Cotton Row", "suburb" to "Old Tbilisi Raion")
+    val components = mapOf("bar" to "Mojito Bar", "city" to "Tbilisi", "country" to "Georgia",
+        "country_code" to "GE", "house_number" to "7", "postcode" to "0114", "road" to "Cotton Row",
+        "suburb" to "Old Tbilisi Raion")
     val expected = """
         |Mojito Bar
         |Cotton Row 7

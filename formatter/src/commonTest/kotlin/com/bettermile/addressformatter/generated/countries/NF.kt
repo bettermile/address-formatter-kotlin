@@ -26,7 +26,9 @@ public class NF {
   @Test
   public fun Shop_in_Burnt_Pine_29_03214_167_94704() {
     // description: Shop in Burnt Pine, -29.03214,167.94704
-    val components = mapOf("country" to "Norfolk Island", "country_code" to "nf", "postcode" to "2899", "road" to "Mitchells Lane", "supermarket" to "P & R Groceries", "town" to "Burnt Pine")
+    val components = mapOf("country" to "Norfolk Island", "country_code" to "nf",
+        "postcode" to "2899", "road" to "Mitchells Lane", "supermarket" to "P & R Groceries",
+        "town" to "Burnt Pine")
     val expected = """
         |P & R Groceries
         |Mitchells Lane

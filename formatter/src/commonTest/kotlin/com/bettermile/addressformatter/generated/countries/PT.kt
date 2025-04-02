@@ -26,7 +26,9 @@ public class PT {
   @Test
   public fun `38_74547_9_18519`() {
     // description: 38.74547,-9.18519
-    val components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt", "county" to "Lisboa", "house_number" to "11", "postcode" to "1500-203", "road" to "Avenida Conselheiro Barjona de Freitas", "suburb" to "Benfica")
+    val components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt",
+        "county" to "Lisboa", "house_number" to "11", "postcode" to "1500-203",
+        "road" to "Avenida Conselheiro Barjona de Freitas", "suburb" to "Benfica")
     val expected = """
         |Avenida Conselheiro Barjona de Freitas 11
         |1500-203 Lisbon
@@ -39,7 +41,9 @@ public class PT {
   @Test
   public fun `38_72132_9_13017`() {
     // description: 38.72132,-9.13017
-    val components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt", "county" to "Lisbon", "house_number" to "2", "neighbourhood" to "São Vicente de Fora", "postcode" to "1170169", "road" to "Rua da Graça", "suburb" to "São Vicente")
+    val components = mapOf("city" to "Lisbon", "country" to "Portugal", "country_code" to "pt",
+        "county" to "Lisbon", "house_number" to "2", "neighbourhood" to "São Vicente de Fora",
+        "postcode" to "1170169", "road" to "Rua da Graça", "suburb" to "São Vicente")
     val expected = """
         |Rua da Graça 2
         |1170-169 Lisbon
@@ -52,7 +56,11 @@ public class PT {
   @Test
   public fun `37_74851_25_60450`() {
     // description: 37.74851,-25.60450
-    val components = mapOf("archipelago" to "Azores", "city" to "Ponta Delgada", "city_district" to "Rosto do Cão (Livramento)", "country" to "Portugal", "country_code" to "pt", "guest_house" to "Casa Do Populo", "house_number" to "1015", "neighbourhood" to "Livramento", "postcode" to "9500-614", "road" to "Rua Padre Domingos da Silva Costay", "state_district" to "São Miguel")
+    val components = mapOf("archipelago" to "Azores", "city" to "Ponta Delgada",
+        "city_district" to "Rosto do Cão (Livramento)", "country" to "Portugal",
+        "country_code" to "pt", "guest_house" to "Casa Do Populo", "house_number" to "1015",
+        "neighbourhood" to "Livramento", "postcode" to "9500-614",
+        "road" to "Rua Padre Domingos da Silva Costay", "state_district" to "São Miguel")
     val expected = """
         |Casa Do Populo
         |Rua Padre Domingos da Silva Costay 1015

@@ -26,7 +26,11 @@ public class HU {
   @Test
   public fun house_in_Budapest_47_49269_19_03371() {
     // description: house in Budapest - 47.49269,19.03371
-    val components = mapOf("city" to "Budapest", "city_district" to "1. kerület", "country" to "Hungary", "country_code" to "hu", "county" to "Budapesti kistérség", "house_number" to "11", "neighbourhood" to "Naphegy", "postcode" to "1016", "road" to "Dezső utca", "state" to "Közép-Magyarország", "state_district" to "Central Hungary", "suburb" to "Krisztinaváros")
+    val components = mapOf("city" to "Budapest", "city_district" to "1. kerület",
+        "country" to "Hungary", "country_code" to "hu", "county" to "Budapesti kistérség",
+        "house_number" to "11", "neighbourhood" to "Naphegy", "postcode" to "1016",
+        "road" to "Dezső utca", "state" to "Közép-Magyarország",
+        "state_district" to "Central Hungary", "suburb" to "Krisztinaváros")
     val expected = """
         |1016 Budapest
         |Dezső utca 11.

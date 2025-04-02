@@ -26,7 +26,10 @@ public class PH {
   @Test
   public fun restaurant_in_Manila() {
     // description: restaurant in Manila
-    val components = mapOf("house_number" to "1140", "road" to "Alhambra", "city" to "Ermita", "postcode" to "1000", "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH", "restaurant" to "Emerald Garden", "state" to "Metro Manila", "suburb" to "Ermita")
+    val components = mapOf("house_number" to "1140", "road" to "Alhambra", "city" to "Ermita",
+        "postcode" to "1000", "county" to "Fifth District", "country" to "Philippines",
+        "country_code" to "PH", "restaurant" to "Emerald Garden", "state" to "Metro Manila",
+        "suburb" to "Ermita")
     val expected = """
         |Emerald Garden
         |1140 Alhambra, Ermita
@@ -40,7 +43,8 @@ public class PH {
   @Test
   public fun archipelago() {
     // description: archipelago
-    val components = mapOf("archipelago" to "Mindanao", "country" to "Philippines", "country_code" to "ph")
+    val components = mapOf("archipelago" to "Mindanao", "country" to "Philippines",
+        "country_code" to "ph")
     val expected = """
         |Mindanao
         |Philippines
@@ -52,7 +56,10 @@ public class PH {
   @Test
   public fun address() {
     // description: address
-    val components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.", "city" to "Mandaluyong", "postcode" to "1550", "suburb" to "Wack-wack Greenhills", "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH", "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila")
+    val components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.",
+        "city" to "Mandaluyong", "postcode" to "1550", "suburb" to "Wack-wack Greenhills",
+        "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH",
+        "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila")
     val expected = """
         |Mr. Juan Maliksi
         |121 Epifanio Delos Santos Ave., Wack-wack Greenhills, Mandaluyong
@@ -66,7 +73,10 @@ public class PH {
   @Test
   public fun address_city_district_instead_of_suburb() {
     // description: address - city_district instead of suburb
-    val components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.", "city" to "Mandaluyong", "postcode" to "1550", "city_district" to "Wack-wack Greenhills", "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH", "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila")
+    val components = mapOf("house_number" to "121", "road" to "Epifanio Delos Santos Ave.",
+        "city" to "Mandaluyong", "postcode" to "1550", "city_district" to "Wack-wack Greenhills",
+        "county" to "Fifth District", "country" to "Philippines", "country_code" to "PH",
+        "attention" to "Mr. Juan Maliksi", "state" to "Metro Manila")
     val expected = """
         |Mr. Juan Maliksi
         |121 Epifanio Delos Santos Ave., Wack-wack Greenhills, Mandaluyong
@@ -80,7 +90,10 @@ public class PH {
   @Test
   public fun address_ignore_additional_region() {
     // description: address - ignore additional region
-    val components = mapOf("road" to "Gerona - Pura Road", "village" to "Poblacion 1", "postcode" to "2312", "municipality" to "Pura", "province" to "Tarlac", "region" to "Central Luzon", "country" to "Philippines", "country_code" to "PH", "attention" to "PYS Pharmacy")
+    val components = mapOf("road" to "Gerona - Pura Road", "village" to "Poblacion 1",
+        "postcode" to "2312", "municipality" to "Pura", "province" to "Tarlac",
+        "region" to "Central Luzon", "country" to "Philippines", "country_code" to "PH",
+        "attention" to "PYS Pharmacy")
     val expected = """
         |PYS Pharmacy
         |Gerona - Pura Road, Poblacion 1

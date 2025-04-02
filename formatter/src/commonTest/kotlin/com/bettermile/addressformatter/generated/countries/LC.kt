@@ -26,7 +26,9 @@ public class LC {
   @Test
   public fun Bank_in_Castries_14_01001_60_99186() {
     // description: Bank in Castries, 14.01001,-60.99186
-    val components = mapOf("bank" to "First Caribbean International Bank", "country" to "Saint Lucia", "country_code" to "lc", "road" to "Bridge Street", "town" to "Castries")
+    val components = mapOf("bank" to "First Caribbean International Bank",
+        "country" to "Saint Lucia", "country_code" to "lc", "road" to "Bridge Street",
+        "town" to "Castries")
     val expected = """
         |First Caribbean International Bank
         |Bridge Street

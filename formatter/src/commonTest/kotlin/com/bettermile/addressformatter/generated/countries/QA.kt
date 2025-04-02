@@ -26,7 +26,9 @@ public class QA {
   @Test
   public fun Bank_25_28695_51_54133() {
     // description: Bank, 25.28695,51.54133
-    val components = mapOf("bank" to "ahlibank Merqab Branch", "city" to "Doha", "country" to "Qatar", "country_code" to "qa", "postcode" to "22050", "road" to "Al Muthaf Street", "state" to "Doha", "suburb" to "(Sharg Zone) - Aslata (18)")
+    val components = mapOf("bank" to "ahlibank Merqab Branch", "city" to "Doha",
+        "country" to "Qatar", "country_code" to "qa", "postcode" to "22050",
+        "road" to "Al Muthaf Street", "state" to "Doha", "suburb" to "(Sharg Zone) - Aslata (18)")
     val expected = """
         |ahlibank Merqab Branch
         |Al Muthaf Street
@@ -40,7 +42,9 @@ public class QA {
   @Test
   public fun Supermarket_25_7144_51_5301() {
     // description: Supermarket, 25.7144,51.5301
-    val components = mapOf("country" to "Qatar", "country_code" to "qa", "postcode" to "41", "road" to "Main Al Thakira Street", "state" to "Al Khawr", "supermarket" to "Al Meera", "town" to "Al Thakira")
+    val components = mapOf("country" to "Qatar", "country_code" to "qa", "postcode" to "41",
+        "road" to "Main Al Thakira Street", "state" to "Al Khawr", "supermarket" to "Al Meera",
+        "town" to "Al Thakira")
     val expected = """
         |Al Meera
         |Main Al Thakira Street
@@ -54,7 +58,9 @@ public class QA {
   @Test
   public fun Pharmacy_25_16318_51_59828() {
     // description: Pharmacy, 25.16318,51.59828
-    val components = mapOf("country" to "Qatar", "country_code" to "qa", "pharmacy" to "Al Ayaan Pharmacy, Wakra", "road" to "Abdul Rahman Bin Jasim Street", "state" to "Al Wakrah", "town" to "Al Wakrah")
+    val components = mapOf("country" to "Qatar", "country_code" to "qa",
+        "pharmacy" to "Al Ayaan Pharmacy, Wakra", "road" to "Abdul Rahman Bin Jasim Street",
+        "state" to "Al Wakrah", "town" to "Al Wakrah")
     val expected = """
         |Al Ayaan Pharmacy, Wakra
         |Abdul Rahman Bin Jasim Street

@@ -26,7 +26,9 @@ public class MS {
   @Test
   public fun Government_building_in_Brades_16_79305_62_21082() {
     // description: Government building in Brades, 16.79305,-62.21082
-    val components = mapOf("country" to "Montserrat", "country_code" to "ms", "county" to "Saint Peter", "public_building" to "Government Headquarters", "road" to "Farer Plaza", "suburb" to "Gerald's", "town" to "Brades")
+    val components = mapOf("country" to "Montserrat", "country_code" to "ms",
+        "county" to "Saint Peter", "public_building" to "Government Headquarters",
+        "road" to "Farer Plaza", "suburb" to "Gerald's", "town" to "Brades")
     val expected = """
         |Government Headquarters
         |Farer Plaza

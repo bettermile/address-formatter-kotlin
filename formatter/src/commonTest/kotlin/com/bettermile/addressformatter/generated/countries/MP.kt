@@ -26,7 +26,10 @@ public class MP {
   @Test
   public fun Red_Cross_office_on_Saipan_15_12601_145_72340() {
     // description: Red Cross office on Saipan, 15.12601,145.72340
-    val components = mapOf("building" to "Red Cross", "country" to "Northern Mariana Islands", "country_code" to "mp", "county" to "Saipan Municipality", "postcode" to "96950", "road" to "Chalan Tun Herman Pan", "state" to "Northern Mariana Islands", "town" to "Saipan")
+    val components = mapOf("building" to "Red Cross", "country" to "Northern Mariana Islands",
+        "country_code" to "mp", "county" to "Saipan Municipality", "postcode" to "96950",
+        "road" to "Chalan Tun Herman Pan", "state" to "Northern Mariana Islands",
+        "town" to "Saipan")
     val expected = """
         |Red Cross
         |Chalan Tun Herman Pan

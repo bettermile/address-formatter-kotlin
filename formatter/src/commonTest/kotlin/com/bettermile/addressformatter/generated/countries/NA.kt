@@ -26,7 +26,10 @@ public class NA {
   @Test
   public fun Hotel_in_Swakopmund_22_67877_14_52302() {
     // description: Hotel in Swakopmund, -22.67877,14.52302
-    val components = mapOf("city" to "Swakopmund", "country" to "Namibia", "country_code" to "na", "hotel" to "Hotel Zum Kaiser", "house_number" to "4", "road" to "Sam Nujoma Avenue (Kaiser Wilhelm St)", "state" to "Erongo Region", "suburb" to "Central")
+    val components = mapOf("city" to "Swakopmund", "country" to "Namibia", "country_code" to "na",
+        "hotel" to "Hotel Zum Kaiser", "house_number" to "4",
+        "road" to "Sam Nujoma Avenue (Kaiser Wilhelm St)", "state" to "Erongo Region",
+        "suburb" to "Central")
     val expected = """
         |Hotel Zum Kaiser
         |4 Sam Nujoma Avenue (Kaiser Wilhelm St)

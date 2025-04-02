@@ -26,7 +26,9 @@ public class IS {
   @Test
   public fun Building_in_Reykjavik_64_14436_21_93335() {
     // description: Building in Reykjavik, 64.14436,-21.93335
-    val components = mapOf("city" to "Reykjavik", "country" to "Iceland", "country_code" to "is", "house_number" to "15", "postcode" to "101", "road" to "Bergstaðastræti", "state_district" to "Capital Region", "suburb" to "Austurbær")
+    val components = mapOf("city" to "Reykjavik", "country" to "Iceland", "country_code" to "is",
+        "house_number" to "15", "postcode" to "101", "road" to "Bergstaðastræti",
+        "state_district" to "Capital Region", "suburb" to "Austurbær")
     val expected = """
         |Bergstaðastræti 15
         |101 Reykjavik

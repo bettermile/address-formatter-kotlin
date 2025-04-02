@@ -26,7 +26,9 @@ public class PA {
   @Test
   public fun Bed_Breakfast_in_Panama_City_8_99337_79_52075() {
     // description: Bed & Breakfast in Panama City, 8.99337,-79.52075
-    val components = mapOf("city" to "Panamá", "country" to "Panamá", "country_code" to "pa", "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte", "suburb" to "El Cangrejo")
+    val components = mapOf("city" to "Panamá", "country" to "Panamá", "country_code" to "pa",
+        "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte",
+        "suburb" to "El Cangrejo")
     val expected = """
         |Panama House Bed & Breakfast
         |Avenida 1 C Norte
@@ -41,7 +43,9 @@ public class PA {
   @Test
   public fun make_sure_no_double_Panama_City() {
     // description: make sure no double Panama City
-    val components = mapOf("city" to "Panama City", "country" to "Panama", "country_code" to "pa", "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte", "suburb" to "El Cangrejo")
+    val components = mapOf("city" to "Panama City", "country" to "Panama", "country_code" to "pa",
+        "guest_house" to "Panama House Bed & Breakfast", "road" to "Avenida 1 C Norte",
+        "suburb" to "El Cangrejo")
     val expected = """
         |Panama House Bed & Breakfast
         |Avenida 1 C Norte
@@ -56,7 +60,9 @@ public class PA {
   @Test
   public fun Pharmacy_in_Nueva_California_8_77977_82_64522() {
     // description: Pharmacy in Nueva California, 8.77977,-82.64522
-    val components = mapOf("country" to "Panama", "country_code" to "pa", "hamlet" to "Nueva California", "pharmacy" to "Celina", "road" to "Volcan-Rio Sereno", "state" to "Chiriquí")
+    val components = mapOf("country" to "Panama", "country_code" to "pa",
+        "hamlet" to "Nueva California", "pharmacy" to "Celina", "road" to "Volcan-Rio Sereno",
+        "state" to "Chiriquí")
     val expected = """
         |Celina
         |Volcan-Rio Sereno

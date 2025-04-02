@@ -26,7 +26,9 @@ public class OM {
   @Test
   public fun Supermarket_23_6004_58_5395() {
     // description: Supermarket, 23.6004,58.5395
-    val components = mapOf("city" to "Muscat, Oman", "country" to "Oman", "country_code" to "om", "postcode" to "116", "residential" to "Muscat", "road" to "Al Noor Street", "state" to "Muscat", "supermarket" to "Fathima Super Market")
+    val components = mapOf("city" to "Muscat, Oman", "country" to "Oman", "country_code" to "om",
+        "postcode" to "116", "residential" to "Muscat", "road" to "Al Noor Street",
+        "state" to "Muscat", "supermarket" to "Fathima Super Market")
     val expected = """
         |Fathima Super Market
         |Al Noor Street
@@ -42,7 +44,10 @@ public class OM {
   @Test
   public fun Supermarket_language_ar_23_6004_58_5395() {
     // description: Supermarket, language=ar, 23.6004,58.5395
-    val components = mapOf("city" to "Muscat, Oman", "country" to "سلطنة عمان", "country_code" to "om", "postcode" to "116", "residential" to "Muscat", "road" to "Al Noor Street", "state" to "محافظة مسقط", "supermarket" to "Fathima Super Market")
+    val components = mapOf("city" to "Muscat, Oman", "country" to "سلطنة عمان",
+        "country_code" to "om", "postcode" to "116", "residential" to "Muscat",
+        "road" to "Al Noor Street", "state" to "محافظة مسقط",
+        "supermarket" to "Fathima Super Market")
     val expected = """
         |Fathima Super Market
         |Al Noor Street
@@ -58,7 +63,9 @@ public class OM {
   @Test
   public fun Bakery_23_59524_58_44763() {
     // description: Bakery, 23.59524,58.44763
-    val components = mapOf("bakery" to "Muscat Bakery", "city" to "Muscat, Oman", "country" to "Oman", "country_code" to "om", "postcode" to "1727", "road" to "Street 3305", "state" to "Muscat", "suburb" to "Madinat al Sultan Qaboos")
+    val components = mapOf("bakery" to "Muscat Bakery", "city" to "Muscat, Oman",
+        "country" to "Oman", "country_code" to "om", "postcode" to "1727", "road" to "Street 3305",
+        "state" to "Muscat", "suburb" to "Madinat al Sultan Qaboos")
     val expected = """
         |Muscat Bakery
         |Street 3305
@@ -74,7 +81,9 @@ public class OM {
   @Test
   public fun Medical_complex_17_01483_54_09010() {
     // description: Medical complex, 17.01483,54.09010
-    val components = mapOf("city" to "Salalah", "clinic" to "Al Zahir Medical Complex", "country" to "Oman", "country_code" to "om", "road" to "Al Nahdah Street", "state" to "Dhofar")
+    val components = mapOf("city" to "Salalah", "clinic" to "Al Zahir Medical Complex",
+        "country" to "Oman", "country_code" to "om", "road" to "Al Nahdah Street",
+        "state" to "Dhofar")
     val expected = """
         |Al Zahir Medical Complex
         |Al Nahdah Street

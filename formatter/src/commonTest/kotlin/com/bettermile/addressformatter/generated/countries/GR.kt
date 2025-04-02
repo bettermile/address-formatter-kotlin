@@ -26,7 +26,10 @@ public class GR {
   @Test
   public fun bank_in_Greece() {
     // description: bank in Greece
-    val components = mapOf("bank" to "National Bank of Greece", "city" to "Municipality of Athens", "country" to "Greece", "country_code" to "GR", "county" to "Central Athens Regional Unit", "house_number" to "11", "neighbourhood" to "Kolonaki", "postcode" to "10673", "road" to "Skoufa street", "state" to "Attica Administration", "state_district" to "Attica")
+    val components = mapOf("bank" to "National Bank of Greece", "city" to "Municipality of Athens",
+        "country" to "Greece", "country_code" to "GR", "county" to "Central Athens Regional Unit",
+        "house_number" to "11", "neighbourhood" to "Kolonaki", "postcode" to "10673",
+        "road" to "Skoufa street", "state" to "Attica Administration", "state_district" to "Attica")
     val expected = """
         |National Bank of Greece
         |Skoufa street 11

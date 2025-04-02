@@ -26,7 +26,10 @@ public class ID {
   @Test
   public fun bar_in_Jakarta() {
     // description: bar in Jakarta
-    val components = mapOf("bar" to "Moodz Gastro Bar", "city" to "RW 05", "city_district" to "1. kerület", "country" to "Indonesia", "country_code" to "ID", "postcode" to "12960", "road" to "Epicentrum Boulevard Barat", "state" to "Jakarta Special Capital Region")
+    val components = mapOf("bar" to "Moodz Gastro Bar", "city" to "RW 05",
+        "city_district" to "1. kerület", "country" to "Indonesia", "country_code" to "ID",
+        "postcode" to "12960", "road" to "Epicentrum Boulevard Barat",
+        "state" to "Jakarta Special Capital Region")
     val expected = """
         |Moodz Gastro Bar
         |Epicentrum Boulevard Barat

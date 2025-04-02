@@ -26,7 +26,9 @@ public class UA {
   @Test
   public fun bar_in_Kiev() {
     // description: bar in Kiev
-    val components = mapOf("city" to "Kyiv", "suburb" to "Solomianskyi district", "country" to "Ukraine", "country_code" to "UA", "house_number" to "2д", "bar" to "Утка Bar", "postcode" to "03038", "road" to "Protasiv Yar Street")
+    val components = mapOf("city" to "Kyiv", "suburb" to "Solomianskyi district",
+        "country" to "Ukraine", "country_code" to "UA", "house_number" to "2д", "bar" to "Утка Bar",
+        "postcode" to "03038", "road" to "Protasiv Yar Street")
     val expected = """
         |Утка Bar
         |Protasiv Yar Street, 2д

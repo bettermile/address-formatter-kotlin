@@ -26,7 +26,9 @@ public class SM {
   @Test
   public fun Restaurant_in_City_of_San_Marino_43_93596_12_44716() {
     // description: Restaurant in City of San Marino, 43.93596,12.44716
-    val components = mapOf("country" to "San Marino", "country_code" to "sm", "pedestrian" to "Contrada Santa Croce", "postcode" to "47893", "restaurant" to "Pier piz. rist.", "town" to "City of San Marino")
+    val components = mapOf("country" to "San Marino", "country_code" to "sm",
+        "pedestrian" to "Contrada Santa Croce", "postcode" to "47893",
+        "restaurant" to "Pier piz. rist.", "town" to "City of San Marino")
     val expected = """
         |Pier piz. rist.
         |Contrada Santa Croce

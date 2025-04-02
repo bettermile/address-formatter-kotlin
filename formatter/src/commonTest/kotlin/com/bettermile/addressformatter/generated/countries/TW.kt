@@ -26,7 +26,9 @@ public class TW {
   @Test
   public fun Library_in_25_02511_121_46330() {
     // description: Library in 新北市板橋區, 25.02511,121.46330
-    val components = mapOf("city" to "新北市板橋區", "country" to "中華民國", "country_code" to "tw", "house_number" to "168", "library" to "新北市立圖書館板橋四維分館", "postcode" to "220", "road" to "陽明街", "state" to "台中台北各種語言名稱", "suburb" to "新北板橋土城多語言")
+    val components = mapOf("city" to "新北市板橋區", "country" to "中華民國", "country_code" to "tw",
+        "house_number" to "168", "library" to "新北市立圖書館板橋四維分館", "postcode" to "220", "road" to "陽明街",
+        "state" to "台中台北各種語言名稱", "suburb" to "新北板橋土城多語言")
     val expected = """
         |中華民國
         |220

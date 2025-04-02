@@ -26,7 +26,8 @@ public class VA {
   @Test
   public fun Building_in_Vatican_City_41_90586_12_45105() {
     // description: Building in Vatican City, 41.90586,12.45105
-    val components = mapOf("building" to "Gallinaro Tower", "country" to "Vatican City", "country_code" to "va", "postcode" to "00120", "road" to "Viale San Benedetto")
+    val components = mapOf("building" to "Gallinaro Tower", "country" to "Vatican City",
+        "country_code" to "va", "postcode" to "00120", "road" to "Viale San Benedetto")
     val expected = """
         |Gallinaro Tower
         |Viale San Benedetto
@@ -40,7 +41,9 @@ public class VA {
   @Test
   public fun supermarket_in_Vatican_City_41_9046_12_4566() {
     // description: supermarket in Vatican City, 41.9046,12.4566
-    val components = mapOf("country" to "Vatican City", "country_code" to "va", "postcode" to "00120", "road" to "Press Way", "supermarket" to "Vatican Supermarket", "town" to "Vatican City")
+    val components = mapOf("country" to "Vatican City", "country_code" to "va",
+        "postcode" to "00120", "road" to "Press Way", "supermarket" to "Vatican Supermarket",
+        "town" to "Vatican City")
     val expected = """
         |Vatican Supermarket
         |Press Way

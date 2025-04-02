@@ -26,7 +26,11 @@ public class BG {
   @Test
   public fun university_in_Sofia() {
     // description: university in Sofia
-    val components = mapOf("city" to "Sofia", "country" to "Bulgaria", "country_code" to "BG", "county" to "Sofia-City Region", "road" to "Georgi Sava Rakovski St.", "state" to "RJ", "state_district" to "Região Metropolitana do Rio de Janeiro", "suburb" to "Centre", "postcode" to "1000", "university" to "Krastyo Sarafov National Academy for Theatre and Film Arts")
+    val components = mapOf("city" to "Sofia", "country" to "Bulgaria", "country_code" to "BG",
+        "county" to "Sofia-City Region", "road" to "Georgi Sava Rakovski St.", "state" to "RJ",
+        "state_district" to "Região Metropolitana do Rio de Janeiro", "suburb" to "Centre",
+        "postcode" to "1000",
+        "university" to "Krastyo Sarafov National Academy for Theatre and Film Arts")
     val expected = """
         |Krastyo Sarafov National Academy for Theatre and Film Arts
         |Georgi Sava Rakovski St.

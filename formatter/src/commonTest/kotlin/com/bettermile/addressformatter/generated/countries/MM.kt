@@ -26,7 +26,9 @@ public class MM {
   @Test
   public fun hotel_in_Yangon_16_76945_96_16260() {
     // description: hotel in Yangon, 16.76945,96.16260
-    val components = mapOf("country" to "Myanmar", "country_code" to "mm", "hotel" to "The Strand Hotel", "house_number" to "92", "postcode" to "11182", "road" to "ဆိပ်ကမ်းသာလမ်း - Seik Kan Tha St", "state" to "Yangon", "town" to "Kyauktada")
+    val components = mapOf("country" to "Myanmar", "country_code" to "mm",
+        "hotel" to "The Strand Hotel", "house_number" to "92", "postcode" to "11182",
+        "road" to "ဆိပ်ကမ်းသာလမ်း - Seik Kan Tha St", "state" to "Yangon", "town" to "Kyauktada")
     val expected = """
         |The Strand Hotel
         |92 ဆိပ်ကမ်းသာလမ်း - Seik Kan Tha St

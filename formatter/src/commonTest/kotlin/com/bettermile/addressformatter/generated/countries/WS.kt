@@ -26,7 +26,8 @@ public class WS {
   @Test
   public fun post_office_in_pia_13_83128_171_76770() {
     // description: post office in Āpia, -13.83128,-171.76770
-    val components = mapOf("city" to "Āpia", "country" to "Samoa", "country_code" to "ws", "post_office" to "Samoa Post Office", "road" to "Beach Road", "suburb" to "Tuanaimato")
+    val components = mapOf("city" to "Āpia", "country" to "Samoa", "country_code" to "ws",
+        "post_office" to "Samoa Post Office", "road" to "Beach Road", "suburb" to "Tuanaimato")
     val expected = """
         |Samoa Post Office
         |Beach Road

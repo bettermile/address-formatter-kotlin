@@ -26,7 +26,8 @@ public class HM {
   @Test
   public fun Glacier_on_Heard_Island_53_0571_73_4339() {
     // description: Glacier on Heard Island, -53.0571,73.4339
-    val components = mapOf("country" to "Heard Island and McDonald Islands", "country_code" to "hm", "island" to "Heard Island")
+    val components = mapOf("country" to "Heard Island and McDonald Islands", "country_code" to "hm",
+        "island" to "Heard Island")
     val expected = """
         |Heard Island
         |Heard Island and McDonald Islands

@@ -26,7 +26,9 @@ public class XC {
   @Test
   public fun `35_0257_33_7803`() {
     // description: 35.0257,33.7803
-    val components = mapOf("country" to "Sovereign Base Areas of Akrotiri and Dhekelia", "country_code" to "xc", "county" to "Dhekelia", "road" to "unnamed road", "village" to "Dasaki Achnas")
+    val components = mapOf("country" to "Sovereign Base Areas of Akrotiri and Dhekelia",
+        "country_code" to "xc", "county" to "Dhekelia", "road" to "unnamed road",
+        "village" to "Dasaki Achnas")
     val expected = """
         |unnamed road
         |Dasaki Achnas

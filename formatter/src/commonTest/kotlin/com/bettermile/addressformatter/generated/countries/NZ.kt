@@ -26,7 +26,10 @@ public class NZ {
   @Test
   public fun House_in_Wellington_41_29789_174_78511() {
     // description: House in Wellington, -41.29789,174.78511
-    val components = mapOf("city" to "Wellington", "country" to "New Zealand", "country_code" to "nz", "county" to "Wellington City", "house_number" to "53", "postcode" to "6011", "road" to "Pirie Street", "state" to "Wellington", "suburb" to "Mount Victoria")
+    val components = mapOf("city" to "Wellington", "country" to "New Zealand",
+        "country_code" to "nz", "county" to "Wellington City", "house_number" to "53",
+        "postcode" to "6011", "road" to "Pirie Street", "state" to "Wellington",
+        "suburb" to "Mount Victoria")
     val expected = """
         |53 Pirie Street
         |Mount Victoria
@@ -40,7 +43,8 @@ public class NZ {
   @Test
   public fun City_of_Wellington() {
     // description: City of Wellington
-    val components = mapOf("city" to "Wellington", "country" to "New Zealand", "country_code" to "nz", "county" to "Wellington City", "state" to "Wellington")
+    val components = mapOf("city" to "Wellington", "country" to "New Zealand",
+        "country_code" to "nz", "county" to "Wellington City", "state" to "Wellington")
     val expected = """
         |Wellington
         |New Zealand

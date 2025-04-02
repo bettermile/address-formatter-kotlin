@@ -26,7 +26,10 @@ public class ST {
   @Test
   public fun Library_in_S_o_Tom_0_34004_6_73701() {
     // description: Library in São Tomé, 0.34004,6.73701
-    val components = mapOf("city" to "São Tomé", "country" to "São Tomé and Príncipe", "country_code" to "st", "county" to "Agua Grande", "library" to "Biblioteca Nacional", "road" to "Avenida das Naçoes Unidas", "state" to "São Tomé Province", "suburb" to "Riboque")
+    val components = mapOf("city" to "São Tomé", "country" to "São Tomé and Príncipe",
+        "country_code" to "st", "county" to "Agua Grande", "library" to "Biblioteca Nacional",
+        "road" to "Avenida das Naçoes Unidas", "state" to "São Tomé Province",
+        "suburb" to "Riboque")
     val expected = """
         |Biblioteca Nacional
         |Avenida das Naçoes Unidas

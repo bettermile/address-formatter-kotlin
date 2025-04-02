@@ -26,7 +26,9 @@ public class SN {
   @Test
   public fun Hotel_in_Dakar_14_66731_17_43996() {
     // description: Hotel in Dakar, 14.66731,-17.43996
-    val components = mapOf("city" to "Dakar", "country" to "Senegal", "country_code" to "sn", "hotel" to "Hotel ndjambour", "postcode" to "24951", "road" to "Rue Carnot", "state" to "Dakar", "suburb" to "Plateau")
+    val components = mapOf("city" to "Dakar", "country" to "Senegal", "country_code" to "sn",
+        "hotel" to "Hotel ndjambour", "postcode" to "24951", "road" to "Rue Carnot",
+        "state" to "Dakar", "suburb" to "Plateau")
     val expected = """
         |Hotel ndjambour
         |Rue Carnot
@@ -40,7 +42,10 @@ public class SN {
   @Test
   public fun commune() {
     // description: commune
-    val components = mapOf("commune" to "Commune de Yeumbeul Nord", "country" to "Senegal", "country_code" to "sn", "postcode" to "17000", "road" to "unnamed road", "state" to "Dakar Region", "state_district" to "Département de Keur Massar", "town" to "Arrondissement de Yeumbeul")
+    val components = mapOf("commune" to "Commune de Yeumbeul Nord", "country" to "Senegal",
+        "country_code" to "sn", "postcode" to "17000", "road" to "unnamed road",
+        "state" to "Dakar Region", "state_district" to "Département de Keur Massar",
+        "town" to "Arrondissement de Yeumbeul")
     val expected = """
         |unnamed road
         |17000 Yeumbeul

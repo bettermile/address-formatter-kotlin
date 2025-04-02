@@ -26,7 +26,10 @@ public class NL {
   @Test
   public fun Address_in_Amsterdam_52_36519_4_89683() {
     // description: Address in Amsterdam, 52.36519,4.89683
-    val components = mapOf("city" to "Amsterdam", "city_district" to "Centrum", "country" to "The Netherlands", "country_code" to "nl", "county" to "MRA", "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht", "state" to "North Holland", "suburb" to "Amsterdam")
+    val components = mapOf("city" to "Amsterdam", "city_district" to "Centrum",
+        "country" to "The Netherlands", "country_code" to "nl", "county" to "MRA",
+        "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht",
+        "state" to "North Holland", "suburb" to "Amsterdam")
     val expected = """
         |Herengracht 573
         |1017 CD Amsterdam
@@ -39,7 +42,10 @@ public class NL {
   @Test
   public fun Address_in_Amsterdam_in_Dutch_52_36519_4_89683() {
     // description: Address in Amsterdam in Dutch, 52.36519,4.89683
-    val components = mapOf("city" to "Amsterdam", "city_district" to "Centrum", "country" to "Koninkrijk der Nederlanden", "country_code" to "nl", "county" to "MRA", "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht", "state" to "North Holland", "suburb" to "Amsterdam")
+    val components = mapOf("city" to "Amsterdam", "city_district" to "Centrum",
+        "country" to "Koninkrijk der Nederlanden", "country_code" to "nl", "county" to "MRA",
+        "house_number" to "573", "postcode" to "1017CD", "road" to "Herengracht",
+        "state" to "North Holland", "suburb" to "Amsterdam")
     val expected = """
         |Herengracht 573
         |1017 CD Amsterdam
@@ -52,7 +58,10 @@ public class NL {
   @Test
   public fun Address_in_Willemstad_Cura_ao_12_11148_68_94561() {
     // description: Address in Willemstad, Curaçao 12.11148,-68.94561
-    val components = mapOf("country" to "The Netherlands", "country_code" to "nl", "house_number" to "14", "neighbourhood" to "Colon", "postcode" to "0000NA", "road" to "Jan Erasmusstraat", "state" to "Curaçao", "suburb" to "Seru Domi", "town" to "Willemstad")
+    val components = mapOf("country" to "The Netherlands", "country_code" to "nl",
+        "house_number" to "14", "neighbourhood" to "Colon", "postcode" to "0000NA",
+        "road" to "Jan Erasmusstraat", "state" to "Curaçao", "suburb" to "Seru Domi",
+        "town" to "Willemstad")
     val expected = """
         |Jan Erasmusstraat 14
         |Willemstad
@@ -65,7 +74,9 @@ public class NL {
   @Test
   public fun Parliament_in_Oranjestad_Aruba_12_51781_70_03646() {
     // description: Parliament in Oranjestad, Aruba, 12.51781,-70.03646
-    val components = mapOf("name" to "Parliament of Aruba", "country" to "The Netherlands", "country_code" to "nl", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard", "state" to "Aruba", "town" to "Oranjestad")
+    val components = mapOf("name" to "Parliament of Aruba", "country" to "The Netherlands",
+        "country_code" to "nl", "house_number" to "LSB 70", "road" to "L.G. Smith Boulevard",
+        "state" to "Aruba", "town" to "Oranjestad")
     val expected = """
         |Parliament of Aruba
         |L.G. Smith Boulevard LSB 70

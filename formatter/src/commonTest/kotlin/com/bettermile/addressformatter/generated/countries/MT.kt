@@ -26,7 +26,10 @@ public class MT {
   @Test
   public fun pharmacy_in_Malta_35_95777_14_36190() {
     // description: pharmacy in Malta - 35.95777,14.36190
-    val components = mapOf("city" to "Mellieha", "country" to "1002", "country_code" to "mt", "pharmacy" to "Karizia Pharmacy", "residential" to "mELLIEHA", "road" to "Triq \\u0120or\\u0121 Borg Olivier", "state" to "Malta", "suburb" to "I\\u010b-\\u010airkewwa")
+    val components = mapOf("city" to "Mellieha", "country" to "1002", "country_code" to "mt",
+        "pharmacy" to "Karizia Pharmacy", "residential" to "mELLIEHA",
+        "road" to "Triq \\u0120or\\u0121 Borg Olivier", "state" to "Malta",
+        "suburb" to "I\\u010b-\\u010airkewwa")
     val expected = """
         |Karizia Pharmacy
         |Triq \u0120or\u0121 Borg Olivier

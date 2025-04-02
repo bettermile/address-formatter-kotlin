@@ -26,7 +26,9 @@ public class GH {
   @Test
   public fun Bank_in_Accra_5_56008_0_20236() {
     // description: Bank in Accra, 5.56008,-0.20236
-    val components = mapOf("building" to "Ecobank", "city" to "Accra", "country" to "Ghana", "country_code" to "gh", "county" to "Accra Metropolitan", "postcode" to "233", "road" to "7th Avenue", "state" to "Greater Accra Region", "suburb" to "West Ridge")
+    val components = mapOf("building" to "Ecobank", "city" to "Accra", "country" to "Ghana",
+        "country_code" to "gh", "county" to "Accra Metropolitan", "postcode" to "233",
+        "road" to "7th Avenue", "state" to "Greater Accra Region", "suburb" to "West Ridge")
     val expected = """
         |Ecobank
         |7th Avenue

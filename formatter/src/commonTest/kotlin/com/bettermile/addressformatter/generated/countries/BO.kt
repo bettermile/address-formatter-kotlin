@@ -26,7 +26,10 @@ public class BO {
   @Test
   public fun Bank_in_La_Paz_16_49607_68_14860() {
     // description: Bank in La Paz, -16.49607,-68.14860
-    val components = mapOf("bank" to "Banco Los Andes Pro Credite", "city" to "Municipio Nuestra Senora de La Paz", "country" to "Bolivia", "country_code" to "bo", "county" to "Provincia Murillo", "postcode" to "8686", "road" to "José María Achá", "state" to "La Paz Departament", "suburb" to "Gran Poder")
+    val components = mapOf("bank" to "Banco Los Andes Pro Credite",
+        "city" to "Municipio Nuestra Senora de La Paz", "country" to "Bolivia",
+        "country_code" to "bo", "county" to "Provincia Murillo", "postcode" to "8686",
+        "road" to "José María Achá", "state" to "La Paz Departament", "suburb" to "Gran Poder")
     val expected = """
         |Banco Los Andes Pro Credite
         |José María Achá

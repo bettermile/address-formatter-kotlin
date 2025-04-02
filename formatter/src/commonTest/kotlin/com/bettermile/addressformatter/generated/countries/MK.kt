@@ -26,7 +26,9 @@ public class MK {
   @Test
   public fun School_in_Skopje_41_9891_21_4406() {
     // description: School in Skopje, 41.9891,21.4406
-    val components = mapOf("city" to "Skopje", "country" to "F.Y.R.O.M.", "country_code" to "mk", "county" to "Municipality of Centar", "postcode" to "1000", "road" to "Мирче Ацев", "school" to "ОУ 11-ти Октомври", "state" to "Skopje Region", "suburb" to "Prolet")
+    val components = mapOf("city" to "Skopje", "country" to "F.Y.R.O.M.", "country_code" to "mk",
+        "county" to "Municipality of Centar", "postcode" to "1000", "road" to "Мирче Ацев",
+        "school" to "ОУ 11-ти Октомври", "state" to "Skopje Region", "suburb" to "Prolet")
     val expected = """
         |ОУ 11-ти Октомври
         |Мирче Ацев

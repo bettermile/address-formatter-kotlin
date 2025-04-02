@@ -26,7 +26,9 @@ public class GU {
   @Test
   public fun House_in_Tamuning_13_50294_144_77693() {
     // description: House in Tamuning, 13.50294,144.77693
-    val components = mapOf("country" to "Guam", "country_code" to "gu", "county" to "Guam", "house_number" to "258", "postcode" to "96913", "road" to "Father San Vitores Street", "state" to "Guam", "town" to "Tamuning")
+    val components = mapOf("country" to "Guam", "country_code" to "gu", "county" to "Guam",
+        "house_number" to "258", "postcode" to "96913", "road" to "Father San Vitores Street",
+        "state" to "Guam", "town" to "Tamuning")
     val expected = """
         |258 Father San Vitores Street
         |Tamuning, GU 96913

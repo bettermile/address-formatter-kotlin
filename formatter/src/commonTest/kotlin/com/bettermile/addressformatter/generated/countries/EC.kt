@@ -26,7 +26,10 @@ public class EC {
   @Test
   public fun University_building_in_Quito_0_19972_78_50708() {
     // description: University building in Quito, -0.19972,-78.50708
-    val components = mapOf("building" to "Centro de Matematica", "city" to "Quito", "city_district" to "Quito", "country" to "Ecuador", "country_code" to "ec", "county" to "Quito", "postcode" to "170521", "road" to "Jerónimo Leiton", "state" to "Pichincha", "suburb" to "Rumipamba")
+    val components = mapOf("building" to "Centro de Matematica", "city" to "Quito",
+        "city_district" to "Quito", "country" to "Ecuador", "country_code" to "ec",
+        "county" to "Quito", "postcode" to "170521", "road" to "Jerónimo Leiton",
+        "state" to "Pichincha", "suburb" to "Rumipamba")
     val expected = """
         |Centro de Matematica
         |Jerónimo Leiton

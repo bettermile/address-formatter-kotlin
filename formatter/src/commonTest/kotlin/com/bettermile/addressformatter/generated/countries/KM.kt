@@ -26,7 +26,8 @@ public class KM {
   @Test
   public fun court_in_Moroni_11_70181_43_25485() {
     // description: court in Moroni, -11.70181,43.25485
-    val components = mapOf("city" to "Moroni", "country" to "Comoros", "country_code" to "km", "courthouse" to "Palais de Justice", "road" to "RN2", "state" to "Grande Comore")
+    val components = mapOf("city" to "Moroni", "country" to "Comoros", "country_code" to "km",
+        "courthouse" to "Palais de Justice", "road" to "RN2", "state" to "Grande Comore")
     val expected = """
         |Palais de Justice
         |RN2

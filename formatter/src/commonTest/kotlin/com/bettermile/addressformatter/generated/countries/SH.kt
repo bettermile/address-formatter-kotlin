@@ -26,7 +26,9 @@ public class SH {
   @Test
   public fun Museum_in_Jamestown_Saint_Helena_15_92498_5_71862() {
     // description: Museum in Jamestown, Saint Helena, -15.92498,-5.71862
-    val components = mapOf("country" to "Saint Helena, Ascension and Tristan da Cunha", "country_code" to "sh", "public_building" to "Museum of St Helena", "road" to "Castle Terrace", "state" to "Saint Helena", "town" to "Jamestown")
+    val components = mapOf("country" to "Saint Helena, Ascension and Tristan da Cunha",
+        "country_code" to "sh", "public_building" to "Museum of St Helena",
+        "road" to "Castle Terrace", "state" to "Saint Helena", "town" to "Jamestown")
     val expected = """
         |Museum of St Helena
         |Castle Terrace
@@ -41,7 +43,10 @@ public class SH {
   @Test
   public fun Building_on_Tristan_de_Cunha_37_06714_12_31022() {
     // description: Building on Tristan de Cunha, -37.06714,-12.31022
-    val components = mapOf("community_centre" to "Prince Philip Hall", "country" to "Saint Helena, Ascension and Tristan da Cunha", "country_code" to "sh", "hamlet" to "Edinburgh of the Seven Seas", "postcode" to "TDCU 1ZZ", "state" to "Tristan da Cunha")
+    val components = mapOf("community_centre" to "Prince Philip Hall",
+        "country" to "Saint Helena, Ascension and Tristan da Cunha", "country_code" to "sh",
+        "hamlet" to "Edinburgh of the Seven Seas", "postcode" to "TDCU 1ZZ",
+        "state" to "Tristan da Cunha")
     val expected = """
         |Prince Philip Hall
         |Edinburgh of the Seven Seas

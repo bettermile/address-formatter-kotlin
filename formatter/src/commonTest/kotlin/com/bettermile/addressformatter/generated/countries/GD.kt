@@ -26,7 +26,9 @@ public class GD {
   @Test
   public fun Bank_in_St_George_s_12_05197_61_75459() {
     // description: Bank in St. George's, 12.05197,-61.75459
-    val components = mapOf("bank" to "Republic Bank Grenada", "city" to "St. George's", "country" to "Grenada", "country_code" to "gd", "road" to "Bruce Street", "suburb" to "Belmont")
+    val components = mapOf("bank" to "Republic Bank Grenada", "city" to "St. George's",
+        "country" to "Grenada", "country_code" to "gd", "road" to "Bruce Street",
+        "suburb" to "Belmont")
     val expected = """
         |Republic Bank Grenada
         |Bruce Street

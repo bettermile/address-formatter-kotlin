@@ -26,7 +26,10 @@ public class SX {
   @Test
   public fun Resort_in_Sint_Maarten_18_02823_63_09426() {
     // description: Resort in Sint Maarten, 18.02823,-63.09426
-    val components = mapOf("city" to "Sint Maarten", "country" to "Sint Maarten", "country_code" to "sx", "hotel" to "La Vista Beach Resort", "neighbourhood" to "Pelican Key", "postcode" to "46226", "road" to "Billy Folly Road", "state" to "Sint Maarten (State of)", "suburb" to "Saint John's Estate")
+    val components = mapOf("city" to "Sint Maarten", "country" to "Sint Maarten",
+        "country_code" to "sx", "hotel" to "La Vista Beach Resort",
+        "neighbourhood" to "Pelican Key", "postcode" to "46226", "road" to "Billy Folly Road",
+        "state" to "Sint Maarten (State of)", "suburb" to "Saint John's Estate")
     val expected = """
         |La Vista Beach Resort
         |Billy Folly Road

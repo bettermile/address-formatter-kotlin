@@ -26,7 +26,10 @@ public class BF {
   @Test
   public fun Bank_in_Ouagadougou_12_36884_1_52794() {
     // description: Bank in Ouagadougou, 12.36884,-1.52794
-    val components = mapOf("bank" to "Ecobank", "city" to "Ouagadougou", "country" to "Burkina Faso", "country_code" to "bf", "postcode" to "13", "region" to "Centre", "residential" to "Ouagadougou", "road" to "Avenue Nelson Mandela", "state_district" to "Kadiogo", "suburb" to "Bilbalogho")
+    val components = mapOf("bank" to "Ecobank", "city" to "Ouagadougou",
+        "country" to "Burkina Faso", "country_code" to "bf", "postcode" to "13",
+        "region" to "Centre", "residential" to "Ouagadougou", "road" to "Avenue Nelson Mandela",
+        "state_district" to "Kadiogo", "suburb" to "Bilbalogho")
     val expected = """
         |Ecobank
         |Avenue Nelson Mandela
@@ -40,7 +43,9 @@ public class BF {
   @Test
   public fun village_Bank_in_Ouagadougou_10_5450_4_5787() {
     // description: village, Bank in Ouagadougou, 10.5450,-4.5787
-    val components = mapOf("country" to "Burkina Faso", "country_code" to "bf", "department" to "Tiéfora", "province" to "Comoé", "road" to "unnamed road", "village" to "Bondorola")
+    val components = mapOf("country" to "Burkina Faso", "country_code" to "bf",
+        "department" to "Tiéfora", "province" to "Comoé", "road" to "unnamed road",
+        "village" to "Bondorola")
     val expected = """
         |unnamed road
         |Bondorola

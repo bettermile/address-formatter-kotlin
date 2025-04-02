@@ -26,7 +26,8 @@ public class CC {
   @Test
   public fun Pub_on_West_Island_12_18832_96_82935() {
     // description: Pub on West Island, -12.18832,96.82935
-    val components = mapOf("country" to "Cocos (Keeling) Islands", "country_code" to "cc", "pub" to "Club", "state" to "Cocos (Keeling) Islands", "village" to "West Island")
+    val components = mapOf("country" to "Cocos (Keeling) Islands", "country_code" to "cc",
+        "pub" to "Club", "state" to "Cocos (Keeling) Islands", "village" to "West Island")
     val expected = """
         |Club
         |West Island

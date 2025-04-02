@@ -26,7 +26,9 @@ public class EG {
   @Test
   public fun Cultural_Centre_in_Giza_30_04248_31_22369() {
     // description: Cultural Centre in Giza, 30.04248,31.22369
-    val components = mapOf("city" to "Giza", "country" to "Egypt", "country_code" to "eg", "museum" to "National Cultural Centre", "postcode" to "11231", "road" to "Mahmoud Mokhtar", "state" to "Giza Governorate", "suburb" to "Dokki")
+    val components = mapOf("city" to "Giza", "country" to "Egypt", "country_code" to "eg",
+        "museum" to "National Cultural Centre", "postcode" to "11231", "road" to "Mahmoud Mokhtar",
+        "state" to "Giza Governorate", "suburb" to "Dokki")
     val expected = """
         |National Cultural Centre
         |Mahmoud Mokhtar
@@ -42,7 +44,9 @@ public class EG {
   @Test
   public fun Policy_academy_30_06864_31_28709() {
     // description: Policy academy, 30.06864,31.28709
-    val components = mapOf("city" to "Cairo", "country" to "Egypt", "country_code" to "eg", "postcode" to "11381", "road" to "Fakhry Abdel-Nur", "state" to "Cairo Governorate", "suburb" to "Abbasseya", "university" to "Police Academy")
+    val components = mapOf("city" to "Cairo", "country" to "Egypt", "country_code" to "eg",
+        "postcode" to "11381", "road" to "Fakhry Abdel-Nur", "state" to "Cairo Governorate",
+        "suburb" to "Abbasseya", "university" to "Police Academy")
     val expected = """
         |Police Academy
         |Fakhry Abdel-Nur
@@ -58,7 +62,9 @@ public class EG {
   @Test
   public fun Mosque_25_69992_32_63965() {
     // description: Mosque, 25.69992,32.63965
-    val components = mapOf("city" to "Luxor", "country" to "Egypt", "country_code" to "eg", "pedestrian" to "Sphinx Alley", "place_of_worship" to "Abu Haggag Mosque", "state" to "Luxor Governate")
+    val components = mapOf("city" to "Luxor", "country" to "Egypt", "country_code" to "eg",
+        "pedestrian" to "Sphinx Alley", "place_of_worship" to "Abu Haggag Mosque",
+        "state" to "Luxor Governate")
     val expected = """
         |Abu Haggag Mosque
         |Sphinx Alley
@@ -72,7 +78,9 @@ public class EG {
   @Test
   public fun University_30_79623_30_99934() {
     // description: University, 30.79623,30.99934
-    val components = mapOf("city" to "Tanta", "college" to "Tanta University", "country" to "Egypt", "country_code" to "eg", "postcode" to "31111", "road" to "Mohebb", "state" to "Gharbiyya Governorate", "suburb" to "Mahlet Marhoum")
+    val components = mapOf("city" to "Tanta", "college" to "Tanta University", "country" to "Egypt",
+        "country_code" to "eg", "postcode" to "31111", "road" to "Mohebb",
+        "state" to "Gharbiyya Governorate", "suburb" to "Mahlet Marhoum")
     val expected = """
         |Tanta University
         |Mohebb
@@ -88,7 +96,9 @@ public class EG {
   @Test
   public fun Same_univerisity_language_ar_30_79623_2C30_99934() {
     // description: Same univerisity, language=ar, 30.79623,2C30.99934
-    val components = mapOf("city" to "‏طنطا", "college" to "جامعة طنطا", "country" to "مصر", "country_code" to "eg", "postcode" to "31111", "road" to "شارع محب", "state" to "‏محافظة الغربي", "suburb" to "محلة مرحوم")
+    val components = mapOf("city" to "‏طنطا", "college" to "جامعة طنطا", "country" to "مصر",
+        "country_code" to "eg", "postcode" to "31111", "road" to "شارع محب",
+        "state" to "‏محافظة الغربي", "suburb" to "محلة مرحوم")
     val expected = """
         |جامعة طنطا
         |شارع محب

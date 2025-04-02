@@ -26,7 +26,10 @@ public class BL {
   @Test
   public fun House_in_Gustavia_17_89548_62_85177() {
     // description: House in Gustavia, 17.89548,-62.85177
-    val components = mapOf("country" to "Saint Barthélemy", "country_code" to "bl", "house_number" to "15", "neighbourhood" to "La Pointe", "postcode" to "97133", "road" to "Rue de Pére Irénée de Bruyn", "state" to "Saint Barthélemy", "town" to "Gustavia")
+    val components = mapOf("country" to "Saint Barthélemy", "country_code" to "bl",
+        "house_number" to "15", "neighbourhood" to "La Pointe", "postcode" to "97133",
+        "road" to "Rue de Pére Irénée de Bruyn", "state" to "Saint Barthélemy",
+        "town" to "Gustavia")
     val expected = """
         |15 Rue de Pére Irénée de Bruyn
         |97133 Gustavia

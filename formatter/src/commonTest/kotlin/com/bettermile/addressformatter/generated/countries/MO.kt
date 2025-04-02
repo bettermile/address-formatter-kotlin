@@ -26,7 +26,10 @@ public class MO {
   @Test
   public fun Building_in_Macau_22_16096_113_55467() {
     // description: Building in Macau, 22.16096,113.55467
-    val components = mapOf("building" to "第四座欣濠軒 Torre 4", "country" to "Macau", "country_code" to "mo", "county" to "嘉模堂區 Nossa Senhora do Carmo", "house_number" to "641", "road" to "南京街 Rua de Nam Keng", "state" to "Macao", "state_district" to "Taipa", "suburb" to "Taipa", "village" to "Taipa Old Village")
+    val components = mapOf("building" to "第四座欣濠軒 Torre 4", "country" to "Macau",
+        "country_code" to "mo", "county" to "嘉模堂區 Nossa Senhora do Carmo", "house_number" to "641",
+        "road" to "南京街 Rua de Nam Keng", "state" to "Macao", "state_district" to "Taipa",
+        "suburb" to "Taipa", "village" to "Taipa Old Village")
     val expected = """
         |第四座欣濠軒 Torre 4
         |南京街 Rua de Nam Keng 641

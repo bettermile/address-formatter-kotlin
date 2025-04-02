@@ -26,7 +26,10 @@ public class MZ {
   @Test
   public fun Building_in_Maputo_25_96585_32_59418() {
     // description: Building in Maputo -25.96585,32.59418
-    val components = mapOf("address29" to "Sturrock Shipping", "city" to "Cidade de Maputo", "city_district" to "Distrito Urbano de KaMpfumo", "country" to "Mozambique", "country_code" to "mz", "house_number" to "362", "postcode" to "1100", "road" to "Avenida Mao Tsé Tung", "state" to "Maputo", "suburb" to "Polana Cimento B")
+    val components = mapOf("address29" to "Sturrock Shipping", "city" to "Cidade de Maputo",
+        "city_district" to "Distrito Urbano de KaMpfumo", "country" to "Mozambique",
+        "country_code" to "mz", "house_number" to "362", "postcode" to "1100",
+        "road" to "Avenida Mao Tsé Tung", "state" to "Maputo", "suburb" to "Polana Cimento B")
     val expected = """
         |Sturrock Shipping
         |Avenida Mao Tsé Tung, 362

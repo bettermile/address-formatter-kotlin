@@ -26,7 +26,10 @@ public class KR {
   @Test
   public fun Hotel_in_Gangnam_Seoul_37_49675_127_02755() {
     // description: Hotel in Gangnam, Seoul, 37.49675,127.02755
-    val components = mapOf("city" to "Seoul", "city_district" to "서초2동 (Seocho2-dong)", "country" to "South Korea", "country_code" to "kr", "hotel" to "Haeundae Grand Hotel", "postcode" to "135-934", "road" to "Seocho-daero 74-gil", "town" to "Seocho-gu", "village" to "Seocho-dong")
+    val components = mapOf("city" to "Seoul", "city_district" to "서초2동 (Seocho2-dong)",
+        "country" to "South Korea", "country_code" to "kr", "hotel" to "Haeundae Grand Hotel",
+        "postcode" to "135-934", "road" to "Seocho-daero 74-gil", "town" to "Seocho-gu",
+        "village" to "Seocho-dong")
     val expected = """
         |South Korea
         |Seoul 서초2동 (Seocho2-dong) Seocho-daero 74-gil
@@ -40,7 +43,8 @@ public class KR {
   @Test
   public fun district_of_Seoul() {
     // description: district of Seoul
-    val components = mapOf("city" to "Seoul", "country" to "South Korea", "country_code" to "kr", "city_district" to "Gangnam-gu")
+    val components = mapOf("city" to "Seoul", "country" to "South Korea", "country_code" to "kr",
+        "city_district" to "Gangnam-gu")
     val expected = """
         |Gangnam-gu
         |Seoul

@@ -26,7 +26,10 @@ public class DK {
   @Test
   public fun `54_89107_10_40924`() {
     // description: 54.89107,10.40924
-    val components = mapOf("country" to "Denmark", "country_code" to "dk", "county" to "Ærø Municipality", "house_number" to "17A", "neighbourhood" to "Paradiset", "postcode" to "5970", "road" to "Baggårde", "state" to "Region of Southern Denmark", "village" to "Ærøskøbing")
+    val components = mapOf("country" to "Denmark", "country_code" to "dk",
+        "county" to "Ærø Municipality", "house_number" to "17A", "neighbourhood" to "Paradiset",
+        "postcode" to "5970", "road" to "Baggårde", "state" to "Region of Southern Denmark",
+        "village" to "Ærøskøbing")
     val expected = """
         |Baggårde 17A
         |5970 Ærøskøbing
@@ -39,7 +42,9 @@ public class DK {
   @Test
   public fun Hiller_d_Denmark() {
     // description: Hillerød, Denmark
-    val components = mapOf("country" to "Denmark", "country_code" to "dk", "municipality" to "Hillerød Municipality", "postal_city" to "Hillerød", "postcode" to "3400", "state" to "Capital Region", "town" to "Hillerød")
+    val components = mapOf("country" to "Denmark", "country_code" to "dk",
+        "municipality" to "Hillerød Municipality", "postal_city" to "Hillerød",
+        "postcode" to "3400", "state" to "Capital Region", "town" to "Hillerød")
     val expected = """
         |3400 Hillerød
         |Denmark

@@ -26,7 +26,10 @@ public class FO {
   @Test
   public fun Bank_in_T_rshavn_62_01111_6_77396() {
     // description: Bank in Tórshavn, 62.01111,-6.77396
-    val components = mapOf("bank" to "Bank Nordik", "country" to "Territorial waters of Faroe Islands", "country_code" to "fo", "house_number" to "17", "postcode" to "100", "road" to "Steinagøta", "state" to "Streymoy region", "town" to "Tórshavn")
+    val components = mapOf("bank" to "Bank Nordik",
+        "country" to "Territorial waters of Faroe Islands", "country_code" to "fo",
+        "house_number" to "17", "postcode" to "100", "road" to "Steinagøta",
+        "state" to "Streymoy region", "town" to "Tórshavn")
     val expected = """
         |Bank Nordik
         |Steinagøta 17

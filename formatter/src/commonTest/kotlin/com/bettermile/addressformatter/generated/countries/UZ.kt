@@ -26,7 +26,9 @@ public class UZ {
   @Test
   public fun bar_in_Samarkand() {
     // description: bar in Samarkand
-    val components = mapOf("city" to "Samarkand", "country" to "Uzbekistan", "country_code" to "uz", "postcode" to "140100", "pub" to "BLUES Cafe", "house_number" to "66", "road" to "Amir Temur street", "state" to "Samarkand Province")
+    val components = mapOf("city" to "Samarkand", "country" to "Uzbekistan", "country_code" to "uz",
+        "postcode" to "140100", "pub" to "BLUES Cafe", "house_number" to "66",
+        "road" to "Amir Temur street", "state" to "Samarkand Province")
     val expected = """
         |BLUES Cafe
         |Amir Temur street 66

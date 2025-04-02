@@ -26,7 +26,10 @@ public class SV {
   @Test
   public fun Government_building_in_San_Salvador_13_69928_89_19845() {
     // description: Government building in San Salvador, 13.69928,-89.19845
-    val components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador", "country" to "El Salvador", "country_code" to "sv", "house_number" to "827", "neighbourhood" to "Centro Urbano IVU", "postcode" to "503", "road" to "Calle Arce", "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa")
+    val components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador",
+        "country" to "El Salvador", "country_code" to "sv", "house_number" to "827",
+        "neighbourhood" to "Centro Urbano IVU", "postcode" to "503", "road" to "Calle Arce",
+        "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa")
     val expected = """
         |Ministerio de Salud
         |Calle Arce 827
@@ -41,7 +44,10 @@ public class SV {
   @Test
   public fun no_floating_dash_if_no_postcode() {
     // description: no floating dash if no postcode
-    val components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador", "country" to "El Salvador", "country_code" to "sv", "house_number" to "827", "neighbourhood" to "Centro Urbano IVU", "road" to "Calle Arce", "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa")
+    val components = mapOf("building" to "Ministerio de Salud", "city" to "San Salvador",
+        "country" to "El Salvador", "country_code" to "sv", "house_number" to "827",
+        "neighbourhood" to "Centro Urbano IVU", "road" to "Calle Arce",
+        "state" to "Departamento de San Salvador", "suburb" to "Comunidad Tutunichapa")
     val expected = """
         |Ministerio de Salud
         |Calle Arce 827

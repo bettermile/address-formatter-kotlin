@@ -26,7 +26,10 @@ public class VI {
   @Test
   public fun Library_in_Charlotte_Amalie_18_34119_64_93546() {
     // description: Library in Charlotte Amalie, 18.34119,-64.93546
-    val components = mapOf("country" to "United States of America", "country_code" to "vi", "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives", "postcode" to "00803", "road" to "Dronningens Gade", "state" to "United States Virgin Islands", "town" to "Charlotte Amalie")
+    val components = mapOf("country" to "United States of America", "country_code" to "vi",
+        "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives",
+        "postcode" to "00803", "road" to "Dronningens Gade",
+        "state" to "United States Virgin Islands", "town" to "Charlotte Amalie")
     val expected = """
         |Enid M Baa Library and Archives
         |Dronningens Gade

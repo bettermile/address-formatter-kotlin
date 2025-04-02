@@ -26,7 +26,9 @@ public class BB {
   @Test
   public fun Post_Office_in_Bridgetown_13_09821_59_62049() {
     // description: Post Office in Bridgetown, 13.09821,-59.62049
-    val components = mapOf("city" to "Bridgetown", "country" to "Barbados", "country_code" to "bb", "county" to "Saint Michael", "neighbourhood" to "New Orleans", "post_office" to "General Post Office", "postcode" to "BB11093", "road" to "Cheapside Road")
+    val components = mapOf("city" to "Bridgetown", "country" to "Barbados", "country_code" to "bb",
+        "county" to "Saint Michael", "neighbourhood" to "New Orleans",
+        "post_office" to "General Post Office", "postcode" to "BB11093", "road" to "Cheapside Road")
     val expected = """
         |General Post Office
         |Cheapside Road

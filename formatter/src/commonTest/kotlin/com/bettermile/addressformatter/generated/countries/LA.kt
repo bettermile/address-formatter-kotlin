@@ -26,7 +26,9 @@ public class LA {
   @Test
   public fun Govt_department_building_in_Vientiane_17_96306_102_61438() {
     // description: Govt department building in Vientiane, 17.96306,102.61438
-    val components = mapOf("city" to "Vientiane", "country" to "Laos", "country_code" to "la", "postcode" to "01003", "public_building" to "Ministre de la santé", "road" to "Mahosot Road", "state" to "Vientiane Capital")
+    val components = mapOf("city" to "Vientiane", "country" to "Laos", "country_code" to "la",
+        "postcode" to "01003", "public_building" to "Ministre de la santé",
+        "road" to "Mahosot Road", "state" to "Vientiane Capital")
     val expected = """
         |Ministre de la santé
         |Mahosot Road

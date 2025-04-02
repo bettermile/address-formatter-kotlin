@@ -26,7 +26,8 @@ public class BW {
   @Test
   public fun Bank_in_Gaborone_24_65739_25_91755() {
     // description: Bank in Gaborone: -24.65739,25.91755
-    val components = mapOf("bank" to "Bank Gaborone", "city" to "Gaborone", "country" to "Botswana", "country_code" to "bw", "road" to "Queens Road", "state" to "South-East District")
+    val components = mapOf("bank" to "Bank Gaborone", "city" to "Gaborone", "country" to "Botswana",
+        "country_code" to "bw", "road" to "Queens Road", "state" to "South-East District")
     val expected = """
         |Bank Gaborone
         |Queens Road

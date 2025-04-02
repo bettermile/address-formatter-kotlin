@@ -26,7 +26,10 @@ public class SL {
   @Test
   public fun School_in_Freetown_8_48323_13_24967() {
     // description: School in Freetown, 8.48323,-13.24967
-    val components = mapOf("building" to "St Thomas Primary School", "city" to "Freetown", "country" to "Sierra Leone", "country_code" to "sl", "neighbourhood" to "GRAYBUSH COM", "postcode" to "00232", "road" to "BISMARK JOHNSON ST", "state" to "Western Area", "state_district" to "Western Area Urban", "suburb" to "Kingtom")
+    val components = mapOf("building" to "St Thomas Primary School", "city" to "Freetown",
+        "country" to "Sierra Leone", "country_code" to "sl", "neighbourhood" to "GRAYBUSH COM",
+        "postcode" to "00232", "road" to "BISMARK JOHNSON ST", "state" to "Western Area",
+        "state_district" to "Western Area Urban", "suburb" to "Kingtom")
     val expected = """
         |St Thomas Primary School
         |BISMARK JOHNSON ST

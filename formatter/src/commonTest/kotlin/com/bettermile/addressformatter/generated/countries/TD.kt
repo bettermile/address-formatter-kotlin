@@ -26,7 +26,9 @@ public class TD {
   @Test
   public fun Hotel_in_N_Djamena_12_11417_15_03121() {
     // description: Hotel in N'Djamena, 12.11417,15.03121
-    val components = mapOf("city" to "N'Djamena", "country" to "Chad", "country_code" to "td", "hotel" to "Le Meridien - Chari", "postcode" to "456", "road" to "Boulevard de Strasbourg", "state" to "N'Djamena Region")
+    val components = mapOf("city" to "N'Djamena", "country" to "Chad", "country_code" to "td",
+        "hotel" to "Le Meridien - Chari", "postcode" to "456", "road" to "Boulevard de Strasbourg",
+        "state" to "N'Djamena Region")
     val expected = """
         |Le Meridien - Chari
         |Boulevard de Strasbourg

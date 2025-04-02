@@ -26,7 +26,9 @@ public class CZ {
   @Test
   public fun Pilsen_street_address_49_74258_13_37732() {
     // description: Pilsen street address 49.74258,13.37732
-    val components = mapOf("city" to "Plzeň", "country" to "Czech Republic", "country_code" to "cz", "county" to "okres Plzeň-město", "house_number" to "343/10", "neighbourhood" to "Bory", "postcode" to "30100", "road" to "Resslova", "state" to "Jihozápad", "suburb" to "Plzeň")
+    val components = mapOf("city" to "Plzeň", "country" to "Czech Republic", "country_code" to "cz",
+        "county" to "okres Plzeň-město", "house_number" to "343/10", "neighbourhood" to "Bory",
+        "postcode" to "30100", "road" to "Resslova", "state" to "Jihozápad", "suburb" to "Plzeň")
     val expected = """
         |Resslova 343/10
         |301 00 Plzeň

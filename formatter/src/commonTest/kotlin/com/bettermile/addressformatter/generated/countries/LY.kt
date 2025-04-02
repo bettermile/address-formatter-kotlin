@@ -26,7 +26,9 @@ public class LY {
   @Test
   public fun Hotel_32_88945_13_17402() {
     // description: Hotel, 32.88945,13.17402
-    val components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly", "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi", "state" to "Tripoli", "suburb" to "Old City المدينة القديمه")
+    val components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly",
+        "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi",
+        "state" to "Tripoli", "suburb" to "Old City المدينة القديمه")
     val expected = """
         |Capital Hotel
         |Arasafi
@@ -40,7 +42,9 @@ public class LY {
   @Test
   public fun Hotel_language_ar_32_88945_13_17402() {
     // description: Hotel, language=ar 32.88945,13.17402
-    val components = mapOf("city" to "طرابلس", "country" to "ليبيا", "country_code" to "ly", "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi", "state" to "طرابلس", "suburb" to "Old City المدينة القديمه")
+    val components = mapOf("city" to "طرابلس", "country" to "ليبيا", "country_code" to "ly",
+        "hotel" to "Capital Hotel", "postcode" to "82510", "road" to "Arasafi", "state" to "طرابلس",
+        "suburb" to "Old City المدينة القديمه")
     val expected = """
         |Capital Hotel
         |Arasafi
@@ -54,7 +58,9 @@ public class LY {
   @Test
   public fun Supermarket_32_88791_13_21650() {
     // description: Supermarket, 32.88791,13.21650
-    val components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly", "postcode" to "82510", "road" to "Shara Muhammad Soukny", "state" to "Tripoli", "suburb" to "Bab Tajura", "supermarket" to "Suuq Nufleen")
+    val components = mapOf("city" to "Tripoli", "country" to "Libya", "country_code" to "ly",
+        "postcode" to "82510", "road" to "Shara Muhammad Soukny", "state" to "Tripoli",
+        "suburb" to "Bab Tajura", "supermarket" to "Suuq Nufleen")
     val expected = """
         |Suuq Nufleen
         |Shara Muhammad Soukny
@@ -68,7 +74,8 @@ public class LY {
   @Test
   public fun Convenience_store_31_92505_12_24794() {
     // description: Convenience store, 31.92505,12.24794
-    val components = mapOf("city" to "Az zintan", "country" to "Libya", "country_code" to "ly", "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "Jabal al Gharbi")
+    val components = mapOf("city" to "Az zintan", "country" to "Libya", "country_code" to "ly",
+        "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "Jabal al Gharbi")
     val expected = """
         |محل مواد غدائية
         |طريق الصلوعة
@@ -82,7 +89,8 @@ public class LY {
   @Test
   public fun Convenience_store_language_ar_31_92505_12_24794() {
     // description: Convenience store, language=ar, 31.92505,12.24794
-    val components = mapOf("city" to "الزنتان", "country" to "ليبيا", "country_code" to "ly", "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "الجبل الغربي")
+    val components = mapOf("city" to "الزنتان", "country" to "ليبيا", "country_code" to "ly",
+        "road" to "طريق الصلوعة", "shop" to "محل مواد غدائية", "state" to "الجبل الغربي")
     val expected = """
         |محل مواد غدائية
         |طريق الصلوعة

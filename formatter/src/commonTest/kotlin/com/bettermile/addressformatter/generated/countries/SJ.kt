@@ -26,7 +26,8 @@ public class SJ {
   @Test
   public fun Airstrip_on_Jan_Mayen_70_9415_8_6616() {
     // description: Airstrip on Jan Mayen, 70.9415,-8.6616
-    val components = mapOf("country" to "Svalbard and Jan Mayen", "country_code" to "sj", "state" to "Jan Mayen")
+    val components = mapOf("country" to "Svalbard and Jan Mayen", "country_code" to "sj",
+        "state" to "Jan Mayen")
     val expected = """
         |Jan Mayen
         |Norway

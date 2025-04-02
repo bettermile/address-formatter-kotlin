@@ -26,7 +26,10 @@ public class TH {
   @Test
   public fun School_in_Bangkok_13_7101_100_5088() {
     // description: School in Bangkok, 13.7101,100.5088
-    val components = mapOf("country" to "Thailand", "country_code" to "th", "neighbourhood" to "Wat Phraya Krai", "postcode" to "10120", "road" to "Thanon Charoen Krung", "school" to "Shrewsbury International School", "state" to "Bangkok", "suburb" to "Bang Kho Laem District")
+    val components = mapOf("country" to "Thailand", "country_code" to "th",
+        "neighbourhood" to "Wat Phraya Krai", "postcode" to "10120",
+        "road" to "Thanon Charoen Krung", "school" to "Shrewsbury International School",
+        "state" to "Bangkok", "suburb" to "Bang Kho Laem District")
     val expected = """
         |Shrewsbury International School
         |Thanon Charoen Krung

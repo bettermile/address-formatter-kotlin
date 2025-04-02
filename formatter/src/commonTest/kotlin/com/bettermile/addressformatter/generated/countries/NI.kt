@@ -26,7 +26,11 @@ public class NI {
   @Test
   public fun Post_Office_in_Managua_12_15550_86_27209() {
     // description: Post Office in Managua, 12.15550,-86.27209
-    val components = mapOf("city" to "Managua", "city_district" to "District I", "country" to "Nicaragua", "country_code" to "ni", "county" to "Managua (Municipio)", "pedestrian" to "Plaza de la República", "postcode" to "11001", "public_building" to "Antiguo Palacio de Gobierno", "state" to "Managua", "suburb" to "Centro Histórico Cultural")
+    val components = mapOf("city" to "Managua", "city_district" to "District I",
+        "country" to "Nicaragua", "country_code" to "ni", "county" to "Managua (Municipio)",
+        "pedestrian" to "Plaza de la República", "postcode" to "11001",
+        "public_building" to "Antiguo Palacio de Gobierno", "state" to "Managua",
+        "suburb" to "Centro Histórico Cultural")
     val expected = """
         |Antiguo Palacio de Gobierno
         |Plaza de la República

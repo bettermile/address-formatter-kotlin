@@ -26,7 +26,9 @@ public class PR {
   @Test
   public fun bar_in_San_Juan() {
     // description: bar in San Juan
-    val components = mapOf("bar" to "Wisos Velillas Bar", "house_number" to "252", "road" to "Calle San Francisco", "city" to "San Juan Antiguo", "country" to "Puerto Rico", "country_code" to "PR", "county" to "San Juan", "postcode" to "00901")
+    val components = mapOf("bar" to "Wisos Velillas Bar", "house_number" to "252",
+        "road" to "Calle San Francisco", "city" to "San Juan Antiguo", "country" to "Puerto Rico",
+        "country_code" to "PR", "county" to "San Juan", "postcode" to "00901")
     val expected = """
         |Wisos Velillas Bar
         |252 Calle San Francisco

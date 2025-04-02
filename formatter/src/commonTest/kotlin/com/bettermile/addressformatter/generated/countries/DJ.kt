@@ -26,7 +26,9 @@ public class DJ {
   @Test
   public fun Restaurant_in_Djibouti_city_11_59302_43_14587() {
     // description: Restaurant in Djibouti (city), 11.59302,43.14587
-    val components = mapOf("city" to "Djibouti", "country" to "Djibouti", "country_code" to "dj", "neighbourhood" to "Place Mahmoud Harbi", "restaurant" to "Blue Nile", "road" to "Ethiopia Street", "state" to "Djibouti", "suburb" to "District 1")
+    val components = mapOf("city" to "Djibouti", "country" to "Djibouti", "country_code" to "dj",
+        "neighbourhood" to "Place Mahmoud Harbi", "restaurant" to "Blue Nile",
+        "road" to "Ethiopia Street", "state" to "Djibouti", "suburb" to "District 1")
     val expected = """
         |Blue Nile
         |Ethiopia Street

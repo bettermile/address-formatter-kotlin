@@ -26,7 +26,10 @@ public class MQ {
   @Test
   public fun Administrative_building_in_Fort_au_France_14_60443_61_07770() {
     // description: Administrative building in Fort-au-France, 14.60443,-61.07770
-    val components = mapOf("city" to "Fort-de-France", "country" to "Martinique", "country_code" to "mq", "county" to "Fort-de-France", "courthouse" to "Tribunal Administratif de Fort-de-France", "postcode" to "97200", "road" to "Avenue Condorcet", "state" to "Martinique")
+    val components = mapOf("city" to "Fort-de-France", "country" to "Martinique",
+        "country_code" to "mq", "county" to "Fort-de-France",
+        "courthouse" to "Tribunal Administratif de Fort-de-France", "postcode" to "97200",
+        "road" to "Avenue Condorcet", "state" to "Martinique")
     val expected = """
         |Tribunal Administratif de Fort-de-France
         |Avenue Condorcet

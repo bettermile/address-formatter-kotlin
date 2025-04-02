@@ -26,7 +26,9 @@ public class SI {
   @Test
   public fun hotel_in_Piran_45_51410_13_58819() {
     // description: hotel in Piran - 45.51410,13.58819
-    val components = mapOf("city" to "Piran / Pirano", "country" to "Slovenia", "country_code" to "si", "house" to "Casino Riviera", "house_number" to "33", "postcode" to "6320", "road" to "Obala", "suburb" to "Liminjan / Limignano")
+    val components = mapOf("city" to "Piran / Pirano", "country" to "Slovenia",
+        "country_code" to "si", "house" to "Casino Riviera", "house_number" to "33",
+        "postcode" to "6320", "road" to "Obala", "suburb" to "Liminjan / Limignano")
     val expected = """
         |Casino Riviera
         |Obala 33

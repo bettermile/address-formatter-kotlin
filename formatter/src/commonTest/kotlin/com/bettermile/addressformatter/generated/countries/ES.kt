@@ -26,7 +26,8 @@ public class ES {
   @Test
   public fun Barcelona() {
     // description: Barcelona
-    val components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es", "county" to "BCN", "state" to "Catalonia")
+    val components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es",
+        "county" to "BCN", "state" to "Catalonia")
     val expected = """
         |Barcelona
         |Catalonia
@@ -39,7 +40,10 @@ public class ES {
   @Test
   public fun `41_39266_2_19790`() {
     // description: 41.39266,2.19790
-    val components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es", "county" to "BCN", "house_number" to "17", "pedestrian" to "Avinguda del Bogatell", "postcode" to "08005", "public_building" to "Biblioteca Xavier Benguerel", "state" to "Catalonia", "suburb" to "la Vila Olímpica del Poblenou")
+    val components = mapOf("city" to "Barcelona", "country" to "Spain", "country_code" to "es",
+        "county" to "BCN", "house_number" to "17", "pedestrian" to "Avinguda del Bogatell",
+        "postcode" to "08005", "public_building" to "Biblioteca Xavier Benguerel",
+        "state" to "Catalonia", "suburb" to "la Vila Olímpica del Poblenou")
     val expected = """
         |Biblioteca Xavier Benguerel
         |Avinguda del Bogatell, 17
@@ -53,7 +57,10 @@ public class ES {
   @Test
   public fun Donostia_multipostcode_reject_long_postcode() {
     // description: Donostia multipostcode, reject long postcode
-    val components = mapOf("city" to "San Sebastián", "country" to "Spain", "country_code" to "es", "county" to "Gipuzkoa", "postcode" to "20001;20002;20003;20004;20005;20006;20007;20008;20009;20010;20011;20012;20013;20014;20015;20016;20017;20018", "state" to "Basque Country")
+    val components = mapOf("city" to "San Sebastián", "country" to "Spain", "country_code" to "es",
+        "county" to "Gipuzkoa",
+        "postcode" to "20001;20002;20003;20004;20005;20006;20007;20008;20009;20010;20011;20012;20013;20014;20015;20016;20017;20018",
+        "state" to "Basque Country")
     val expected = """
         |San Sebastián
         |Basque Country
@@ -66,7 +73,8 @@ public class ES {
   @Test
   public fun Costa_del_Sol_Occidental() {
     // description: Costa del Sol Occidental
-    val components = mapOf("country" to "Spanien", "country_code" to "es", "county" to "Costa del Sol Occidental", "state" to "Andalusien")
+    val components = mapOf("country" to "Spanien", "country_code" to "es",
+        "county" to "Costa del Sol Occidental", "state" to "Andalusien")
     val expected = """
         |Costa del Sol Occidental
         |Andalusien

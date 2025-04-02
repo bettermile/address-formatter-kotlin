@@ -26,7 +26,9 @@ public class SA {
   @Test
   public fun museum_in_Saudi_Arabia() {
     // description: museum in Saudi Arabia
-    val components = mapOf("museum" to "National Museum of Saudi Arabia", "city" to "Riyadh", "country" to "Saudi Arabia", "country_code" to "sa", "postcode" to "12844", "road" to "شارع الوزير", "region" to "Riyadh Region")
+    val components = mapOf("museum" to "National Museum of Saudi Arabia", "city" to "Riyadh",
+        "country" to "Saudi Arabia", "country_code" to "sa", "postcode" to "12844",
+        "road" to "شارع الوزير", "region" to "Riyadh Region")
     val expected = """
         |National Museum of Saudi Arabia
         |شارع الوزير

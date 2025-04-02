@@ -26,7 +26,8 @@ public class TV {
   @Test
   public fun office_in_Funafuti_8_52706_179_19302() {
     // description: office in Funafuti, -8.52706,179.19302
-    val components = mapOf("city" to "Funafuti", "country" to "Tuvalu", "country_code" to "tv", "public_building" to "Philatelic Office", "road" to "Vaiaku Road")
+    val components = mapOf("city" to "Funafuti", "country" to "Tuvalu", "country_code" to "tv",
+        "public_building" to "Philatelic Office", "road" to "Vaiaku Road")
     val expected = """
         |Philatelic Office
         |Vaiaku Road

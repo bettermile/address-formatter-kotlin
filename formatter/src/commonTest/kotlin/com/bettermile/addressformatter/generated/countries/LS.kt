@@ -26,7 +26,9 @@ public class LS {
   @Test
   public fun Bank_in_Maseru_29_31459_27_48446() {
     // description: Bank in Maseru: -29.31459, 27.48446
-    val components = mapOf("bank" to "Nedbank", "city" to "Maseru", "country" to "Lesotho", "country_code" to "ls", "postcode" to "100", "road" to "Kingsway", "state" to "Maseru", "suburb" to "Cathedral Area")
+    val components = mapOf("bank" to "Nedbank", "city" to "Maseru", "country" to "Lesotho",
+        "country_code" to "ls", "postcode" to "100", "road" to "Kingsway", "state" to "Maseru",
+        "suburb" to "Cathedral Area")
     val expected = """
         |Nedbank
         |Kingsway

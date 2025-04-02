@@ -26,7 +26,10 @@ public class NE {
   @Test
   public fun Embassy_in_Niamey_13_52012_2_09463() {
     // description: Embassy in Niamey, 13.52012,2.09463
-    val components = mapOf("address" to "Embassy of the Federal Republic of Germany", "city" to "Niamey", "country" to "Niger", "country_code" to "ne", "house_number" to "71", "postcode" to "13416", "road" to "Boulevard Général De Gaulle", "state" to "Niamey", "suburb" to "Plateau", "village" to "Néini Goungou")
+    val components = mapOf("address" to "Embassy of the Federal Republic of Germany",
+        "city" to "Niamey", "country" to "Niger", "country_code" to "ne", "house_number" to "71",
+        "postcode" to "13416", "road" to "Boulevard Général De Gaulle", "state" to "Niamey",
+        "suburb" to "Plateau", "village" to "Néini Goungou")
     val expected = """
         |Embassy of the Federal Republic of Germany
         |71

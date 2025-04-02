@@ -26,7 +26,10 @@ public class MX {
   @Test
   public fun bar_in_Mexico_City() {
     // description: bar in Mexico City
-    val components = mapOf("pub" to "Wallace Whisky Bar", "house_number" to "45", "road" to "Avenida Tamaulipas", "city" to "Mexico City", "city_district" to "Cuauhtémoc", "country" to "Mexico", "country_code" to "MX", "state" to "Federal District", "postcode" to "06100")
+    val components = mapOf("pub" to "Wallace Whisky Bar", "house_number" to "45",
+        "road" to "Avenida Tamaulipas", "city" to "Mexico City", "city_district" to "Cuauhtémoc",
+        "country" to "Mexico", "country_code" to "MX", "state" to "Federal District",
+        "postcode" to "06100")
     val expected = """
         |Wallace Whisky Bar
         |Avenida Tamaulipas 45

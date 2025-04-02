@@ -26,7 +26,9 @@ public class CR {
   @Test
   public fun Court_in_Lim_n_9_99403_83_02745() {
     // description: Court in Limón, 9.99403,-83.02745
-    val components = mapOf("city" to "Limón", "country" to "Costa Rica", "country_code" to "cr", "courthouse" to "Tribunales de Justicia", "neighbourhood" to "Barrio Hospital", "postcode" to "70101", "road" to "Calle 2 - Romualdo Segura", "state" to "Limón")
+    val components = mapOf("city" to "Limón", "country" to "Costa Rica", "country_code" to "cr",
+        "courthouse" to "Tribunales de Justicia", "neighbourhood" to "Barrio Hospital",
+        "postcode" to "70101", "road" to "Calle 2 - Romualdo Segura", "state" to "Limón")
     val expected = """
         |Tribunales de Justicia
         |Calle 2 - Romualdo Segura

@@ -26,7 +26,10 @@ public class PF {
   @Test
   public fun Office_in_Papeete_17_53714_149_56608() {
     // description: Office in Papeete, -17.53714,-149.56608
-    val components = mapOf("building" to "Mairie (bureaux administratifs)", "city" to "Papeete", "country" to "Polynésie française, Îles du Vent (eaux territoriales)", "country_code" to "pf", "county" to "Îles du Vent", "postcode" to "98714", "road" to "Rue des Remparts", "state" to "French Polynesia")
+    val components = mapOf("building" to "Mairie (bureaux administratifs)", "city" to "Papeete",
+        "country" to "Polynésie française, Îles du Vent (eaux territoriales)",
+        "country_code" to "pf", "county" to "Îles du Vent", "postcode" to "98714",
+        "road" to "Rue des Remparts", "state" to "French Polynesia")
     val expected = """
         |Mairie (bureaux administratifs)
         |Rue des Remparts

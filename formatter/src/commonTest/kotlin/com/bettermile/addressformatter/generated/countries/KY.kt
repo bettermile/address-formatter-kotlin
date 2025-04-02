@@ -26,7 +26,9 @@ public class KY {
   @Test
   public fun address_in_George_Town_19_29619_81_38217() {
     // description: address in George Town, 19.29619,-81.38217
-    val components = mapOf("building" to "Butterfield Place", "city" to "George Town", "country" to "Cayman Islands", "country_code" to "ky", "house_number" to "12", "postcode" to "KY1-1103", "road" to "Albert Panton Street", "suburb" to "Rock Hole Road")
+    val components = mapOf("building" to "Butterfield Place", "city" to "George Town",
+        "country" to "Cayman Islands", "country_code" to "ky", "house_number" to "12",
+        "postcode" to "KY1-1103", "road" to "Albert Panton Street", "suburb" to "Rock Hole Road")
     val expected = """
         |Butterfield Place
         |12 Albert Panton Street

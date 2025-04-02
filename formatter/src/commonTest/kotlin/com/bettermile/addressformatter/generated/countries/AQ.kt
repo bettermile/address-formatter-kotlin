@@ -26,7 +26,9 @@ public class AQ {
   @Test
   public fun Building_at_McMurdo_Station_77_8460_166_7359() {
     // description: Building at McMurdo Station, -77.8460,166.7359
-    val components = mapOf("building" to "Oil Separator Building", "continent" to "Antarctica", "country" to "Antarctica", "country_code" to "aq", "house_number" to "72", "road" to "McMurdo Roads", "town" to "McMurdo Station")
+    val components = mapOf("building" to "Oil Separator Building", "continent" to "Antarctica",
+        "country" to "Antarctica", "country_code" to "aq", "house_number" to "72",
+        "road" to "McMurdo Roads", "town" to "McMurdo Station")
     val expected = """
         |Oil Separator Building
         |McMurdo Station

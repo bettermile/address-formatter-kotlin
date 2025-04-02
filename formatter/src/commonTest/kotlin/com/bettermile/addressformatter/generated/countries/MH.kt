@@ -26,7 +26,9 @@ public class MH {
   @Test
   public fun Hotel_in_Majuro_7_08646_171_37358() {
     // description: Hotel in Majuro, 7.08646,171.37358
-    val components = mapOf("city" to "Majuro", "country" to "Marshall Islands", "country_code" to "mh", "hotel" to "Marshall Islands Resort", "neighbourhood" to "Delap", "postcode" to "96060", "road" to "Lagoon Road")
+    val components = mapOf("city" to "Majuro", "country" to "Marshall Islands",
+        "country_code" to "mh", "hotel" to "Marshall Islands Resort", "neighbourhood" to "Delap",
+        "postcode" to "96060", "road" to "Lagoon Road")
     val expected = """
         |Marshall Islands Resort
         |Lagoon Road

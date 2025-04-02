@@ -26,7 +26,9 @@ public class MN {
   @Test
   public fun Bank_in_Ulaanbaatar_47_91484_106_91212() {
     // description: Bank in Ulaanbaatar, 47.91484,106.91212
-    val components = mapOf("bank" to "TDB картын төв", "city" to "Ulaanbaatar", "country" to "Mongolia", "country_code" to "mn", "postcode" to "00976", "road" to "Seoul street", "state" to "Border Ulan Bator - Töv")
+    val components = mapOf("bank" to "TDB картын төв", "city" to "Ulaanbaatar",
+        "country" to "Mongolia", "country_code" to "mn", "postcode" to "00976",
+        "road" to "Seoul street", "state" to "Border Ulan Bator - Töv")
     val expected = """
         |TDB картын төв
         |Seoul street

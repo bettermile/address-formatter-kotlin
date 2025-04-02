@@ -26,7 +26,9 @@ public class GI {
   @Test
   public fun Museum_in_Gibraltar_36_13887_5_35441() {
     // description: Museum in Gibraltar, 36.13887,-5.35441
-    val components = mapOf("country" to "Gibraltar", "country_code" to "gi", "house_number" to "18-20", "museum" to "Gibraltar Museum", "pedestrian" to "Bomb House Lane", "town" to "Gibraltar")
+    val components = mapOf("country" to "Gibraltar", "country_code" to "gi",
+        "house_number" to "18-20", "museum" to "Gibraltar Museum",
+        "pedestrian" to "Bomb House Lane", "town" to "Gibraltar")
     val expected = """
         |Gibraltar Museum
         |18-20 Bomb House Lane

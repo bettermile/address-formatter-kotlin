@@ -26,7 +26,9 @@ public class PE {
   @Test
   public fun bar_in_San_Juan() {
     // description: bar in San Juan
-    val components = mapOf("pub" to "Discoteca Ophera", "county" to "Huaural", "road" to "TUPAC AMARU", "town" to "Huacho", "country" to "Peru", "country_code" to "PE", "state" to "Lima")
+    val components = mapOf("pub" to "Discoteca Ophera", "county" to "Huaural",
+        "road" to "TUPAC AMARU", "town" to "Huacho", "country" to "Peru", "country_code" to "PE",
+        "state" to "Lima")
     val expected = """
         |Discoteca Ophera
         |TUPAC AMARU

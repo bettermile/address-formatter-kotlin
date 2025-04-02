@@ -26,7 +26,9 @@ public class MR {
   @Test
   public fun Health_centre_18_1174_15_9174() {
     // description: Health centre, 18.1174,-15.9174
-    val components = mapOf("city" to "Nouakchott", "country" to "Mauritania", "country_code" to "mr", "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance", "state" to "Nouakchott")
+    val components = mapOf("city" to "Nouakchott", "country" to "Mauritania",
+        "country_code" to "mr", "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance",
+        "state" to "Nouakchott")
     val expected = """
         |CENTRE DE SANTE
         |Route de la Résistance
@@ -40,7 +42,8 @@ public class MR {
   @Test
   public fun Health_centre_language_ar_18_1174_15_9174() {
     // description: Health centre, language=ar, 18.1174,-15.9174
-    val components = mapOf("city" to "نواكشوط", "country" to "موريتانيا", "country_code" to "mr", "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance", "state" to "نواكشوط")
+    val components = mapOf("city" to "نواكشوط", "country" to "موريتانيا", "country_code" to "mr",
+        "hospital" to "CENTRE DE SANTE", "road" to "Route de la Résistance", "state" to "نواكشوط")
     val expected = """
         |CENTRE DE SANTE
         |Route de la Résistance
@@ -54,7 +57,9 @@ public class MR {
   @Test
   public fun Mosque_18_06802_15_98678() {
     // description: Mosque, 18.06802,-15.98678
-    val components = mapOf("city" to "Nouakchott", "country" to "Mauritania", "country_code" to "mr", "place_of_worship" to "Mosquée du Qatar", "postcode" to "170", "road" to "Route Famille Dia", "state" to "Nouakchott")
+    val components = mapOf("city" to "Nouakchott", "country" to "Mauritania",
+        "country_code" to "mr", "place_of_worship" to "Mosquée du Qatar", "postcode" to "170",
+        "road" to "Route Famille Dia", "state" to "Nouakchott")
     val expected = """
         |Mosquée du Qatar
         |Route Famille Dia
@@ -68,7 +73,9 @@ public class MR {
   @Test
   public fun Hospital_20_9565_17_0332() {
     // description: Hospital, 20.9565,-17.0332
-    val components = mapOf("country" to "Mauritania", "country_code" to "mr", "hospital" to "Hôpital Régional de Nouadhibou", "road" to "N2", "state" to "Dakhlet Nouadhibou", "town" to "Nouadhibou")
+    val components = mapOf("country" to "Mauritania", "country_code" to "mr",
+        "hospital" to "Hôpital Régional de Nouadhibou", "road" to "N2",
+        "state" to "Dakhlet Nouadhibou", "town" to "Nouadhibou")
     val expected = """
         |Hôpital Régional de Nouadhibou
         |N2

@@ -26,7 +26,11 @@ public class VE {
   @Test
   public fun restaurant_in_Caracas() {
     // description: restaurant in Caracas
-    val components = mapOf("house_number" to "33", "road" to "Av. Teresa de La Parra", "city" to "Parroquia San Pedro", "county" to "Municipio Libertador", "neighbourhood" to "Los Chaguaramos", "country" to "Venezuela", "country_code" to "VE", "postcode" to "1040", "restaurant" to "El Carretón", "state_district" to "Caracas", "state" to "Capital District")
+    val components = mapOf("house_number" to "33", "road" to "Av. Teresa de La Parra",
+        "city" to "Parroquia San Pedro", "county" to "Municipio Libertador",
+        "neighbourhood" to "Los Chaguaramos", "country" to "Venezuela", "country_code" to "VE",
+        "postcode" to "1040", "restaurant" to "El Carretón", "state_district" to "Caracas",
+        "state" to "Capital District")
     val expected = """
         |El Carretón
         |Av. Teresa de La Parra 33

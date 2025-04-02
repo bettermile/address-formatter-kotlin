@@ -26,7 +26,11 @@ public class NC {
   @Test
   public fun Building_in_Noum_a_22_27039_166_44270() {
     // description: Building in Nouméa, -22.27039,166.44270
-    val components = mapOf("building" to "Immeuble Maréchal Foch", "city" to "Nouméa", "city_district" to "Secteur Ouest", "country" to "France, Nouvelle-Calédonie, Grande Terre et récifs d'Entrecasteaux (eaux territoriales)", "country_code" to "nc", "county" to "Province Sud", "postcode" to "98800", "road" to "Rue Jean Jaurès", "state" to "New Caledonia", "suburb" to "Centre-Ville")
+    val components = mapOf("building" to "Immeuble Maréchal Foch", "city" to "Nouméa",
+        "city_district" to "Secteur Ouest",
+        "country" to "France, Nouvelle-Calédonie, Grande Terre et récifs d'Entrecasteaux (eaux territoriales)",
+        "country_code" to "nc", "county" to "Province Sud", "postcode" to "98800",
+        "road" to "Rue Jean Jaurès", "state" to "New Caledonia", "suburb" to "Centre-Ville")
     val expected = """
         |Immeuble Maréchal Foch
         |Rue Jean Jaurès

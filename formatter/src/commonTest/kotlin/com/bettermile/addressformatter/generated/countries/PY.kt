@@ -26,7 +26,9 @@ public class PY {
   @Test
   public fun _25_2889244_57_6466121() {
     // description: -25.2889244, -57.6466121
-    val components = mapOf("bakery" to "Old Germany German Bakery", "city" to "Asuncion", "country" to "Paraguay", "country_code" to "py", "postcode" to "1409", "road" to "Milano", "state" to "Distrito Capital de Paraguay", "suburb" to "Tacumbú")
+    val components = mapOf("bakery" to "Old Germany German Bakery", "city" to "Asuncion",
+        "country" to "Paraguay", "country_code" to "py", "postcode" to "1409", "road" to "Milano",
+        "state" to "Distrito Capital de Paraguay", "suburb" to "Tacumbú")
     val expected = """
         |Old Germany German Bakery
         |Milano

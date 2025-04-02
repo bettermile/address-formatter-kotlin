@@ -26,7 +26,9 @@ public class GY {
   @Test
   public fun Bank_in_Georgetown_6_81913_58_16213() {
     // description: Bank in Georgetown, 6.81913,-58.16213
-    val components = mapOf("bank" to "Scotiabank (Carmichael St. Branch)", "city" to "Georgetown", "country" to "Guyana", "country_code" to "gy", "county" to "Demerara-Mahaica Region", "postcode" to "101147", "road" to "Carmichael Street")
+    val components = mapOf("bank" to "Scotiabank (Carmichael St. Branch)", "city" to "Georgetown",
+        "country" to "Guyana", "country_code" to "gy", "county" to "Demerara-Mahaica Region",
+        "postcode" to "101147", "road" to "Carmichael Street")
     val expected = """
         |Scotiabank (Carmichael St. Branch)
         |Carmichael Street

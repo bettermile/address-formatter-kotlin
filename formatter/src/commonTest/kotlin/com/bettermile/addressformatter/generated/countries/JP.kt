@@ -26,7 +26,9 @@ public class JP {
   @Test
   public fun Restaurant_in_Hiroshima_34_38227_132_44032() {
     // description: Restaurant in Hiroshima, 34.38227,132.44032
-    val components = mapOf("city" to "Hiroshima", "country" to "Japan", "country_code" to "jp", "county" to "Aki County", "postcode" to "7300846", "restaurant" to "食辛房", "road" to "舟入通り", "state" to "Chugoku Region", "suburb" to "Naka Ward")
+    val components = mapOf("city" to "Hiroshima", "country" to "Japan", "country_code" to "jp",
+        "county" to "Aki County", "postcode" to "7300846", "restaurant" to "食辛房", "road" to "舟入通り",
+        "state" to "Chugoku Region", "suburb" to "Naka Ward")
     val expected = """
         |食辛房
         |舟入通り

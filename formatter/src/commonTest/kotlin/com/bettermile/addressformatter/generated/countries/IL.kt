@@ -26,7 +26,9 @@ public class IL {
   @Test
   public fun House_in_Tel_Aviv_32_06523_34_78793() {
     // description: House in Tel Aviv, 32.06523,34.78793
-    val components = mapOf("city" to "Tel Aviv-Yafo", "country" to "Israel", "country_code" to "il", "house_number" to "29", "postcode" to "64739", "residential" to "Tel Aviv", "road" to "Yizhak Sadeh", "state" to "Tel Aviv District", "suburb" to "Montefiore")
+    val components = mapOf("city" to "Tel Aviv-Yafo", "country" to "Israel", "country_code" to "il",
+        "house_number" to "29", "postcode" to "64739", "residential" to "Tel Aviv",
+        "road" to "Yizhak Sadeh", "state" to "Tel Aviv District", "suburb" to "Montefiore")
     val expected = """
         |Yizhak Sadeh 29
         |64739 Tel Aviv-Yafo

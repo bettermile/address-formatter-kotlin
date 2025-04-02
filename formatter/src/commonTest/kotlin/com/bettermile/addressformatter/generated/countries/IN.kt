@@ -26,7 +26,10 @@ public class IN {
   @Test
   public fun Restaurant_in_Hyderabad() {
     // description: Restaurant in Hyderabad
-    val components = mapOf("road" to "uppuguda", "city" to "Hyderabad", "neighbourhood" to "Patthergatti", "country" to "India", "country_code" to "IN", "postcode" to "500064", "restaurant" to "Anand Bhavan (vegetarian)", "state" to "Telangana", "suburb" to "Charminar")
+    val components = mapOf("road" to "uppuguda", "city" to "Hyderabad",
+        "neighbourhood" to "Patthergatti", "country" to "India", "country_code" to "IN",
+        "postcode" to "500064", "restaurant" to "Anand Bhavan (vegetarian)", "state" to "Telangana",
+        "suburb" to "Charminar")
     val expected = """
         |Anand Bhavan (vegetarian)
         |uppuguda
@@ -42,7 +45,8 @@ public class IN {
   @Test
   public fun Indian_postcode() {
     // description: Indian postcode
-    val components = mapOf("state" to "Mahārāshtra", "postcode" to "400096", "country" to "India", "country_code" to "in")
+    val components = mapOf("state" to "Mahārāshtra", "postcode" to "400096", "country" to "India",
+        "country_code" to "in")
     val expected = """
         |400096
         |Mahārāshtra
@@ -55,7 +59,8 @@ public class IN {
   @Test
   public fun without_postcode() {
     // description: without postcode
-    val components = mapOf("city" to "Pune", "country" to "India", "country_code" to "in", "road" to "Baner", "state" to "Maharashtra")
+    val components = mapOf("city" to "Pune", "country" to "India", "country_code" to "in",
+        "road" to "Baner", "state" to "Maharashtra")
     val expected = """
         |Baner
         |Pune

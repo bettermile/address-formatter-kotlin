@@ -26,7 +26,11 @@ public class SK {
   @Test
   public fun Bratislava_48_14776_17_10384() {
     // description: Bratislava - 48.14776,17.10384
-    val components = mapOf("city" to "District of Bratislava", "city_district" to "Bratislava - mestská časť Staré Mesto", "country" to "Slovakia", "country_code" to "sk", "county" to "Bratislava", "house_number" to "666/20", "postcode" to "811 03", "road" to "Panenská", "state" to "Region of Bratislava", "suburb" to "Staré Mesto")
+    val components = mapOf("city" to "District of Bratislava",
+        "city_district" to "Bratislava - mestská časť Staré Mesto", "country" to "Slovakia",
+        "country_code" to "sk", "county" to "Bratislava", "house_number" to "666/20",
+        "postcode" to "811 03", "road" to "Panenská", "state" to "Region of Bratislava",
+        "suburb" to "Staré Mesto")
     val expected = """
         |Panenská 666/20
         |811 03 Bratislava
@@ -39,7 +43,10 @@ public class SK {
   @Test
   public fun Bratislava_town_and_city_fix_postcode_48_15744_17_10839() {
     // description: Bratislava town and city, fix postcode 48.15744,17.10839
-    val components = mapOf("city" to "Bratislava", "city_district" to "District of Bratislava I", "country" to "Slovakia", "country_code" to "sk", "house_number" to "12", "neighbourhood" to "Desiatky", "postcode" to "81105", "road" to "Železničiarska", "state" to "Region of Bratislava", "state_code" to "BL", "town" to "Old Town")
+    val components = mapOf("city" to "Bratislava", "city_district" to "District of Bratislava I",
+        "country" to "Slovakia", "country_code" to "sk", "house_number" to "12",
+        "neighbourhood" to "Desiatky", "postcode" to "81105", "road" to "Železničiarska",
+        "state" to "Region of Bratislava", "state_code" to "BL", "town" to "Old Town")
     val expected = """
         |Železničiarska 12
         |811 05 Bratislava

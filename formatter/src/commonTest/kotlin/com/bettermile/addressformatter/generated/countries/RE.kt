@@ -26,7 +26,10 @@ public class RE {
   @Test
   public fun Building_in_Le_Port_20_93750_55_29020() {
     // description: Building in Le Port, -20.93750,55.29020
-    val components = mapOf("city" to "Le Port", "country" to "France, La Réunion (eaux territoriales)", "country_code" to "re", "county" to "Saint-Paul", "house_number" to "17", "postcode" to "97420", "road" to "Rue François de Mahy", "state" to "Réunion")
+    val components = mapOf("city" to "Le Port",
+        "country" to "France, La Réunion (eaux territoriales)", "country_code" to "re",
+        "county" to "Saint-Paul", "house_number" to "17", "postcode" to "97420",
+        "road" to "Rue François de Mahy", "state" to "Réunion")
     val expected = """
         |17 Rue François de Mahy
         |97420 Le Port

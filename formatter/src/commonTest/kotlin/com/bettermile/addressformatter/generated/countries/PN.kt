@@ -26,7 +26,9 @@ public class PN {
   @Test
   public fun Health_center_in_Adamstown_25_06572_130_10004() {
     // description: Health center in Adamstown, -25.06572,-130.10004
-    val components = mapOf("country" to "Pitcairn Islands", "country_code" to "pn", "hospital" to "Pitcairn Health Centre", "residential" to "Adamstown", "road" to "Hill of Difficulty", "town" to "Adamstown")
+    val components = mapOf("country" to "Pitcairn Islands", "country_code" to "pn",
+        "hospital" to "Pitcairn Health Centre", "residential" to "Adamstown",
+        "road" to "Hill of Difficulty", "town" to "Adamstown")
     val expected = """
         |Pitcairn Health Centre
         |Adamstown

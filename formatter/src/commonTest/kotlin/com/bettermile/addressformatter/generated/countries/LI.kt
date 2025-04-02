@@ -26,7 +26,10 @@ public class LI {
   @Test
   public fun Museum_in_Vaduz_47_13947_9_52215() {
     // description: Museum in Vaduz, 47.13947,9.52215
-    val components = mapOf("country" to "Liechtenstein", "country_code" to "li", "county" to "Wahlkreis Oberland", "house_number" to "32", "museum" to "Kunstmuseum Liechtenstein", "pedestrian" to "Städtle", "postcode" to "9490", "village" to "Vaduz")
+    val components = mapOf("country" to "Liechtenstein", "country_code" to "li",
+        "county" to "Wahlkreis Oberland", "house_number" to "32",
+        "museum" to "Kunstmuseum Liechtenstein", "pedestrian" to "Städtle", "postcode" to "9490",
+        "village" to "Vaduz")
     val expected = """
         |Kunstmuseum Liechtenstein
         |Städtle 32

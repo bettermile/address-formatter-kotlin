@@ -26,7 +26,10 @@ public class CA {
   @Test
   public fun Brampton_Centennial_Secondary_School() {
     // description: Brampton Centennial Secondary School
-    val components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca", "house_number" to "251", "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South", "school" to "Brampton Centennial Secondary School", "state" to "Ontario", "suburb" to "Ridgehill")
+    val components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca",
+        "house_number" to "251", "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South",
+        "school" to "Brampton Centennial Secondary School", "state" to "Ontario",
+        "suburb" to "Ridgehill")
     val expected = """
         |Brampton Centennial Secondary School
         |251 McMurchy Avenue South
@@ -40,7 +43,8 @@ public class CA {
   @Test
   public fun postcode_and_suburb() {
     // description: postcode and suburb
-    val components = mapOf("city" to "Toronto", "country" to "Canada", "country_code" to "ca", "postcode" to "M6K1V2", "state" to "Ontario", "suburb" to "Parkdale")
+    val components = mapOf("city" to "Toronto", "country" to "Canada", "country_code" to "ca",
+        "postcode" to "M6K1V2", "state" to "Ontario", "suburb" to "Parkdale")
     val expected = """
         |Parkdale
         |Toronto, ON M6K 1V2
@@ -53,7 +57,8 @@ public class CA {
   @Test
   public fun city_state() {
     // description: city, state
-    val components = mapOf("city" to "London", "country" to "Canada", "country_code" to "ca", "county" to "Middlesex County", "state" to "Ontario", "state_code" to "ON")
+    val components = mapOf("city" to "London", "country" to "Canada", "country_code" to "ca",
+        "county" to "Middlesex County", "state" to "Ontario", "state_code" to "ON")
     val expected = """
         |London, Ontario
         |Canada
@@ -65,7 +70,10 @@ public class CA {
   @Test
   public fun London_treated_as_county_42_95608_81_23792() {
     // description: London treated as county - 42.95608,-81.23792
-    val components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "London", "house_number" to "6", "neighbourhood" to "Lockwood Park", "postcode" to "N6C 2W9", "road" to "Cowan Avenue", "state" to "Ontario", "state_code" to "ON", "state_district" to "Southwestern Ontario")
+    val components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "London",
+        "house_number" to "6", "neighbourhood" to "Lockwood Park", "postcode" to "N6C 2W9",
+        "road" to "Cowan Avenue", "state" to "Ontario", "state_code" to "ON",
+        "state_district" to "Southwestern Ontario")
     val expected = """
         |6 Cowan Avenue
         |London, ON N6C 2W9
@@ -78,7 +86,10 @@ public class CA {
   @Test
   public fun no_housenumber() {
     // description: no housenumber
-    val components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca", "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South", "school" to "Brampton Centennial Secondary School", "state" to "Ontario", "suburb" to "Ridgehill")
+    val components = mapOf("city" to "Brampton", "country" to "Canada", "country_code" to "ca",
+        "postcode" to "L6Y 1Z4", "road" to "McMurchy Avenue South",
+        "school" to "Brampton Centennial Secondary School", "state" to "Ontario",
+        "suburb" to "Ridgehill")
     val expected = """
         |Brampton Centennial Secondary School
         |McMurchy Avenue South
@@ -92,7 +103,8 @@ public class CA {
   @Test
   public fun just_county() {
     // description: just county
-    val components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Springfield", "state" to "Manitoba")
+    val components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Springfield",
+        "state" to "Manitoba")
     val expected = """
         |Springfield, Manitoba
         |Canada
@@ -104,7 +116,10 @@ public class CA {
   @Test
   public fun locality() {
     // description: locality
-    val components = mapOf("country" to "Canada", "country_code" to "ca", "county" to "Halton Region", "house_number" to "7931", "locality" to "Halton Hills", "municipality" to "Halton Hills", "postcode" to "L5N 8P7", "road" to "Tenth Line", "state" to "Ontario", "state_district" to "Golden Horseshoe")
+    val components = mapOf("country" to "Canada", "country_code" to "ca",
+        "county" to "Halton Region", "house_number" to "7931", "locality" to "Halton Hills",
+        "municipality" to "Halton Hills", "postcode" to "L5N 8P7", "road" to "Tenth Line",
+        "state" to "Ontario", "state_district" to "Golden Horseshoe")
     val expected = """
         |7931 Tenth Line
         |Halton Hills, ON L5N 8P7
@@ -117,7 +132,8 @@ public class CA {
   @Test
   public fun postformat_replace_applied_to_abbreviated_street_type() {
     // description: postformat_replace applied to abbreviated street type
-    val components = mapOf("country" to "Canada", "country_code" to "ca", "house_number" to "12345", "locality" to "St-Hyancinth", "postcode" to "J2T 3T5", "road" to "Av Demars")
+    val components = mapOf("country" to "Canada", "country_code" to "ca", "house_number" to "12345",
+        "locality" to "St-Hyancinth", "postcode" to "J2T 3T5", "road" to "Av Demars")
     val expected = """
         |12345 Av Demars
         |St-Hyancinth, J2T 3T5
@@ -129,7 +145,8 @@ public class CA {
 
   @Test
   public fun Greater_Edmonton_Alberta_Canada() {
-    val components = mapOf("country" to "Canada", "country_code" to "ca", "region" to "Greater Edmonton", "state" to "Alberta", "state_code" to "AB")
+    val components = mapOf("country" to "Canada", "country_code" to "ca",
+        "region" to "Greater Edmonton", "state" to "Alberta", "state_code" to "AB")
     val expected = """
         |Greater Edmonton, Alberta
         |Canada

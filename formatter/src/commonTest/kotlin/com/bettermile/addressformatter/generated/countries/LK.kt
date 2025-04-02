@@ -26,7 +26,10 @@ public class LK {
   @Test
   public fun Landmark_in_Colombo_6_9269_79_8584() {
     // description: Landmark in Colombo, 6.9269,79.8584
-    val components = mapOf("address29" to "Colombo Lotus Tower", "city" to "Colombo", "country" to "Sri Lanka", "country_code" to "lk", "postcode" to "00200", "road" to "D. R. Wijewardene Mawatha", "state" to "Western Province", "state_district" to "Colombo District", "suburb" to "Suduwella")
+    val components = mapOf("address29" to "Colombo Lotus Tower", "city" to "Colombo",
+        "country" to "Sri Lanka", "country_code" to "lk", "postcode" to "00200",
+        "road" to "D. R. Wijewardene Mawatha", "state" to "Western Province",
+        "state_district" to "Colombo District", "suburb" to "Suduwella")
     val expected = """
         |Colombo Lotus Tower
         |D. R. Wijewardene Mawatha

@@ -26,7 +26,10 @@ public class DO {
   @Test
   public fun Bank_in_Santo_Domingo() {
     // description: Bank in Santo Domingo
-    val components = mapOf("bank" to "Banco de Reservas", "city" to "Santo Domingo", "country" to "Dominican Republic", "country_code" to "do", "neighbourhood" to "El Manguito", "postcode" to "10102", "road" to "Avenida Jiménez Moya", "state" to "Distrito Nacional", "suburb" to "Ensanche Evoristo Morales")
+    val components = mapOf("bank" to "Banco de Reservas", "city" to "Santo Domingo",
+        "country" to "Dominican Republic", "country_code" to "do", "neighbourhood" to "El Manguito",
+        "postcode" to "10102", "road" to "Avenida Jiménez Moya", "state" to "Distrito Nacional",
+        "suburb" to "Ensanche Evoristo Morales")
     val expected = """
         |Banco de Reservas
         |Avenida Jiménez Moya

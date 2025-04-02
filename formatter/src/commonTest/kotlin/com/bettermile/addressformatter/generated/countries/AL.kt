@@ -26,7 +26,9 @@ public class AL {
   @Test
   public fun Bank_in_Tiran_41_32036_19_82343() {
     // description: Bank in Tiranë, 41.32036,19.82343
-    val components = mapOf("bank" to "Raiffeisen Bank", "city" to "Tiranë", "country" to "Albania", "country_code" to "al", "county" to "Tiranë", "postcode" to "1001", "road" to "Papa Gjon Pali II")
+    val components = mapOf("bank" to "Raiffeisen Bank", "city" to "Tiranë", "country" to "Albania",
+        "country_code" to "al", "county" to "Tiranë", "postcode" to "1001",
+        "road" to "Papa Gjon Pali II")
     val expected = """
         |Raiffeisen Bank
         |Papa Gjon Pali II
@@ -40,7 +42,10 @@ public class AL {
   @Test
   public fun Kindergarten_in_Tiran_41_32462_19_83047() {
     // description: Kindergarten in Tiranë, 41.32462,19.83047
-    val components = mapOf("city_district" to "Tiranë", "country" to "Albania", "country_code" to "al", "county" to "Tirana County", "kindergarten" to "Kopështi nr. 18", "municipality" to "Tirana Municipality", "road" to "Rruga Dalip Zavalani", "state" to "Central Albania", "suburb" to "Njësia Bashkiake Nr. 2")
+    val components = mapOf("city_district" to "Tiranë", "country" to "Albania",
+        "country_code" to "al", "county" to "Tirana County", "kindergarten" to "Kopështi nr. 18",
+        "municipality" to "Tirana Municipality", "road" to "Rruga Dalip Zavalani",
+        "state" to "Central Albania", "suburb" to "Njësia Bashkiake Nr. 2")
     val expected = """
         |Kopështi nr. 18
         |Rruga Dalip Zavalani

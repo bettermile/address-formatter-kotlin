@@ -26,7 +26,9 @@ public class JO {
   @Test
   public fun Gallery_31_95791_35_91522() {
     // description: Gallery, 31.95791,35.91522
-    val components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo", "museum" to "Jordan National Gallery of Fine Arts, Building 1", "postcode" to "11190", "road" to "Husni Fareez Street", "state" to "Amman")
+    val components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo",
+        "museum" to "Jordan National Gallery of Fine Arts, Building 1", "postcode" to "11190",
+        "road" to "Husni Fareez Street", "state" to "Amman")
     val expected = """
         |Jordan National Gallery of Fine Arts, Building 1
         |Husni Fareez Street
@@ -40,7 +42,9 @@ public class JO {
   @Test
   public fun Supermarket_31_95101_35_91891() {
     // description: Supermarket, 31.95101,35.91891
-    val components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo", "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street", "state" to "Amman", "supermarket" to "هَبوب - Haboob")
+    val components = mapOf("city" to "Amman", "country" to "Jordan", "country_code" to "jo",
+        "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street", "state" to "Amman",
+        "supermarket" to "هَبوب - Haboob")
     val expected = """
         |هَبوب - Haboob
         |Abu Al Wafa Al Dajani Street
@@ -54,7 +58,9 @@ public class JO {
   @Test
   public fun Supermarket_language_ar_31_95101_35_91891() {
     // description: Supermarket, language=ar, 31.95101,35.91891
-    val components = mapOf("city" to "عمان", "country" to "الأردن", "country_code" to "jo", "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street", "state" to "‏محافظة العاصمة‎", "supermarket" to "هَبوب")
+    val components = mapOf("city" to "عمان", "country" to "الأردن", "country_code" to "jo",
+        "postcode" to "11183", "road" to "Abu Al Wafa Al Dajani Street",
+        "state" to "‏محافظة العاصمة‎", "supermarket" to "هَبوب")
     val expected = """
         |هَبوب
         |Abu Al Wafa Al Dajani Street
@@ -68,7 +74,9 @@ public class JO {
   @Test
   public fun Dental_clinic_31_91740_35_89150() {
     // description: Dental clinic, 31.91740,35.89150
-    val components = mapOf("building" to "Khalifeh Mall", "city" to "Amman", "country" to "Jordan", "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات", "state" to "Amman", "suburb" to "Sweifieh")
+    val components = mapOf("building" to "Khalifeh Mall", "city" to "Amman", "country" to "Jordan",
+        "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات", "state" to "Amman",
+        "suburb" to "Sweifieh")
     val expected = """
         |Khalifeh Mall
         |جبل عرفات
@@ -82,7 +90,9 @@ public class JO {
   @Test
   public fun Dental_clinic_language_ar_31_91740_35_89150() {
     // description: Dental clinic, language=ar, 31.91740,35.89150
-    val components = mapOf("building" to "خليفة مول", "city" to "عمان", "country" to "الأردن", "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات", "state" to "‏محافظة العاصمة‎", "suburb" to "حي الصويفية")
+    val components = mapOf("building" to "خليفة مول", "city" to "عمان", "country" to "الأردن",
+        "country_code" to "jo", "postcode" to "11183", "road" to "جبل عرفات",
+        "state" to "‏محافظة العاصمة‎", "suburb" to "حي الصويفية")
     val expected = """
         |خليفة مول
         |جبل عرفات

@@ -26,7 +26,9 @@ public class FK {
   @Test
   public fun Hotel_in_Stanley_51_69328_57_86325() {
     // description: Hotel in Stanley, -51.69328,-57.86325
-    val components = mapOf("building" to "Rose Hotel", "country" to "Falkland Islands", "country_code" to "fk", "house_number" to "1", "residential" to "Port Stanley", "road" to "Brisbane Road", "town" to "Stanley")
+    val components = mapOf("building" to "Rose Hotel", "country" to "Falkland Islands",
+        "country_code" to "fk", "house_number" to "1", "residential" to "Port Stanley",
+        "road" to "Brisbane Road", "town" to "Stanley")
     val expected = """
         |Rose Hotel
         |1 Brisbane Road
@@ -41,7 +43,8 @@ public class FK {
   @Test
   public fun middle_of_nowhere_51_70_58_62() {
     // description: middle of nowhere, -51.70,-58.62
-    val components = mapOf("continent" to "South America", "country" to "Falkland Islands", "country_code" to "fk")
+    val components = mapOf("continent" to "South America", "country" to "Falkland Islands",
+        "country_code" to "fk")
     val expected = """
         |Falkland Islands
         |United Kingdom

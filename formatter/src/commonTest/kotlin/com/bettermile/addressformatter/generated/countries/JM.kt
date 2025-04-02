@@ -26,7 +26,10 @@ public class JM {
   @Test
   public fun building_in_Spanish_Town_17_99588_76_95424() {
     // description: building in Spanish Town, 17.99588,-76.95424
-    val components = mapOf("building" to "Old Court House", "city" to "Spanish Town", "country" to "Jamaica", "country_code" to "jm", "county" to "Saint Catherine", "neighbourhood" to "Tawes Meadows", "road" to "Constitution Street", "state_district" to "Middlesex County")
+    val components = mapOf("building" to "Old Court House", "city" to "Spanish Town",
+        "country" to "Jamaica", "country_code" to "jm", "county" to "Saint Catherine",
+        "neighbourhood" to "Tawes Meadows", "road" to "Constitution Street",
+        "state_district" to "Middlesex County")
     val expected = """
         |Old Court House
         |Constitution Street

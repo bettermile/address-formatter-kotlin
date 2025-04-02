@@ -26,7 +26,9 @@ public class BH {
   @Test
   public fun Supermarket_26_16969_50_55565() {
     // description: Supermarket, 26.16969,50.55565
-    val components = mapOf("country" to "Bahrain", "country_code" to "bh", "postcode" to "814", "road" to "Al-Doha Avenue", "state" to "Central Governorate", "supermarket" to "Ramaz", "town" to "Isa Town")
+    val components = mapOf("country" to "Bahrain", "country_code" to "bh", "postcode" to "814",
+        "road" to "Al-Doha Avenue", "state" to "Central Governorate", "supermarket" to "Ramaz",
+        "town" to "Isa Town")
     val expected = """
         |Ramaz
         |Al-Doha Avenue
@@ -40,7 +42,9 @@ public class BH {
   @Test
   public fun Supermarket_language_ar_26_16969_50_55565() {
     // description: Supermarket, language=ar, 26.16969,50.55565
-    val components = mapOf("country" to "البحرين", "country_code" to "bh", "postcode" to "814", "road" to "Al-Doha Avenue", "state" to "المحافظة الوسطى", "supermarket" to "Ramaz", "town" to "مدينة عيسى‎")
+    val components = mapOf("country" to "البحرين", "country_code" to "bh", "postcode" to "814",
+        "road" to "Al-Doha Avenue", "state" to "المحافظة الوسطى", "supermarket" to "Ramaz",
+        "town" to "مدينة عيسى‎")
     val expected = """
         |Ramaz
         |Al-Doha Avenue
@@ -54,7 +58,9 @@ public class BH {
   @Test
   public fun Hair_Saloon_26_22820_50_59449() {
     // description: Hair Saloon, 26.22820,50.59449
-    val components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh", "hairdresser" to "Kerala Saloon", "postcode" to "301", "road" to "2115,", "state" to "Capital Governorate", "suburb" to "Gudaibiya")
+    val components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh",
+        "hairdresser" to "Kerala Saloon", "postcode" to "301", "road" to "2115,",
+        "state" to "Capital Governorate", "suburb" to "Gudaibiya")
     val expected = """
         |Kerala Saloon
         |2115
@@ -68,7 +74,9 @@ public class BH {
   @Test
   public fun Health_Centre_26_23556_50_59452() {
     // description: Health Centre, 26.23556,50.59452
-    val components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh", "doctors" to "Al Hoora Health Centre", "postcode" to "317", "road" to "1910,", "state" to "Capital Governorate", "suburb" to "Al Hoora")
+    val components = mapOf("city" to "Manama", "country" to "Bahrain", "country_code" to "bh",
+        "doctors" to "Al Hoora Health Centre", "postcode" to "317", "road" to "1910,",
+        "state" to "Capital Governorate", "suburb" to "Al Hoora")
     val expected = """
         |Al Hoora Health Centre
         |1910

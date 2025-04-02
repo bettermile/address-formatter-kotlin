@@ -26,7 +26,8 @@ public class AM {
   @Test
   public fun Building_in_Yerevan_40_18045_44_51534() {
     // description: Building in Yerevan, 40.18045,44.51534
-    val components = mapOf("city" to "Yerevan", "country" to "Armenia", "country_code" to "am", "house_number" to "8", "postcode" to "0010", "road" to "Abovyan street")
+    val components = mapOf("city" to "Yerevan", "country" to "Armenia", "country_code" to "am",
+        "house_number" to "8", "postcode" to "0010", "road" to "Abovyan street")
     val expected = """
         |8 Abovyan street
         |0010

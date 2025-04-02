@@ -26,7 +26,11 @@ public class CL {
   @Test
   public fun _33_42983_70_60620() {
     // description: -33.42983,-70.60620
-    val components = mapOf("city" to "Providencia", "country" to "Chile", "country_code" to "cl", "county" to "Provincia de Santiago", "house_number" to "920", "neighbourhood" to "Unidad Vecinal Providencia", "postcode" to "7500000", "region" to "Región Metropolitana de Santiago", "road" to "Avenida Ricardo Lyon", "state" to "XIII Región Metropolitana de Santiago", "suburb" to "Providencia")
+    val components = mapOf("city" to "Providencia", "country" to "Chile", "country_code" to "cl",
+        "county" to "Provincia de Santiago", "house_number" to "920",
+        "neighbourhood" to "Unidad Vecinal Providencia", "postcode" to "7500000",
+        "region" to "Región Metropolitana de Santiago", "road" to "Avenida Ricardo Lyon",
+        "state" to "XIII Región Metropolitana de Santiago", "suburb" to "Providencia")
     val expected = """
         |Avenida Ricardo Lyon 920
         |7500000 Providencia

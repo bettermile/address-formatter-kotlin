@@ -26,7 +26,10 @@ public class NO {
   @Test
   public fun house_in_Oslo() {
     // description: house in Oslo
-    val components = mapOf("city" to "Oslo", "city_district" to "Gamle Oslo", "country" to "Norway", "country_code" to "no", "county" to "Oslo", "house_number" to "28", "neighbourhood" to "Arctanderbyen", "postcode" to "0650", "road" to "Åkebergveien", "state" to "Oslo", "suburb" to "Enerhaugen")
+    val components = mapOf("city" to "Oslo", "city_district" to "Gamle Oslo", "country" to "Norway",
+        "country_code" to "no", "county" to "Oslo", "house_number" to "28",
+        "neighbourhood" to "Arctanderbyen", "postcode" to "0650", "road" to "Åkebergveien",
+        "state" to "Oslo", "suburb" to "Enerhaugen")
     val expected = """
         |Åkebergveien 28
         |0650 Oslo
@@ -39,7 +42,10 @@ public class NO {
   @Test
   public fun house_in_village_with_postal_city() {
     // description: house in village with postal_city
-    val components = mapOf("country" to "Norge", "country_code" to "no", "county" to "Viken", "house_number" to "33", "neighbourhood" to "Belset", "postal_city" to "Rykkinn", "postcode" to "1349", "road" to "Grindstuveien", "suburb" to "Angerst", "village" to "Ringvoll")
+    val components = mapOf("country" to "Norge", "country_code" to "no", "county" to "Viken",
+        "house_number" to "33", "neighbourhood" to "Belset", "postal_city" to "Rykkinn",
+        "postcode" to "1349", "road" to "Grindstuveien", "suburb" to "Angerst",
+        "village" to "Ringvoll")
     val expected = """
         |Grindstuveien 33
         |1349 Rykkinn

@@ -26,7 +26,9 @@ public class IM {
   @Test
   public fun Address_in_Douglas_54_14906_4_47949() {
     // description: Address in Douglas, 54.14906,-4.47949
-    val components = mapOf("address29" to "3FM", "country" to "Isle of Man", "country_code" to "im", "county" to "Middle", "house_number" to "45", "postcode" to "IM1 2AY", "road" to "Victoria Street", "town" to "Douglas")
+    val components = mapOf("address29" to "3FM", "country" to "Isle of Man", "country_code" to "im",
+        "county" to "Middle", "house_number" to "45", "postcode" to "IM1 2AY",
+        "road" to "Victoria Street", "town" to "Douglas")
     val expected = """
         |3FM
         |45 Victoria Street

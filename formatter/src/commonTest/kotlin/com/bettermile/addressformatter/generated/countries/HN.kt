@@ -26,7 +26,10 @@ public class HN {
   @Test
   public fun post_office_in_Tegucigalpa_14_10631_87_20813() {
     // description: post office in Tegucigalpa, 14.10631,-87.20813
-    val components = mapOf("city" to "Tegucigalpa", "country" to "Honduras", "country_code" to "hn", "county" to "Tegucigalpa", "footway" to "Paseo Liquidambar", "post_office" to "Correo Nacional de Honduras", "postcode" to "504", "state" to "Francisco Morazán", "suburb" to "El Jazmin")
+    val components = mapOf("city" to "Tegucigalpa", "country" to "Honduras", "country_code" to "hn",
+        "county" to "Tegucigalpa", "footway" to "Paseo Liquidambar",
+        "post_office" to "Correo Nacional de Honduras", "postcode" to "504",
+        "state" to "Francisco Morazán", "suburb" to "El Jazmin")
     val expected = """
         |Correo Nacional de Honduras
         |Paseo Liquidambar

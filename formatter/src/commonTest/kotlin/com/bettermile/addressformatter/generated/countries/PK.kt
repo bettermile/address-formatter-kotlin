@@ -26,7 +26,9 @@ public class PK {
   @Test
   public fun Hotel_in_Karachi_24_84292_66_99589() {
     // description: Hotel in Karachi, 24.84292,66.99589
-    val components = mapOf("building" to "Avari Beach Luxury Hotel", "city" to "Karachi", "country" to "Pakistan", "country_code" to "pk", "county" to "Karachi District", "postcode" to "75000", "road" to "Khan Road", "state" to "Sindh", "suburb" to "Lyari Town")
+    val components = mapOf("building" to "Avari Beach Luxury Hotel", "city" to "Karachi",
+        "country" to "Pakistan", "country_code" to "pk", "county" to "Karachi District",
+        "postcode" to "75000", "road" to "Khan Road", "state" to "Sindh", "suburb" to "Lyari Town")
     val expected = """
         |Avari Beach Luxury Hotel
         |Khan Road
