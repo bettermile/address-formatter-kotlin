@@ -26,7 +26,9 @@ public class SY {
   @Test
   public fun Plastic_surgery_clinic_33_52042_36_29148() {
     // description: Plastic surgery clinic, 33.52042,36.29148
-    val components = mapOf("city" to "Damascus", "clinic" to "Plastic Surgery Clinic", "country" to "Syria", "country_code" to "sy", "neighbourhood" to "Baramkeh", "pedestrian" to "سوق الصالحية", "state" to "Rif Dimashq", "suburb" to "Kafar Sousseh")
+    val components = mapOf("city" to "Damascus", "clinic" to "Plastic Surgery Clinic",
+        "country" to "Syria", "country_code" to "sy", "neighbourhood" to "Baramkeh",
+        "pedestrian" to "سوق الصالحية", "state" to "Rif Dimashq", "suburb" to "Kafar Sousseh")
     val expected = """
         |Plastic Surgery Clinic
         |سوق الصالحية
@@ -41,7 +43,10 @@ public class SY {
   @Test
   public fun Plastic_surgery_clinic_language_ar_33_52042_36_29148() {
     // description: Plastic surgery clinic, language=ar, 33.52042,36.29148
-    val components = mapOf("city" to "دمشق", "clinic" to "عيادة الجراحة التجميلية", "country" to "الجمهورية العربية السورية", "country_code" to "sy", "neighbourhood" to "البرامكة", "pedestrian" to "شارع جمال عبد الناصر", "state" to "ريف دمشق", "suburb" to "كفر سوسه")
+    val components = mapOf("city" to "دمشق", "clinic" to "عيادة الجراحة التجميلية",
+        "country" to "الجمهورية العربية السورية", "country_code" to "sy",
+        "neighbourhood" to "البرامكة", "pedestrian" to "شارع جمال عبد الناصر",
+        "state" to "ريف دمشق", "suburb" to "كفر سوسه")
     val expected = """
         |عيادة الجراحة التجميلية
         |شارع جمال عبد الناصر
@@ -56,7 +61,9 @@ public class SY {
   @Test
   public fun Pharmacy_33_51929_36_31770() {
     // description: Pharmacy, 33.51929,36.31770
-    val components = mapOf("city" to "Damascus", "country" to "Syria", "country_code" to "sy", "pharmacy" to "Maooneh", "road" to "Albeirudi Street", "state" to "Rif Dimashq", "suburb" to "Soufanieh")
+    val components = mapOf("city" to "Damascus", "country" to "Syria", "country_code" to "sy",
+        "pharmacy" to "Maooneh", "road" to "Albeirudi Street", "state" to "Rif Dimashq",
+        "suburb" to "Soufanieh")
     val expected = """
         |Maooneh
         |Albeirudi Street
@@ -71,7 +78,9 @@ public class SY {
   @Test
   public fun Pharmacy_language_ar_33_51929_36_31770() {
     // description: Pharmacy, language=ar, 33.51929,36.31770
-    val components = mapOf("city" to "دمشق", "country" to "الجمهورية العربية السورية", "country_code" to "sy", "pharmacy" to "المعونة", "road" to "شارع البيرودي", "state" to "ريف دمشق", "suburb" to "Soufanieh")
+    val components = mapOf("city" to "دمشق", "country" to "الجمهورية العربية السورية",
+        "country_code" to "sy", "pharmacy" to "المعونة", "road" to "شارع البيرودي",
+        "state" to "ريف دمشق", "suburb" to "Soufanieh")
     val expected = """
         |المعونة
         |شارع البيرودي
@@ -86,7 +95,10 @@ public class SY {
   @Test
   public fun Mosque_36_19821_37_15467() {
     // description: Mosque, 36.19821,37.15467
-    val components = mapOf("city" to "Aleppo", "country" to "Syria", "country_code" to "sy", "neighbourhood" to "Al Jdeida", "pedestrian" to "Souq el Attarine", "place_of_worship" to "Al Bahramiyeh Mosque", "state" to "Aleppo", "suburb" to "حي باب النيرب")
+    val components = mapOf("city" to "Aleppo", "country" to "Syria", "country_code" to "sy",
+        "neighbourhood" to "Al Jdeida", "pedestrian" to "Souq el Attarine",
+        "place_of_worship" to "Al Bahramiyeh Mosque", "state" to "Aleppo",
+        "suburb" to "حي باب النيرب")
     val expected = """
         |Al Bahramiyeh Mosque
         |Souq el Attarine

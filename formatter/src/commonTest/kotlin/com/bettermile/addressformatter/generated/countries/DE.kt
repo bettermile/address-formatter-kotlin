@@ -26,7 +26,8 @@ public class DE {
   @Test
   public fun no_repetition() {
     // description: no repetition
-    val components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "DE", "state" to "Berlin")
+    val components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "DE",
+        "state" to "Berlin")
     val expected = """
         |Berlin
         |Germany
@@ -38,7 +39,8 @@ public class DE {
   @Test
   public fun Moabit_() {
     // description: Moabit!
-    val components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "de", "state" to "Berlin", "suburb" to "Moabit")
+    val components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany",
+        "country_code" to "de", "state" to "Berlin", "suburb" to "Moabit")
     val expected = """
         |Moabit
         |Berlin
@@ -51,7 +53,10 @@ public class DE {
   @Test
   public fun Alt_berlin() {
     // description: Alt-berlin
-    val components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "de", "house_number" to "7", "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße", "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte")
+    val components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte",
+        "country" to "Germany", "country_code" to "de", "house_number" to "7",
+        "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße",
+        "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte")
     val expected = """
         |Gontardstraße 7
         |10178 Berlin
@@ -64,7 +69,10 @@ public class DE {
   @Test
   public fun housenumber_not_house_number() {
     // description: housenumber not house_number
-    val components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "de", "housenumber" to "7", "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße", "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte")
+    val components = mapOf("city" to "Alt-Berlin", "city_district" to "Mitte",
+        "country" to "Germany", "country_code" to "de", "housenumber" to "7",
+        "neighbourhood" to "Scheunenviertel", "pedestrian" to "Gontardstraße",
+        "postcode" to "10178", "state" to "Berlin", "suburb" to "Mitte")
     val expected = """
         |Gontardstraße 7
         |10178 Berlin
@@ -77,7 +85,8 @@ public class DE {
   @Test
   public fun K_ln_NRW() {
     // description: Köln, NRW
-    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Cologne", "state" to "North Rhine-Westphalia", "state_district" to "Regierungsbezirk Köln")
+    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Cologne",
+        "state" to "North Rhine-Westphalia", "state_district" to "Regierungsbezirk Köln")
     val expected = """
         |Cologne
         |North Rhine-Westphalia
@@ -90,7 +99,8 @@ public class DE {
   @Test
   public fun K_ln_hamlet() {
     // description: Köln, hamlet
-    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Bayern", "hamlet" to "Köln", "state" to "Free State of Bavaria", "state_district" to "Upper Bavaria")
+    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Bayern",
+        "hamlet" to "Köln", "state" to "Free State of Bavaria", "state_district" to "Upper Bavaria")
     val expected = """
         |Köln
         |Bavaria
@@ -115,7 +125,10 @@ public class DE {
   @Test
   public fun Fabisch() {
     // description: Fabisch
-    val components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany", "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel", "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße", "state" to "Berlin", "suburb" to "Mitte")
+    val components = mapOf("city" to "Berlin", "city_district" to "Mitte", "country" to "Germany",
+        "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel",
+        "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße",
+        "state" to "Berlin", "suburb" to "Mitte")
     val expected = """
         |Fabisch
         |Rosenthaler Straße 1
@@ -129,7 +142,10 @@ public class DE {
   @Test
   public fun Fabisch_no_city() {
     // description: Fabisch no city
-    val components = mapOf("city_district" to "Mitte", "country" to "Germany", "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel", "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße", "state" to "Berlin", "suburb" to "Mitte")
+    val components = mapOf("city_district" to "Mitte", "country" to "Germany",
+        "country_code" to "DE", "house_number" to "1", "neighbourhood" to "Scheunenviertel",
+        "postcode" to "10119", "restaurant" to "Fabisch", "road" to "Rosenthaler Straße",
+        "state" to "Berlin", "suburb" to "Mitte")
     val expected = """
         |Fabisch
         |Rosenthaler Straße 1
@@ -143,7 +159,9 @@ public class DE {
   @Test
   public fun Heyerode() {
     // description: Heyerode
-    val components = mapOf("city_district" to "Heyerode", "continent" to "Europa", "country" to "Germany", "country_code" to "de", "county" to "Unstrut-Hainich-Kreis", "postcode" to "99988", "state" to "Thüringen", "village" to "Heyerode")
+    val components = mapOf("city_district" to "Heyerode", "continent" to "Europa",
+        "country" to "Germany", "country_code" to "de", "county" to "Unstrut-Hainich-Kreis",
+        "postcode" to "99988", "state" to "Thüringen", "village" to "Heyerode")
     val expected = """
         |99988 Heyerode
         |Germany
@@ -167,7 +185,9 @@ public class DE {
   @Test
   public fun no_middle_comma() {
     // description: no middle comma
-    val components = mapOf("city" to "Landstuhl", "country" to "Germany", "country_code" to "de", "county" to "Landstuhl", "postcode" to "66849", "road" to "Bahnstraße", "state" to "Rhineland-Palatinate", "station" to "Landstuhl", "suburb" to "Melkerei")
+    val components = mapOf("city" to "Landstuhl", "country" to "Germany", "country_code" to "de",
+        "county" to "Landstuhl", "postcode" to "66849", "road" to "Bahnstraße",
+        "state" to "Rhineland-Palatinate", "station" to "Landstuhl", "suburb" to "Melkerei")
     val expected = """
         |Landstuhl
         |Bahnstraße
@@ -181,7 +201,9 @@ public class DE {
   @Test
   public fun Maxvorstadt_Munich() {
     // description: Maxvorstadt, Munich
-    val components = mapOf("city" to "Munich", "city_district" to "Stadtbezirk 03 Maxvorstadt", "country" to "Germany", "country_code" to "de", "state" to "Free State of Bavaria", "state_district" to "Upper Bavaria")
+    val components = mapOf("city" to "Munich", "city_district" to "Stadtbezirk 03 Maxvorstadt",
+        "country" to "Germany", "country_code" to "de", "state" to "Free State of Bavaria",
+        "state_district" to "Upper Bavaria")
     val expected = """
         |Maxvorstadt
         |Munich
@@ -195,7 +217,10 @@ public class DE {
   @Test
   public fun multiple_postcodes_49_9886629614539_9_1545295715332() {
     // description: multiple postcodes 49.9886629614539, 9.1545295715332
-    val components = mapOf("building" to "DS Smith Paper Deutschland GmbH", "country" to "Germany", "country_code" to "de", "county" to "Aschaffenburg", "postcode" to "63739,63741,63743", "road" to "Haselmühlweg", "state" to "Free State of Bavaria", "state_district" to "Lower Franconia", "suburb" to "Damm", "town" to "Aschaffenburg")
+    val components = mapOf("building" to "DS Smith Paper Deutschland GmbH", "country" to "Germany",
+        "country_code" to "de", "county" to "Aschaffenburg", "postcode" to "63739,63741,63743",
+        "road" to "Haselmühlweg", "state" to "Free State of Bavaria",
+        "state_district" to "Lower Franconia", "suburb" to "Damm", "town" to "Aschaffenburg")
     val expected = """
         |DS Smith Paper Deutschland GmbH
         |Haselmühlweg
@@ -209,7 +234,10 @@ public class DE {
   @Test
   public fun no_city_use_county_Kreis_() {
     // description: no city, use county (Kreis)
-    val components = mapOf("city_district" to "Ortsbeirat 5 : Lütten Klein", "country" to "Germany", "country_code" to "de", "county" to "Rostock", "house_number" to "30", "postcode" to "18107", "road" to "Turkuer Straße", "state" to "Mecklenburg-Vorpommern", "suburb" to "Lütten Klein")
+    val components = mapOf("city_district" to "Ortsbeirat 5 : Lütten Klein", "country" to "Germany",
+        "country_code" to "de", "county" to "Rostock", "house_number" to "30",
+        "postcode" to "18107", "road" to "Turkuer Straße", "state" to "Mecklenburg-Vorpommern",
+        "suburb" to "Lütten Klein")
     val expected = """
         |Turkuer Straße 30
         |18107 Rostock
@@ -222,7 +250,11 @@ public class DE {
   @Test
   public fun city_and_town() {
     // description: city and town
-    val components = mapOf("city" to "Rhein-Sieg-Kreis", "country" to "Germany", "country_code" to "de", "county" to "Rhein-Sieg-Kreis", "house_number" to "18", "neighbourhood" to "Honnef", "postcode" to "53604", "road" to "Bahnhofstraße", "state" to "North Rhine-Westphalia", "state_district" to "Cologne Government Region", "suburb" to "Bondorf", "town" to "Bad Honnef", "unknown" to "Strich nach Punkt")
+    val components = mapOf("city" to "Rhein-Sieg-Kreis", "country" to "Germany",
+        "country_code" to "de", "county" to "Rhein-Sieg-Kreis", "house_number" to "18",
+        "neighbourhood" to "Honnef", "postcode" to "53604", "road" to "Bahnhofstraße",
+        "state" to "North Rhine-Westphalia", "state_district" to "Cologne Government Region",
+        "suburb" to "Bondorf", "town" to "Bad Honnef", "unknown" to "Strich nach Punkt")
     val expected = """
         |Strich nach Punkt
         |Bahnhofstraße 18
@@ -236,7 +268,10 @@ public class DE {
   @Test
   public fun local_administrative_area_and_town_in_Berlin() {
     // description: local_administrative_area and town in Berlin
-    val components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "de", "house_number" to "29A", "local_administrative_area" to "Pankow", "neighbourhood" to "Kollwitzkiez", "postcode" to "10405", "road" to "Jablonskistraße", "state" to "Berlin", "state_code" to "BE", "suburb" to "Prenzlauer Berg")
+    val components = mapOf("city" to "Berlin", "country" to "Germany", "country_code" to "de",
+        "house_number" to "29A", "local_administrative_area" to "Pankow",
+        "neighbourhood" to "Kollwitzkiez", "postcode" to "10405", "road" to "Jablonskistraße",
+        "state" to "Berlin", "state_code" to "BE", "suburb" to "Prenzlauer Berg")
     val expected = """
         |Jablonskistraße 29A
         |10405 Berlin
@@ -249,7 +284,10 @@ public class DE {
   @Test
   public fun house_in_hamlet_with_no_road_48_474124_10_017457() {
     // description: house in hamlet with no road 48.474124, 10.017457
-    val components = mapOf("city" to "Langenau", "country" to "Deutschland", "country_code" to "de", "county" to "Alb-Donau-Kreis", "hamlet" to "Witthau", "house_number" to "3", "municipality" to "GVV Langenau", "postcode" to "89129", "state" to "Baden-Württemberg", "state_code" to "BW", "town" to "Langenau")
+    val components = mapOf("city" to "Langenau", "country" to "Deutschland", "country_code" to "de",
+        "county" to "Alb-Donau-Kreis", "hamlet" to "Witthau", "house_number" to "3",
+        "municipality" to "GVV Langenau", "postcode" to "89129", "state" to "Baden-Württemberg",
+        "state_code" to "BW", "town" to "Langenau")
     val expected = """
         |Witthau 3
         |89129 Langenau
@@ -262,7 +300,9 @@ public class DE {
   @Test
   public fun village_and_town() {
     // description: village and town
-    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Sächsische Schweiz-Osterzgebirge", "postcode" to "01744", "state" to "Saxony", "state_code" to "SN", "town" to "Dippoldiswalde", "village" to "Oberhäslich")
+    val components = mapOf("country" to "Germany", "country_code" to "de",
+        "county" to "Sächsische Schweiz-Osterzgebirge", "postcode" to "01744", "state" to "Saxony",
+        "state_code" to "SN", "town" to "Dippoldiswalde", "village" to "Oberhäslich")
     val expected = """
         |01744 Oberhäslich
         |Germany
@@ -274,7 +314,10 @@ public class DE {
   @Test
   public fun village_and_town_fallback_() {
     // description: village and town (fallback)
-    val components = mapOf("country" to "Germany", "country_code" to "de", "county" to "Landkreis Schwäbisch Hall", "municipality" to "Verwaltungsgemeinschaft Schwäbisch Hall", "state" to "Baden-Württemberg", "state_code" to "BW", "town" to "Schwäbisch Hall", "village" to "Tüngental")
+    val components = mapOf("country" to "Germany", "country_code" to "de",
+        "county" to "Landkreis Schwäbisch Hall",
+        "municipality" to "Verwaltungsgemeinschaft Schwäbisch Hall", "state" to "Baden-Württemberg",
+        "state_code" to "BW", "town" to "Schwäbisch Hall", "village" to "Tüngental")
     val expected = """
         |Tüngental
         |Baden-Württemberg

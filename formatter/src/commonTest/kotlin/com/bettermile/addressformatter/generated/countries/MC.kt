@@ -26,7 +26,9 @@ public class MC {
   @Test
   public fun Hotel_in_Monaco_43_73917_7_42224() {
     // description: Hotel in Monaco, 43.73917,7.42224
-    val components = mapOf("country" to "Monaco", "country_code" to "mc", "hotel" to "Novotel", "house_number" to "16", "postcode" to "98000", "road" to "Boulevard Princesse Charlotte", "suburb" to "Monte-Carlo", "town" to "Monaco")
+    val components = mapOf("country" to "Monaco", "country_code" to "mc", "hotel" to "Novotel",
+        "house_number" to "16", "postcode" to "98000", "road" to "Boulevard Princesse Charlotte",
+        "suburb" to "Monte-Carlo", "town" to "Monaco")
     val expected = """
         |Novotel
         |16 Boulevard Princesse Charlotte

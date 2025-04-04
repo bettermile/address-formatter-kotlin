@@ -26,7 +26,10 @@ public class AU {
   @Test
   public fun Melbourne_Magistrates_Court_37_8134921_144_956787658113() {
     // description: Melbourne Magistrates' Court, -37.8134921, 144.956787658113
-    val components = mapOf("city" to "Melbourne", "country" to "Australia", "country_code" to "AU", "county" to "City of Melbourne", "courthouse" to "Melbourne Magistrates' Court", "house_number" to "223", "postcode" to "3000", "road" to "William Street", "state" to "Victoria", "suburb" to "Melbourne")
+    val components = mapOf("city" to "Melbourne", "country" to "Australia", "country_code" to "AU",
+        "county" to "City of Melbourne", "courthouse" to "Melbourne Magistrates' Court",
+        "house_number" to "223", "postcode" to "3000", "road" to "William Street",
+        "state" to "Victoria", "suburb" to "Melbourne")
     val expected = """
         |Melbourne Magistrates' Court
         |223 William Street
@@ -40,7 +43,9 @@ public class AU {
   @Test
   public fun Road_in_suburb_37_7319_144_9381() {
     // description: Road in suburb, -37.7319, 144.9381
-    val components = mapOf("country" to "Australia", "country_code" to "au", "county" to "City of Moreland", "postcode" to "3039", "region" to "Greater Melbourne", "road" to "Rainer Street", "state" to "Victoria", "suburb" to "Pascoe Vale South")
+    val components = mapOf("country" to "Australia", "country_code" to "au",
+        "county" to "City of Moreland", "postcode" to "3039", "region" to "Greater Melbourne",
+        "road" to "Rainer Street", "state" to "Victoria", "suburb" to "Pascoe Vale South")
     val expected = """
         |Rainer Street
         |Pascoe Vale South VIC 3039
@@ -53,7 +58,10 @@ public class AU {
   @Test
   public fun suburb_over_town_Sans_Souci_34_000_151_124() {
     // description: suburb over town Sans Souci, -34.000,151.124
-    val components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au", "county" to "Georges River Council", "postcode" to "2219", "pub" to "St George Motor Boat Club", "road" to "Vista Street", "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Sans Souci")
+    val components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au",
+        "county" to "Georges River Council", "postcode" to "2219",
+        "pub" to "St George Motor Boat Club", "road" to "Vista Street",
+        "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Sans Souci")
     val expected = """
         |St George Motor Boat Club
         |Vista Street
@@ -67,7 +75,9 @@ public class AU {
   @Test
   public fun suburb_over_town_Ashbury_33_9_151_1229() {
     // description: suburb over town Ashbury, -33.9,151.1229
-    val components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au", "county" to "Canterbury-Bankstown Council", "postcode" to "2193", "road" to "Fifth Street", "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Ashbury")
+    val components = mapOf("city" to "Sydney", "country" to "Australia", "country_code" to "au",
+        "county" to "Canterbury-Bankstown Council", "postcode" to "2193", "road" to "Fifth Street",
+        "state" to "New South Wales", "state_code" to "NSW", "suburb" to "Ashbury")
     val expected = """
         |Fifth Street
         |Ashbury NSW 2193
@@ -80,7 +90,8 @@ public class AU {
   @Test
   public fun postcode_and_town() {
     // description: postcode and town
-    val components = mapOf("city" to "LASCELLES", "country" to "Australia", "country_code" to "au", "postcode" to "3487", "state" to "VICTORIA")
+    val components = mapOf("city" to "LASCELLES", "country" to "Australia", "country_code" to "au",
+        "postcode" to "3487", "state" to "VICTORIA")
     val expected = """
         |LASCELLES VIC 3487
         |Australia
@@ -92,7 +103,9 @@ public class AU {
   @Test
   public fun postcode_and_city_district() {
     // description: postcode and city_district
-    val components = mapOf("city_district" to "Lascelles", "country" to "Australia", "country_code" to "au", "municipality" to "Shire of Yarriambiack", "postcode" to "3487", "state" to "VICTORIA")
+    val components = mapOf("city_district" to "Lascelles", "country" to "Australia",
+        "country_code" to "au", "municipality" to "Shire of Yarriambiack", "postcode" to "3487",
+        "state" to "VICTORIA")
     val expected = """
         |Lascelles VIC 3487
         |Australia

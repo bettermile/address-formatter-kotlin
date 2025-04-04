@@ -26,7 +26,10 @@ public class CO {
   @Test
   public fun `4_63194_74_06064`() {
     // description: 4.63194, -74.06064
-    val components = mapOf("house_number" to "33", "road" to "Avenida de los Cerros (Circunvalar)", "city" to "Bogota", "neighbourhood" to "Mariscal Sucre", "country" to "Colombia", "country_code" to "CO", "postcode" to "110231", "state" to "Bogota", "suburb" to "Chapinero")
+    val components = mapOf("house_number" to "33", "road" to "Avenida de los Cerros (Circunvalar)",
+        "city" to "Bogota", "neighbourhood" to "Mariscal Sucre", "country" to "Colombia",
+        "country_code" to "CO", "postcode" to "110231", "state" to "Bogota",
+        "suburb" to "Chapinero")
     val expected = """
         |Avenida de los Cerros (Circunvalar) 33
         |Chapinero
@@ -40,7 +43,10 @@ public class CO {
   @Test
   public fun deal_with_Bogota_Capital_District_4_61164_74_08527() {
     // description: deal with Bogota, Capital District / 4.61164, -74.08527
-    val components = mapOf("city" to "Bogota", "country" to "Colombia", "country_code" to "co", "neighbourhood" to "UPZs de Bogotá", "postcode" to "111411", "region" to "RAP (Especial) Central", "road" to "Transversal 22", "shop" to "Polytech", "state" to "Bogota, Capital District", "suburb" to "Localidad Los Mártires")
+    val components = mapOf("city" to "Bogota", "country" to "Colombia", "country_code" to "co",
+        "neighbourhood" to "UPZs de Bogotá", "postcode" to "111411",
+        "region" to "RAP (Especial) Central", "road" to "Transversal 22", "shop" to "Polytech",
+        "state" to "Bogota, Capital District", "suburb" to "Localidad Los Mártires")
     val expected = """
         |Polytech
         |Transversal 22

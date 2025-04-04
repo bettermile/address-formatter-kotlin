@@ -26,7 +26,9 @@ public class DZ {
   @Test
   public fun Hotel_in_Algiers_36_77428_3_05945() {
     // description: Hotel in Algiers, 36.77428,3.05945
-    val components = mapOf("country" to "Algeria", "country_code" to "dz", "county" to "Alger Centre", "hotel" to "Hôtel Régina", "postcode" to "16004", "road" to "Boulevard Mustapha Benboulaid", "state" to "Algiers", "town" to "Alger Centre")
+    val components = mapOf("country" to "Algeria", "country_code" to "dz",
+        "county" to "Alger Centre", "hotel" to "Hôtel Régina", "postcode" to "16004",
+        "road" to "Boulevard Mustapha Benboulaid", "state" to "Algiers", "town" to "Alger Centre")
     val expected = """
         |Hôtel Régina
         |Boulevard Mustapha Benboulaid

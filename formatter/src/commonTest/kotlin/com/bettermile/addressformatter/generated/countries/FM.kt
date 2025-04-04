@@ -26,7 +26,9 @@ public class FM {
   @Test
   public fun library_in_Kolonia_6_95813_158_20911() {
     // description: library in Kolonia, 6.95813,158.20911
-    val components = mapOf("country" to "Federated States of Micronesia", "country_code" to "fm", "library" to "Pohnpei Public Library", "postcode" to "96941", "road" to "Kaselehlia", "state" to "Pohnpei", "town" to "Kolonia")
+    val components = mapOf("country" to "Federated States of Micronesia", "country_code" to "fm",
+        "library" to "Pohnpei Public Library", "postcode" to "96941", "road" to "Kaselehlia",
+        "state" to "Pohnpei", "town" to "Kolonia")
     val expected = """
         |Pohnpei Public Library
         |Kaselehlia

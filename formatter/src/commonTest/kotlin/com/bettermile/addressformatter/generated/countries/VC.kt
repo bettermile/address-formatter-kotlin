@@ -26,7 +26,9 @@ public class VC {
   @Test
   public fun Bank_in_Kingstown_13_15545_61_22592() {
     // description: Bank in Kingstown, 13.15545,-61.22592
-    val components = mapOf("bank" to "Bank of St Vincent and the Grenadines", "city" to "Kingstown", "country" to "Saint Vincent and the Grenadines", "country_code" to "vc", "county" to "Saint George", "road" to "Grenville Street")
+    val components = mapOf("bank" to "Bank of St Vincent and the Grenadines", "city" to "Kingstown",
+        "country" to "Saint Vincent and the Grenadines", "country_code" to "vc",
+        "county" to "Saint George", "road" to "Grenville Street")
     val expected = """
         |Bank of St Vincent and the Grenadines
         |Grenville Street

@@ -26,7 +26,9 @@ public class BJ {
   @Test
   public fun house_in_Cotonou() {
     // description: house in Cotonou
-    val components = mapOf("country" to "Benin", "country_code" to "bj", "county" to "12e Arrondissement", "house_number" to "504", "road" to "Rue 12.168", "state" to "Littoral", "suburb" to "Cadjehoun")
+    val components = mapOf("country" to "Benin", "country_code" to "bj",
+        "county" to "12e Arrondissement", "house_number" to "504", "road" to "Rue 12.168",
+        "state" to "Littoral", "suburb" to "Cadjehoun")
     val expected = """
         |504, Rue 12.168
         |Cadjehoun

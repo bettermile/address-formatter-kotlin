@@ -26,7 +26,9 @@ public class CX {
   @Test
   public fun Supermarket_on_Christmas_Island_10_4230_105_6729() {
     // description: Supermarket on Christmas Island, -10.4230,105.6729
-    val components = mapOf("country" to "Christmas Island", "country_code" to "cx", "neighbourhood" to "The Settlement", "postcode" to "6798", "road" to "Gaze Road", "state" to "Christmas Island", "supermarket" to "Christmas Island Supermarket")
+    val components = mapOf("country" to "Christmas Island", "country_code" to "cx",
+        "neighbourhood" to "The Settlement", "postcode" to "6798", "road" to "Gaze Road",
+        "state" to "Christmas Island", "supermarket" to "Christmas Island Supermarket")
     val expected = """
         |Christmas Island Supermarket
         |Gaze Road

@@ -26,7 +26,10 @@ public class YT {
   @Test
   public fun Government_building_in_Mamoudzou_12_77958_45_23145() {
     // description: Government building in Mamoudzou, -12.77958,45.23145
-    val components = mapOf("building" to "Conseil Général de Mayotte", "country" to "France, Mayotte (eaux territoriales)", "country_code" to "yt", "postcode" to "97600", "road" to "Rue Houmadi Bacar", "state" to "Mayotte", "town" to "Mamoudzou")
+    val components = mapOf("building" to "Conseil Général de Mayotte",
+        "country" to "France, Mayotte (eaux territoriales)", "country_code" to "yt",
+        "postcode" to "97600", "road" to "Rue Houmadi Bacar", "state" to "Mayotte",
+        "town" to "Mamoudzou")
     val expected = """
         |Conseil Général de Mayotte
         |Rue Houmadi Bacar

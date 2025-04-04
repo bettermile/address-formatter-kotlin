@@ -26,7 +26,9 @@ public class MY {
   @Test
   public fun Museum_in_Kuala_Lumpur_3_14896_101_69916() {
     // description: Museum in Kuala Lumpur, 3.14896,101.69916
-    val components = mapOf("country" to "Malaysia", "country_code" to "my", "hamlet" to "Pudu", "museum" to "Telekom Museum", "postcode" to "50000", "road" to "Jalan Gereja", "state" to "Kuala Lumpur", "suburb" to "Kampung Baru")
+    val components = mapOf("country" to "Malaysia", "country_code" to "my", "hamlet" to "Pudu",
+        "museum" to "Telekom Museum", "postcode" to "50000", "road" to "Jalan Gereja",
+        "state" to "Kuala Lumpur", "suburb" to "Kampung Baru")
     val expected = """
         |Telekom Museum
         |Jalan Gereja

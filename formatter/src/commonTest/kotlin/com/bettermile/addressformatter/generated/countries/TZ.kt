@@ -26,7 +26,10 @@ public class TZ {
   @Test
   public fun CWE_Hotel_in_Dar_es_Salaam_6_83009_39_24981() {
     // description: CWE Hotel in Dar es Salaam -6.83009,39.24981
-    val components = mapOf("city" to "Dar es Salaam", "city_district" to "Buguruni", "country" to "Tanzania", "country_code" to "tz", "hotel" to "CWE Hotel", "postcode" to "78570", "road" to "Mivinjeni Street", "state" to "Dar es Salaam", "suburb" to "Mivinjeni")
+    val components = mapOf("city" to "Dar es Salaam", "city_district" to "Buguruni",
+        "country" to "Tanzania", "country_code" to "tz", "hotel" to "CWE Hotel",
+        "postcode" to "78570", "road" to "Mivinjeni Street", "state" to "Dar es Salaam",
+        "suburb" to "Mivinjeni")
     val expected = """
         |CWE Hotel
         |Mivinjeni Street
@@ -40,7 +43,9 @@ public class TZ {
   @Test
   public fun Ruvuma_Regional_Hospital_10_68053_35_65144() {
     // description: Ruvuma Regional Hospital -10.68053,35.65144
-    val components = mapOf("city" to "Songea", "country" to "Tanzania", "country_code" to "tz", "hospital" to "Ruvuma Regional Hospital", "road" to "Sokoine Road", "state" to "Ruvuma", "state_district" to "Songea")
+    val components = mapOf("city" to "Songea", "country" to "Tanzania", "country_code" to "tz",
+        "hospital" to "Ruvuma Regional Hospital", "road" to "Sokoine Road", "state" to "Ruvuma",
+        "state_district" to "Songea")
     val expected = """
         |Ruvuma Regional Hospital
         |Sokoine Road
@@ -55,7 +60,8 @@ public class TZ {
   @Test
   public fun _4_22466_35_72255() {
     // description: -4.22466,35.72255
-    val components = mapOf("country" to "Tanzania", "country_code" to "tz", "road" to "T14", "state" to "Manyara", "state_district" to "Babati")
+    val components = mapOf("country" to "Tanzania", "country_code" to "tz", "road" to "T14",
+        "state" to "Manyara", "state_district" to "Babati")
     val expected = """
         |T14
         |Babati
@@ -69,7 +75,8 @@ public class TZ {
   @Test
   public fun _4_29340_35_30726() {
     // description: -4.29340,35.30726
-    val components = mapOf("country" to "Tanzania", "country_code" to "tz", "state" to "Manyara", "state_district" to "Babati")
+    val components = mapOf("country" to "Tanzania", "country_code" to "tz", "state" to "Manyara",
+        "state_district" to "Babati")
     val expected = """
         |Babati
         |Manyara

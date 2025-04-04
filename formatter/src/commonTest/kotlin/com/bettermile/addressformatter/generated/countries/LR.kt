@@ -26,7 +26,10 @@ public class LR {
   @Test
   public fun Hotel_in_Monrovia_6_31756_10_80689() {
     // description: Hotel in Monrovia, 6.31756,-10.80689
-    val components = mapOf("city" to "Monrovia", "country" to "Liberia", "country_code" to "lr", "county" to "Greater Monrovia", "neighbourhood" to "Vai Town", "postcode" to "1000", "public_building" to "Palm Hotel", "road" to "Broad Street", "state" to "Montserrado County", "suburb" to "Crown Hill")
+    val components = mapOf("city" to "Monrovia", "country" to "Liberia", "country_code" to "lr",
+        "county" to "Greater Monrovia", "neighbourhood" to "Vai Town", "postcode" to "1000",
+        "public_building" to "Palm Hotel", "road" to "Broad Street",
+        "state" to "Montserrado County", "suburb" to "Crown Hill")
     val expected = """
         |Palm Hotel
         |Broad Street

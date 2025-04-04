@@ -26,7 +26,9 @@ public class GL {
   @Test
   public fun Address_in_Nuuk_64_17660_51_73981() {
     // description: Address in Nuuk, 64.17660,-51.73981
-    val components = mapOf("city" to "Nuuk", "country" to "Greenland", "country_code" to "gl", "house_number" to "18", "neighbourhood" to "Qernertunnguit", "pedestrian" to "Imaneq", "postcode" to "3900", "suburb" to "Qaurunnguaq")
+    val components = mapOf("city" to "Nuuk", "country" to "Greenland", "country_code" to "gl",
+        "house_number" to "18", "neighbourhood" to "Qernertunnguit", "pedestrian" to "Imaneq",
+        "postcode" to "3900", "suburb" to "Qaurunnguaq")
     val expected = """
         |Imaneq 18
         |3900 Nuuk

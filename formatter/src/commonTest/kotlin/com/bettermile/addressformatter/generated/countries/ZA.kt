@@ -26,7 +26,10 @@ public class ZA {
   @Test
   public fun Cape_Town_street_address_33_95345_18_47252() {
     // description: Cape Town street address -33.95345,18.47252
-    val components = mapOf("city" to "Cape Town", "city_district" to "Cape Town Subcouncil 15", "country" to "RSA", "country_code" to "za", "county" to "City of Cape Town", "house_number" to "3", "postcode" to "7700", "road" to "Upper Alma Road", "state" to "Western Cape", "suburb" to "Rosebank")
+    val components = mapOf("city" to "Cape Town", "city_district" to "Cape Town Subcouncil 15",
+        "country" to "RSA", "country_code" to "za", "county" to "City of Cape Town",
+        "house_number" to "3", "postcode" to "7700", "road" to "Upper Alma Road",
+        "state" to "Western Cape", "suburb" to "Rosebank")
     val expected = """
         |3 Upper Alma Road
         |Rosebank

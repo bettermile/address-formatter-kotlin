@@ -26,7 +26,9 @@ public class CF {
   @Test
   public fun Bank_in_Bangui_4_36223_18_58393() {
     // description: Bank in Bangui, 4.36223,18.58393
-    val components = mapOf("bank" to "Ecobank", "city" to "Bangui", "country" to "Central African Republic", "country_code" to "cf", "road" to "Rue de Navarre", "state" to "Ombella M\\'Poko")
+    val components = mapOf("bank" to "Ecobank", "city" to "Bangui",
+        "country" to "Central African Republic", "country_code" to "cf", "road" to "Rue de Navarre",
+        "state" to "Ombella M\\'Poko")
     val expected = """
         |Ecobank
         |Rue de Navarre

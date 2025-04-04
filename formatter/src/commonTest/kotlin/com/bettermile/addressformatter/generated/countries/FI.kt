@@ -26,7 +26,11 @@ public class FI {
   @Test
   public fun restaurant_Helsinki() {
     // description: restaurant Helsinki
-    val components = mapOf("city" to "Helsinki", "country" to "Finland", "country_code" to "fi", "county" to "Helsingin seutukunta", "house_number" to "15", "postcode" to "00140", "restaurant" to "Ravintola Central", "road" to "Pietarinkatu", "state" to "Southern Finland", "state_district" to "Southern Finland", "suburb" to "Ullanlinna")
+    val components = mapOf("city" to "Helsinki", "country" to "Finland", "country_code" to "fi",
+        "county" to "Helsingin seutukunta", "house_number" to "15", "postcode" to "00140",
+        "restaurant" to "Ravintola Central", "road" to "Pietarinkatu",
+        "state" to "Southern Finland", "state_district" to "Southern Finland",
+        "suburb" to "Ullanlinna")
     val expected = """
         |Ravintola Central
         |Pietarinkatu 15

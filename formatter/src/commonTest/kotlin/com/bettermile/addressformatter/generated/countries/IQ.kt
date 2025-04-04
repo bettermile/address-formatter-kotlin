@@ -26,7 +26,10 @@ public class IQ {
   @Test
   public fun Supermarket_33_3559_44_4015() {
     // description: Supermarket, 33.3559,44.4015
-    val components = mapOf("city" to "Baghdad", "city_district" to "Rusafa", "country" to "Iraq", "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222", "road" to "A86/N11/D383", "state" to "Baghdad", "suburb" to "Mustansiriya", "supermarket" to "al mustansriya Central Market")
+    val components = mapOf("city" to "Baghdad", "city_district" to "Rusafa", "country" to "Iraq",
+        "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222",
+        "road" to "A86/N11/D383", "state" to "Baghdad", "suburb" to "Mustansiriya",
+        "supermarket" to "al mustansriya Central Market")
     val expected = """
         |al mustansriya Central Market
         |Rusafa
@@ -42,7 +45,10 @@ public class IQ {
   @Test
   public fun Supermarket_language_ar_33_3559_44_4015() {
     // description: Supermarket, language=ar, 33.3559,44.4015
-    val components = mapOf("city" to "بغداد", "city_district" to "Rusafa", "country" to "العراق", "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222", "road" to "A86/N11/D383", "state" to "محافظة بغداد", "suburb" to "Mustansiriya", "supermarket" to "al mustansriya Central Market")
+    val components = mapOf("city" to "بغداد", "city_district" to "Rusafa", "country" to "العراق",
+        "country_code" to "iq", "county" to "Al Resafa", "postcode" to "222",
+        "road" to "A86/N11/D383", "state" to "محافظة بغداد", "suburb" to "Mustansiriya",
+        "supermarket" to "al mustansriya Central Market")
     val expected = """
         |al mustansriya Central Market
         |Rusafa
@@ -58,7 +64,9 @@ public class IQ {
   @Test
   public fun Hospital_36_32326_43_12339() {
     // description: Hospital, 36.32326,43.12339
-    val components = mapOf("city" to "Mosul", "country" to "Iraq", "country_code" to "iq", "county" to "Al Mnsul Qadha", "hospital" to "Mosul General Hospital", "road" to "الجسر الرابع", "state" to "Nineveh", "suburb" to "وادي حجر")
+    val components = mapOf("city" to "Mosul", "country" to "Iraq", "country_code" to "iq",
+        "county" to "Al Mnsul Qadha", "hospital" to "Mosul General Hospital",
+        "road" to "الجسر الرابع", "state" to "Nineveh", "suburb" to "وادي حجر")
     val expected = """
         |Mosul General Hospital
         |وادي حجر
@@ -73,7 +81,9 @@ public class IQ {
   @Test
   public fun Town_hall_33_23623_44_31577() {
     // description: Town hall, 33.23623,44.31577
-    val components = mapOf("city" to "Baghdad", "city_district" to "Rasheed", "country" to "Iraq", "country_code" to "iq", "county" to "Karkh", "road" to "شارع قطر الندى", "state" to "Baghdad", "suburb" to "Resala", "townhall" to "Masgd")
+    val components = mapOf("city" to "Baghdad", "city_district" to "Rasheed", "country" to "Iraq",
+        "country_code" to "iq", "county" to "Karkh", "road" to "شارع قطر الندى",
+        "state" to "Baghdad", "suburb" to "Resala", "townhall" to "Masgd")
     val expected = """
         |Masgd
         |Rasheed
@@ -88,7 +98,10 @@ public class IQ {
   @Test
   public fun `36_19137_43_97445`() {
     // description: 36.19137, 43.97445
-    val components = mapOf("city" to "Arbil", "continent" to "Asia", "country" to "Iraq", "country_code" to "iq", "county" to "قضاء أربيل", "house_number" to "391", "neighbourhood" to "English Village", "postcode" to "44001", "state" to "هەرێمی کوردستان", "suburb" to "گوندی ئینگلیزی")
+    val components = mapOf("city" to "Arbil", "continent" to "Asia", "country" to "Iraq",
+        "country_code" to "iq", "county" to "قضاء أربيل", "house_number" to "391",
+        "neighbourhood" to "English Village", "postcode" to "44001", "state" to "هەرێمی کوردستان",
+        "suburb" to "گوندی ئینگلیزی")
     val expected = """
         |391 English Village
         |Arbil

@@ -26,7 +26,10 @@ public class CV {
   @Test
   public fun Bank_in_Praia_14_91887_23_50912() {
     // description: Bank in Praia, 14.91887,-23.50912
-    val components = mapOf("bank" to "Banco de Cabo Verde", "city" to "Praia", "country" to "Cape Verde", "country_code" to "cv", "county" to "Praia", "neighbourhood" to "Bela Vista", "postcode" to "7600", "road" to "Avenida Amilcar Cabral", "suburb" to "Várzea")
+    val components = mapOf("bank" to "Banco de Cabo Verde", "city" to "Praia",
+        "country" to "Cape Verde", "country_code" to "cv", "county" to "Praia",
+        "neighbourhood" to "Bela Vista", "postcode" to "7600", "road" to "Avenida Amilcar Cabral",
+        "suburb" to "Várzea")
     val expected = """
         |Banco de Cabo Verde
         |Avenida Amilcar Cabral

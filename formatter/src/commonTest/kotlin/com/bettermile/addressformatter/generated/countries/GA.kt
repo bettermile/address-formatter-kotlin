@@ -26,7 +26,10 @@ public class GA {
   @Test
   public fun Embassy_in_Librevill_0_38899_9_44561() {
     // description: Embassy in Librevill, 0.38899,9.44561
-    val components = mapOf("building" to "Consulat De France", "city" to "Libreville", "country" to "Gabon", "country_code" to "ga", "county" to "Libreville Department", "neighbourhood" to "Batavea", "postcode" to "BP13131", "road" to "Rue Ange M'ba", "state" to "Estuaire", "suburb" to "Nombakele")
+    val components = mapOf("building" to "Consulat De France", "city" to "Libreville",
+        "country" to "Gabon", "country_code" to "ga", "county" to "Libreville Department",
+        "neighbourhood" to "Batavea", "postcode" to "BP13131", "road" to "Rue Ange M'ba",
+        "state" to "Estuaire", "suburb" to "Nombakele")
     val expected = """
         |Consulat De France
         |Rue Ange M'ba

@@ -26,7 +26,9 @@ public class TM {
   @Test
   public fun Theatre_in_Ashgabat_37_9432_58_3878() {
     // description: Theatre in Ashgabat, 37.9432,58.3878
-    val components = mapOf("city" to "Ashgabat", "country" to "Turkmenistan", "country_code" to "tm", "postcode" to "744000", "road" to "Kemine (2035) kocesi", "state" to "Ahal", "theatre" to "National Drama Theatre")
+    val components = mapOf("city" to "Ashgabat", "country" to "Turkmenistan",
+        "country_code" to "tm", "postcode" to "744000", "road" to "Kemine (2035) kocesi",
+        "state" to "Ahal", "theatre" to "National Drama Theatre")
     val expected = """
         |National Drama Theatre
         |Kemine (2035) kocesi

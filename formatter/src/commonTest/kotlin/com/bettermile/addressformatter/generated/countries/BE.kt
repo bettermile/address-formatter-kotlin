@@ -26,7 +26,10 @@ public class BE {
   @Test
   public fun Restaurant_in_Antwerp_51_21038_4_39812() {
     // description: Restaurant in Antwerp, 51.21038,4.39812
-    val components = mapOf("city" to "Antwerp", "city_district" to "Antwerpen", "country" to "Belgium", "country_code" to "be", "county" to "Antwerp", "house_number" to "63", "neighbourhood" to "Sint-Andries", "postcode" to "2000", "restaurant" to "Meat & Eat", "road" to "Vrijheidstraat", "state" to "Flanders")
+    val components = mapOf("city" to "Antwerp", "city_district" to "Antwerpen",
+        "country" to "Belgium", "country_code" to "be", "county" to "Antwerp",
+        "house_number" to "63", "neighbourhood" to "Sint-Andries", "postcode" to "2000",
+        "restaurant" to "Meat & Eat", "road" to "Vrijheidstraat", "state" to "Flanders")
     val expected = """
         |Meat & Eat
         |Vrijheidstraat 63
@@ -40,7 +43,10 @@ public class BE {
   @Test
   public fun prefer_municipality_over_hamlet_50_5689247_5_3918483() {
     // description: prefer municipality over hamlet, 50.5689247, 5.3918483
-    val components = mapOf("country" to "België", "country_code" to "be", "county" to "Huy", "hamlet" to "Clermont-sous-Huy", "house_number" to "187", "municipality" to "Engis", "postcode" to "4480", "region" to "Wallonia", "road" to "Chaussée de Liège", "state" to "Liège")
+    val components = mapOf("country" to "België", "country_code" to "be", "county" to "Huy",
+        "hamlet" to "Clermont-sous-Huy", "house_number" to "187", "municipality" to "Engis",
+        "postcode" to "4480", "region" to "Wallonia", "road" to "Chaussée de Liège",
+        "state" to "Liège")
     val expected = """
         |Chaussée de Liège 187
         |4480 Engis
@@ -53,7 +59,10 @@ public class BE {
   @Test
   public fun prefer_village_over_municipality_50_84201_4_11871() {
     // description: prefer village over municipality 50.84201, 4.11871
-    val components = mapOf("country" to "Belgium", "country_code" to "be", "county" to "Halle-Vilvoorde", "municipality" to "Roosdaal", "postcode" to "1760", "region" to "Flanders", "road" to "Kerkveldstraat", "state" to "Flemish Brabant", "village" to "Strijtem")
+    val components = mapOf("country" to "Belgium", "country_code" to "be",
+        "county" to "Halle-Vilvoorde", "municipality" to "Roosdaal", "postcode" to "1760",
+        "region" to "Flanders", "road" to "Kerkveldstraat", "state" to "Flemish Brabant",
+        "village" to "Strijtem")
     val expected = """
         |Kerkveldstraat
         |1760 Strijtem
@@ -66,7 +75,10 @@ public class BE {
   @Test
   public fun `50_62084_4_82240`() {
     // description: 50.62084,4.82240
-    val components = mapOf("city_district" to "Perwez", "country" to "Belgium", "country_code" to "be", "county" to "Nivelles", "house_number" to "67", "postcode" to "1360", "region" to "Wallonia", "road" to "Rue Salmon", "state" to "Walloon Brabant", "village" to "Perwez")
+    val components = mapOf("city_district" to "Perwez", "country" to "Belgium",
+        "country_code" to "be", "county" to "Nivelles", "house_number" to "67",
+        "postcode" to "1360", "region" to "Wallonia", "road" to "Rue Salmon",
+        "state" to "Walloon Brabant", "village" to "Perwez")
     val expected = """
         |Rue Salmon 67
         |1360 Perwez

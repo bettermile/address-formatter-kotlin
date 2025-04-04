@@ -26,7 +26,9 @@ public class KE {
   @Test
   public fun Building_in_downtown_Nairobi_1_28599_36_82206() {
     // description: Building in downtown Nairobi -1.28599,36.82206
-    val components = mapOf("building" to "Jubilee Insurance Place", "city" to "Nairobi", "country" to "Kenya", "country_code" to "ke", "postcode" to "46464", "road" to "Wabera Street", "state" to "Nairobi", "suburb" to "Madaraka Estate")
+    val components = mapOf("building" to "Jubilee Insurance Place", "city" to "Nairobi",
+        "country" to "Kenya", "country_code" to "ke", "postcode" to "46464",
+        "road" to "Wabera Street", "state" to "Nairobi", "suburb" to "Madaraka Estate")
     val expected = """
         |Jubilee Insurance Place
         |Wabera Street

@@ -26,7 +26,10 @@ public class ME {
   @Test
   public fun Hotel_in_Kotor_42_42550_18_77045() {
     // description: Hotel in Kotor, 42.42550,18.77045
-    val components = mapOf("country" to "Montenegro", "country_code" to "me", "county" to "Opština Kotor", "hotel" to "Hotel Maria", "house_number" to "449", "pedestrian" to "Trg Sv. Luke", "postcode" to "85339", "suburb" to "Škaljari", "town" to "Kotor")
+    val components = mapOf("country" to "Montenegro", "country_code" to "me",
+        "county" to "Opština Kotor", "hotel" to "Hotel Maria", "house_number" to "449",
+        "pedestrian" to "Trg Sv. Luke", "postcode" to "85339", "suburb" to "Škaljari",
+        "town" to "Kotor")
     val expected = """
         |Hotel Maria
         |Trg Sv. Luke 449

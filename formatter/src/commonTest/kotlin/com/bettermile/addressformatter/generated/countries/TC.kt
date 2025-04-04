@@ -26,7 +26,10 @@ public class TC {
   @Test
   public fun Shop_in_Providenciales_21_77988_72_26589() {
     // description: Shop in Providenciales, 21.77988,-72.26589
-    val components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc", "county" to "Provinciales and West Caicos", "neighbourhood" to "Five Cays", "road" to "Daffodil Close", "shop" to "Betty's market", "suburb" to "Millenium Hieghts", "town" to "Providenciales")
+    val components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc",
+        "county" to "Provinciales and West Caicos", "neighbourhood" to "Five Cays",
+        "road" to "Daffodil Close", "shop" to "Betty's market", "suburb" to "Millenium Hieghts",
+        "town" to "Providenciales")
     val expected = """
         |Betty's market
         |Daffodil Close
@@ -40,7 +43,8 @@ public class TC {
   @Test
   public fun hamlet_on_Middle_Caicos() {
     // description: hamlet on Middle Caicos
-    val components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc", "island" to "Middle Caicos", "hamlet" to "Bambarra")
+    val components = mapOf("country" to "Turks and Caicos Islands", "country_code" to "tc",
+        "island" to "Middle Caicos", "hamlet" to "Bambarra")
     val expected = """
         |Bambarra
         |Middle Caicos

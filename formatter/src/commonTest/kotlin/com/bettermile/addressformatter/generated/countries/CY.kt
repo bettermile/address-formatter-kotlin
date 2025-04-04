@@ -26,7 +26,9 @@ public class CY {
   @Test
   public fun Bank_in_Limassol_34_67398_33_04388() {
     // description: Bank in Limassol, 34.67398,33.04388
-    val components = mapOf("bank" to "Bank of Cyprus", "city" to "Limassol", "country" to "Cyprus", "country_code" to "cy", "county" to "Limassol", "pedestrian" to "Agiou Andreou", "postcode" to "3042", "state" to "Cyprus", "suburb" to "Mesa Geitonia")
+    val components = mapOf("bank" to "Bank of Cyprus", "city" to "Limassol", "country" to "Cyprus",
+        "country_code" to "cy", "county" to "Limassol", "pedestrian" to "Agiou Andreou",
+        "postcode" to "3042", "state" to "Cyprus", "suburb" to "Mesa Geitonia")
     val expected = """
         |Bank of Cyprus
         |Agiou Andreou

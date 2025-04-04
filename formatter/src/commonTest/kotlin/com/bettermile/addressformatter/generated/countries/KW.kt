@@ -26,7 +26,9 @@ public class KW {
   @Test
   public fun Supermarket_at_29_2612_47_9658() {
     // description: Supermarket at 29.2612,47.9658
-    val components = mapOf("city" to "Jaleeb Al Shoyoukh", "country" to "Kuwait", "country_code" to "kw", "postcode" to "32018", "road" to "79 St", "state" to "Farwaniya", "suburb" to "Al Dajeej", "supermarket" to "Sultan Center Wholesale")
+    val components = mapOf("city" to "Jaleeb Al Shoyoukh", "country" to "Kuwait",
+        "country_code" to "kw", "postcode" to "32018", "road" to "79 St", "state" to "Farwaniya",
+        "suburb" to "Al Dajeej", "supermarket" to "Sultan Center Wholesale")
     val expected = """
         |Sultan Center Wholesale
         |Al Dajeej
@@ -41,7 +43,9 @@ public class KW {
   @Test
   public fun Supermarket_language_ar_29_2612_47_9658() {
     // description: Supermarket, language=ar, 29.2612,47.9658
-    val components = mapOf("city" to "جليب الشيوخ", "country" to "الكويت", "country_code" to "kw", "postcode" to "32018", "road" to "79 St", "state" to "الفروانية", "suburb" to "الضجيج", "supermarket" to "Sultan Center Wholesale")
+    val components = mapOf("city" to "جليب الشيوخ", "country" to "الكويت", "country_code" to "kw",
+        "postcode" to "32018", "road" to "79 St", "state" to "الفروانية", "suburb" to "الضجيج",
+        "supermarket" to "Sultan Center Wholesale")
     val expected = """
         |Sultan Center Wholesale
         |الضجيج
@@ -56,7 +60,10 @@ public class KW {
   @Test
   public fun Hospital_29_33765_47_97917() {
     // description: Hospital, 29.33765,47.97917
-    val components = mapOf("city" to "Shuwaikh Residential", "country" to "Kuwait", "country_code" to "kw", "hospital" to "Faiha Primary Healthcare Center", "postcode" to "13009", "road" to "Third Ring Road", "state" to "Al Asimah", "suburb" to "Faiha")
+    val components = mapOf("city" to "Shuwaikh Residential", "country" to "Kuwait",
+        "country_code" to "kw", "hospital" to "Faiha Primary Healthcare Center",
+        "postcode" to "13009", "road" to "Third Ring Road", "state" to "Al Asimah",
+        "suburb" to "Faiha")
     val expected = """
         |Faiha Primary Healthcare Center
         |Faiha
@@ -71,7 +78,9 @@ public class KW {
   @Test
   public fun National_Library_29_37496_47_96875() {
     // description: National Library, 29.37496,47.96875
-    val components = mapOf("building" to "Kuwait National Library", "city" to "Kuwait City", "country" to "Kuwait", "country_code" to "kw", "postcode" to "13009", "road" to "Gulf Road", "state" to "Al Asimah", "suburb" to "Dasma")
+    val components = mapOf("building" to "Kuwait National Library", "city" to "Kuwait City",
+        "country" to "Kuwait", "country_code" to "kw", "postcode" to "13009", "road" to "Gulf Road",
+        "state" to "Al Asimah", "suburb" to "Dasma")
     val expected = """
         |Kuwait National Library
         |Dasma

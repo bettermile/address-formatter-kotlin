@@ -26,7 +26,9 @@ public class AE {
   @Test
   public fun L_Arabia_Hotel_24_37253_54_53801() {
     // description: L'Arabia Hotel, 24.37253,54.53801
-    val components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates", "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277", "road" to "28th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City")
+    val components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates",
+        "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277",
+        "road" to "28th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City")
     val expected = """
         |L'Arabia hotel
         |28th Street
@@ -41,7 +43,9 @@ public class AE {
   @Test
   public fun L_Arabia_Hotel_language_ar_24_37253_54_53801() {
     // description: L'Arabia Hotel, language=ar, 24.37253,54.53801
-    val components = mapOf("city" to "أبو ظبي", "country" to "الإمارات العربية المتحدة", "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277", "road" to "28th Street", "state" to "أبو ظبي", "suburb" to "Police Officers City")
+    val components = mapOf("city" to "أبو ظبي", "country" to "الإمارات العربية المتحدة",
+        "country_code" to "ae", "hotel" to "L'Arabia hotel", "postcode" to "277",
+        "road" to "28th Street", "state" to "أبو ظبي", "suburb" to "Police Officers City")
     val expected = """
         |L'Arabia hotel
         |28th Street
@@ -56,7 +60,9 @@ public class AE {
   @Test
   public fun Pizza_hut_24_37289_54_51820() {
     // description: Pizza hut, 24.37289,54.51820
-    val components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates", "country_code" to "ae", "postcode" to "277", "restaurant" to "Pizza Hut", "road" to "8th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City")
+    val components = mapOf("city" to "Abu Dhabi", "country" to "United Arab Emirates",
+        "country_code" to "ae", "postcode" to "277", "restaurant" to "Pizza Hut",
+        "road" to "8th Street", "state" to "Abu Dhabi", "suburb" to "Police Officers City")
     val expected = """
         |Pizza Hut
         |8th Street
@@ -71,7 +77,10 @@ public class AE {
   @Test
   public fun Thumbay_Hospital_25_28130_55_36503() {
     // description: Thumbay Hospital, 25.28130/55.36503
-    val components = mapOf("city" to "Dubai", "country" to "United Arab Emirates", "country_code" to "ae", "hospital" to "Thumbay Hospital", "postcode" to "47602", "residential" to "Al Qusais 1", "road" to "Street 4", "state" to "Dubai", "suburb" to "Al Qusais 1")
+    val components = mapOf("city" to "Dubai", "country" to "United Arab Emirates",
+        "country_code" to "ae", "hospital" to "Thumbay Hospital", "postcode" to "47602",
+        "residential" to "Al Qusais 1", "road" to "Street 4", "state" to "Dubai",
+        "suburb" to "Al Qusais 1")
     val expected = """
         |Thumbay Hospital
         |Street 4
@@ -86,7 +95,8 @@ public class AE {
   @Test
   public fun International_Media_Production_Zone_25_0299178_55_1872123() {
     // description: International Media Production Zone, 25.0299178/55.1872123
-    val components = mapOf("country" to "United Arab Emirates", "country_code" to "ae", "postcode" to "0448", "state" to "Dubai", "suburb" to "International Media Production Zone")
+    val components = mapOf("country" to "United Arab Emirates", "country_code" to "ae",
+        "postcode" to "0448", "state" to "Dubai", "suburb" to "International Media Production Zone")
     val expected = """
         |International Media Production Zone
         |Dubai

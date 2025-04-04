@@ -58,7 +58,7 @@ object TestCasesTranspiler {
                 )
                 tests.forEach { testCase ->
                     val components: List<CodeBlock> = testCase["components"].properties().map { (key, value) ->
-                        CodeBlock.of("%S·to·%S", key, value.asText())
+                        CodeBlock.of("%S to %S", key, value.asText())
                     }
                     val expected = testCase["expected"].asText()
                     val originalDescription = testCase["description"]?.asText()
@@ -70,10 +70,10 @@ object TestCasesTranspiler {
                         FunSpec.builder(realFunctionName).apply {
                             addAnnotation(testAnnotationClass)
                             if (originalDescription != null) addComment("description: %L", description)
-                            addStatement("val components·=·mapOf(%L)", components.joinToCode(", "))
-                            addStatement("val expected·=·%S", expected)
-                            addStatement("val actual·=·addressFormatter.format(components·=·components)")
-                            addStatement("%T(expected,·actual)", assertEqualsFunctionName)
+                            addStatement("val components = mapOf(%L)", components.joinToCode(",♢"))
+                            addStatement("val expected = %S", expected)
+                            addStatement("val actual = addressFormatter.format(components = components)")
+                            addStatement("%T(expected, actual)", assertEqualsFunctionName)
                         }.build()
                     )
                 }

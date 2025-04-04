@@ -26,7 +26,8 @@ public class NU {
   @Test
   public fun Bank_in_Alofi_19_05440_169_92024() {
     // description: Bank in Alofi, -19.05440,-169.92024
-    val components = mapOf("bank" to "Kiwibank", "country" to "Niue", "country_code" to "nu", "road" to "Tuila Road", "town" to "Alofi")
+    val components = mapOf("bank" to "Kiwibank", "country" to "Niue", "country_code" to "nu",
+        "road" to "Tuila Road", "town" to "Alofi")
     val expected = """
         |Kiwibank
         |Tuila Road

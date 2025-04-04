@@ -26,7 +26,9 @@ public class AT {
   @Test
   public fun Salzbug_street_address() {
     // description: Salzbug street address
-    val components = mapOf("city" to "Salzburg", "country" to "Austria", "country_code" to "AT", "county" to "Bezirk Salzburg", "house_number" to "5", "postcode" to "5020", "road" to "Stauffenstraße", "state" to "Salzburg (state)", "suburb" to "Elisabeth-Vorstadt")
+    val components = mapOf("city" to "Salzburg", "country" to "Austria", "country_code" to "AT",
+        "county" to "Bezirk Salzburg", "house_number" to "5", "postcode" to "5020",
+        "road" to "Stauffenstraße", "state" to "Salzburg (state)", "suburb" to "Elisabeth-Vorstadt")
     val expected = """
         |Stauffenstraße 5
         |5020 Salzburg

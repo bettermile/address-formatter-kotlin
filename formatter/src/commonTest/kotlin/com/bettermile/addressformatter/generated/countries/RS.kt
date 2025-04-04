@@ -26,7 +26,10 @@ public class RS {
   @Test
   public fun restaurant_in_Belgrade() {
     // description: restaurant in Belgrade
-    val components = mapOf("restaurant" to "Ресторан Лидо", "city" to "Belgrade", "country" to "Serbia", "country_code" to "RS", "neighbourhood" to "Donji Grad", "house_number" to "2", "postcode" to "11080", "road" to "Goce Delceva", "state" to "Central Serbia", "suburb" to "Zemun")
+    val components = mapOf("restaurant" to "Ресторан Лидо", "city" to "Belgrade",
+        "country" to "Serbia", "country_code" to "RS", "neighbourhood" to "Donji Grad",
+        "house_number" to "2", "postcode" to "11080", "road" to "Goce Delceva",
+        "state" to "Central Serbia", "suburb" to "Zemun")
     val expected = """
         |Ресторан Лидо
         |Goce Delceva 2

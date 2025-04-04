@@ -68,7 +68,7 @@ object WorldwideTranspiler {
                 val (countryFormat, annotations) = countryFormatCodeAndAnnotations(key, value as ObjectNode)
                 countryAnnotations += annotations
                 countryBlocks += buildCodeBlock {
-                    beginControlFlow("%S to lazy", key)
+                    beginControlFlow("%S♢to♢lazy", key)
                     add(countryFormat)
                     unindent()
                     add("\n}")
@@ -92,7 +92,7 @@ object WorldwideTranspiler {
     ): AnnotationSpec {
         return AnnotationSpec.builder(AddressTemplateDefinition::class)
             .addMember("\"\"\"\n%L\"\"\"", template)
-            .apply { if (propertyName != null) addMember("propertyName = %S", propertyName) }
+            .apply { if (propertyName != null) addMember("propertyName♢=♢%S", propertyName) }
             .build()
     }
 
@@ -115,7 +115,7 @@ object WorldwideTranspiler {
             propertyCodeBlock(valueObject, "use_country")?.also { put("useCountry", it) }
             propertyCodeBlock(valueObject, "change_country")?.also { put("changeCountry", it) }
             propertyCodeBlock(valueObject, "add_component")?.also { put("addComponent", it) }
-        }.map { CodeBlock.of("${it.key}·=·%L", it.value) }
+        }.map { CodeBlock.of("${it.key} = %L", it.value) }
         return multilineFunctionCall(countryFormatType, parameters) to annotations.toList()
     }
 
@@ -160,7 +160,7 @@ object WorldwideTranspiler {
                 buildCodeBlock {
                     add("%T(", countryFormatReplaceType)
                     indent()
-                    add("search·=·%S, replacement·=·%S", regex, replacement)
+                    add("search = %S,♢replacement = %S", regex, replacement)
                     unindent()
                     add(")")
                 }

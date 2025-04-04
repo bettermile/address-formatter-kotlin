@@ -26,7 +26,8 @@ public class SG {
   @Test
   public fun SG_no_postcode() {
     // description: SG no postcode
-    val components = mapOf("country" to "Singapore", "country_code" to "SG", "house_number" to "76", "neighbourhood" to "Chinatown", "road" to "Shenton Way", "suburb" to "Shenton Way")
+    val components = mapOf("country" to "Singapore", "country_code" to "SG", "house_number" to "76",
+        "neighbourhood" to "Chinatown", "road" to "Shenton Way", "suburb" to "Shenton Way")
     val expected = """
         |76 Shenton Way
         |Singapore
@@ -38,7 +39,8 @@ public class SG {
   @Test
   public fun Chinatown_Singapore() {
     // description: Chinatown Singapore
-    val components = mapOf("country" to "Singapore", "country_code" to "SG", "city" to "Singapore", "postcode" to "546080", "house_number" to "16", "road" to "Sandilands Road")
+    val components = mapOf("country" to "Singapore", "country_code" to "SG", "city" to "Singapore",
+        "postcode" to "546080", "house_number" to "16", "road" to "Sandilands Road")
     val expected = """
         |16 Sandilands Road
         |Singapore 546080
@@ -51,7 +53,9 @@ public class SG {
   @Test
   public fun no_city_1_30585_103_78158() {
     // description: no city, 1.30585,103.78158
-    val components = mapOf("country" to "Singapore", "country_code" to "sg", "county" to "Southwest", "house_number" to "26", "postcode" to "130026", "residential" to "Dover Gardens", "road" to "Dover Crescent", "suburb" to "Queenstown")
+    val components = mapOf("country" to "Singapore", "country_code" to "sg",
+        "county" to "Southwest", "house_number" to "26", "postcode" to "130026",
+        "residential" to "Dover Gardens", "road" to "Dover Crescent", "suburb" to "Queenstown")
     val expected = """
         |26 Dover Crescent, Dover Gardens
         |Singapore 130026
@@ -64,7 +68,10 @@ public class SG {
   @Test
   public fun wrong_city_1_30585_103_78158() {
     // description: wrong city, 1.30585,103.78158
-    val components = mapOf("city" to "Jurong East", "country" to "Singapore", "country_code" to "sg", "county" to "Southwest", "house_number" to "26", "postcode" to "130026", "residential" to "Dover Gardens", "road" to "Dover Crescent", "suburb" to "Queenstown")
+    val components = mapOf("city" to "Jurong East", "country" to "Singapore",
+        "country_code" to "sg", "county" to "Southwest", "house_number" to "26",
+        "postcode" to "130026", "residential" to "Dover Gardens", "road" to "Dover Crescent",
+        "suburb" to "Queenstown")
     val expected = """
         |26 Dover Crescent, Dover Gardens
         |Singapore 130026

@@ -26,7 +26,9 @@ public class RO {
   @Test
   public fun building_in_Cluj_46_77498_23_59376() {
     // description: building in Cluj - 46.77498,23.59376
-    val components = mapOf("city" to "Cluj-Napoca", "country" to "Romania", "country_code" to "ro", "county" to "Cluj-Napoca", "house_number" to "6", "postcode" to "400157", "road" to "Strada Ploiești", "state" to "Cluj", "suburb" to "Gruia")
+    val components = mapOf("city" to "Cluj-Napoca", "country" to "Romania", "country_code" to "ro",
+        "county" to "Cluj-Napoca", "house_number" to "6", "postcode" to "400157",
+        "road" to "Strada Ploiești", "state" to "Cluj", "suburb" to "Gruia")
     val expected = """
         |Strada Ploiești 6
         |400157 Cluj-Napoca

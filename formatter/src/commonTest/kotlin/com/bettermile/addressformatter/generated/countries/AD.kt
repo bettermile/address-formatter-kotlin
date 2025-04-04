@@ -26,7 +26,10 @@ public class AD {
   @Test
   public fun Building_in_Andorra_la_Vella_42_50830_1_53014() {
     // description: Building in Andorra la Vella, 42.50830,1.53014
-    val components = mapOf("country" to "Andorra", "country_code" to "ad", "county" to "Andorra la Vella", "house_number" to "88", "neighbourhood" to "Centre històric", "postcode" to "AD500", "road" to "Avinguda Meritxell", "town" to "Andorra la Vella")
+    val components = mapOf("country" to "Andorra", "country_code" to "ad",
+        "county" to "Andorra la Vella", "house_number" to "88",
+        "neighbourhood" to "Centre històric", "postcode" to "AD500", "road" to "Avinguda Meritxell",
+        "town" to "Andorra la Vella")
     val expected = """
         |88 Avinguda Meritxell
         |AD500 Andorra la Vella

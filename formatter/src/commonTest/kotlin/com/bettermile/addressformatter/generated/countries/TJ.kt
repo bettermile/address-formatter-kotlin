@@ -26,7 +26,9 @@ public class TJ {
   @Test
   public fun building_in_38_55404_68_76598() {
     // description: building in Душанбе, 38.55404,68.76598
-    val components = mapOf("city" to "Dushanbe", "country" to "Tajikistan", "country_code" to "tj", "county" to "Rudaki District", "house_number" to "160", "postcode" to "734018", "road" to "Mushfiki Street", "state" to "Districts of Republican Subordination")
+    val components = mapOf("city" to "Dushanbe", "country" to "Tajikistan", "country_code" to "tj",
+        "county" to "Rudaki District", "house_number" to "160", "postcode" to "734018",
+        "road" to "Mushfiki Street", "state" to "Districts of Republican Subordination")
     val expected = """
         |Mushfiki Street 160
         |734018 Dushanbe

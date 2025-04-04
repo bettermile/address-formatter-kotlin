@@ -26,7 +26,9 @@ public class EE {
   @Test
   public fun Tallinn_street_address_59_430702_24_714138() {
     // description: Tallinn street address - 59.430702, 24.714138
-    val components = mapOf("city" to "Tallinn", "country" to "Estonia", "country_code" to "ee", "county" to "Harju maakond", "house_number" to "15", "postcode" to "10613", "road" to "Kasvu", "suburb" to "Kristiine linnaosa")
+    val components = mapOf("city" to "Tallinn", "country" to "Estonia", "country_code" to "ee",
+        "county" to "Harju maakond", "house_number" to "15", "postcode" to "10613",
+        "road" to "Kasvu", "suburb" to "Kristiine linnaosa")
     val expected = """
         |Kasvu 15
         |10613 Tallinn

@@ -26,7 +26,8 @@ public class KI {
   @Test
   public fun Bank_in_Bairiki_1_33010_172_97850() {
     // description: Bank in Bairiki, 1.33010,172.97850
-    val components = mapOf("bank" to "The ANZ Bank", "city" to "Tarawa Teinainano", "country" to "Kiribati", "country_code" to "ki", "road" to "Postplatz")
+    val components = mapOf("bank" to "The ANZ Bank", "city" to "Tarawa Teinainano",
+        "country" to "Kiribati", "country_code" to "ki", "road" to "Postplatz")
     val expected = """
         |The ANZ Bank
         |Postplatz

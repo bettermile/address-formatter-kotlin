@@ -26,7 +26,9 @@ public class BZ {
   @Test
   public fun Supermarket_in_Belmopan_17_2547_88_7645() {
     // description: Supermarket in Belmopan, 17.2547,-88.7645
-    val components = mapOf("city" to "Belmopan", "country" to "Belize", "country_code" to "bz", "county" to "Cayo District", "road" to "Nim Li Punit Street", "state" to "Cayo", "supermarket" to "Fransico Supermarket")
+    val components = mapOf("city" to "Belmopan", "country" to "Belize", "country_code" to "bz",
+        "county" to "Cayo District", "road" to "Nim Li Punit Street", "state" to "Cayo",
+        "supermarket" to "Fransico Supermarket")
     val expected = """
         |Fransico Supermarket
         |Nim Li Punit Street

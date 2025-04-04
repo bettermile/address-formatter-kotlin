@@ -26,7 +26,9 @@ public class MV {
   @Test
   public fun Radio_station_in_Mal_4_17244_73_50311() {
     // description: Radio station in Malé, 4.17244,73.50311
-    val components = mapOf("address29" to "Voice of Maledives", "city" to "Malé", "country" to "Maldives", "country_code" to "mv", "postcode" to "20237", "road" to "Buruzu Magu", "state" to "Malé")
+    val components = mapOf("address29" to "Voice of Maledives", "city" to "Malé",
+        "country" to "Maldives", "country_code" to "mv", "postcode" to "20237",
+        "road" to "Buruzu Magu", "state" to "Malé")
     val expected = """
         |Voice of Maledives
         |Buruzu Magu

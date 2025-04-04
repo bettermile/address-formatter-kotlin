@@ -26,7 +26,10 @@ public class SD {
   @Test
   public fun Train_station_in_Khartoum_15_5953_32_5285() {
     // description: Train station in Khartoum, 15.5953,32.5285
-    val components = mapOf("building" to "Khartoum Train Station", "city" to "Khartoum", "country" to "Sudan", "country_code" to "sd", "neighbourhood" to "Railway", "postcode" to "11114", "road" to "Al Imam Al Mahdi Road", "state" to "al-Khartum", "suburb" to "Downtown")
+    val components = mapOf("building" to "Khartoum Train Station", "city" to "Khartoum",
+        "country" to "Sudan", "country_code" to "sd", "neighbourhood" to "Railway",
+        "postcode" to "11114", "road" to "Al Imam Al Mahdi Road", "state" to "al-Khartum",
+        "suburb" to "Downtown")
     val expected = """
         |Khartoum Train Station
         |Al Imam Al Mahdi Road

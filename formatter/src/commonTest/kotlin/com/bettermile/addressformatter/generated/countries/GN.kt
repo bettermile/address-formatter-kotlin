@@ -26,7 +26,9 @@ public class GN {
   @Test
   public fun Restaurant_in_Conakry_9_51087_13_71186() {
     // description: Restaurant in Conakry, 9.51087,-13.71186
-    val components = mapOf("city" to "Kaloum", "country" to "Guinea", "country_code" to "gn", "furniture" to "L'Art de la Table", "road" to "8e Avenue", "state" to "Conakry", "suburb" to "Almamiya 2")
+    val components = mapOf("city" to "Kaloum", "country" to "Guinea", "country_code" to "gn",
+        "furniture" to "L'Art de la Table", "road" to "8e Avenue", "state" to "Conakry",
+        "suburb" to "Almamiya 2")
     val expected = """
         |L'Art de la Table
         |8e Avenue

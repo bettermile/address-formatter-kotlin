@@ -26,7 +26,10 @@ public class MG {
   @Test
   public fun Embassy_in_Antananarivo_18_90744_47_52145() {
     // description: Embassy in Antananarivo, -18.90744,47.52145
-    val components = mapOf("building" to "Ambassade de l'Inde", "city" to "Antananarivo", "country" to "Madagascar", "country_code" to "mg", "postcode" to "1", "road" to "Làlana Rajhonson Emile", "state" to "Province d'Antananarivo", "suburb" to "Tsaralalana")
+    val components = mapOf("building" to "Ambassade de l'Inde", "city" to "Antananarivo",
+        "country" to "Madagascar", "country_code" to "mg", "postcode" to "1",
+        "road" to "Làlana Rajhonson Emile", "state" to "Province d'Antananarivo",
+        "suburb" to "Tsaralalana")
     val expected = """
         |Ambassade de l'Inde
         |Làlana Rajhonson Emile

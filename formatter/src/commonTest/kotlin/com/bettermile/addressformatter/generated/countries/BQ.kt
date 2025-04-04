@@ -26,7 +26,9 @@ public class BQ {
   @Test
   public fun school_in_Kralendijk_12_15286_68_27238() {
     // description: school in Kralendijk, 12.15286,-68.27238
-    val components = mapOf("city" to "Bonaire", "country" to "Bonaire", "country_code" to "bq", "road" to "Kaya Libertador Simon Bolivar", "school" to "Parokia San Bernardo", "state" to "Caribbean Netherlands", "suburb" to "Sabana")
+    val components = mapOf("city" to "Bonaire", "country" to "Bonaire", "country_code" to "bq",
+        "road" to "Kaya Libertador Simon Bolivar", "school" to "Parokia San Bernardo",
+        "state" to "Caribbean Netherlands", "suburb" to "Sabana")
     val expected = """
         |Parokia San Bernardo
         |Kaya Libertador Simon Bolivar

@@ -26,7 +26,9 @@ public class AO {
   @Test
   public fun Embassy_in_Luanda_8_81044_13_23588() {
     // description: Embassy in Luanda, -8.81044,13.23588
-    val components = mapOf("building" to "Embassy of the Federal Republic of Germany", "city" to "Luanda", "country" to "Angola", "country_code" to "ao", "house_number" to "120", "neighbourhood" to "Mutamba", "road" to "Avenida 4 de Fevereiro", "state" to "Luanda")
+    val components = mapOf("building" to "Embassy of the Federal Republic of Germany",
+        "city" to "Luanda", "country" to "Angola", "country_code" to "ao", "house_number" to "120",
+        "neighbourhood" to "Mutamba", "road" to "Avenida 4 de Fevereiro", "state" to "Luanda")
     val expected = """
         |Embassy of the Federal Republic of Germany
         |Avenida 4 de Fevereiro 120

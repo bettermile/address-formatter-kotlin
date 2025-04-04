@@ -26,7 +26,8 @@ public class YE {
   @Test
   public fun Shop_15_28562_44_23028() {
     // description: Shop, 15.28562,44.23028
-    val components = mapOf("city" to "Sanʿaʾ", "country" to "Yemen", "country_code" to "ye", "county" to "Qada Sana", "mall" to "Yassin Spices", "road" to "شارع الحربي")
+    val components = mapOf("city" to "Sanʿaʾ", "country" to "Yemen", "country_code" to "ye",
+        "county" to "Qada Sana", "mall" to "Yassin Spices", "road" to "شارع الحربي")
     val expected = """
         |Yassin Spices
         |شارع الحربي
@@ -40,7 +41,8 @@ public class YE {
   @Test
   public fun Shop_language_ar_15_28562_44_23028() {
     // description: Shop, language=ar, 15.28562,44.23028
-    val components = mapOf("city" to "صنعاء", "country" to "اليمن", "country_code" to "ye", "county" to "قضاء صنعاء", "mall" to "بهارات ياسين", "road" to "شارع الحربي")
+    val components = mapOf("city" to "صنعاء", "country" to "اليمن", "country_code" to "ye",
+        "county" to "قضاء صنعاء", "mall" to "بهارات ياسين", "road" to "شارع الحربي")
     val expected = """
         |بهارات ياسين
         |شارع الحربي
@@ -54,7 +56,9 @@ public class YE {
   @Test
   public fun Central_bank_15_34924_44_20724() {
     // description: Central bank, 15.34924,44.20724
-    val components = mapOf("bank" to "Centeral Bank of Yemen", "city" to "Sanʿaʾ", "country" to "Yemen", "country_code" to "ye", "county" to "Qada Sana", "postcode" to "01", "road" to "Al Zubayri Street")
+    val components = mapOf("bank" to "Centeral Bank of Yemen", "city" to "Sanʿaʾ",
+        "country" to "Yemen", "country_code" to "ye", "county" to "Qada Sana", "postcode" to "01",
+        "road" to "Al Zubayri Street")
     val expected = """
         |Centeral Bank of Yemen
         |Al Zubayri Street
@@ -68,7 +72,9 @@ public class YE {
   @Test
   public fun Pizzaria_12_77954_45_04418() {
     // description: Pizzaria, 12.77954,45.04418
-    val components = mapOf("city" to "Aden", "country" to "Yemen", "country_code" to "ye", "county" to "Aden Directorate", "fast_food" to "Pizza", "residential" to "كريتر", "road" to "خط صيرة", "state" to "‘Adan Governorate")
+    val components = mapOf("city" to "Aden", "country" to "Yemen", "country_code" to "ye",
+        "county" to "Aden Directorate", "fast_food" to "Pizza", "residential" to "كريتر",
+        "road" to "خط صيرة", "state" to "‘Adan Governorate")
     val expected = """
         |Pizza
         |خط صيرة

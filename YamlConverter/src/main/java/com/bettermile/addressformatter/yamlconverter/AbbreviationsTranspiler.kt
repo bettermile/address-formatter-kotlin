@@ -22,7 +22,6 @@ import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
-import com.squareup.kotlinpoet.buildCodeBlock
 
 object AbbreviationsTranspiler {
     fun yamlToFile(abbreviations: Map<String, ObjectNode>): FileSpec {
@@ -31,17 +30,11 @@ object AbbreviationsTranspiler {
                 val languageComponents: List<CodeBlock> = config.properties().map { (component, abbreviations) ->
                     val abbreviationsCode: List<CodeBlock> =
                         abbreviations.properties().map { (longName, abbreviation) ->
-                            CodeBlock.of("%S to %S", longName, abbreviation.asText())
+                            CodeBlock.of("%S♢to♢%S", longName, abbreviation.asText())
                         }
-                    buildCodeBlock {
-                        add("%S to ", component)
-                        add(multilineFunctionCall("mapOf", abbreviationsCode))
-                    }
+                    CodeBlock.of("%S♢to♢%L", component, multilineFunctionCall("mapOf", abbreviationsCode))
                 }
-                buildCodeBlock {
-                    add("%S to ", language)
-                    add(multilineFunctionCall("mapOf", languageComponents))
-                }
+                CodeBlock.of("%S♢to♢%L", language, multilineFunctionCall("mapOf", languageComponents))
             }
             addProperty(
                 PropertySpec.builder(
@@ -57,5 +50,4 @@ object AbbreviationsTranspiler {
             )
         }
     }
-
 }

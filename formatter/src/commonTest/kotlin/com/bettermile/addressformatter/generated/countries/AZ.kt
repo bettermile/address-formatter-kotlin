@@ -26,7 +26,9 @@ public class AZ {
   @Test
   public fun Bank_in_Baku_40_37381_49_84436() {
     // description: Bank in Baku, 40.37381,49.84436
-    val components = mapOf("bank" to "Bank Avrasiya", "city" to "Baku", "country" to "Azerbaijan", "country_code" to "az", "house_number" to "70", "path" to "Nizami küç.", "postcode" to "AZ1014", "state" to "Bakı İnzibati Ərazisi", "suburb" to "Montin")
+    val components = mapOf("bank" to "Bank Avrasiya", "city" to "Baku", "country" to "Azerbaijan",
+        "country_code" to "az", "house_number" to "70", "path" to "Nizami küç.",
+        "postcode" to "AZ1014", "state" to "Bakı İnzibati Ərazisi", "suburb" to "Montin")
     val expected = """
         |Bank Avrasiya
         |70 Nizami küç.

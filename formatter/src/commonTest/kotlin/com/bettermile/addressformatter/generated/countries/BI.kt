@@ -26,7 +26,10 @@ public class BI {
   @Test
   public fun Office_in_Bujumbura_3_38341_29_36166() {
     // description: Office in Bujumbura, -3.38341,29.36166
-    val components = mapOf("building" to "Bonauto s.a.", "city" to "Bujumbura", "country" to "Burundi", "country_code" to "bi", "house_number" to "17", "postcode" to "2730", "road" to "Avenue du Commerce", "state" to "Bujumbura Mairie", "suburb" to "Building Bata")
+    val components = mapOf("building" to "Bonauto s.a.", "city" to "Bujumbura",
+        "country" to "Burundi", "country_code" to "bi", "house_number" to "17",
+        "postcode" to "2730", "road" to "Avenue du Commerce", "state" to "Bujumbura Mairie",
+        "suburb" to "Building Bata")
     val expected = """
         |Bonauto s.a.
         |Avenue du Commerce 17

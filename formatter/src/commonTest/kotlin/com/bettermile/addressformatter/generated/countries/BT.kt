@@ -26,7 +26,9 @@ public class BT {
   @Test
   public fun National_Bank_in_Thimphu_27_47370_89_63880() {
     // description: National Bank in Thimphu, 27.47370,89.63880
-    val components = mapOf("bank" to "Bhutan National Bank", "city" to "Thimphu", "country" to "Bhutan", "country_code" to "bt", "postcode" to "810", "road" to "Chang Lam", "state" to "Thimphu District")
+    val components = mapOf("bank" to "Bhutan National Bank", "city" to "Thimphu",
+        "country" to "Bhutan", "country_code" to "bt", "postcode" to "810", "road" to "Chang Lam",
+        "state" to "Thimphu District")
     val expected = """
         |Bhutan National Bank
         |Chang Lam

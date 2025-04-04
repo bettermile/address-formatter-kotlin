@@ -26,7 +26,9 @@ public class IE {
   @Test
   public fun Galway() {
     // description: Galway
-    val components = mapOf("city" to "Galway City", "country" to "Ireland", "country_code" to "ie", "county" to "Galway City", "house_number" to "8-9", "road" to "Mainguard Street", "state_district" to "Connacht", "suburb" to "Claddagh")
+    val components = mapOf("city" to "Galway City", "country" to "Ireland", "country_code" to "ie",
+        "county" to "Galway City", "house_number" to "8-9", "road" to "Mainguard Street",
+        "state_district" to "Connacht", "suburb" to "Claddagh")
     val expected = """
         |8-9 Mainguard Street
         |Claddagh
@@ -40,7 +42,8 @@ public class IE {
   @Test
   public fun Kilkenny() {
     // description: Kilkenny
-    val components = mapOf("country" to "Ireland", "country_code" to "ie", "county" to "Kilkenny", "state" to "Leinster", "town" to "Kilkenny")
+    val components = mapOf("country" to "Ireland", "country_code" to "ie", "county" to "Kilkenny",
+        "state" to "Leinster", "town" to "Kilkenny")
     val expected = """
         |Kilkenny
         |Ireland
@@ -52,7 +55,9 @@ public class IE {
   @Test
   public fun Friar_s_Hill_Graiguenamanagh() {
     // description: Friar's Hill, Graiguenamanagh
-    val components = mapOf("country" to "Ireland", "country_code" to "ie", "county" to "County Kilkenny", "residential" to "Friar's Hill", "state_district" to "Leinster", "town" to "Graiguenamanagh")
+    val components = mapOf("country" to "Ireland", "country_code" to "ie",
+        "county" to "County Kilkenny", "residential" to "Friar's Hill",
+        "state_district" to "Leinster", "town" to "Graiguenamanagh")
     val expected = """
         |Friar's Hill
         |Graiguenamanagh
@@ -66,7 +71,11 @@ public class IE {
   @Test
   public fun condense_Dublin_County_Dublin_() {
     // description: condense "Dublin, County Dublin"
-    val components = mapOf("city" to "Dublin", "city_district" to "Wood Quay A ED", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Dublin", "county_code" to "D", "library" to "The National Archives", "postcode" to "D02 TD99", "road" to "Bishop Street", "state" to "Leinster", "state_code" to "L")
+    val components = mapOf("city" to "Dublin", "city_district" to "Wood Quay A ED",
+        "continent" to "Europe", "country" to "Ireland", "country_code" to "ie",
+        "county" to "County Dublin", "county_code" to "D", "library" to "The National Archives",
+        "postcode" to "D02 TD99", "road" to "Bishop Street", "state" to "Leinster",
+        "state_code" to "L")
     val expected = """
         |The National Archives
         |Bishop Street
@@ -82,7 +91,10 @@ public class IE {
   @Test
   public fun remove_The_Metropolitan_District_of_() {
     // description: remove "The Metropolitan District of"
-    val components = mapOf("city" to "The Metropolitan District of Limerick City", "city_district" to "Farranshone", "country" to "Ireland", "country_code" to "ie", "county" to "County Limerick", "county_code" to "LK", "locality" to "Farranshone Beg", "road" to "Shelbourne Road", "road_reference" to "R464", "state" to "Munster")
+    val components = mapOf("city" to "The Metropolitan District of Limerick City",
+        "city_district" to "Farranshone", "country" to "Ireland", "country_code" to "ie",
+        "county" to "County Limerick", "county_code" to "LK", "locality" to "Farranshone Beg",
+        "road" to "Shelbourne Road", "road_reference" to "R464", "state" to "Munster")
     val expected = """
         |Shelbourne Road
         |Farranshone
@@ -96,7 +108,11 @@ public class IE {
   @Test
   public fun no_Electoral_Division_() {
     // description: no "Electoral Division"
-    val components = mapOf("city_district" to "Clifden Electoral Division", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Galway", "county_code" to "G", "guest_house" to "Connemara Country Lodge", "region" to "Conamara Municipal District", "road" to "N59", "state" to "Connacht", "state_code" to "C", "town" to "Clifden")
+    val components = mapOf("city_district" to "Clifden Electoral Division", "continent" to "Europe",
+        "country" to "Ireland", "country_code" to "ie", "county" to "County Galway",
+        "county_code" to "G", "guest_house" to "Connemara Country Lodge",
+        "region" to "Conamara Municipal District", "road" to "N59", "state" to "Connacht",
+        "state_code" to "C", "town" to "Clifden")
     val expected = """
         |Connemara Country Lodge
         |N59
@@ -111,7 +127,10 @@ public class IE {
   @Test
   public fun format_Eircode_correctly_no_spaces_() {
     // description: format Eircode correctly (no spaces)
-    val components = mapOf("building" to "G", "city_district" to "Maynooth ED", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23P466", "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road")
+    val components = mapOf("building" to "G", "city_district" to "Maynooth ED",
+        "continent" to "Europe", "country" to "Ireland", "country_code" to "ie",
+        "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23P466",
+        "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road")
     val expected = """
         |G
         |Ballygoran Road
@@ -127,7 +146,10 @@ public class IE {
   @Test
   public fun format_Eircode_correctly_dash_() {
     // description: format Eircode correctly (dash)
-    val components = mapOf("building" to "G", "city_district" to "Maynooth ED", "continent" to "Europe", "country" to "Ireland", "country_code" to "ie", "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23-P466", "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road")
+    val components = mapOf("building" to "G", "city_district" to "Maynooth ED",
+        "continent" to "Europe", "country" to "Ireland", "country_code" to "ie",
+        "county" to "County Kildare", "county_code" to "KE", "postcode" to "W23-P466",
+        "region" to "The Municipal District of Clane — Maynooth", "road" to "Ballygoran Road")
     val expected = """
         |G
         |Ballygoran Road

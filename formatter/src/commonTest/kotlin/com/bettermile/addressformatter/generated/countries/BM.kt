@@ -26,7 +26,9 @@ public class BM {
   @Test
   public fun Post_office_in_Flatt_s_32_31976_64_73605() {
     // description: Post office in Flatt's, 32.31976,-64.73605
-    val components = mapOf("country" to "Bermuda", "country_code" to "bm", "county" to "Devonshire", "house_number" to "65", "post_office" to "Flatt's Post Office", "postcode" to "FL 04", "road" to "Middle Road")
+    val components = mapOf("country" to "Bermuda", "country_code" to "bm", "county" to "Devonshire",
+        "house_number" to "65", "post_office" to "Flatt's Post Office", "postcode" to "FL 04",
+        "road" to "Middle Road")
     val expected = """
         |Flatt's Post Office
         |65 Middle Road

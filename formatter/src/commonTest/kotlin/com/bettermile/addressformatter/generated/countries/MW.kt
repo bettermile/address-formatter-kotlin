@@ -26,7 +26,9 @@ public class MW {
   @Test
   public fun building_in_Lilongwe_13_97910_33_76927() {
     // description: building in Lilongwe, -13.97910,33.76927
-    val components = mapOf("building" to "Mpatsa House", "city" to "Lilongwe", "country" to "Malawi", "country_code" to "mw", "residential" to "Chilambula", "road" to "Paul Kagame Road", "state" to "Central")
+    val components = mapOf("building" to "Mpatsa House", "city" to "Lilongwe",
+        "country" to "Malawi", "country_code" to "mw", "residential" to "Chilambula",
+        "road" to "Paul Kagame Road", "state" to "Central")
     val expected = """
         |Mpatsa House
         |Paul Kagame Road

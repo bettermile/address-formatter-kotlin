@@ -26,7 +26,9 @@ public class XX {
   @Test
   public fun generic_format() {
     // description: generic format
-    val components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX", "county" to "County", "house_number" to "123", "postcode" to "PCPCPC", "road" to "Main Street", "state" to "State", "suburb" to "The Hood")
+    val components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX",
+        "county" to "County", "house_number" to "123", "postcode" to "PCPCPC",
+        "road" to "Main Street", "state" to "State", "suburb" to "The Hood")
     val expected = """
         |Main Street 123
         |PCPCPC City
@@ -39,7 +41,8 @@ public class XX {
   @Test
   public fun generic_fallback() {
     // description: generic fallback
-    val components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX", "state" to "State")
+    val components = mapOf("city" to "City", "country" to "Null Island", "country_code" to "XX",
+        "state" to "State")
     val expected = """
         |City
         |State

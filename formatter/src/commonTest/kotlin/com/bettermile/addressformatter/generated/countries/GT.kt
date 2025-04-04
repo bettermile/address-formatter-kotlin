@@ -26,7 +26,10 @@ public class GT {
   @Test
   public fun Bank_in_Guatemala_City_14_63133_90_51752() {
     // description: Bank in Guatemala City, 14.63133,-90.51752
-    val components = mapOf("bank" to "Banco Reformador", "city" to "Guatemala City", "country" to "Guatemala", "country_code" to "gt", "county" to "Guatemala City", "house_number" to "18 calle 3-70 Zona 1", "postcode" to "01004", "road" to "Transmetro Eje Sur", "state" to "Guatemala", "suburb" to "Zona 1")
+    val components = mapOf("bank" to "Banco Reformador", "city" to "Guatemala City",
+        "country" to "Guatemala", "country_code" to "gt", "county" to "Guatemala City",
+        "house_number" to "18 calle 3-70 Zona 1", "postcode" to "01004",
+        "road" to "Transmetro Eje Sur", "state" to "Guatemala", "suburb" to "Zona 1")
     val expected = """
         |Banco Reformador
         |Transmetro Eje Sur 18 calle 3-70 Zona 1

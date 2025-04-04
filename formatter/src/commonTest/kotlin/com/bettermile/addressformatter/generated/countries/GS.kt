@@ -26,7 +26,9 @@ public class GS {
   @Test
   public fun Museum_in_Grytviken_54_28012_36_50793() {
     // description: Museum in Grytviken, -54.28012,-36.50793
-    val components = mapOf("country" to "South Georgia and the South Sandwich Islands", "country_code" to "gs", "hamlet" to "Grytviken", "museum" to "South Georgia Museum", "state" to "South Georgia")
+    val components = mapOf("country" to "South Georgia and the South Sandwich Islands",
+        "country_code" to "gs", "hamlet" to "Grytviken", "museum" to "South Georgia Museum",
+        "state" to "South Georgia")
     val expected = """
         |South Georgia Museum
         |Grytviken

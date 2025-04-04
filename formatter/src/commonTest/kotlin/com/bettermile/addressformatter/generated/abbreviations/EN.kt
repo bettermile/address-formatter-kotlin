@@ -26,7 +26,9 @@ public class EN {
   @Test
   public fun Augusta_Lane() {
     // description: Augusta Lane
-    val components = mapOf("city" to "Pueblo", "country_code" to "us", "house_number" to "123", "postcode" to "81001", "road" to "Augusta Lane", "state" to "Colorado", "state_code" to "CO")
+    val components = mapOf("city" to "Pueblo", "country_code" to "us", "house_number" to "123",
+        "postcode" to "81001", "road" to "Augusta Lane", "state" to "Colorado",
+        "state_code" to "CO")
     val expected = """
         |123 Augusta Ln
         |Pueblo, CO 81001

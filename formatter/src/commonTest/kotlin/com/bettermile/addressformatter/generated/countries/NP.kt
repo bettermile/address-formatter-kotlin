@@ -26,7 +26,11 @@ public class NP {
   @Test
   public fun mall_in_Kathmandu_27_69410_85_31334() {
     // description: mall in Kathmandu, 27.69410,85.31334
-    val components = mapOf("city" to "Kathmandu", "country" to "Nepal", "country_code" to "np", "county" to "Kathmandu", "mall" to "United World Trade Centre", "neighbourhood" to "Hyumat", "postcode" to "2243", "road" to "Tripureshwor Marg", "state" to "Central Development Region", "state_district" to "Bagmati", "suburb" to "Kuleshwor")
+    val components = mapOf("city" to "Kathmandu", "country" to "Nepal", "country_code" to "np",
+        "county" to "Kathmandu", "mall" to "United World Trade Centre", "neighbourhood" to "Hyumat",
+        "postcode" to "2243", "road" to "Tripureshwor Marg",
+        "state" to "Central Development Region", "state_district" to "Bagmati",
+        "suburb" to "Kuleshwor")
     val expected = """
         |United World Trade Centre
         |Tripureshwor Marg

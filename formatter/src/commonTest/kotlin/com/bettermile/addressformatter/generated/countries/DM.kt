@@ -26,7 +26,9 @@ public class DM {
   @Test
   public fun Post_office_in_Roseau_15_29811_61_38928() {
     // description: Post office in Roseau, 15.29811,-61.38928
-    val components = mapOf("country" to "Dominica", "country_code" to "dm", "post_office" to "General Post Office", "postcode" to "00109-800", "road" to "Drury Lane", "state" to "Saint George Parish", "suburb" to "Potters Ville", "town" to "Roseau")
+    val components = mapOf("country" to "Dominica", "country_code" to "dm",
+        "post_office" to "General Post Office", "postcode" to "00109-800", "road" to "Drury Lane",
+        "state" to "Saint George Parish", "suburb" to "Potters Ville", "town" to "Roseau")
     val expected = """
         |General Post Office
         |Drury Lane

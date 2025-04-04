@@ -26,7 +26,9 @@ public class ER {
   @Test
   public fun Court_in_Asmara_15_33621_38_94195() {
     // description: Court in Asmara, 15.33621,38.94195
-    val components = mapOf("city" to "Asmara", "country" to "Eritrea", "country_code" to "er", "courthouse" to "High Court of Eritrea", "postcode" to "1004", "road" to "Harnet Avenue", "state" to "Maekel Region")
+    val components = mapOf("city" to "Asmara", "country" to "Eritrea", "country_code" to "er",
+        "courthouse" to "High Court of Eritrea", "postcode" to "1004", "road" to "Harnet Avenue",
+        "state" to "Maekel Region")
     val expected = """
         |High Court of Eritrea
         |Harnet Avenue

@@ -26,7 +26,9 @@ public class ZW {
   @Test
   public fun Embassy_in_Harare_17_82107_31_04553() {
     // description: Embassy in Harare, -17.82107,31.04553
-    val components = mapOf("building" to "Russian Embassy", "city" to "Harare", "country" to "Zimbabwe", "country_code" to "zw", "postcode" to "00263", "road" to "Colquhoun Street", "state" to "Harare Province", "suburb" to "Avondale West")
+    val components = mapOf("building" to "Russian Embassy", "city" to "Harare",
+        "country" to "Zimbabwe", "country_code" to "zw", "postcode" to "00263",
+        "road" to "Colquhoun Street", "state" to "Harare Province", "suburb" to "Avondale West")
     val expected = """
         |Russian Embassy
         |Colquhoun Street

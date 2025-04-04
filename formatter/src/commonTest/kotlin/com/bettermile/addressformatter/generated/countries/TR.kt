@@ -26,7 +26,10 @@ public class TR {
   @Test
   public fun hotel_in_Istanbul() {
     // description: hotel in Istanbul
-    val components = mapOf("country" to "Turkey", "country_code" to "tr", "county" to "Beşiktaş", "house" to "Swissotel Bosphorus", "house_number" to "2", "postcode" to "34357", "road" to "Bayıldım Caddesi", "state" to "Istanbul", "suburb" to "Vişnezade", "town" to "Beşiktaş")
+    val components = mapOf("country" to "Turkey", "country_code" to "tr", "county" to "Beşiktaş",
+        "house" to "Swissotel Bosphorus", "house_number" to "2", "postcode" to "34357",
+        "road" to "Bayıldım Caddesi", "state" to "Istanbul", "suburb" to "Vişnezade",
+        "town" to "Beşiktaş")
     val expected = """
         |Swissotel Bosphorus
         |Bayıldım Caddesi 2

@@ -26,7 +26,9 @@ public class KZ {
   @Test
   public fun `null`() {
     // description: null
-    val components = mapOf("city" to "Astana", "country" to "Kazakhstan", "country_code" to "KZ", "county" to "район Сарыарка", "name" to "Хива", "house_number" to "24", "postcode" to "010000", "road" to "улица Конституции", "state" to "Astana")
+    val components = mapOf("city" to "Astana", "country" to "Kazakhstan", "country_code" to "KZ",
+        "county" to "район Сарыарка", "name" to "Хива", "house_number" to "24",
+        "postcode" to "010000", "road" to "улица Конституции", "state" to "Astana")
     val expected = """
         |Kazakhstan
         |Astana

@@ -26,7 +26,9 @@ public class ZM {
   @Test
   public fun Post_Office_in_Lusaka_15_41667_28_28225() {
     // description: Post Office in Lusaka, -15.41667,28.28225
-    val components = mapOf("city" to "Lusaka", "country" to "Zambia", "country_code" to "zm", "post_office" to "Central Post Office", "postcode" to "34681", "road" to "Church Road", "state" to "Lusaka Province", "suburb" to "Luneta")
+    val components = mapOf("city" to "Lusaka", "country" to "Zambia", "country_code" to "zm",
+        "post_office" to "Central Post Office", "postcode" to "34681", "road" to "Church Road",
+        "state" to "Lusaka Province", "suburb" to "Luneta")
     val expected = """
         |Central Post Office
         |Church Road

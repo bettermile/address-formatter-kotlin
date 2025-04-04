@@ -26,7 +26,10 @@ public class CG {
   @Test
   public fun Embassy_in_Brazzaville_4_26708_15_27797() {
     // description: Embassy in Brazzaville, -4.26708,15.27797
-    val components = mapOf("embassy" to "South Africa (Embassy)", "city" to "Brazzaville", "country" to "Congo-Brazzaville", "country_code" to "cg", "neighbourhood" to "Plateau des 15 ans", "road" to "rue de Maya-maya", "state" to "Brazzaville", "suburb" to "Poto-Poto")
+    val components = mapOf("embassy" to "South Africa (Embassy)", "city" to "Brazzaville",
+        "country" to "Congo-Brazzaville", "country_code" to "cg",
+        "neighbourhood" to "Plateau des 15 ans", "road" to "rue de Maya-maya",
+        "state" to "Brazzaville", "suburb" to "Poto-Poto")
     val expected = """
         |South Africa (Embassy)
         |rue de Maya-maya

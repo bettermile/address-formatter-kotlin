@@ -26,7 +26,9 @@ public class ET {
   @Test
   public fun Hotel_in_Swakopmund_22_67877_14_52302() {
     // description: Hotel in Swakopmund, -22.67877,14.52302
-    val components = mapOf("city" to "Addis Abeba", "country" to "Ethiopia", "country_code" to "et", "library" to "National Library & Archives", "postcode" to "3001", "road" to "Yared Street", "state" to "Addis Ababa", "suburb" to "Beherawi")
+    val components = mapOf("city" to "Addis Abeba", "country" to "Ethiopia", "country_code" to "et",
+        "library" to "National Library & Archives", "postcode" to "3001", "road" to "Yared Street",
+        "state" to "Addis Ababa", "suburb" to "Beherawi")
     val expected = """
         |National Library & Archives
         |Yared Street

@@ -26,7 +26,8 @@ public class NR {
   @Test
   public fun Parliment_building_in_Yaren_0_54741_166_91734() {
     // description: Parliment building in Yaren, -0.54741,166.91734
-    val components = mapOf("country" to "Nauru", "country_code" to "nr", "public_building" to "Parliament", "road" to "Island Ring Road", "village" to "Yaren")
+    val components = mapOf("country" to "Nauru", "country_code" to "nr",
+        "public_building" to "Parliament", "road" to "Island Ring Road", "village" to "Yaren")
     val expected = """
         |Parliament
         |Island Ring Road

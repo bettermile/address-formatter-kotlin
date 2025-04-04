@@ -26,7 +26,10 @@ public class HK {
   @Test
   public fun Cinema_in_HK_22_29987_114_17933() {
     // description: Cinema in HK, 22.29987,114.17933
-    val components = mapOf("cinema" to "Chinachem Golden Plaza Cinema", "country" to "Hong Kong", "country_code" to "hk", "county" to "Yau Tsim Mong District", "road" to "Science Museum Road", "state" to "Hong Kong", "state_district" to "Kowloon", "suburb" to "Tsim Sha Tsui")
+    val components = mapOf("cinema" to "Chinachem Golden Plaza Cinema", "country" to "Hong Kong",
+        "country_code" to "hk", "county" to "Yau Tsim Mong District",
+        "road" to "Science Museum Road", "state" to "Hong Kong", "state_district" to "Kowloon",
+        "suburb" to "Tsim Sha Tsui")
     val expected = """
         |Chinachem Golden Plaza Cinema
         |Science Museum Road
@@ -40,7 +43,8 @@ public class HK {
   @Test
   public fun just_city_no_state() {
     // description: just city, no state
-    val components = mapOf("city" to "Hong Kong", "country" to "Hong Kong", "country_code" to "hk", "road" to "211 Test Street")
+    val components = mapOf("city" to "Hong Kong", "country" to "Hong Kong", "country_code" to "hk",
+        "road" to "211 Test Street")
     val expected = """
         |211 Test Street
         |Hong Kong

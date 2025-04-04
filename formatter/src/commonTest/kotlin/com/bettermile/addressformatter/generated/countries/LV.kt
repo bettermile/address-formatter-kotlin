@@ -26,7 +26,9 @@ public class LV {
   @Test
   public fun Riga_street_address_56_95095_24_13474() {
     // description: Riga street address - 56.95095,24.13474
-    val components = mapOf("city" to "Riga", "country" to "Latvia", "country_code" to "lv", "county" to "Rīga", "house_number" to "81", "postcode" to "LV-1009", "road" to "Ģertrūdes iela", "state" to "Vidzeme", "suburb" to "Avoti")
+    val components = mapOf("city" to "Riga", "country" to "Latvia", "country_code" to "lv",
+        "county" to "Rīga", "house_number" to "81", "postcode" to "LV-1009",
+        "road" to "Ģertrūdes iela", "state" to "Vidzeme", "suburb" to "Avoti")
     val expected = """
         |Ģertrūdes iela 81
         |Riga, LV-1009

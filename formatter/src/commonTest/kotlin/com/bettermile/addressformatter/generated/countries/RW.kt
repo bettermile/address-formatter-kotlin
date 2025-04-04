@@ -26,7 +26,10 @@ public class RW {
   @Test
   public fun Energy_office_in_Kigali_1_94421_30_05806() {
     // description: Energy office in Kigali, -1.94421,30.05806
-    val components = mapOf("building" to "Energy Water and Sanitation Authority head office", "city" to "Kigali", "country" to "Rwanda", "country_code" to "rw", "county" to "Nyarugenge", "postcode" to "5011 Kigali-Rwanda", "road" to "KN 82 Street", "state" to "Kigali City", "suburb" to "Nyarugenge")
+    val components = mapOf("building" to "Energy Water and Sanitation Authority head office",
+        "city" to "Kigali", "country" to "Rwanda", "country_code" to "rw", "county" to "Nyarugenge",
+        "postcode" to "5011 Kigali-Rwanda", "road" to "KN 82 Street", "state" to "Kigali City",
+        "suburb" to "Nyarugenge")
     val expected = """
         |Energy Water and Sanitation Authority head office
         |KN 82 Street

@@ -26,7 +26,9 @@ public class VU {
   @Test
   public fun Hotel_in_Port_Vila_17_73112_168_31218() {
     // description: Hotel in Port Vila, -17.73112,168.31218
-    val components = mapOf("city" to "Port Vila", "country" to "Vanuatu", "country_code" to "vu", "guest_house" to "Room with a view", "road" to "Rue de Paris Street", "state" to "Shefa Province")
+    val components = mapOf("city" to "Port Vila", "country" to "Vanuatu", "country_code" to "vu",
+        "guest_house" to "Room with a view", "road" to "Rue de Paris Street",
+        "state" to "Shefa Province")
     val expected = """
         |Room with a view
         |Rue de Paris Street

@@ -26,7 +26,9 @@ public class NG {
   @Test
   public fun Hotel_in_Lagos_22_67877_14_52302() {
     // description: Hotel in Lagos, -22.67877,14.52302
-    val components = mapOf("building" to "Maro Polo Hotel", "country" to "Nigeria", "country_code" to "ng", "county" to "Eti Osa", "road" to "Yeni Crescent", "state" to "Lagos", "village" to "Maiyegun")
+    val components = mapOf("building" to "Maro Polo Hotel", "country" to "Nigeria",
+        "country_code" to "ng", "county" to "Eti Osa", "road" to "Yeni Crescent",
+        "state" to "Lagos", "village" to "Maiyegun")
     val expected = """
         |Maro Polo Hotel
         |Yeni Crescent

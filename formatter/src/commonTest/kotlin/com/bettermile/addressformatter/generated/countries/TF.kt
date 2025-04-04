@@ -26,7 +26,9 @@ public class TF {
   @Test
   public fun Island_in_south_Indian_Ocean_46_43266_51_85775() {
     // description: Island in south Indian Ocean, -46.43266,51.85775
-    val components = mapOf("country" to "France", "country_code" to "tf", "hospital" to "Hôpital", "road" to "Route de la Plage", "state" to "French Southern and Antarctic Lands", "village" to "Base Alfred Faure")
+    val components = mapOf("country" to "France", "country_code" to "tf", "hospital" to "Hôpital",
+        "road" to "Route de la Plage", "state" to "French Southern and Antarctic Lands",
+        "village" to "Base Alfred Faure")
     val expected = """
         |Hôpital
         |Route de la Plage

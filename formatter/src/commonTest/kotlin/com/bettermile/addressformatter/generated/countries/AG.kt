@@ -26,7 +26,9 @@ public class AG {
   @Test
   public fun Bank_in_St_John_s_17_12150_61_84405() {
     // description: Bank in St. John's, 17.12150,-61.84405
-    val components = mapOf("bank" to "Scotiabank", "country" to "Antigua and Barbuda", "country_code" to "ag", "postcode" to "Anu", "road" to "High Street", "town" to "St. John's")
+    val components = mapOf("bank" to "Scotiabank", "country" to "Antigua and Barbuda",
+        "country_code" to "ag", "postcode" to "Anu", "road" to "High Street",
+        "town" to "St. John's")
     val expected = """
         |Scotiabank
         |High Street

@@ -26,7 +26,10 @@ public class ML {
   @Test
   public fun Embassy_in_Bamako_12_64230_7_97833() {
     // description: Embassy in Bamako, 12.64230,-7.97833
-    val components = mapOf("building" to "Ambassade de Russie", "city" to "Bamako", "country" to "Mali", "country_code" to "ml", "county" to "Bamako District", "postcode" to "E4373", "road" to "Rue 415", "state" to "Bamako District", "suburb" to "Niaréla")
+    val components = mapOf("building" to "Ambassade de Russie", "city" to "Bamako",
+        "country" to "Mali", "country_code" to "ml", "county" to "Bamako District",
+        "postcode" to "E4373", "road" to "Rue 415", "state" to "Bamako District",
+        "suburb" to "Niaréla")
     val expected = """
         |Ambassade de Russie
         |Rue 415

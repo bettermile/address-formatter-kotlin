@@ -26,7 +26,8 @@ public class CK {
   @Test
   public fun Hospital_in_north_of_Rarotonga_21_2042_159_7654() {
     // description: Hospital in north of Rarotonga, -21.2042,-159.7654
-    val components = mapOf("city" to "Te-Au-O-Tonga", "country" to "Cook Islands", "country_code" to "ck", "hospital" to "Old Hospital", "road" to "Ara Tapu")
+    val components = mapOf("city" to "Te-Au-O-Tonga", "country" to "Cook Islands",
+        "country_code" to "ck", "hospital" to "Old Hospital", "road" to "Ara Tapu")
     val expected = """
         |Old Hospital
         |Ara Tapu

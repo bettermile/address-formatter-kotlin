@@ -26,7 +26,8 @@ public class BS {
   @Test
   public fun Court_in_Nassau_25_07705_77_34052() {
     // description: Court in Nassau, 25.07705,-77.34052
-    val components = mapOf("city" to "Nassau", "country" to "The Bahamas", "country_code" to "bs", "county" to "New Providence", "courthouse" to "Supreme Court", "road" to "Bank Lane")
+    val components = mapOf("city" to "Nassau", "country" to "The Bahamas", "country_code" to "bs",
+        "county" to "New Providence", "courthouse" to "Supreme Court", "road" to "Bank Lane")
     val expected = """
         |Supreme Court
         |Bank Lane

@@ -26,7 +26,9 @@ public class AI {
   @Test
   public fun building_in_The_Valley_18_21032_63_05322() {
     // description: building in The Valley, 18.21032,-63.05322
-    val components = mapOf("building" to "Department Of Lands And Surveys", "country" to "Anguilla", "country_code" to "ai", "postcode" to "AI-2640", "road" to "The Valley Road", "town" to "The Valley")
+    val components = mapOf("building" to "Department Of Lands And Surveys", "country" to "Anguilla",
+        "country_code" to "ai", "postcode" to "AI-2640", "road" to "The Valley Road",
+        "town" to "The Valley")
     val expected = """
         |Department Of Lands And Surveys
         |The Valley Road

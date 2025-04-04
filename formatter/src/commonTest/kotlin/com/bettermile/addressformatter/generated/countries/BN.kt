@@ -26,7 +26,9 @@ public class BN {
   @Test
   public fun Hotel_in_Bandar_Seri_Begawan_4_90720_114_91566() {
     // description: Hotel in Bandar Seri Begawan, 4.90720,114.91566
-    val components = mapOf("building" to "Gadong Centrepoint", "city" to "Bandar Seri Begawan", "country" to "Brunei", "country_code" to "bn", "county" to "Brunei-Muara", "postcode" to "BE4119", "road" to "Simpang 137")
+    val components = mapOf("building" to "Gadong Centrepoint", "city" to "Bandar Seri Begawan",
+        "country" to "Brunei", "country_code" to "bn", "county" to "Brunei-Muara",
+        "postcode" to "BE4119", "road" to "Simpang 137")
     val expected = """
         |Gadong Centrepoint
         |Simpang 137

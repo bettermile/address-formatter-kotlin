@@ -26,7 +26,11 @@ public class MA {
   @Test
   public fun Jemaa_el_Fnaa() {
     // description: Jemaa el-Fnaa
-    val components = mapOf("city" to "Marrakesh", "city_district" to "Marrakech-Medina", "country" to "Morocco", "country_code" to "MA", "county" to "Province Marrakech", "neighbourhood" to "Quartier des tanneurs", "road" to "Rue El Adala", "state" to "Marrakech-Tensift-El Haouz", "suburb" to "Bab Doukkala", "townhall" to "Hotel de Ville")
+    val components = mapOf("city" to "Marrakesh", "city_district" to "Marrakech-Medina",
+        "country" to "Morocco", "country_code" to "MA", "county" to "Province Marrakech",
+        "neighbourhood" to "Quartier des tanneurs", "road" to "Rue El Adala",
+        "state" to "Marrakech-Tensift-El Haouz", "suburb" to "Bab Doukkala",
+        "townhall" to "Hotel de Ville")
     val expected = """
         |Hotel de Ville
         |Rue El Adala

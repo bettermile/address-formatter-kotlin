@@ -26,7 +26,10 @@ public class VG {
   @Test
   public fun Govt_building_in_Road_Town_18_42132_64_61601() {
     // description: Govt building in Road Town, 18.42132,-64.61601
-    val components = mapOf("building" to "Government of the BVI", "country" to "British Virgin Islands", "country_code" to "vg", "house_number" to "33", "island" to "Tortola", "postcode" to "VG1110", "road" to "Admin Drive", "town" to "Road Town")
+    val components = mapOf("building" to "Government of the BVI",
+        "country" to "British Virgin Islands", "country_code" to "vg", "house_number" to "33",
+        "island" to "Tortola", "postcode" to "VG1110", "road" to "Admin Drive",
+        "town" to "Road Town")
     val expected = """
         |Government of the BVI
         |33 Admin Drive

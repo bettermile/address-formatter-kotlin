@@ -26,7 +26,8 @@ public class PW {
   @Test
   public fun Courthouse_in_Koror_7_34122_134_47003() {
     // description: Courthouse in Koror, 7.34122,134.47003
-    val components = mapOf("country" to "Palau", "country_code" to "pw", "courthouse" to "Palau Supreme Court", "road" to "Main Street", "town" to "Koror")
+    val components = mapOf("country" to "Palau", "country_code" to "pw",
+        "courthouse" to "Palau Supreme Court", "road" to "Main Street", "town" to "Koror")
     val expected = """
         |Palau Supreme Court
         |Main Street

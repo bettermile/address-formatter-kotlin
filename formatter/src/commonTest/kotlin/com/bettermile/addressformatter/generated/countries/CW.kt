@@ -26,7 +26,9 @@ public class CW {
   @Test
   public fun Address_in_Willemstad_12_11148_68_94561() {
     // description: Address in Willemstad, 12.11148,-68.94561
-    val components = mapOf("country" to "Curaçao", "country_code" to "cw", "house_number" to "14", "neighbourhood" to "Colon", "postcode" to "0000NA", "road" to "Jan Erasmusstraat", "state" to "Curaçao", "suburb" to "Seru Domi", "town" to "Willemstad")
+    val components = mapOf("country" to "Curaçao", "country_code" to "cw", "house_number" to "14",
+        "neighbourhood" to "Colon", "postcode" to "0000NA", "road" to "Jan Erasmusstraat",
+        "state" to "Curaçao", "suburb" to "Seru Domi", "town" to "Willemstad")
     val expected = """
         |Jan Erasmusstraat 14
         |Willemstad

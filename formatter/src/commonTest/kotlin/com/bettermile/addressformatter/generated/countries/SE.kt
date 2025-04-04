@@ -26,7 +26,10 @@ public class SE {
   @Test
   public fun Hotel_in_G_teborg_57_70012_11_96993() {
     // description: Hotel in Göteborg, 57.70012,11.96993
-    val components = mapOf("city" to "Gothenburg", "city_district" to "Centrum", "country" to "Sweden", "country_code" to "se", "county" to "Göteborgs och Bohus län", "hotel" to "Poseidon", "house_number" to "33", "postcode" to "41134", "road" to "Storgatan", "state" to "Västra Götalands län", "suburb" to "Vasastaden")
+    val components = mapOf("city" to "Gothenburg", "city_district" to "Centrum",
+        "country" to "Sweden", "country_code" to "se", "county" to "Göteborgs och Bohus län",
+        "hotel" to "Poseidon", "house_number" to "33", "postcode" to "41134", "road" to "Storgatan",
+        "state" to "Västra Götalands län", "suburb" to "Vasastaden")
     val expected = """
         |Poseidon
         |Storgatan 33
@@ -40,7 +43,10 @@ public class SE {
   @Test
   public fun Thai_House() {
     // description: Thai House
-    val components = mapOf("cafe" to "Restaurang Thai House", "country" to "Sweden", "country_code" to "se", "county" to "Stockholms län", "house_number" to "7", "postcode" to "194 61", "road" to "Kanalvägen", "state" to "Stockholms län", "suburb" to "Infra City", "town" to "Upplands Väsby")
+    val components = mapOf("cafe" to "Restaurang Thai House", "country" to "Sweden",
+        "country_code" to "se", "county" to "Stockholms län", "house_number" to "7",
+        "postcode" to "194 61", "road" to "Kanalvägen", "state" to "Stockholms län",
+        "suburb" to "Infra City", "town" to "Upplands Väsby")
     val expected = """
         |Restaurang Thai House
         |Kanalvägen 7

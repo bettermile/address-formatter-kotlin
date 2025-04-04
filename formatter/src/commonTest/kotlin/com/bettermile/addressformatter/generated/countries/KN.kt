@@ -26,7 +26,9 @@ public class KN {
   @Test
   public fun Restaurant_in_Basseterre_17_29535_62_72366() {
     // description: Restaurant in Basseterre, 17.29535,-62.72366
-    val components = mapOf("country" to "Saint Kitts and Nevis", "country_code" to "kn", "province" to "Saint Kitts", "restaurant" to "Ballahoo Restaurant", "road" to "Fort Street", "town" to "Basseterre")
+    val components = mapOf("country" to "Saint Kitts and Nevis", "country_code" to "kn",
+        "province" to "Saint Kitts", "restaurant" to "Ballahoo Restaurant", "road" to "Fort Street",
+        "town" to "Basseterre")
     val expected = """
         |Ballahoo Restaurant
         |Fort Street

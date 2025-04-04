@@ -26,7 +26,8 @@ public class GM {
   @Test
   public fun Library_in_Banjul_13_45956_16_58501() {
     // description: Library in Banjul, 13.45956,-16.58501
-    val components = mapOf("city" to "Banjul", "country" to "The Gambia", "country_code" to "gm", "library" to "Gambia National Library", "road" to "Reg Pye Lane", "state" to "Banjul")
+    val components = mapOf("city" to "Banjul", "country" to "The Gambia", "country_code" to "gm",
+        "library" to "Gambia National Library", "road" to "Reg Pye Lane", "state" to "Banjul")
     val expected = """
         |Gambia National Library
         |Reg Pye Lane

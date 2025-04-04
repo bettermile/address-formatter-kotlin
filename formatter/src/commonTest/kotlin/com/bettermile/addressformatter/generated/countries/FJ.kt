@@ -26,7 +26,9 @@ public class FJ {
   @Test
   public fun Library_in_Suva_18_14221_178_42309() {
     // description: Library in Suva, -18.14221,178.42309
-    val components = mapOf("city" to "Suva", "country" to "Fiji", "country_code" to "fj", "library" to "Suva City Library", "road" to "Victoria Parade", "state" to "Central", "suburb" to "The Domain")
+    val components = mapOf("city" to "Suva", "country" to "Fiji", "country_code" to "fj",
+        "library" to "Suva City Library", "road" to "Victoria Parade", "state" to "Central",
+        "suburb" to "The Domain")
     val expected = """
         |Suva City Library
         |Victoria Parade

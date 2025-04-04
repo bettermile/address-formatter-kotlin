@@ -26,7 +26,10 @@ public class AS {
   @Test
   public fun Building_in_Pago_Pago_14_28181_170_68354() {
     // description: Building in Pago Pago, -14.28181,-170.68354
-    val components = mapOf("building" to "Executive Office Building (American Samoa Government)", "country" to "American Samoa", "country_code" to "as", "county" to "Eastern District", "municipality" to "Maʻopūtasi County", "postcode" to "96799", "road" to "Route 118", "village" to "Utulei")
+    val components = mapOf("building" to "Executive Office Building (American Samoa Government)",
+        "country" to "American Samoa", "country_code" to "as", "county" to "Eastern District",
+        "municipality" to "Maʻopūtasi County", "postcode" to "96799", "road" to "Route 118",
+        "village" to "Utulei")
     val expected = """
         |Executive Office Building (American Samoa Government)
         |Route 118

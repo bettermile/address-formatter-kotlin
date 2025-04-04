@@ -26,7 +26,9 @@ public class LU {
   @Test
   public fun Building_in_Luxemburg_49_60484_6_12045() {
     // description: Building in Luxemburg, 49.60484,6.12045
-    val components = mapOf("address29" to "Comed", "city" to "Luxembourg", "country" to "Luxemburg", "country_code" to "lu", "county" to "Canton Luxembourg", "house_number" to "13", "postcode" to "2016", "road" to "Route d'Esch", "suburb" to "Hollerich")
+    val components = mapOf("address29" to "Comed", "city" to "Luxembourg", "country" to "Luxemburg",
+        "country_code" to "lu", "county" to "Canton Luxembourg", "house_number" to "13",
+        "postcode" to "2016", "road" to "Route d'Esch", "suburb" to "Hollerich")
     val expected = """
         |Comed
         |13 Route d'Esch

@@ -26,7 +26,10 @@ public class CU {
   @Test
   public fun Embassy_in_Havana_23_13763_82_38976() {
     // description: Embassy in Havana, 23.13763,-82.38976
-    val components = mapOf("building" to "Embajada de Hungría", "city" to "Havana", "country" to "Cuba", "country_code" to "cu", "county" to "Plaza de la Revolución", "neighbourhood" to "Barrio El Fanguito", "postcode" to "10400", "road" to "Calle 19", "state" to "Havana", "suburb" to "El Vedado")
+    val components = mapOf("building" to "Embajada de Hungría", "city" to "Havana",
+        "country" to "Cuba", "country_code" to "cu", "county" to "Plaza de la Revolución",
+        "neighbourhood" to "Barrio El Fanguito", "postcode" to "10400", "road" to "Calle 19",
+        "state" to "Havana", "suburb" to "El Vedado")
     val expected = """
         |Embajada de Hungría
         |Calle 19
@@ -40,7 +43,9 @@ public class CU {
   @Test
   public fun address_in_Havana_no_city_23_13895_82_36652() {
     // description: address in Havana / no city, 23.13895,-82.36652
-    val components = mapOf("country" to "Cuba", "country_code" to "cu", "county" to "Centro Habana", "house_number" to "209", "neighbourhood" to "Colón", "road" to "Perseverancia", "state" to "Havana")
+    val components = mapOf("country" to "Cuba", "country_code" to "cu", "county" to "Centro Habana",
+        "house_number" to "209", "neighbourhood" to "Colón", "road" to "Perseverancia",
+        "state" to "Havana")
     val expected = """
         |Perseverancia 209
         |Havana

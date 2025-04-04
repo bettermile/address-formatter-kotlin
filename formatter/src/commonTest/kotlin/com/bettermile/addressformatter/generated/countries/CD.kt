@@ -26,7 +26,10 @@ public class CD {
   @Test
   public fun Embassy_in_Kinshasa() {
     // description: Embassy in Kinshasa
-    val components = mapOf("building" to "Embassy of the Federal Republic of Germany", "country" to "Congo-Kinshasa", "country_code" to "cd", "house_number" to "82", "postcode" to "243", "road" to "Avenue du Roi Baudouin", "state" to "Kinshasa", "suburb" to "Royal", "town" to "Gombe")
+    val components = mapOf("building" to "Embassy of the Federal Republic of Germany",
+        "country" to "Congo-Kinshasa", "country_code" to "cd", "house_number" to "82",
+        "postcode" to "243", "road" to "Avenue du Roi Baudouin", "state" to "Kinshasa",
+        "suburb" to "Royal", "town" to "Gombe")
     val expected = """
         |Embassy of the Federal Republic of Germany
         |82, Avenue du Roi Baudouin

@@ -26,7 +26,10 @@ public class UG {
   @Test
   public fun Bank_in_Kampala_0_31220_32_58532() {
     // description: Bank in Kampala, 0.31220, 32.58532
-    val components = mapOf("building" to "Orient Plaza", "city" to "Kampala", "country" to "Uganda", "country_code" to "ug", "county" to "Kampala", "house_number" to "6/6A", "neighbourhood" to "Nakivubo", "postcode" to "7063", "road" to "Kampala Road", "state" to "Central Region", "suburb" to "Kibuli")
+    val components = mapOf("building" to "Orient Plaza", "city" to "Kampala", "country" to "Uganda",
+        "country_code" to "ug", "county" to "Kampala", "house_number" to "6/6A",
+        "neighbourhood" to "Nakivubo", "postcode" to "7063", "road" to "Kampala Road",
+        "state" to "Central Region", "suburb" to "Kibuli")
     val expected = """
         |Orient Plaza
         |6/6A Kampala Road
@@ -40,7 +43,8 @@ public class UG {
   @Test
   public fun subcounty() {
     // description: subcounty
-    val components = mapOf("country" to "Uganda", "country_code" to "ug", "state" to "Arua", "subcounty" to "Ayivuni")
+    val components = mapOf("country" to "Uganda", "country_code" to "ug", "state" to "Arua",
+        "subcounty" to "Ayivuni")
     val expected = """
         |Ayivuni
         |Arua

@@ -26,7 +26,9 @@ public class VN {
   @Test
   public fun bar_in_Nha_Trang() {
     // description: bar in Nha Trang
-    val components = mapOf("road" to "Tran Quang Khai", "city" to "Nha Trang", "country" to "Vietnam", "country_code" to "VN", "postcode" to "48058", "bar" to "Why Not Bar", "suburb" to "Tan Lap District", "state" to "Khanh Hoa province")
+    val components = mapOf("road" to "Tran Quang Khai", "city" to "Nha Trang",
+        "country" to "Vietnam", "country_code" to "VN", "postcode" to "48058",
+        "bar" to "Why Not Bar", "suburb" to "Tan Lap District", "state" to "Khanh Hoa province")
     val expected = """
         |Why Not Bar
         |Tran Quang Khai

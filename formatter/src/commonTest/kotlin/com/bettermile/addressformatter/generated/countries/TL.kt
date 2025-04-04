@@ -26,7 +26,9 @@ public class TL {
   @Test
   public fun Embassy_in_Dili_8_54990_125_56677() {
     // description: Embassy in Dili, -8.54990,125.56677
-    val components = mapOf("embassy" to "Embaixada do Brasil", "country" to "East Timor", "country_code" to "tl", "hamlet" to "Palapasot", "postcode" to "10", "road" to "Rua César Maria de Serpa Rosa", "state" to "Dili")
+    val components = mapOf("embassy" to "Embaixada do Brasil", "country" to "East Timor",
+        "country_code" to "tl", "hamlet" to "Palapasot", "postcode" to "10",
+        "road" to "Rua César Maria de Serpa Rosa", "state" to "Dili")
     val expected = """
         |Embaixada do Brasil
         |Rua César Maria de Serpa Rosa

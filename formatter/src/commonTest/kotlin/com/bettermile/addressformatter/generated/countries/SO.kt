@@ -26,7 +26,10 @@ public class SO {
   @Test
   public fun Hotel_in_Mogadishu_2_03459_45_34384() {
     // description: Hotel in Mogadishu, 2.03459,45.34384
-    val components = mapOf("building" to "Urubu Hotel", "city" to "Mogadishu", "city_district" to "Xamar Weyne", "country" to "Somalia", "country_code" to "so", "county" to "Mogadishu", "road" to "Port Road", "state" to "Banadir", "suburb" to "Xamar Weyne")
+    val components = mapOf("building" to "Urubu Hotel", "city" to "Mogadishu",
+        "city_district" to "Xamar Weyne", "country" to "Somalia", "country_code" to "so",
+        "county" to "Mogadishu", "road" to "Port Road", "state" to "Banadir",
+        "suburb" to "Xamar Weyne")
     val expected = """
         |Urubu Hotel
         |Port Road

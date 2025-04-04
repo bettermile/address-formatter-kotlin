@@ -26,7 +26,8 @@ public class IO {
   @Test
   public fun Road_on_Diego_Garcia_7_3153_72_4268() {
     // description: Road on Diego Garcia, -7.3153,72.4268
-    val components = mapOf("country" to "British Indian Ocean Territory", "country_code" to "io", "road" to "DG1", "village" to "Seabreeze Village")
+    val components = mapOf("country" to "British Indian Ocean Territory", "country_code" to "io",
+        "road" to "DG1", "village" to "Seabreeze Village")
     val expected = """
         |DG1
         |Seabreeze Village

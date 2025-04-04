@@ -26,7 +26,9 @@ public class JE {
   @Test
   public fun Building_in_Saing_Helier_49_18619_2_10716() {
     // description: Building in Saing Helier, 49.18619,-2.10716
-    val components = mapOf("country" to "Jersey", "country_code" to "je", "house_number" to "5", "postcode" to "JE2 4TN", "road" to "Le Geyt Street", "state" to "Jersey", "town" to "Saint Helier")
+    val components = mapOf("country" to "Jersey", "country_code" to "je", "house_number" to "5",
+        "postcode" to "JE2 4TN", "road" to "Le Geyt Street", "state" to "Jersey",
+        "town" to "Saint Helier")
     val expected = """
         |5 Le Geyt Street
         |Saint Helier

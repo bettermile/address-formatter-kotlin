@@ -26,7 +26,9 @@ public class MF {
   @Test
   public fun Post_office_in_Marigot_18_06671_63_08566() {
     // description: Post office in Marigot, 18.06671,-63.08566
-    val components = mapOf("country" to "Saint-Martin", "country_code" to "mf", "post_office" to "Bureau de Poste", "postcode" to "97150", "road" to "Rue de La Poste", "state" to "Saint-Martin", "suburb" to "Concordia", "town" to "Marigot")
+    val components = mapOf("country" to "Saint-Martin", "country_code" to "mf",
+        "post_office" to "Bureau de Poste", "postcode" to "97150", "road" to "Rue de La Poste",
+        "state" to "Saint-Martin", "suburb" to "Concordia", "town" to "Marigot")
     val expected = """
         |Bureau de Poste
         |Rue de La Poste

@@ -26,7 +26,8 @@ public class UM {
   @Test
   public fun Wake_Island_19_29337_166_64899() {
     // description: Wake Island, 19.29337,166.64899
-    val components = mapOf("country" to "United States Minor Outlying Islands", "country_code" to "um", "island" to "Wake Island")
+    val components = mapOf("country" to "United States Minor Outlying Islands",
+        "country_code" to "um", "island" to "Wake Island")
     val expected = """
         |Wake Island, US Minor Outlying Islands
         |United States of America

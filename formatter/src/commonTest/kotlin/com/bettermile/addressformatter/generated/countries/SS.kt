@@ -26,7 +26,9 @@ public class SS {
   @Test
   public fun Aid_Organisation_in_Juba_4_84927_31_59833() {
     // description: Aid Organisation in Juba, 4.84927,31.59833
-    val components = mapOf("address29" to "Diakonie Katastrophenhilfe", "city" to "Juba", "country" to "South Sudan", "country_code" to "ss", "road" to "Kokora Road", "state" to "Central Equatoria", "suburb" to "Governments Cantonment")
+    val components = mapOf("address29" to "Diakonie Katastrophenhilfe", "city" to "Juba",
+        "country" to "South Sudan", "country_code" to "ss", "road" to "Kokora Road",
+        "state" to "Central Equatoria", "suburb" to "Governments Cantonment")
     val expected = """
         |Diakonie Katastrophenhilfe
         |Kokora Road

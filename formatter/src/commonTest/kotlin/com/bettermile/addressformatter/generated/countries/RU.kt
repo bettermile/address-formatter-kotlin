@@ -26,7 +26,10 @@ public class RU {
   @Test
   public fun cafe_near_59_9313605_30_3175201() {
     // description: cafe near 59.9313605,30.3175201
-    val components = mapOf("cafe" to "Efes Istambul", "city" to "Сенной округ", "house_number" to "23", "postcode" to "190000", "road" to "Гороховая улица", "state" to "Санкт-Петербург", "state_district" to "Адмиралтейский район", "country" to "Российская Федерация", "country_code" to "ru")
+    val components = mapOf("cafe" to "Efes Istambul", "city" to "Сенной округ",
+        "house_number" to "23", "postcode" to "190000", "road" to "Гороховая улица",
+        "state" to "Санкт-Петербург", "state_district" to "Адмиралтейский район",
+        "country" to "Российская Федерация", "country_code" to "ru")
     val expected = """
         |Efes Istambul
         |Гороховая улица, 23
@@ -42,7 +45,9 @@ public class RU {
   @Test
   public fun village_55_8931701_63_7019487() {
     // description: village 55.8931701, 63.7019487
-    val components = mapOf("city" to "Батуринский сельсовет", "country" to "Россия", "country_code" to "ru", "county" to "Шадринский район", "hamlet" to "Камчатка", "state" to "Курганская область")
+    val components = mapOf("city" to "Батуринский сельсовет", "country" to "Россия",
+        "country_code" to "ru", "county" to "Шадринский район", "hamlet" to "Камчатка",
+        "state" to "Курганская область")
     val expected = """
         |Камчатка
         |Батуринский сельсовет
@@ -56,7 +61,9 @@ public class RU {
   @Test
   public fun use_island_name() {
     // description: use island name
-    val components = mapOf("city" to "Малиновараккское сельское поселение", "country" to "Россия", "country_code" to "ru", "county" to "Лоухский район", "island" to "Ярославль", "state" to "Республика Карелия")
+    val components = mapOf("city" to "Малиновараккское сельское поселение", "country" to "Россия",
+        "country_code" to "ru", "county" to "Лоухский район", "island" to "Ярославль",
+        "state" to "Республика Карелия")
     val expected = """
         |Ярославль
         |Малиновараккское сельское поселение

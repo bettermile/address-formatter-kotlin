@@ -26,7 +26,9 @@ public class SZ {
   @Test
   public fun Manzini_Club_26_4943_31_3894() {
     // description: Manzini Club, -26.4943,31.3894
-    val components = mapOf("country" to "Swaziland", "country_code" to "sz", "county" to "Inkhundla Manzini", "postcode" to "M100", "road" to "Kelly Street", "sports_centre" to "Manzini Club", "state" to "Sifundza seManzini", "town" to "Manzini")
+    val components = mapOf("country" to "Swaziland", "country_code" to "sz",
+        "county" to "Inkhundla Manzini", "postcode" to "M100", "road" to "Kelly Street",
+        "sports_centre" to "Manzini Club", "state" to "Sifundza seManzini", "town" to "Manzini")
     val expected = """
         |Manzini Club
         |Kelly Street

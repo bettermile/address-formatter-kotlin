@@ -26,7 +26,9 @@ public class WF {
   @Test
   public fun Building_in_Mata_utu() {
     // description: Building in Mata'utu
-    val components = mapOf("building" to "Palais royal d'Uvéa", "country" to "France, Wallis-et-Futuna (eaux territoriales)", "country_code" to "wf", "road" to "RT1", "state" to "Wallis and Futuna", "town" to "Mata'utu")
+    val components = mapOf("building" to "Palais royal d'Uvéa",
+        "country" to "France, Wallis-et-Futuna (eaux territoriales)", "country_code" to "wf",
+        "road" to "RT1", "state" to "Wallis and Futuna", "town" to "Mata'utu")
     val expected = """
         |Palais royal d'Uvéa
         |RT1

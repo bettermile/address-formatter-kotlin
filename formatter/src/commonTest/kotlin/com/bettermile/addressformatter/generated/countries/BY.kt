@@ -26,7 +26,10 @@ public class BY {
   @Test
   public fun National_Art_Museum_in_Minsk() {
     // description: National Art Museum in Minsk
-    val components = mapOf("city" to "Minsk", "city_district" to "Ленинский район", "country" to "Belarus", "country_code" to "BY", "house_number" to "20", "museum" to "Национальный художественный музей", "postcode" to "220030", "road" to "улица Ленина")
+    val components = mapOf("city" to "Minsk", "city_district" to "Ленинский район",
+        "country" to "Belarus", "country_code" to "BY", "house_number" to "20",
+        "museum" to "Национальный художественный музей", "postcode" to "220030",
+        "road" to "улица Ленина")
     val expected = """
         |Belarus
         |220030 Minsk

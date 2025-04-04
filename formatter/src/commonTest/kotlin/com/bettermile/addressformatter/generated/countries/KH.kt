@@ -26,7 +26,9 @@ public class KH {
   @Test
   public fun Hotel_in_Phnom_Penh_11_55983_104_93653() {
     // description: Hotel in Phnom Penh, 11.55983,104.93653
-    val components = mapOf("city" to "Phnom Penh", "country" to "Cambodia", "country_code" to "kh", "hotel" to "Cambodiana", "postcode" to "12301", "road" to "Preah Sisowath Quay", "state" to "Phnom Penh", "suburb" to "Daun Penh")
+    val components = mapOf("city" to "Phnom Penh", "country" to "Cambodia", "country_code" to "kh",
+        "hotel" to "Cambodiana", "postcode" to "12301", "road" to "Preah Sisowath Quay",
+        "state" to "Phnom Penh", "suburb" to "Daun Penh")
     val expected = """
         |Cambodiana
         |Preah Sisowath Quay

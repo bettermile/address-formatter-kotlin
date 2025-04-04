@@ -26,7 +26,10 @@ public class LT {
   @Test
   public fun Vilnius_street_address_54_66710_25_28669() {
     // description: Vilnius street address - 54.66710,25.28669
-    val components = mapOf("city" to "Vilnius", "country" to "Lithuania", "country_code" to "lt", "house_number" to "5", "postcode" to "02112", "road" to "Aduti\\u0161kio g.", "state" to "Vilnius County", "state_district" to "Vilniaus m. savivaldyb\\u0117", "suburb" to "Naujinink\\u0173 seni\\u016bnija")
+    val components = mapOf("city" to "Vilnius", "country" to "Lithuania", "country_code" to "lt",
+        "house_number" to "5", "postcode" to "02112", "road" to "Aduti\\u0161kio g.",
+        "state" to "Vilnius County", "state_district" to "Vilniaus m. savivaldyb\\u0117",
+        "suburb" to "Naujinink\\u0173 seni\\u016bnija")
     val expected = """
         |Aduti\u0161kio g. 5
         |02112 Vilnius

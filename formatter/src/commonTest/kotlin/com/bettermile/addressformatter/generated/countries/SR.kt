@@ -26,7 +26,9 @@ public class SR {
   @Test
   public fun School_in_Paramaribo_5_83041_55_18020() {
     // description: School in Paramaribo, 5.83041,-55.18020
-    val components = mapOf("city" to "Paramaribo", "country" to "Suriname", "country_code" to "sr", "county" to "Distrikt Paramaribo", "house_number" to "7", "postcode" to "597", "road" to "Simonsweg", "school" to "R.D. Simonsschool")
+    val components = mapOf("city" to "Paramaribo", "country" to "Suriname", "country_code" to "sr",
+        "county" to "Distrikt Paramaribo", "house_number" to "7", "postcode" to "597",
+        "road" to "Simonsweg", "school" to "R.D. Simonsschool")
     val expected = """
         |R.D. Simonsschool
         |Simonsweg 7

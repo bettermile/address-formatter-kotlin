@@ -26,7 +26,10 @@ public class US {
   @Test
   public fun house_number_in_California() {
     // description: house number in California
-    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "United States of America", "country_code" to "US")
+    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
+        "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
+        "county" to "Santa Clara County", "state" to "California",
+        "country" to "United States of America", "country_code" to "US")
     val expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -39,7 +42,10 @@ public class US {
   @Test
   public fun correct_USA_() {
     // description: correct "USA"
-    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "USA", "country_code" to "US")
+    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
+        "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
+        "county" to "Santa Clara County", "state" to "California", "country" to "USA",
+        "country_code" to "US")
     val expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -52,7 +58,10 @@ public class US {
   @Test
   public fun correct_United_States_() {
     // description: correct "United States"
-    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "United States", "country_code" to "US")
+    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
+        "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
+        "county" to "Santa Clara County", "state" to "California", "country" to "United States",
+        "country_code" to "US")
     val expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -65,7 +74,10 @@ public class US {
   @Test
   public fun correct_US_() {
     // description: correct "US"
-    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue", "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303", "county" to "Santa Clara County", "state" to "California", "country" to "US", "country_code" to "US")
+    val components = mapOf("house_number" to "301", "road" to "Hamilton Avenue",
+        "neighbourhood" to "Crescent Park", "city" to "Palo Alto", "postcode" to "94303",
+        "county" to "Santa Clara County", "state" to "California", "country" to "US",
+        "country_code" to "US")
     val expected = """
         |301 Hamilton Avenue
         |Palo Alto, CA 94303
@@ -78,7 +90,8 @@ public class US {
   @Test
   public fun town_in_CA() {
     // description: town in CA
-    val components = mapOf("city" to "Palo Alto", "country" to "United States of America", "country_code" to "US", "county" to "Santa Clara County", "state" to "California")
+    val components = mapOf("city" to "Palo Alto", "country" to "United States of America",
+        "country_code" to "US", "county" to "Santa Clara County", "state" to "California")
     val expected = """
         |Palo Alto, California
         |United States of America
@@ -90,7 +103,8 @@ public class US {
   @Test
   public fun NY_NY() {
     // description: NY, NY
-    val components = mapOf("city" to "New York", "country" to "United States of America", "country_code" to "US", "state" to "New York")
+    val components = mapOf("city" to "New York", "country" to "United States of America",
+        "country_code" to "US", "state" to "New York")
     val expected = """
         |New York, New York
         |United States of America
@@ -102,7 +116,10 @@ public class US {
   @Test
   public fun house_number_in_New_York_no_city() {
     // description: house number in New York, no city
-    val components = mapOf("house_number" to "175", "road" to "Varick Street", "neighbourhood" to "Greenwich Village", "postcode" to "10014", "county" to "New York County", "state_district" to "New York City", "state" to "New York", "country" to "United States of America", "country_code" to "US")
+    val components = mapOf("house_number" to "175", "road" to "Varick Street",
+        "neighbourhood" to "Greenwich Village", "postcode" to "10014",
+        "county" to "New York County", "state_district" to "New York City", "state" to "New York",
+        "country" to "United States of America", "country_code" to "US")
     val expected = """
         |175 Varick Street
         |New York City, NY 10014
@@ -115,7 +132,8 @@ public class US {
   @Test
   public fun state_code_for_Washington_D_C_() {
     // description: state code for Washington, D.C.
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "postcode" to "20500", "state" to "Washington, D.C.")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "postcode" to "20500", "state" to "Washington, D.C.")
     val expected = """
         |Washington, DC 20500
         |United States of America
@@ -127,7 +145,8 @@ public class US {
   @Test
   public fun state_code_for_Washington_DC() {
     // description: state code for Washington DC
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "postcode" to "20500", "state" to "Washington DC")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "postcode" to "20500", "state" to "Washington DC")
     val expected = """
         |Washington, DC 20500
         |United States of America
@@ -139,7 +158,9 @@ public class US {
   @Test
   public fun use_suburb_if_no_city() {
     // description: use suburb if no city
-    val components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County", "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue", "state" to "Florida", "state_code" to "FL", "suburb" to "Edgewater")
+    val components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County",
+        "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue",
+        "state" to "Florida", "state_code" to "FL", "suburb" to "Edgewater")
     val expected = """
         |928 Flagler Avenue
         |Edgewater, FL 32132
@@ -152,7 +173,10 @@ public class US {
   @Test
   public fun clean_up_Town_of_40_7805_73_4875() {
     // description: clean up "Town of " 40.7805,-73.4875
-    val components = mapOf("country" to "United States", "country_code" to "us", "county" to "Nassau County", "house_number" to "4", "municipality" to "Town of Oyster Bay", "postcode" to "11803", "road" to "Lakeville Lane", "state" to "New York", "state_code" to "NY")
+    val components = mapOf("country" to "United States", "country_code" to "us",
+        "county" to "Nassau County", "house_number" to "4", "municipality" to "Town of Oyster Bay",
+        "postcode" to "11803", "road" to "Lakeville Lane", "state" to "New York",
+        "state_code" to "NY")
     val expected = """
         |4 Lakeville Lane
         |Oyster Bay, NY 11803
@@ -165,7 +189,9 @@ public class US {
   @Test
   public fun use_county_if_no_city() {
     // description: use county if no city
-    val components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County", "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue", "state" to "Florida", "state_code" to "FL")
+    val components = mapOf("country" to "USA", "country_code" to "us", "county" to "Volusia County",
+        "house_number" to "928", "postcode" to "32132", "road" to "Flagler Avenue",
+        "state" to "Florida", "state_code" to "FL")
     val expected = """
         |928 Flagler Avenue
         |Volusia County, FL 32132
@@ -178,7 +204,8 @@ public class US {
   @Test
   public fun state_code_for_Washington_DC_2() {
     // description: state code for Washington DC
-    val components = mapOf("city" to "Washington", "country" to "United States of America", "country_code" to "us", "postcode" to "20500", "state" to "District of Columbia")
+    val components = mapOf("city" to "Washington", "country" to "United States of America",
+        "country_code" to "us", "postcode" to "20500", "state" to "District of Columbia")
     val expected = """
         |Washington, DC 20500
         |United States of America
@@ -190,7 +217,10 @@ public class US {
   @Test
   public fun Library_in_Charlotte_Amalie_18_34119_64_93546() {
     // description: Library in Charlotte Amalie, 18.34119,-64.93546
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives", "postcode" to "00803", "road" to "Dronningens Gade", "state" to "United States Virgin Islands", "town" to "Charlotte Amalie")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "county" to "St. Thomas Island", "library" to "Enid M Baa Library and Archives",
+        "postcode" to "00803", "road" to "Dronningens Gade",
+        "state" to "United States Virgin Islands", "town" to "Charlotte Amalie")
     val expected = """
         |Enid M Baa Library and Archives
         |Dronningens Gade
@@ -204,7 +234,8 @@ public class US {
   @Test
   public fun state_district() {
     // description: state_district
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "state" to "New York", "state_district" to "New York")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "state" to "New York", "state_district" to "New York")
     val expected = """
         |New York, New York
         |United States of America
@@ -216,7 +247,8 @@ public class US {
   @Test
   public fun just_state() {
     // description: just state
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "state" to "New York")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "state" to "New York")
     val expected = """
         |New York
         |United States of America
@@ -228,7 +260,9 @@ public class US {
   @Test
   public fun municipality() {
     // description: municipality
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "county" to "Saginaw County", "municipality" to "Taymouth Township", "state" to "Michigan", "village" to "Burt")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "county" to "Saginaw County", "municipality" to "Taymouth Township", "state" to "Michigan",
+        "village" to "Burt")
     val expected = """
         |Burt
         |Taymouth Township, Michigan
@@ -241,7 +275,9 @@ public class US {
   @Test
   public fun village() {
     // description: village
-    val components = mapOf("country" to "United States of America", "country_code" to "us", "county" to "Costilla County", "postcode" to "08113", "state" to "Colorado", "village" to "Fort Garland")
+    val components = mapOf("country" to "United States of America", "country_code" to "us",
+        "county" to "Costilla County", "postcode" to "08113", "state" to "Colorado",
+        "village" to "Fort Garland")
     val expected = """
         |Fort Garland
         |Costilla County, CO 08113
@@ -254,7 +290,9 @@ public class US {
   @Test
   public fun hamlet() {
     // description: hamlet
-    val components = mapOf("city" to "Homestead", "country" to "United States of America", "country_code" to "us", "county" to "Miami-Dade County", "hamlet" to "Homestead Trailer Park", "postcode" to "33030", "state" to "Florida")
+    val components = mapOf("city" to "Homestead", "country" to "United States of America",
+        "country_code" to "us", "county" to "Miami-Dade County",
+        "hamlet" to "Homestead Trailer Park", "postcode" to "33030", "state" to "Florida")
     val expected = """
         |Homestead Trailer Park
         |Homestead, FL 33030

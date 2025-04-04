@@ -26,7 +26,9 @@ public class AF {
   @Test
   public fun Government_building_in_Kandahar_31_6110_65_6963() {
     // description: Government building in Kandahar, 31.6110,65.6963
-    val components = mapOf("building" to "Kandahar Institute of Health Sciences", "city" to "Kandahar", "country" to "Afghanistan", "country_code" to "af", "road" to "Kandahar-Herat Highway", "state" to "Kandahar")
+    val components = mapOf("building" to "Kandahar Institute of Health Sciences",
+        "city" to "Kandahar", "country" to "Afghanistan", "country_code" to "af",
+        "road" to "Kandahar-Herat Highway", "state" to "Kandahar")
     val expected = """
         |Kandahar Institute of Health Sciences
         |Kandahar-Herat Highway

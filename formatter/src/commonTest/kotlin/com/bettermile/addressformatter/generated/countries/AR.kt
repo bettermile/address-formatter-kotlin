@@ -26,7 +26,10 @@ public class AR {
   @Test
   public fun SotM_2014_venue_34_59358185_58_38328315() {
     // description: SotM 2014 venue -34.59358185, -58.38328315
-    val components = mapOf("city" to "Autonomous City of Buenos Aires", "city_district" to "Retiro", "country" to "Argentina", "country_code" to "ar", "house" to "CAI", "house_number" to "1250", "postcode" to "C1010AAZ", "road" to "Cerrito", "state" to "Autonomous City of Buenos Aires", "suburb" to "Retiro")
+    val components = mapOf("city" to "Autonomous City of Buenos Aires", "city_district" to "Retiro",
+        "country" to "Argentina", "country_code" to "ar", "house" to "CAI",
+        "house_number" to "1250", "postcode" to "C1010AAZ", "road" to "Cerrito",
+        "state" to "Autonomous City of Buenos Aires", "suburb" to "Retiro")
     val expected = """
         |CAI
         |Cerrito 1250

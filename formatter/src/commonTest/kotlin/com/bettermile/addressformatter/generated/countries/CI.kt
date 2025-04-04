@@ -26,7 +26,10 @@ public class CI {
   @Test
   public fun post_office_in_Abidjan() {
     // description: post office in Abidjan
-    val components = mapOf("city" to "Treichville", "country" to "Côte d'Ivoire", "country_code" to "ci", "neighbourhood" to "Zone Industriele de Treichville", "post_office" to "La Poste", "postcode" to "00225", "road" to "Boulevard de Marseille", "state" to "Abidjan", "suburb" to "Zone 2b")
+    val components = mapOf("city" to "Treichville", "country" to "Côte d'Ivoire",
+        "country_code" to "ci", "neighbourhood" to "Zone Industriele de Treichville",
+        "post_office" to "La Poste", "postcode" to "00225", "road" to "Boulevard de Marseille",
+        "state" to "Abidjan", "suburb" to "Zone 2b")
     val expected = """
         |La Poste
         |Boulevard de Marseille

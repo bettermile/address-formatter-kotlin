@@ -26,7 +26,9 @@ public class GQ {
   @Test
   public fun Restaurant_in_Malabo_3_75719_8_78163() {
     // description: Restaurant in Malabo, 3.75719,8.78163
-    val components = mapOf("city" to "Malabo", "country" to "Equatorial Guinea", "country_code" to "gq", "neighbourhood" to "Los Ángeles", "restaurant" to "Treasure Island", "road" to "Av de la Independencia", "state" to "Bioko Norte", "suburb" to "Santa Isabel")
+    val components = mapOf("city" to "Malabo", "country" to "Equatorial Guinea",
+        "country_code" to "gq", "neighbourhood" to "Los Ángeles", "restaurant" to "Treasure Island",
+        "road" to "Av de la Independencia", "state" to "Bioko Norte", "suburb" to "Santa Isabel")
     val expected = """
         |Treasure Island
         |Av de la Independencia

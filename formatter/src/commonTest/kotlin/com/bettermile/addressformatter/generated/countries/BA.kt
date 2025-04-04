@@ -26,7 +26,11 @@ public class BA {
   @Test
   public fun Post_office_in_Sarajevo_43_85229_18_38142() {
     // description: Post office in Sarajevo, 43.85229,18.38142
-    val components = mapOf("city" to "Sarajevo", "country" to "Bosnia and Herzegovina", "country_code" to "ba", "county" to "New Sarajevo municipality", "house_number" to "88", "post_office" to "BH Posta", "postcode" to "71000", "road" to "Zmaja od Bosne", "state" to "Entity Federation of Bosnia and Herzegovina", "state_district" to "Sarajevo Canton", "suburb" to "Grbavica")
+    val components = mapOf("city" to "Sarajevo", "country" to "Bosnia and Herzegovina",
+        "country_code" to "ba", "county" to "New Sarajevo municipality", "house_number" to "88",
+        "post_office" to "BH Posta", "postcode" to "71000", "road" to "Zmaja od Bosne",
+        "state" to "Entity Federation of Bosnia and Herzegovina",
+        "state_district" to "Sarajevo Canton", "suburb" to "Grbavica")
     val expected = """
         |BH Posta
         |Zmaja od Bosne 88

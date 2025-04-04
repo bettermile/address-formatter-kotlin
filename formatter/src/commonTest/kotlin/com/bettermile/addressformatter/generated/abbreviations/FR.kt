@@ -26,7 +26,8 @@ public class FR {
   @Test
   public fun Rue_de_Voituriers() {
     // description: Rue de Voituriers
-    val components = mapOf("city" to "Haguenau", "country_code" to "fr", "postcode" to "67500", "road" to "Rue de Voituriers")
+    val components = mapOf("city" to "Haguenau", "country_code" to "fr", "postcode" to "67500",
+        "road" to "Rue de Voituriers")
     val expected = """
         |R de Voituriers
         |67500 Haguenau

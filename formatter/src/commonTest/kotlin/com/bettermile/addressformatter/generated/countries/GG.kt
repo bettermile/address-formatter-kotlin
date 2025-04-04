@@ -26,7 +26,9 @@ public class GG {
   @Test
   public fun Post_office_in_Saint_Peter_Port_49_45676_2_53688() {
     // description: Post office in Saint Peter Port, 49.45676,-2.53688
-    val components = mapOf("country" to "Guernsey", "country_code" to "gg", "post_box" to "Post Office", "postcode" to "GY1", "road" to "Le Marchant Street", "state" to "Guernsey", "town" to "Saint Peter Port")
+    val components = mapOf("country" to "Guernsey", "country_code" to "gg",
+        "post_box" to "Post Office", "postcode" to "GY1", "road" to "Le Marchant Street",
+        "state" to "Guernsey", "town" to "Saint Peter Port")
     val expected = """
         |Post Office
         |Le Marchant Street

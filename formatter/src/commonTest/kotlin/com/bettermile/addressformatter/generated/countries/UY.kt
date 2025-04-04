@@ -26,7 +26,10 @@ public class UY {
   @Test
   public fun _34_90338_54_95706() {
     // description: -34.90338,-54.95706
-    val components = mapOf("city" to "Maldonado", "country" to "Uruguay", "country_code" to "uy", "neighbourhood" to "Barrio Centro", "postcode" to "20000", "restaurant" to "Classic Restaurant y Parrillada", "road" to "Román Guerra", "state" to "Maldonado", "suburb" to "Sarubbi")
+    val components = mapOf("city" to "Maldonado", "country" to "Uruguay", "country_code" to "uy",
+        "neighbourhood" to "Barrio Centro", "postcode" to "20000",
+        "restaurant" to "Classic Restaurant y Parrillada", "road" to "Román Guerra",
+        "state" to "Maldonado", "suburb" to "Sarubbi")
     val expected = """
         |Classic Restaurant y Parrillada
         |Román Guerra

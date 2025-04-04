@@ -26,7 +26,10 @@ public class KP {
   @Test
   public fun Library_in_Pyongyang_39_0203_125_7490() {
     // description: Library in Pyongyang, 39.0203,125.7490
-    val components = mapOf("city" to "Pyongyang", "country" to "North Korea", "country_code" to "kp", "library" to "Grand People's Study House", "road" to "Somun Street", "state" to "Pyongyang", "state_district" to "Central District", "suburb" to "동신3동 (Tongsin 3-dong)")
+    val components = mapOf("city" to "Pyongyang", "country" to "North Korea",
+        "country_code" to "kp", "library" to "Grand People's Study House", "road" to "Somun Street",
+        "state" to "Pyongyang", "state_district" to "Central District",
+        "suburb" to "동신3동 (Tongsin 3-dong)")
     val expected = """
         |Grand People's Study House
         |Somun Street

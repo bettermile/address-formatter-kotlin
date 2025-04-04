@@ -26,7 +26,10 @@ public class XK {
   @Test
   public fun Address_in_Pristina_42_66925_21_16407() {
     // description: Address in Pristina, 42.66925,21.16407
-    val components = mapOf("city" to "Pristina", "continent" to "Europe", "country" to "Kosovo", "country_code" to "xk", "district" to "District of Prishtina", "house_number" to "13", "municipality" to "Municipality of Pristina", "postcode" to "10010", "road" to "Ahmet Haxhiu", "suburb" to "Medresa")
+    val components = mapOf("city" to "Pristina", "continent" to "Europe", "country" to "Kosovo",
+        "country_code" to "xk", "district" to "District of Prishtina", "house_number" to "13",
+        "municipality" to "Municipality of Pristina", "postcode" to "10010",
+        "road" to "Ahmet Haxhiu", "suburb" to "Medresa")
     val expected = """
         |13, Ahmet Haxhiu
         |Pristina 10010

@@ -26,7 +26,10 @@ public class MU {
   @Test
   public fun Govt_Building_in_Port_Louis_20_16189_57_50158() {
     // description: Govt Building in Port Louis, -20.16189,57.50158
-    val components = mapOf("building" to "State Bank of Mauritius", "city" to "Port Louis", "country" to "Mauritius", "country_code" to "mu", "house_number" to "1", "neighbourhood" to "Caudan Waterfront", "road" to "Queen Elizabeth II Avenue", "state" to "Port Louis")
+    val components = mapOf("building" to "State Bank of Mauritius", "city" to "Port Louis",
+        "country" to "Mauritius", "country_code" to "mu", "house_number" to "1",
+        "neighbourhood" to "Caudan Waterfront", "road" to "Queen Elizabeth II Avenue",
+        "state" to "Port Louis")
     val expected = """
         |State Bank of Mauritius
         |1, Queen Elizabeth II Avenue
@@ -41,7 +44,9 @@ public class MU {
   @Test
   public fun example_address_with_postcode() {
     // description: example address with postcode
-    val components = mapOf("city" to "Lallmatie", "country" to "Mauritius", "country_code" to "mu", "house_number" to "21", "neighbourhood" to "Mission Cross", "postcode" to "42602", "road" to "Old Trafford Road")
+    val components = mapOf("city" to "Lallmatie", "country" to "Mauritius", "country_code" to "mu",
+        "house_number" to "21", "neighbourhood" to "Mission Cross", "postcode" to "42602",
+        "road" to "Old Trafford Road")
     val expected = """
         |21, Old Trafford Road
         |Mission Cross

@@ -26,7 +26,9 @@ public class HR {
   @Test
   public fun hotel_in_Dubrovnik_42_64286_18_10394() {
     // description: hotel in Dubrovnik - 42.64286,18.10394
-    val components = mapOf("city" to "Dubrovnik", "country" to "Croatia", "country_code" to "hr", "county" to "Dubrovnik-Neretva", "house_number" to "2", "postcode" to "20000", "road" to "Marijana Blazica", "suburb" to "Pile")
+    val components = mapOf("city" to "Dubrovnik", "country" to "Croatia", "country_code" to "hr",
+        "county" to "Dubrovnik-Neretva", "house_number" to "2", "postcode" to "20000",
+        "road" to "Marijana Blazica", "suburb" to "Pile")
     val expected = """
         |Marijana Blazica 2
         |20000 Dubrovnik

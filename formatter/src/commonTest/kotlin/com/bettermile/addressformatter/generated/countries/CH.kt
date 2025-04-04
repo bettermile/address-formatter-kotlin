@@ -26,7 +26,9 @@ public class CH {
   @Test
   public fun Building_in_Zurich_47_37476_8_54393() {
     // description: Building in Zurich, 47.37476,8.54393
-    val components = mapOf("city" to "Zurich", "country" to "Switzerland", "country_code" to "ch", "county" to "Bezirk Zürich", "house_number" to "2", "pedestrian" to "Häringstrasse", "postcode" to "8001", "state" to "Zurich", "suburb" to "Altstadt")
+    val components = mapOf("city" to "Zurich", "country" to "Switzerland", "country_code" to "ch",
+        "county" to "Bezirk Zürich", "house_number" to "2", "pedestrian" to "Häringstrasse",
+        "postcode" to "8001", "state" to "Zurich", "suburb" to "Altstadt")
     val expected = """
         |Häringstrasse 2
         |8001 Zurich

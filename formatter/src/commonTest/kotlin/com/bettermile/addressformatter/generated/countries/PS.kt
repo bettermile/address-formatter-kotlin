@@ -26,7 +26,11 @@ public class PS {
   @Test
   public fun Hostel_31_90204_35_20281() {
     // description: Hostel, 31.90204,35.20281
-    val components = mapOf("country" to "Palestine", "country_code" to "ps", "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074", "road" to "Al-Nuzha Street", "state" to "Area A", "state_district" to "Ramallah and al-Bireh Governorate", "suburb" to "Ramallah Altahtah", "town" to "Ramallah")
+    val components = mapOf("country" to "Palestine", "country_code" to "ps",
+        "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074",
+        "road" to "Al-Nuzha Street", "state" to "Area A",
+        "state_district" to "Ramallah and al-Bireh Governorate", "suburb" to "Ramallah Altahtah",
+        "town" to "Ramallah")
     val expected = """
         |Hostel in Ramallah
         |Al-Nuzha Street 12
@@ -40,7 +44,11 @@ public class PS {
   @Test
   public fun Hostel_language_ar_31_90204_35_20281() {
     // description: Hostel, language=ar, 31.90204,35.20281
-    val components = mapOf("country" to "فلسطين", "country_code" to "ps", "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074", "road" to "شارع النزهة", "state" to "منطقة A", "state_district" to "محافظة رام الله والبيرة", "suburb" to "رام الله التحتة", "town" to "رام الله")
+    val components = mapOf("country" to "فلسطين", "country_code" to "ps",
+        "hostel" to "Hostel in Ramallah", "house_number" to "12", "postcode" to "700074",
+        "road" to "شارع النزهة", "state" to "منطقة A",
+        "state_district" to "محافظة رام الله والبيرة", "suburb" to "رام الله التحتة",
+        "town" to "رام الله")
     val expected = """
         |Hostel in Ramallah
         |شارع النزهة 12
@@ -54,7 +62,9 @@ public class PS {
   @Test
   public fun Doctor_s_office_32_22369_35_25941() {
     // description: Doctor's office, 32.22369,35.25941
-    val components = mapOf("city" to "Nablus", "country" to "Palestine", "country_code" to "ps", "doctors" to "Al Adham X-ray", "road" to "Sufian Street", "state" to "Area A", "state_district" to "Nablus Governorate", "suburb" to "Old City")
+    val components = mapOf("city" to "Nablus", "country" to "Palestine", "country_code" to "ps",
+        "doctors" to "Al Adham X-ray", "road" to "Sufian Street", "state" to "Area A",
+        "state_district" to "Nablus Governorate", "suburb" to "Old City")
     val expected = """
         |Al Adham X-ray
         |Sufian Street
@@ -68,7 +78,9 @@ public class PS {
   @Test
   public fun Doctor_s_office_language_ar_32_22369_35_25941() {
     // description: Doctor's office, language=ar, 32.22369,35.25941
-    val components = mapOf("city" to "Nablus", "country" to "فلسطين", "country_code" to "ps", "doctors" to "الادهم للاشعه", "road" to "شارع سفيان", "state" to "منطقة A", "state_district" to "محافظة نابلس", "suburb" to "البلدة القديمة")
+    val components = mapOf("city" to "Nablus", "country" to "فلسطين", "country_code" to "ps",
+        "doctors" to "الادهم للاشعه", "road" to "شارع سفيان", "state" to "منطقة A",
+        "state_district" to "محافظة نابلس", "suburb" to "البلدة القديمة")
     val expected = """
         |الادهم للاشعه
         |شارع سفيان
@@ -82,7 +94,10 @@ public class PS {
   @Test
   public fun Optician_31_50804_34_45912() {
     // description: Optician, 31.50804,34.45912
-    val components = mapOf("city" to "Gaza", "country" to "Palestine", "country_code" to "ps", "doctors" to "Khorsheed Optician", "postcode" to "00972", "region" to "Gaza Strip", "road" to "Omar Al-Mukhtar St.", "state_district" to "Gaza Governorate", "suburb" to "Saknat az Zarqa")
+    val components = mapOf("city" to "Gaza", "country" to "Palestine", "country_code" to "ps",
+        "doctors" to "Khorsheed Optician", "postcode" to "00972", "region" to "Gaza Strip",
+        "road" to "Omar Al-Mukhtar St.", "state_district" to "Gaza Governorate",
+        "suburb" to "Saknat az Zarqa")
     val expected = """
         |Khorsheed Optician
         |Omar Al-Mukhtar St.
@@ -96,7 +111,9 @@ public class PS {
   @Test
   public fun Optician_language_ar_31_50804_34_45912() {
     // description: Optician, language=ar, 31.50804,34.45912
-    val components = mapOf("city" to "غزة", "country" to "فلسطين", "country_code" to "ps", "doctors" to "خورشيد للبصريات", "postcode" to "00972", "region" to "‏قطاع غزّة‎", "road" to "شارع عمر المختار", "state_district" to "غزة", "suburb" to "ثكنة الزرقاء")
+    val components = mapOf("city" to "غزة", "country" to "فلسطين", "country_code" to "ps",
+        "doctors" to "خورشيد للبصريات", "postcode" to "00972", "region" to "‏قطاع غزّة‎",
+        "road" to "شارع عمر المختار", "state_district" to "غزة", "suburb" to "ثكنة الزرقاء")
     val expected = """
         |خورشيد للبصريات
         |شارع عمر المختار

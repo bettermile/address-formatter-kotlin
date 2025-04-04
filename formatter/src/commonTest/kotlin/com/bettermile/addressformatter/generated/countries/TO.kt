@@ -26,7 +26,9 @@ public class TO {
   @Test
   public fun Bank_in_Ma_ufanga_21_13647_175_19540() {
     // description: Bank in Ma'ufanga, -21.13647,-175.19540
-    val components = mapOf("bank" to "National Reserve Bank of Tonga", "country" to "Tonga", "country_code" to "to", "neighbourhood" to "Fongoloa", "road" to "Hala Sālote", "state" to "Vahe Kolofo'ou", "suburb" to "Kolofo'ou", "town" to "Ma'ufanga")
+    val components = mapOf("bank" to "National Reserve Bank of Tonga", "country" to "Tonga",
+        "country_code" to "to", "neighbourhood" to "Fongoloa", "road" to "Hala Sālote",
+        "state" to "Vahe Kolofo'ou", "suburb" to "Kolofo'ou", "town" to "Ma'ufanga")
     val expected = """
         |National Reserve Bank of Tonga
         |Hala Sālote
