@@ -41,14 +41,51 @@ public class KR {
   }
 
   @Test
-  public fun district_of_Seoul() {
-    // description: district of Seoul
-    val components = mapOf("city" to "Seoul", "country" to "South Korea", "country_code" to "kr",
-        "city_district" to "Gangnam-gu")
+  public fun District_of_Seoul_fallback_() {
+    // description: District of Seoul (fallback)
+    val components = mapOf("city" to "서울특별시", "country" to "대한민국", "country_code" to "kr",
+        "city_district" to "강남구")
     val expected = """
-        |Gangnam-gu
-        |Seoul
-        |South Korea
+        |대한민국
+        |서울특별시 강남구
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun Sub_region_of_Gimpo_fallback_() {
+    // description: Sub-region of Gimpo (fallback)
+    val components = mapOf("state" to "경기도", "city" to "김포시", "country_code" to "kr",
+        "neighbourhood" to "장기동")
+    val expected = """
+        |경기도 김포시 장기동
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun Full_template_for_a_POI_Korean_language_() {
+    // description: Full template for a POI (Korean language)
+    val components = mapOf("city" to "서울특별시", "country_code" to "kr", "city_district" to "마포구",
+        "road" to "동교로", "house_number" to "146", "attention" to "히트커피로스터스")
+    val expected = """
+        |서울특별시 마포구 동교로 146
+        |히트커피로스터스
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun Fallback_template_for_a_POI_attention_at_the_end_() {
+    // description: Fallback template for a POI (attention at the end)
+    val components = mapOf("city" to "서울특별시", "country_code" to "kr", "city_district" to "마포구",
+        "attention" to "히트커피로스터스")
+    val expected = """
+        |서울특별시 마포구
+        |히트커피로스터스
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)

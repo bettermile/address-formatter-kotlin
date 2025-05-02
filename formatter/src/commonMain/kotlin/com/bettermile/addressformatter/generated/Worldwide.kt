@@ -857,12 +857,19 @@ internal object Worldwide {
   @AddressTemplateDefinition(
     """
     {{{country}}}
-    {{{state}}}
-    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
+    {{{state}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
     {{{attention}}}
     {{{postcode}}}
     """,
     propertyName = "KR_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{state}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{attention}}}
+    """,
+    propertyName = "KR_fallback_template",
   )
   @AddressTemplateDefinition(
     """
@@ -878,12 +885,19 @@ internal object Worldwide {
   @AddressTemplateDefinition(
     """
     {{{country}}}
-    {{{state}}}
-    {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
+    {{{state}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}} {{{road}}} {{{house_number}}}
     {{{attention}}}
     {{{postcode}}}
     """,
     propertyName = "KR_ko_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{country}}}
+    {{{state}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} {{/first}} {{#first}} {{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}} {{/first}}
+    {{{attention}}}
+    """,
+    propertyName = "KR_ko_fallback_template",
   )
   @AddressTemplateDefinition(
     """
@@ -2114,7 +2128,7 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = generic1,
             postformatReplace = listOf(
-              CountryFormat.Replace(search = " Commune de", replacement = " "),
+              CountryFormat.Replace(search = " Commune de ", replacement = " "),
             ),
           )
         },
@@ -2341,6 +2355,7 @@ internal object Worldwide {
         "KR" to lazy {
           CountryFormat(
             addressTemplate = AddressTemplates.KR_address_template,
+            fallbackTemplate = AddressTemplates.KR_fallback_template,
           )
         },
         "KR_en" to lazy {
@@ -2351,6 +2366,7 @@ internal object Worldwide {
         "KR_ko" to lazy {
           CountryFormat(
             addressTemplate = AddressTemplates.KR_ko_address_template,
+            fallbackTemplate = AddressTemplates.KR_ko_fallback_template,
           )
         },
         "KW" to lazy {
