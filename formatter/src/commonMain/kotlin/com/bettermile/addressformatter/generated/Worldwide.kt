@@ -331,7 +331,8 @@ internal object Worldwide {
     {{{attention}}}
     {{{house}}}
     {{{road}}} {{{house_number}}}
-    {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{city_district}}} || {{{municipality}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+    {{{postcode}}}
+    {{#first}} {{{city}}} || {{{town}}} || {{{city_district}}} || {{{municipality}}} || {{{state_district}}} || {{{village}}} || {{{hamlet}}} {{/first}}
     {{{country}}}
     """,
     propertyName = "AL_address_template",
@@ -1401,15 +1402,6 @@ internal object Worldwide {
         "AL" to lazy {
           CountryFormat(
             addressTemplate = AddressTemplates.AL_address_template,
-            postformatReplace = listOf(
-              CountryFormat.Replace(search = """
-                |
-                |(\d{4}) ([^,]*)
-                |""".trimMargin(), replacement = """
-                |
-                |${'$'}1-${'$'}2
-                |""".trimMargin()),
-            ),
           )
         },
         "AM" to lazy {
