@@ -32,7 +32,8 @@ public class AL {
     val expected = """
         |Raiffeisen Bank
         |Papa Gjon Pali II
-        |1001-Tiranë
+        |1001
+        |Tiranë
         |Albania
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
