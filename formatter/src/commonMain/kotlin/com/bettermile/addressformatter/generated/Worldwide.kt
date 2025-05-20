@@ -1107,7 +1107,7 @@ internal object Worldwide {
     {{{attention}}}
     {{{house}}}
     {{{house_number}}} {{{road}}}, {{#first}}{{{suburb}}} || {{{city_district}}} || {{{neighbourhood}}}{{/first}}, {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{suburb}}} || {{{state_district}}} {{/first}}
-    {{{postcode}}} {{#first}} {{{municipality}}} || {{{region}}} || {{{state}}} || {{/first}}
+    {{{postcode}}} {{#first}} {{{municipality}}} || {{{region}}} || {{{state}}} {{/first}}
     {{{country}}}
     """,
     propertyName = "PH_address_template",
@@ -1890,9 +1890,14 @@ internal object Worldwide {
         },
         "FM" to lazy {
           CountryFormat(
-            useCountry = "US",
-            changeCountry = "United States of America",
-            addComponent = "state=Micronesia",
+            addressTemplate = generic4,
+            fallbackTemplate = fallback2,
+            postformatReplace = listOf(
+              CountryFormat.Replace(search = "PNI 96941", replacement = "FM 96941"),
+              CountryFormat.Replace(search = "TRK 96942", replacement = "FM 96942"),
+              CountryFormat.Replace(search = "YAP 96943", replacement = "FM 96943"),
+              CountryFormat.Replace(search = "KSA 96944", replacement = "FM 96944"),
+            ),
           )
         },
         "FO" to lazy {
@@ -2466,8 +2471,12 @@ internal object Worldwide {
         },
         "MH" to lazy {
           CountryFormat(
-            useCountry = "US",
-            addComponent = "state=Marshall Islands",
+            addressTemplate = generic4,
+            fallbackTemplate = fallback2,
+            postformatReplace = listOf(
+              CountryFormat.Replace(search = ", 96060", replacement = ", MH 96060"),
+              CountryFormat.Replace(search = ", 96070", replacement = ", MH 96070"),
+            ),
           )
         },
         "MG" to lazy {

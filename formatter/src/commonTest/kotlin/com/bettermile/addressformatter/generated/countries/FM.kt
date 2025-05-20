@@ -33,7 +33,7 @@ public class FM {
         |Pohnpei Public Library
         |Kaselehlia
         |Kolonia, FM 96941
-        |United States of America
+        |Federated States of Micronesia
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
