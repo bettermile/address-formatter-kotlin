@@ -1171,7 +1171,6 @@ internal object Worldwide {
     {{{house}}}, {{{quarter}}}
     {{{house_number}}} {{{road}}}, {{{residential}}}
     {{#first}} {{{country}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{village}}} || {{{county}}} {{/first}} {{{postcode}}}
-    {{{country}}}
     """,
     propertyName = "SG_address_template",
   )
