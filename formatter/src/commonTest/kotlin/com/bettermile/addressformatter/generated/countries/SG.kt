@@ -44,7 +44,6 @@ public class SG {
     val expected = """
         |16 Sandilands Road
         |Singapore 546080
-        |Singapore
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
@@ -59,7 +58,6 @@ public class SG {
     val expected = """
         |26 Dover Crescent, Dover Gardens
         |Singapore 130026
-        |Singapore
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
@@ -75,7 +73,6 @@ public class SG {
     val expected = """
         |26 Dover Crescent, Dover Gardens
         |Singapore 130026
-        |Singapore
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
