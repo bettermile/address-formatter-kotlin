@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-import com.vanniktech.maven.publish.SonatypeHost
-
 plugins {
     id("com.vanniktech.maven.publish")
     id("org.jetbrains.dokka")
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
+    publishToMavenCentral(automaticRelease = false)
     val signReleaseEnabled = project.properties["signReleaseEnabled"]
     if (signReleaseEnabled == "true") {
         signAllPublications()
