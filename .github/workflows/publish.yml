@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v4.7.1
         with:
           distribution: 'temurin'
-          java-version: 11
+          java-version-file: .github/.java-version
 
       - name: Set VCS tag
         id: variables
