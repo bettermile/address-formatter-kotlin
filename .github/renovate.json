@@ -52,5 +52,19 @@
         "/^com\\.google\\.devtools\\.ksp/"
       ]
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "\\.java-version$"
+      ],
+      "matchStrings": [
+        "(?<currentValue>.*)\\n"
+      ],
+      "datasourceTemplate": "java-version",
+      "depNameTemplate": "java",
+      "extractVersionTemplate": "^(?<version>\\d+)"
+    }
   ]
 }
