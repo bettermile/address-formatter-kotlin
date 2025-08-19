@@ -230,4 +230,38 @@ class AddressFormatterTest {
             formatted,
         )
     }
+
+    /*
+        """
+    {{{attention}}}
+    {{{house}}}
+    {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{archipelago}}}
+    {{{country}}}
+    """,
+     */
+    @Test
+    fun ignoreEmptyAndNullInput() {
+        val json = mapOf(
+            "city" to "Berlin",
+            "town" to "",
+            "countryCode" to "de",
+            "village" to null,
+            "postal_city" to null,
+            "postcode" to 12345,
+            "road" to "",
+            "place" to "Potsdamer Platz",
+            "houseNumber" to 11,
+        )
+        val formatted = formatter.format(json)
+        assertEquals(
+            """
+            Potsdamer Platz 11
+            12345 Berlin
+            
+            """.trimIndent(),
+            formatted,
+        )
+    }
 }

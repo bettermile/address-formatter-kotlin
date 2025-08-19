@@ -75,9 +75,12 @@ class AddressFormatter @JvmOverloads constructor(
      * @param fallbackCountryCode used, when no country code could be found in [components]
      */
     @JvmOverloads
-    fun format(components: Map<String, Any>, fallbackCountryCode: String? = null): String {
-        var mutableComponents: MutableMap<String, String> =
-            components.mapValuesTo(mutableMapOf()) { it.value.toString() }
+    fun format(components: Map<String, Any?>, fallbackCountryCode: String? = null): String {
+        var mutableComponents: MutableMap<String, String> = mutableMapOf()
+        for ((key, value) in components) {
+            val v = value?.toString()
+            if (v != null && v.isNotEmpty()) mutableComponents[key] = v
+        }
         mutableComponents = mutableComponents.normalizeFields()
         mutableComponents = determineCountryCode(mutableComponents, fallbackCountryCode)
         val countryCode = requireNotNull(mutableComponents["country_code"])
