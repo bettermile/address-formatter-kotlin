@@ -231,16 +231,6 @@ class AddressFormatterTest {
         )
     }
 
-    /*
-        """
-    {{{attention}}}
-    {{{house}}}
-    {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
-    {{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
-    {{{archipelago}}}
-    {{{country}}}
-    """,
-     */
     @Test
     fun ignoreEmptyAndNullInput() {
         val json = mapOf(
