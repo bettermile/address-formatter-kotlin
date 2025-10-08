@@ -89,7 +89,7 @@ class AddressTemplateProcessorTest(
             sources = sourceFiles
             multiplatform = true
             inheritClassPath = true
-            configureKsp(useKsp2 = true) {
+            configureKsp {
                 symbolProcessorProviders += AddressTemplateProcessorProvider()
             }
         }.compile()
