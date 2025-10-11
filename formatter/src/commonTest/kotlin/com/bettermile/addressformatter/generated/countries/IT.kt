@@ -99,4 +99,34 @@ public class IT {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun clean_up_county() {
+    // description: clean up county
+    val components = mapOf("country" to "Italia", "country_code" to "it",
+        "county" to "Provincia di Treviso", "postcode" to "31046", "road" to "Piazza Grande",
+        "state" to "Veneto", "town" to "Oderzo")
+    val expected = """
+        |Piazza Grande
+        |31046 Oderzo TV
+        |Italia
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun clean_up_county_2() {
+    // description: clean up county
+    val components = mapOf("country" to "Italia", "country_code" to "it",
+        "county" to "Province of Treviso", "postcode" to "31046", "road" to "Piazza Grande",
+        "state" to "Veneto", "town" to "Oderzo")
+    val expected = """
+        |Piazza Grande
+        |31046 Oderzo TV
+        |Italia
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
