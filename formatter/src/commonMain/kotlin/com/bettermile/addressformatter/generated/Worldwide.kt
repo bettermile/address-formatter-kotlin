@@ -2240,9 +2240,10 @@ internal object Worldwide {
           CountryFormat(
             addressTemplate = generic8,
             replace = listOf(
-              CountryFormat.Replace(search = "Città metropolitana di ", replacement = ""),
-              CountryFormat.Replace(search = "Metropolitan City of ", replacement = ""),
-              CountryFormat.Replace(search = "^Provincia di ", replacement = ""),
+              CountryFormat.Replace(search = "county=Provincia di ", replacement = ""),
+              CountryFormat.Replace(search = "county=Province of ", replacement = ""),
+              CountryFormat.Replace(search = "county=Città Metropolitana di ", replacement = ""),
+              CountryFormat.Replace(search = "county=Metropolitan City of ", replacement = ""),
             ),
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
