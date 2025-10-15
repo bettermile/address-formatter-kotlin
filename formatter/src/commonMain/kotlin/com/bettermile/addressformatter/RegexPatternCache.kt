@@ -18,10 +18,15 @@
 package com.bettermile.addressformatter
 
 internal class RegexPatternCache {
-    private val map: MutableMap<String, Regex> = hashMapOf()
+    private val map: MutableMap<RegexMapKey, Regex> = hashMapOf()
 
     operator fun get(
         key: String,
         vararg regexOptions: RegexOption,
-    ): Regex = map[key] ?: Regex(key, regexOptions.toSet()).also { map[key] = it }
+    ): Regex {
+        val mapKey = RegexMapKey(key, regexOptions.toHashSet())
+        return map[mapKey] ?: Regex(key, mapKey.regexOptions).also { map[mapKey] = it }
+    }
+
+    private data class RegexMapKey(val key: String, val regexOptions: Set<RegexOption>)
 }
