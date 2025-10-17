@@ -186,13 +186,13 @@ class AddressFormatter @JvmOverloads constructor(
                 var componentValue = componentEntry.value
                 replacements.forEach { replacement ->
                     val replacementText = replacement.search
-                    componentValue = if (replacementText.startsWith("$component=")) {
+                    val regex = if (replacementText.startsWith("$component=")) {
                         val value = replacementText.substring(component.length + 1)
-                        componentValue.replace(regexPatternCache[value], replacement.replacement)
+                        regexPatternCache[value, RegexOption.IGNORE_CASE]
                     } else {
-                        val regex = regexPatternCache[replacementText]
-                        regex.replace(componentValue, replacement.replacement)
+                        regexPatternCache[replacementText, RegexOption.IGNORE_CASE]
                     }
+                    componentValue = regex.replace(componentValue, replacement.replacement)
                     componentEntry.setValue(componentValue)
                 }
             }
