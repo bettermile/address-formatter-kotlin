@@ -73,7 +73,7 @@ public class BR {
         "suburb" to "Catete")
     val expected = """
         |Condomínio Condomínio René Magritte
-        |Rua Silveira Martins 68
+        |Rua Silveira Martins, 68
         |Catete
         |Rio de Janeiro - RJ
         |22221-000
@@ -109,7 +109,7 @@ public class BR {
         "state_code" to "MA", "postcode" to "65071-380", "country_code" to "br",
         "country" to "Brazil")
     val expected = """
-        |Av. dos Holandeses 9, Quadra 33
+        |Av. dos Holandeses, 9, Quadra 33
         |Calhau
         |São Luís - MA
         |65071-380

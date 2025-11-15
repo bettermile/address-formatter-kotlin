@@ -402,7 +402,7 @@ internal object Worldwide {
     """
     {{{attention}}}
     {{{house}}}
-    {{{road}}} {{{house_number}}}{{#first}}, {{{quarter}}}{{/first}}
+    {{{road}}}, {{{house_number}}}{{#first}}, {{{quarter}}}{{/first}}
     {{#first}} {{{suburb}}} || {{{city_district}}} || {{{village}}} || {{{hamlet}}}{{/first}}
     {{#first}} {{{city}}} || {{{town}}} || {{{state_district}}} {{/first}} - {{#first}} {{{state_code}}} || {{{state}}} {{/first}}
     {{{postcode}}}
