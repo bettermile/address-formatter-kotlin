@@ -5,12 +5,13 @@
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
-*       @bettermile/tardis-android-mobile-developer
+*                           @bettermile/tardis-android-mobile-developer
 
 # files, which can be changed in renovate PRs
-.github/java-version    @bettermile/tardis
-.github/workflows/*.yml @bettermile/tardis
-gradlew                 @bettermile/tardis
-gradlew.bat             @bettermile/tardis
-gradle/                 @bettermile/tardis
-address-formatting      @bettermile/tardis
+.github/java-version        @bettermile/tardis
+.github/workflows/*.yml     @bettermile/tardis
+gradlew                     @bettermile/tardis
+gradlew.bat                 @bettermile/tardis
+gradle/                     @bettermile/tardis
+address-formatting          @bettermile/tardis
+formatter/src/**/generated  @bettermile/tardis
