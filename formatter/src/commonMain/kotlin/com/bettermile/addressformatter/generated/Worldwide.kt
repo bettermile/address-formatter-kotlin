@@ -1446,6 +1446,9 @@ internal object Worldwide {
         "AT" to lazy {
           CountryFormat(
             addressTemplate = generic1,
+            replace = listOf(
+              CountryFormat.Replace(search = "^Politischer Bezirk ", replacement = ""),
+            ),
           )
         },
         "AU" to lazy {

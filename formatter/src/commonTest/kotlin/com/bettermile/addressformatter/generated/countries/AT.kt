@@ -37,4 +37,19 @@ public class AT {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun clean_up_Politischer_Bezirk() {
+    // description: clean up Politischer Bezirk
+    val components = mapOf("country" to "Austria", "country_code" to "at",
+        "county" to "Politischer Bezirk Schärding", "local_administrative_area" to "Riedau",
+        "state" to "Upper Austria")
+    val expected = """
+        |Riedau
+        |Schärding
+        |Austria
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
