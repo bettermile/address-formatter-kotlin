@@ -917,6 +917,18 @@ internal object Worldwide {
     """
     {{{attention}}}
     {{{house}}}
+    {{{road}}} {{{house_number}}}
+    {{{place}}}
+    {{#first}} {{{neighbourhood}}} || {{{city_district}}} || {{{municipality}}} || {{{suburb}}}{{/first}}
+    {{{city}}}
+    {{{country}}}
+    """,
+    propertyName = "MC_fallback_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
     {{{road}}}, {{{house_number}}}
     {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{state}}} {{/first}}
     {{{country}}}
@@ -2454,6 +2466,13 @@ internal object Worldwide {
         "MC" to lazy {
           CountryFormat(
             addressTemplate = generic3,
+            fallbackTemplate = AddressTemplates.MC_fallback_template,
+            postformatReplace = listOf(
+              CountryFormat.Replace(search = """
+                |Monaco
+                |Monaco
+                """.trimMargin(), replacement = "Monaco"),
+            ),
           )
         },
         "MD" to lazy {
