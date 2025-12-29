@@ -33,6 +33,18 @@ public class MC {
         |Novotel
         |16 Boulevard Princesse Charlotte
         |98000 Monaco
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun Monaco_neighbourhood() {
+    // description: Monaco neighbourhood
+    val components = mapOf("city" to "Monaco", "country" to "Monaco", "country_code" to "mc",
+        "neighbourhood" to "Larvotto", "suburb" to "Monaco")
+    val expected = """
+        |Larvotto
         |Monaco
         |""".trimMargin()
     val actual = addressFormatter.format(components = components)
