@@ -5,7 +5,7 @@ kotlin = "2.3.0"
 ksp = "2.3.4"
 ksp-test = "0.12.1"
 kotlinpoet = "2.2.0"
-maven-publish = "0.35.0"
+maven-publish = "0.36.0"
 
 [libraries]
 # gradle classpath plugins
