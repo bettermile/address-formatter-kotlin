@@ -37,7 +37,7 @@ dependencies {
 }
 
 mavenPublishing {
-    coordinates("com.bettermile", "address-template-processor", "0.4.6")
+    coordinates("com.bettermile", "address-template-processor", "0.4.7")
 
     pom {
         name.set("Address Template Processor")

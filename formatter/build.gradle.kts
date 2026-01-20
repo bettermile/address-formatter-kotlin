@@ -66,7 +66,7 @@ tasks.withType<Jar> {
 }
 
 mavenPublishing {
-    coordinates("com.bettermile", "address-formatter-kotlin", "0.4.6")
+    coordinates("com.bettermile", "address-formatter-kotlin", "0.4.7")
 
     pom {
         name.set("Address Formatter Kotlin")
