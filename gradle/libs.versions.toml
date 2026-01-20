@@ -1,6 +1,6 @@
 [versions]
 dokka = "2.1.0"
-jackson = "2.20.1"
+jackson = "2.21.0"
 kotlin = "2.3.0"
 ksp = "2.3.4"
 ksp-test = "0.12.1"
