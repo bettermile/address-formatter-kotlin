@@ -39,4 +39,18 @@ public class HU {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun just_postcode() {
+    // description: just postcode
+    val components = mapOf("country" to "Hungary", "country_code" to "hu",
+        "county" to "Makói járás", "municipality" to "Makói járás", "postcode" to "6900",
+        "region" to "South Great Plain", "town" to "Makó")
+    val expected = """
+        |6900 Makó
+        |Hungary
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
