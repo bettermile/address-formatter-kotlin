@@ -2146,6 +2146,14 @@ internal object Worldwide {
         "HU" to lazy {
           CountryFormat(
             addressTemplate = AddressTemplates.HU_address_template,
+            postformatReplace = listOf(
+              CountryFormat.Replace(search = """
+                |
+                |.
+                |""".trimMargin(), replacement = """
+                |
+                |""".trimMargin()),
+            ),
           )
         },
         "ID" to lazy {
