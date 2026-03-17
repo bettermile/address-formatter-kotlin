@@ -68,7 +68,7 @@ jobs:
             -exec yq -p=xml -oy '.report.counter[] | select(."+@type" == "INSTRUCTION") | ."+@missed"' {} \; \
             | awk '{sum+=$1} END {print sum+0}')
           total=$((covered + missed))
-          percentage=$([ "$total" -gt 0 ] && echo "$((covered * 100 / total))" || echo "0")
+          percent=$([ "$total" -gt 0 ] && echo "$((covered * 100 / total))" || echo "0")
           echo "percent=${percent}" >> "$GITHUB_OUTPUT"
           echo "Coverage: ${percent}% (${covered}/${total} instructions)"
 
