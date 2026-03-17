@@ -73,8 +73,7 @@ jobs:
           echo "Coverage: ${percent}% (${covered}/${total} instructions)"
 
       - name: Update coverage badge
-        # TODO enable again after testing
-        # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: Schneegans/dynamic-badges-action@v1.7.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
