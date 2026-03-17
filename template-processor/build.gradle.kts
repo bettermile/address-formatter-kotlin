@@ -17,6 +17,7 @@
 plugins {
     kotlin("jvm")
     bettermile.`maven-publish`
+    bettermile.kover
 }
 
 repositories {

@@ -2,6 +2,7 @@
 dokka = "2.1.0"
 jackson = "2.21.1"
 kotlin = "2.3.20"
+kover = "0.9.7"
 ksp = "2.3.6"
 ksp-test = "0.12.1"
 kotlinpoet = "2.2.0"
@@ -11,6 +12,7 @@ maven-publish = "0.36.0"
 # gradle classpath plugins
 dokka-gradle = { module = "org.jetbrains.dokka:org.jetbrains.dokka.gradle.plugin", version.ref = "dokka" }
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kover-gradle = { module = "org.jetbrains.kotlinx:kover-gradle-plugin", version.ref = "kover" }
 maven-publish-gradle = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "maven-publish"}
 
 # libraries

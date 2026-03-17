@@ -21,6 +21,7 @@ plugins {
     kotlin("multiplatform")
     alias(libs.plugins.ksp)
     bettermile.`maven-publish`
+    bettermile.kover
 }
 
 repositories {

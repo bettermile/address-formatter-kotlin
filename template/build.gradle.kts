@@ -17,6 +17,7 @@
 plugins {
     kotlin("multiplatform")
     bettermile.`maven-publish`
+    bettermile.kover
 }
 
 repositories {
