@@ -26,5 +26,6 @@ repositories {
 dependencies {
     implementation(libs.dokka.gradle)
     implementation(libs.kotlin.gradle)
+    implementation(libs.kover.gradle)
     implementation(libs.maven.publish.gradle)
 }

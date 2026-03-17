@@ -52,5 +52,35 @@ jobs:
       - name: Test and Build
         run: ./gradlew build
 
+      - name: Generate coverage reports
+        run: ./gradlew koverXmlReport
+
       - name: Test Publication
         run: ./gradlew publishToMavenLocal
+
+      - name: Calculate coverage
+        id: coverage
+        run: |
+          covered=$(find . -path "*/build/reports/kover/*.xml" -type f \
+            -exec yq -p=xml -oy '.report.counter[] | select(."+@type" == "INSTRUCTION") | ."+@covered"' {} \; \
+            | awk '{sum+=$1} END {print sum+0}')
+          missed=$(find . -path "*/build/reports/kover/*.xml" -type f \
+            -exec yq -p=xml -oy '.report.counter[] | select(."+@type" == "INSTRUCTION") | ."+@missed"' {} \; \
+            | awk '{sum+=$1} END {print sum+0}')
+          total=$((covered + missed))
+          percent=$([ "$total" -gt 0 ] && echo "$((covered * 100 / total))" || echo "0")
+          echo "percent=${percent}" >> "$GITHUB_OUTPUT"
+          echo "Coverage: ${percent}% (${covered}/${total} instructions)"
+
+      - name: Update coverage badge
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: Schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: ${{ secrets.COVERAGE_BADGE_GIST_ID }}
+          filename: address-formatter-kotlin-coverage-badge.json
+          label: coverage
+          message: ${{ steps.coverage.outputs.percent }}%
+          valColorRange: ${{ steps.coverage.outputs.percent }}
+          maxColorRange: 90
+          minColorRange: 50

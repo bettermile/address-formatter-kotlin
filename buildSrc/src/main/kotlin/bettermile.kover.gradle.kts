@@ -15,30 +15,5 @@
  */
 
 plugins {
-    kotlin("jvm")
-    application
-    bettermile.kover
-}
-
-kotlin {
-    jvmToolchain(11)
-}
-
-application {
-    mainClass.set("com.bettermile.addressformatter.yamlconverter.Transpiler")
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation(project(":template"))
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.yaml)
-    implementation(libs.kotlinpoet)
-}
-
-tasks.run.configure {
-    workingDir = rootDir
+    id("org.jetbrains.kotlinx.kover")
 }
