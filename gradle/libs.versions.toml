@@ -2,7 +2,7 @@
 dokka = "2.1.0"
 jackson = "2.21.2"
 kotlin = "2.3.20"
-kover = "0.9.7"
+kover = "0.9.8"
 ksp = "2.3.6"
 ksp-test = "0.12.1"
 kotlinpoet = "2.2.0"
