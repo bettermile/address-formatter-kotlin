@@ -63,6 +63,7 @@ internal val aliases: Map<String, String> = mapOf(
       "township" to "city",
       "municipality" to "municipality",
       "local_administrative_area" to "municipality",
+      "area" to "municipality",
       "subcounty" to "municipality",
       "county" to "county",
       "county_code" to "county",

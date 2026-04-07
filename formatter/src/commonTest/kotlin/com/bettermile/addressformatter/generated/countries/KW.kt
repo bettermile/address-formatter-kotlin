@@ -91,4 +91,38 @@ public class KW {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun neighbourhood_before_suburb_29_324436_48_063332() {
+    // description: neighbourhood before suburb, 29.324436, 48.063332
+    val components = mapOf("country" to "Kuwait", "country_code" to "kw", "house_number" to "9",
+        "neighbourhood" to "Salmiya - Block 10", "postcode" to "30007", "road" to "Street 1 Lane 2",
+        "state" to "Hawalli Governorate")
+    val expected = """
+        |Salmiya - Block 10
+        |Street 1 Lane 2
+        |9
+        |30007
+        |Kuwait
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun neighbourhood_before_suburb_29_324436_48_063332_2() {
+    // description: neighbourhood before suburb, 29.324436, 48.063332
+    val components = mapOf("city_block" to "Block 10", "country" to "Kuwait",
+        "country_code" to "kw", "house_number" to "9", "postcode" to "30007",
+        "road" to "Street 1 Lane 2", "state" to "Hawalli Governorate", "area" to "Salmiya")
+    val expected = """
+        |Salmiya Block 10
+        |Street 1 Lane 2
+        |9
+        |30007
+        |Kuwait
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
