@@ -1,7 +1,7 @@
 [versions]
 dokka = "2.2.0"
 jackson = "2.22.0"
-kotlin = "2.3.21"
+kotlin = "2.4.0"
 kover = "0.9.8"
 ksp = "2.3.9"
 ksp-test = "0.13.0"
