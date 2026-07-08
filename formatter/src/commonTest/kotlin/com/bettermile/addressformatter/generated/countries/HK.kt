@@ -52,4 +52,39 @@ public class HK {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun `22_31929_114_22026_no_country`() {
+    // description: 22.31929, 114.22026, no country
+    val components = mapOf("building" to "Block 1", "city" to "Hong Kong", "country_code" to "hk",
+        "house_number" to "24", "neighbourhood" to "Crocodile Hill", "quarter" to "Lok Wah Shan",
+        "region" to "Kowloon", "road" to "Hong Lee Road", "state" to "Hong Kong",
+        "suburb" to "Kwun Tong District")
+    val expected = """
+        |Block 1
+        |24 Hong Lee Road
+        |Kowloon
+        |Hong Kong
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun `22_31929_114_22026_with_country`() {
+    // description: 22.31929, 114.22026, with country
+    val components = mapOf("building" to "Block 1", "city" to "Hong Kong", "country" to "China",
+        "country_code" to "hk", "house_number" to "24", "neighbourhood" to "Crocodile Hill",
+        "quarter" to "Lok Wah Shan", "region" to "Kowloon", "road" to "Hong Lee Road",
+        "state" to "Hong Kong", "suburb" to "Kwun Tong District")
+    val expected = """
+        |Block 1
+        |24 Hong Lee Road
+        |Kowloon
+        |Hong Kong
+        |China
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }

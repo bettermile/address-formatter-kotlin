@@ -658,8 +658,9 @@ internal object Worldwide {
     {{{attention}}}
     {{{house}}}
     {{{house_number}}} {{{road}}}
-    {{{state_district}}}
-    {{#first}} {{{state}}} || {{{country}}} {{/first}}
+    {{#first}} {{{state_district}}} || {{{region}}} {{/first}}
+    {{{state}}}
+    {{{country}}}
     """,
     propertyName = "HK_address_template",
   )
@@ -668,7 +669,7 @@ internal object Worldwide {
     {{{attention}}}
     {{{house}}}
     {{{house_number}}} {{{road}}}
-    {{{state_district}}}
+    {{#first}} {{{state_district}}} || {{{region}}} {{/first}}
     {{{state}}}
     {{{country}}}
     """,
@@ -678,7 +679,7 @@ internal object Worldwide {
     """
     {{{country}}}
     {{{state}}}
-    {{{state_district}}}
+    {{#first}} {{{state_district}}} || {{{region}}} {{/first}}        
     {{{road}}}
     {{{house_number}}}
     {{{house}}}
