@@ -1,9 +1,9 @@
 [versions]
 dokka = "2.2.0"
 jackson = "2.22.1"
-kotlin = "2.4.0"
-kover = "0.9.8"
-ksp = "2.3.9"
+kotlin = "2.4.10"
+kover = "0.9.9"
+ksp = "2.3.10"
 ksp-test = "0.13.0"
 kotlinpoet = "2.3.0"
 maven-publish = "0.37.0"
