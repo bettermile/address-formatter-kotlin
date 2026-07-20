@@ -679,7 +679,7 @@ internal object Worldwide {
     """
     {{{country}}}
     {{{state}}}
-    {{#first}} {{{state_district}}} || {{{region}}} {{/first}}        
+    {{#first}} {{{state_district}}} || {{{region}}} {{/first}}
     {{{road}}}
     {{{house_number}}}
     {{{house}}}
