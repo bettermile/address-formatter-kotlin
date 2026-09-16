@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import com.google.devtools.ksp.gradle.KspAATask
 import org.gradle.jvm.tasks.Jar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
@@ -44,6 +45,16 @@ kotlin {
     }
 }
 
+// fix ksp dependency on common main code generation (similar to https://github.com/google/ksp/issues/2442)
+tasks.withType<KspAATask> {
+    if (name != "kspCommonMainKotlinMetadata") {
+        if (name != "kspTestKotlinJvm") {
+            enabled = false
+        }
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
+}
+
 dependencies {
     kspCommonMainMetadata(project(":template-processor"))
 
@@ -55,13 +66,13 @@ dependencies {
 }
 
 tasks.withType<KotlinCompilationTask<*>> {
-    if(name != "kspCommonMainKotlinMetadata") {
+    if (name != "kspCommonMainKotlinMetadata") {
         dependsOn("kspCommonMainKotlinMetadata")
     }
 }
 
 tasks.withType<Jar> {
-    if(name.contains("sourcesJar", ignoreCase = true)) {
+    if (name.contains("sourcesJar", ignoreCase = true)) {
         dependsOn("kspCommonMainKotlinMetadata")
     }
 }

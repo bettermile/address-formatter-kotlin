@@ -21,8 +21,8 @@ plugins {
 
 mavenPublishing {
     publishToMavenCentral(automaticRelease = false)
-    val signReleaseEnabled = project.properties["signReleaseEnabled"]
-    if (signReleaseEnabled == "true") {
+    val signReleaseEnabled = project.providers.gradleProperty("signReleaseEnabled")
+    if (signReleaseEnabled.getOrElse("") == "true") {
         signAllPublications()
     }
 
