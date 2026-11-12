@@ -1139,6 +1139,17 @@ internal object Worldwide {
     """
     {{{attention}}}
     {{{house}}}
+    {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} || {{{quarter}}} || {{{ village }}}{{/first}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{archipelago}}}
+    {{{country}}}
+    """,
+    propertyName = "PL_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
     {{#first}} {{{city}}} || {{{town}}} || {{{island}}} {{/first}}
     {{{country}}}
     """,
@@ -2739,7 +2750,7 @@ internal object Worldwide {
         },
         "PL" to lazy {
           CountryFormat(
-            addressTemplate = generic1,
+            addressTemplate = AddressTemplates.PL_address_template,
             postformatReplace = listOf(
               CountryFormat.Replace(search = """
                 |

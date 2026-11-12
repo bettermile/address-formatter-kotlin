@@ -72,4 +72,35 @@ public class PL {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun quarter_instead_of_street() {
+    // description: quarter instead of street
+    val components = mapOf("city" to "Poznan", "country" to "Poland", "country_code" to "pl",
+        "house_number" to "2", "postcode" to "61-621", "quarter" to "Osiedle Kosmonautów",
+        "state" to "Greater Poland Voivodeship", "state_code" to "30", "suburb" to "Winogrady")
+    val expected = """
+        |Osiedle Kosmonautów 2
+        |61-621 Poznan
+        |Poland
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun municipality_before_village() {
+    // description: municipality before village
+    val components = mapOf("country" to "Poland", "country_code" to "pl",
+        "county" to "Łowicz County", "house_number" to "26", "municipality" to "Bielawy",
+        "postcode" to "99-423", "state" to "Łódź Voivodeship", "state_code" to "10",
+        "village" to "Janinów")
+    val expected = """
+        |Janinów 26
+        |99-423 Bielawy
+        |Poland
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }

@@ -836,7 +836,7 @@ internal val stateCodes: Map<String, Map<String, Name>> = mapOf(
         "BRE" to Name(default = "Bretagne", alternativesByLanguage = mapOf("en" to "Brittany")),
         "CVL" to Name(default = "Centre-Val de Loire"),
         "COR" to Name(default = "Corse", alternativesByLanguage = mapOf("en" to "Corsica")),
-        "GES" to Name(default = "Grand Est"),
+        "GES" to Name(default = "Grand Est", alternativesByLanguage = mapOf("en" to "Great East")),
         "GF" to Name(default = "Guyane"),
         "GP" to Name(default = "Guadeloupe"),
         "HDF" to Name(default = "Hauts-de-France"),
