@@ -168,7 +168,8 @@ internal object Worldwide {
   {{{attention}}}
   {{{house}}}
   {{{road}}}, {{{house_number}}}
-  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
+  {{{hamlet}}}
+  {{{postcode}}} {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{municipality}}} || {{{state}}} || {{{county}}} {{/first}}
   {{{country}}}
   """)
   private val generic15: AddressTemplate by lazy(AddressTemplates::generic15)
@@ -292,8 +293,8 @@ internal object Worldwide {
   {{{house}}}
   {{{road}}} {{{house_number}}}
   {{{place}}}
-  {{{suburb}}}
-  {{#first}} {{{city}}} || {{{town}}} || {{{village}}} || {{{hamlet}}} || {{{municipality}}} || {{{county}}} {{/first}}
+  {{#first}} {{{suburb}}} || {{{village}}} || {{{hamlet}}} {{/first}}
+  {{#first}} {{{city}}} || {{{town}}} || {{{municipality}}} || {{{county}}} {{/first}}
   {{#first}} {{{state}}} || {{{county}}} {{/first}}
   {{{country}}}
   """)
