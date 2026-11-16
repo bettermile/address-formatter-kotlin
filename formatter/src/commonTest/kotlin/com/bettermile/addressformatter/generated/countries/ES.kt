@@ -83,4 +83,37 @@ public class ES {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun hamlet() {
+    // description: hamlet
+    val components = mapOf("city" to "Cáceres", "country" to "Spain", "country_code" to "es",
+        "hamlet" to "Pernada del Sordo", "province" to "Cáceres", "state" to "Extremadura",
+        "state_code" to "EX")
+    val expected = """
+        |Pernada del Sordo
+        |Cáceres
+        |Extremadura
+        |Spain
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
+
+  @Test
+  public fun hamlet_2() {
+    // description: hamlet 2
+    val components = mapOf("city_district" to "Santalla de Arxemil", "country" to "Spain",
+        "country_code" to "es", "county" to "Sarria", "hamlet" to "Arxemil",
+        "municipality" to "Sarria", "postcode" to "27619", "province" to "Lugo",
+        "road" to "unnamed road", "state" to "Galicia", "state_code" to "GA", "town" to "Sarria")
+    val expected = """
+        |unnamed road
+        |Arxemil
+        |27619 Sarria
+        |Spain
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
