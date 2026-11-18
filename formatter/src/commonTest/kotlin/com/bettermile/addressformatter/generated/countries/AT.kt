@@ -52,4 +52,20 @@ public class AT {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun Katastralgemeinde() {
+    // description: Katastralgemeinde
+    val components = mapOf("allotments" to "Kleingartenverein Sonnenschein", "city" to "Vienna",
+        "city_district" to "Leopoldstadt", "country" to "Austria", "country_code" to "at",
+        "suburb" to "Katastralgemeinde Leopoldstadt")
+    val expected = """
+        |Kleingartenverein Sonnenschein
+        |Leopoldstadt
+        |Vienna
+        |Austria
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
