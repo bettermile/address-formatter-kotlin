@@ -21,6 +21,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version-file: .github/.java-version
+          check-latest: true
 
       - name: Set VCS tag
         id: variables

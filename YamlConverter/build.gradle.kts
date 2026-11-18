@@ -18,10 +18,7 @@ plugins {
     kotlin("jvm")
     application
     bettermile.kover
-}
-
-kotlin {
-    jvmToolchain(11)
+    bettermile.`jvm-target`
 }
 
 application {

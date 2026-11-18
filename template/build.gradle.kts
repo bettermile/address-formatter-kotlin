@@ -18,6 +18,7 @@ plugins {
     kotlin("multiplatform")
     bettermile.`maven-publish`
     bettermile.kover
+    bettermile.`jvm-target`
 }
 
 repositories {
@@ -26,7 +27,6 @@ repositories {
 
 kotlin {
     jvm()
-    jvmToolchain(11)
 
     iosArm64()
     iosSimulatorArm64()
