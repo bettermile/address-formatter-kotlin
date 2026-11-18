@@ -579,6 +579,16 @@ internal object Worldwide {
     """
     {{{attention}}}
     {{{house}}}
+    {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} || {{{village}}}{{/first}} {{{house_number}}}
+    {{{postcode}}} {{#first}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{village}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
+    {{{country}}}
+    """,
+    propertyName = "CZ_address_template",
+  )
+  @AddressTemplateDefinition(
+    """
+    {{{attention}}}
+    {{{house}}}
     {{#first}} {{{road}}} || {{{place}}} || {{{hamlet}}} {{/first}} {{{house_number}}}
     {{{postcode}}} {{#first}} {{{village}}} {{{postal_city}}} || {{{town}}} || {{{city}}} || {{{municipality}}} || {{{hamlet}}} || {{{county}}} || {{{state}}} {{/first}}
     {{{archipelago}}}
@@ -1472,6 +1482,9 @@ internal object Worldwide {
             addressTemplate = generic1,
             replace = listOf(
               CountryFormat.Replace(search = "^Politischer Bezirk ", replacement = ""),
+              CountryFormat.Replace(search = "county=Politischer Bezirk ", replacement = ""),
+              CountryFormat.Replace(search = "county=Bezirk ", replacement = ""),
+              CountryFormat.Replace(search = "suburb=Katastralgemeinde ", replacement = ""),
             ),
           )
         },
@@ -1770,7 +1783,7 @@ internal object Worldwide {
         },
         "CZ" to lazy {
           CountryFormat(
-            addressTemplate = generic1,
+            addressTemplate = AddressTemplates.CZ_address_template,
             replace = listOf(
               CountryFormat.Replace(search = "^Capital City of ", replacement = ""),
             ),

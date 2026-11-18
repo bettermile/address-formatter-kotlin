@@ -37,4 +37,19 @@ public class CZ {
     val actual = addressFormatter.format(components = components)
     assertEquals(expected, actual)
   }
+
+  @Test
+  public fun vilage_as_street() {
+    // description: vilage as street
+    val components = mapOf("country" to "Czechia", "country_code" to "cz",
+        "county" to "okres Nový Jičín", "house_number" to "127", "postcode" to "742 92",
+        "state" to "Moravian-Silesian Region", "town" to "Bílovec", "village" to "Lubojaty")
+    val expected = """
+        |Lubojaty 127
+        |742 92 Bílovec
+        |Czechia
+        |""".trimMargin()
+    val actual = addressFormatter.format(components = components)
+    assertEquals(expected, actual)
+  }
 }
