@@ -31,6 +31,7 @@ dependencies {
     implementation(libs.ksp.api)
 
     testImplementation(libs.kotlin.test)
+    testImplementation(libs.ksp.embedable)
     testImplementation(libs.ksp.test)
 }
 
