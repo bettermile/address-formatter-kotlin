@@ -18,14 +18,11 @@ plugins {
     kotlin("jvm")
     bettermile.`maven-publish`
     bettermile.kover
+    bettermile.`jvm-target`
 }
 
 repositories {
     mavenCentral()
-}
-
-kotlin {
-    jvmToolchain(11)
 }
 
 dependencies {
