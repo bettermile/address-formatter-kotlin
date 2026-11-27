@@ -4,7 +4,7 @@ jackson = "2.23.0"
 kotlin = "2.4.21"
 kover = "0.9.11"
 ksp = "2.3.14"
-ksp-test = "0.14.0"
+ksp-test = "0.15.0"
 kotlinpoet = "2.4.0"
 maven-publish = "0.37.0"
 
